@@ -200,27 +200,23 @@ In either case, each CA MUST include a link to the official version of these Req
 
 Prior to issuing a Code Signing Certificate to an Organizational Applicant, the CA MUST:
 
-1.  Verify the Subject's legal identity, including any DBA proposed for inclusion in a Certificate, in accordance with BR Sections 3.2.2.1 and 3.2.2.2. The CA MUST also obtain, whenever available, a specific Registration Identifier assigned to the Applicant by a government agency in the jurisdiction of the Applicant's legal creation, existence, or recognition,
-
-2.  Verify the Subject's address in accordance with BR Section 3.2.2.1,
-
-3.  Verify the Certificate Requester's authority to request a Code Signing Certificate and the authenticity of the Certificate Request using a Reliable Method of Communication in accordance with BR Section 3.2.5., and
-
-4.  If the Subject's or Subject's Affiliate's, Parent Company's, or Subsidiary Company's date of formation, as indicated by either a QIIS or QGIS, was less than three years prior to the date of the Certificate Request, verify the identity of the Certificate Requester.
+1.  Verify the Subject's legal identity, including any DBA proposed for inclusion in a Certificate, in accordance with BR Sections 3.2.2.1 and 3.2.2.2.  The CA MUST also obtain, whenever available, a specific Registration Identifier assigned to the Applicant by a government agency in the jurisdiction of the Applicant's legal creation, existence, or recognition,
+3.  Verify the Subject's address in accordance with BR Section 3.2.2.1,
+4.  Verify the Certificate Requester's authority to request a Code Signing Certificate and the authenticity of the Certificate Request using a Reliable Method of Communication in accordance with BR Section 3.2.5., and
+5.  If the Subject's or Subject's Affiliate's, Parent Company's, or Subsidiary Company's date of formation, as indicated by either a QIIS or QGIS, was less than three years prior to the date of the Certificate Request, verify the identity of the Certificate Requester.
 
 #### 3.2.2.2  Authentication of organization identity for EV Code Signing Certificates
 
 Before issuing a EV Code Signing Certificate, the CA MUST ensure that all Subject organization information to be included in the EV Code Signing Certificate conforms to the requirements of, and is verified in accordance with the EV Guidelines and matches the information confirmed and documented by the CA pursuant to its verification processes. Such verification processes are intended to accomplish the following:
 
-1. Verify Applicant's existence and identity, including;
-  a. Verify the Applicant's legal existence and identity (as more fully set forth in Section 11.2.3 herein),
-  b. Verify the Applicant's physical existence (business presence at a physical address), and
-  c. Verify the Applicant's operational existence (business activity).
-
-2. Verify the Applicant's authorization for the EV Code Signing Certificate, including;
-  a. Verify the name, title, and authority of the Contract Signer, Certificate Approver, and Certificate Requester,
-  b. Verify that a Contract Signer signed the Subscriber Agreement or that a duly authorized Applicant Representative acknowledged and agreed to the Terms of Use; and
-  c. Verify that a Certificate Approver has signed or otherwise approved the EV Code Signing Certificate Request.
+1.  Verify Applicant's existence and identity, including;
+  a.  Verify the Applicant's legal existence and identity (as more fully set forth in Section 11.2.3 herein),
+  b.  Verify the Applicant's physical existence (business presence at a physical address), and
+  c.  Verify the Applicant's operational existence (business activity).
+2.  Verify the Applicant's authorization for the EV Code Signing Certificate, including;
+  a.  Verify the name, title, and authority of the Contract Signer, Certificate Approver, and Certificate Requester,
+  b.  Verify that a Contract Signer signed the Subscriber Agreement or that a duly authorized Applicant Representative acknowledged and agreed to the Terms of Use; and
+  c.  Verify that a Certificate Approver has signed or otherwise approved the EV Code Signing Certificate Request.
 
 As a general rule, the CA is responsible for taking all verification steps reasonably necessary to satisfy each of the Verification Requirements set forth in the subsections below. The Acceptable Methods of Verification are set forth in the EV Guidelines. In all cases, however, the CA is responsible for taking any additional verification steps that may be reasonably necessary under the circumstances to satisfy the applicable Verification Requirement.
 
@@ -274,15 +270,15 @@ Prior to issuing a Code Signing Certificate to an Individual Applicant, the CA M
 
 The CA MUST verify the Applicant's identity using one of the following processes:
 
-1. The CA MUST obtain a legible copy, which discernibly shows the Requester's face, of at least one currently valid government-issued photo ID (passport, driver's license, military ID, national ID, or equivalent document type). The CA MUST inspect the copy for any indication of alteration or falsification. The CA MUST also verify the address of the Requester using (i) a government-issued photo ID, (ii) a QIIS or QGIS, or (iii) an access code to activate the Certificate where the access code was physically mailed to the Requester; OR
-2. The CA MUST have the Requester digitally sign the Certificate Request using a valid personal Certificate that was issued under one of the following adopted standards: Qualified Certificates issued pursuant to ETSI TS 101 862, IGTF, Adobe Signing Certificate issued under the AATL or CDS program, the Kantara identity assurance framework at level 2, NIST SP 800-63 at level 2, or the FBCA CP at Basic or higher assurance.
+1.  The CA MUST obtain a legible copy, which discernibly shows the Requester's face, of at least one currently valid government-issued photo ID (passport, driver's license, military ID, national ID, or equivalent document type). The CA MUST inspect the copy for any indication of alteration or falsification. The CA MUST also verify the address of the Requester using (i) a government-issued photo ID, (ii) a QIIS or QGIS, or (iii) an access code to activate the Certificate where the access code was physically mailed to the Requester; OR
+2.  The CA MUST have the Requester digitally sign the Certificate Request using a valid personal Certificate that was issued under one of the following adopted standards: Qualified Certificates issued pursuant to ETSI TS 101 862, IGTF, Adobe Signing Certificate issued under the AATL or CDS program, the Kantara identity assurance framework at level 2, NIST SP 800-63 at level 2, or the FBCA CP at Basic or higher assurance.
 
 The CA MUST verify the authenticity of the Certificate Request using one of the following:
 
-1. Having the Requester provide a photo of the Requester holding the submitted government-issued photo ID where the photo is of sufficient quality to read both the name listed on the photo ID and the issuing authority; OR
-2. Having the CA perform an in-person or web camera-based verification of the Requester where an employee or contractor of the CA can see the Requester, review the Requester's photo ID, and confirm that the Requester is the individual identified in the submitted photo ID; OR
-3. Having the CA obtain an executed Declaration of Identity of the Requester that includes at least one unique biometric identifier (such as a fingerprint or handwritten signature). The CA MUST confirm the document's authenticity directly with the Verifying Person using contact information confirmed with a QIIS or QGIS; OR
-4. Verifying that the digital signature used to sign the Request under [Section 3.2.2.2](#3222-authentication-of-organization-identity-for-ev-code-signing-certificates) (2) is a valid signature and originated from a Certificate issued at the appropriate level of assurance as evidenced by the certificate chain. Acceptable verification under this section includes validation that the Certificate was issued by a CA qualified by the entity responsible for adopting, enforcing, or maintaining the adopted standard and chains to an intermediate certificate or root certificate designated as complying with such standard.
+1.  Having the Requester provide a photo of the Requester holding the submitted government-issued photo ID where the photo is of sufficient quality to read both the name listed on the photo ID and the issuing authority; OR
+2.  Having the CA perform an in-person or web camera-based verification of the Requester where an employee or contractor of the CA can see the Requester, review the Requester's photo ID, and confirm that the Requester is the individual identified in the submitted photo ID; OR
+3.  Having the CA obtain an executed Declaration of Identity of the Requester that includes at least one unique biometric identifier (such as a fingerprint or handwritten signature). The CA MUST confirm the document's authenticity directly with the Verifying Person using contact information confirmed with a QIIS or QGIS; OR
+4.  Verifying that the digital signature used to sign the Request under [Section 3.2.2.2](#3222-authentication-of-organization-identity-for-ev-code-signing-certificates) (2) is a valid signature and originated from a Certificate issued at the appropriate level of assurance as evidenced by the certificate chain. Acceptable verification under this section includes validation that the Certificate was issued by a CA qualified by the entity responsible for adopting, enforcing, or maintaining the adopted standard and chains to an intermediate certificate or root certificate designated as complying with such standard.
 
 ### 3.2.4  Non-verified subscriber information
 
@@ -449,10 +445,10 @@ For all incidents involving malware, CAs SHALL revoke the Code Signing Certifica
 1.  The CA MUST contact the software publisher within one (1) business day after the CA is made aware of the incident.
 2.  The CA MUST determine the volume of relying parties that are impacted (e.g., based on OCSP logs) within 72 hours after being made aware of the incident.
 3.  The CA MUST request the software publisher send an acknowledgement to the CA within 72 hours of receipt of the request.
-  a. If the publisher responds within 72 hours, the CA and publisher MUST determine a "reasonable date" to revoke the certificate based on discussions with the CA.
-  b. If CA does not receive a response, the CA must notify the publisher that the CA will revoke in 7 days if no further response is received.
-    i. If the publisher responds within 7 days, the CA and the publisher will determine a "reasonable date" to revoke the certificate based on discussion with the CA.
-    ii. If no response is received after 7 days, the CA must revoke the certificate except if the CA has documented proof (e.g., OCSP logs) that this will cause significant impact to the general public.
+  a.  If the publisher responds within 72 hours, the CA and publisher MUST determine a "reasonable date" to revoke the certificate based on discussions with the CA.
+  b.  If CA does not receive a response, the CA must notify the publisher that the CA will revoke in 7 days if no further response is received.
+    i.  If the publisher responds within 7 days, the CA and the publisher will determine a "reasonable date" to revoke the certificate based on discussion with the CA.
+    ii.  If no response is received after 7 days, the CA must revoke the certificate except if the CA has documented proof (e.g., OCSP logs) that this will cause significant impact to the general public.
 
 A CA revoking a Certificate because the Certificate was associated with signed Suspect Code or other fraudulent or illegal conduct SHOULD provide all relevant information and risk indicators to other CAs or industry groups. The CA SHOULD indicate whether its investigation found that the Suspect Code was a false positive or an inadvertent signing.
 
@@ -478,10 +474,10 @@ The CA MUST acknowledge receipt of plausible notices about Suspect Code signed w
 
 The CA MUST begin investigating Certificate Problem Reports within twenty-four hours of receipt, and decide whether revocation or other appropriate action is warranted based on at least the following criteria:
 
-1. The nature of the alleged problem (adware, spyware, malware, software bug, etc.),
-2. The number of Certificate Problem Reports received about a particular Certificate or Subscriber,
-3. The entity making the report (for example, a notification from an Anti-Malware Organization or law enforcement agency carries more weight than an anonymous complaint), and
-4. Relevant legislation.
+1.  The nature of the alleged problem (adware, spyware, malware, software bug, etc.),
+2.  The number of Certificate Problem Reports received about a particular Certificate or Subscriber,
+3.  The entity making the report (for example, a notification from an Anti-Malware Organization or law enforcement agency carries more weight than an anonymous complaint), and
+4.  Relevant legislation.
 
 When revoking a Certificate, the CA SHOULD work with the Subscriber to estimate a date of when the revocation should occur in order to mitigate the impact of revocation on validly signed Code. For key compromise events, this date SHOULD be the earliest date of suspected compromise.
 
@@ -493,15 +489,13 @@ When revoking a Certificate, the CA SHOULD work with the Subscriber to estimate 
 
 For the status of Code Signing Certificates:
 
-1. The CA SHALL publish a CRL, then update and reissue a CRL at least once every seven days, and the value of the nextUpdate field MUST NOT be more than ten days beyond the value of the thisUpdate field; and
-
-2. If the CA provides OCSP responses, the CA SHALL update information provided via an OCSP response at least every four days. OCSP responses from this service MUST have a maximum expiration time of ten days.
+1.  The CA SHALL publish a CRL, then update and reissue a CRL at least once every seven days, and the value of the nextUpdate field MUST NOT be more than ten days beyond the value of the thisUpdate field; and
+2.  If the CA provides OCSP responses, the CA SHALL update information provided via an OCSP response at least every four days. OCSP responses from this service MUST have a maximum expiration time of ten days.
 
 For the status of Timestamp Certificates:
 
-1. The CA SHALL update and reissue CRLs at least (i) once every twelve months and (ii) within 24 hours after revoking a Timestamp Certificate, and the value of the nextUpdate field MUST NOT be more than twelve months beyond the value of the thisUpdate field; and
-
-2. If the CA provides OCSP responses, the CA SHALL update information provided via an OCSP response at least (i) every twelve months and (ii) within 24 hours after revoking a Subordinate CA Certificate.
+1.  The CA SHALL update and reissue CRLs at least (i) once every twelve months and (ii) within 24 hours after revoking a Timestamp Certificate, and the value of the nextUpdate field MUST NOT be more than twelve months beyond the value of the thisUpdate field; and
+2.  If the CA provides OCSP responses, the CA SHALL update information provided via an OCSP response at least (i) every twelve months and (ii) within 24 hours after revoking a Subordinate CA Certificate.
 
 ### 4.9.8 Maximum latency for CRLs
 
@@ -604,12 +598,12 @@ The Timestamp Authority MUST log the following information:
 3.  History of the timestamp server configuration,
 4.  Any attempt to delete or modify timestamp logs,
 5.  Security events, including:
-  a. Successful and unsuccessful PKI system access attempts;
-  b. PKI and security system actions performed;
-  c. Security profile changes;
-  d. System crashes, hardware failures, and other anomalies;
-  e. Firewall and router activities; and
-  f. Entries to and exits from the CA facility
+  a.  Successful and unsuccessful PKI system access attempts;
+  b.  PKI and security system actions performed;
+  c.  Security profile changes;
+  d.  System crashes, hardware failures, and other anomalies;
+  e.  Firewall and router activities; and
+  f.  Entries to and exits from the CA facility
 6.  Revocation of a timestamp certificate,
 7.  Major changes to the timestamp server's time,
 8.  System startup and shutdown, and
@@ -699,13 +693,9 @@ If the CA or any Delegated Third Party is generating the Private Key on behalf o
 Private Keys corresponding to Root Certificates MUST NOT be used to sign Certificates or create other Signatures except in the following cases:
 
 1.  Self-signed Certificates to represent the Root CA itself;
-
 2.  Certificates for Subordinate CAs and Cross Certificates;
-
 3.  Certificates for infrastructure purposes (administrative role certificates, internal CA operational device certificates);
-
 4.  Certificates for OCSP Response verification; and
-
 5.  Signatures for OCSP Responses.
 
 ## 6.2  Private Key Protection and Cryptographic Module Engineering Controls
@@ -733,9 +723,7 @@ Private Keys corresponding to CA Keys MUST be stored in accordance with BR Secti
 #### 6.2.7.2  Private key storage for Timestamp Authorities
 
 1.  Each CA MUST operate an RFC-3161-compliant Timestamp Authority that is available for use by customers of its Code Signing Certificates. CAs MUST recommend to Subscribers that they use the CA's Timestamp Authority to timestamp signed code.
-
 2.  A Timestamp Authority MUST protect its signing key using a process that is at least to FIPS 140-2 Level 3, Common Criteria EAL 4+ (ALC\_FLR.2), or higher. The CA MUST protect its signing operations in accordance with the CA/Browser Forum's Network Security Guidelines. Any changes to its signing process MUST be an auditable event.
-
 3.  The Timestamp Authority MUST ensure that clock synchronization is maintained when a leap second occurs. A Timestamp Authority MUST synchronize its timestamp server at least every 24 hours with a UTC(k) time source. The timestamp server MUST automatically detect and report on clock drifts or jumps out of synchronization with UTC. Clock adjustments of one second or greater MUST be auditable events.
 
 #### 6.2.7.3  Private key storage for Signing Services
@@ -747,9 +735,7 @@ For EV Code Signing Certificates, Signing Services shall protect private keys in
 Techniques that MAY be used to satisfy this requirement include:
 
 1.  Use of an HSM, verified by means of a manufacturer's certificate;
-
 2.  A hardware crypto module provided by the CA;
-
 3.  Contractual terms in the subscriber agreement requiring the Subscriber to protect the private key to a standard equivalent to FIPS 140-2 level 2 or Common Criteria EAL 4+ and with compliance being confirmed by means of an audit.
 
 
@@ -760,19 +746,14 @@ The requirements in BR Sections 5, 6.1 and 6.2 apply equally to Code Signing Cer
 For Non-EV Code Signing Certificates, the CA MUST obtain a representation from the Subscriber that the Subscriber will use one of the following options to generate and protect their Code Signing Certificate private keys:
 
 1.  A Trusted Platform Module (TPM) that generates and secures a key pair and that can document the Subscriber's private key protection through a TPM key attestation.
-
 2.  A hardware crypto module with a unit design form factor certified as conforming to at least FIPS 140 Level 2, Common Criteria EAL 4+, or equivalent.
-
 3.  Another type of hardware storage token with a unit design form factor of SD Card or USB token (not necessarily certified as conformant with FIPS 140 Level 2 or Common Criteria EAL 4+). The Subscriber MUST also warrant that it will keep the token physically separate from the device that hosts the code signing function until a signing session is begun.
 
 For Non-EV Code Signing Certificates, a CA MUST recommend that the Subscriber protect Private Keys using the method described in [Section 6.2.7.4](#6274-private-key-storage-for-subscribers) (1) or 6.2.7.4 (2) over the method described in [Section 6.2.7.4](#6274-private-key-storage-for-subscribers) (3) and obligate the Subscriber to protect Private Keys in accordance with 9.6.3 (2)
 
 For EV Code Signing Certificates, CAs SHALL ensure that the Subscriber's private key is generated, stored and used in a crypto module that meets or exceeds the requirements of FIPS 140-2 level 2 or Common Criteria EAL 4+. Acceptable methods of satisfying this requirement include (but are not limited to) the following:
-
 4.  The CA ships a suitable hardware crypto module, with a preinstalled key pair, in the form of a smartcard or USB device or similar;
-
 5.  The Subscriber counter-signs certificate requests that can be verified by using a manufacturer's certificate indicating that the key is managed in a suitable hardware module;
-
 6.  The Subscriber provides a suitable IT audit indicating that its operating environment achieves a level of security at least equivalent to that of FIPS 140-2 level 2.
 
 ### 6.2.8  Method of activating private key
@@ -1019,11 +1000,8 @@ The audit period for the Delegated Third Party MUST NOT exceed one year (ideally
 The CA MUST undergo a conformity assessment audit for compliance with these Requirements performed in accordance with one of the following schemes:
 
 1.  "WebTrust for CAs v2.0 or newer" AND "WebTrust for Certification Authorities -- Publicly Trusted Code Signing Certificates v1.0.1 or newer"; or
-
 2.  "WebTrust for CAs v2.0 or newer" AND "WebTrust for Certification Authorities -- Extended Validation Code Signing v1.4.1 or newer"; or
-
 3.  ETSI EN 319 411-1, which includes normative references to ETSI EN 319 401 (the latest version of the referenced ETSI documents should be applied); or
-
 4.  If a Government CA is required by its Certificate Policy to use a different internal audit scheme, it MAY use such scheme provided that the audit either (a) encompasses all requirements of one of the above schemes or (b) consists of comparable criteria that are available for public review.
 
 Whichever scheme is chosen, it MUST incorporate periodic monitoring and/or accountability procedures to ensure that its audits continue to be conducted in accordance with the requirements of the scheme.
@@ -1099,21 +1077,13 @@ For EV Code Signing Certificates, the CA must meet the requirements and abide by
 The Certificate warranties specifically include, but are not limited to the following:
 
 1.  **Compliance**. The CA and any Signing Service each represents that it has complied with these Requirements and the applicable Certificate Policy and Certification Practice Statement in issuing each Code Signing Certificate and operating its PKI or Signing Service.
-
 2.  **Legal Existence**: For EV Code Signing Certificates, the CA has confirmed with the Incorporating or Registration Agency in the Subject's Jurisdiction of Incorporation or Registration that, as of the date the EV Code Signing Certificate was issued, the Subject of the EV Code Signing Certificate legally exists as a valid organization or entity in the Jurisdiction of Incorporation or Registration.
-
 3.  **Identity of Subscriber**: At the time of issuance, the CA or Signing Service represents that it (i) operated a procedure for verifying the identity of the Subscriber that at least meets the requirements in Section 11 of this document, (ii) followed the procedure when issuing or managing the Certificate, and (iii) accurately described the same procedure in the CA's Certificate Policy or Certification Practice Statement.
-
 4.  **Authorization for Certificate:** At the time of issuance, the CA represents that it (i) operated a procedure for verifying that the Applicant authorized the issuance of the Certificate, (ii) followed the procedure, and (iii) accurately described the same procedure in the CA's Certificate Policy or Certification Practice Statement.
-
 5.  **Accuracy of Information:** At the time of issuance, the CA represents that it (i) operated a procedure for verifying that all of the information contained in the Certificate (with the exception of the subject:organizationalUnitName attribute) was true and accurate, (ii) followed the procedure, and (iii) accurately described the same procedure in the CA's Certificate Policy or Certification Practice Statement.
-
 6.  **Key Protection:** The CA represents that it provided the Subscriber at the time of issuance with documentation on how to securely store and prevent the misuse of Private Keys associated with Code Signing Certificates, or in the case of a Signing Service, securely stored and prevented the misuse of Private Keys associated with Code Signing Certificates;
-
 7.  **Subscriber Agreement:** The CA and Signing Service represent that the CA or Signing Service entered into a legally valid and enforceable Subscriber Agreement with the Applicant that satisfies these Requirements or, if they are affiliated, the Applicant Representative has acknowledged and accepted the Terms of Use.
-
 8.  **Status:** The CA represents that it will maintain a 24 x 7 online-accessible Repository with current information regarding the status of Certificates as valid or revoked for the period required by these Requirements.
-
 9.  **Revocation:** The CA represents that it will revoke a Certificate upon the occurrence of a revocation event specified in these Requirements.
 
 ### 9.6.2  RA representations and warranties
@@ -1123,33 +1093,22 @@ The Certificate warranties specifically include, but are not limited to the foll
 The CA or Signing Service MUST require, as part of the Subscriber Agreement, that the Applicant make the commitments and warranties set forth in this section, as applicable, for the benefit of the CA and the Certificate Beneficiaries.
 
 Prior to the issuance of a Certificate, the CA SHALL obtain, for the express benefit of the CA and the Certificate Beneficiaries, either:
-1. The Applicant’s agreement to the Subscriber Agreement with the CA, or
-2. The Applicant’s acknowledgement of the Terms of Use.
+1.  The Applicant’s agreement to the Subscriber Agreement with the CA, or
+2.  The Applicant’s acknowledgement of the Terms of Use.
 
 The CA SHALL implement a process to ensure that each Subscriber Agreement or Terms of Use is legally enforceable against the Applicant. In either case, the Agreement MUST apply to the Certificate to be issued pursuant to the certificate request. The CA MAY use an electronic or “click‐through” Agreement provided that the CA has determined that such agreements are legally enforceable. A separate Agreement MAY be used for each certificate request, or a single Agreement MAY be used to cover multiple future certificate requests and the resulting Certificates, so long as each Certificate that the CA issues to the Applicant is clearly covered by that Subscriber Agreement or Terms of Use. The Subscriber Agreement or Terms of Use MUST contain provisions imposing on the Applicant itself (or made by the Applicant on behalf of its principal or agent under a subcontractor or hosting service relationship) the following obligations and warranties:
 
 1.  **Accuracy of Information:** To provide accurate and complete information at all times in connection with the issuance of a Certificate, including in the Certificate Request and as otherwise requested by the CA.
-
 2.  **Protection of Private Key:** Where the key is available outside a Signing Service, to maintain sole control of, keep confidential, and properly protect, at all times in accordance with Section 16, the Private Key that corresponds to the Public Key to be included in the requested Certificate(s) (and any associated activation data or device, e.g. password or token). The CA MUST provide the Subscriber with documentation on how to protect a Private Key. The CA MAY provide this documentation as a white paper or as part of the Subscriber Agreement. The Subscriber MUST represent that it will generate and operate any device storing private keys in a secure manner, as described in a document of code signing best practices, which the CA MUST provide to the Subscriber during the ordering process. The CA MUST obligate the Subscriber to use passwords that are randomly generated with at least 16 characters containing uppercase letters, lowercase letters, numbers, and symbols to transport private keys.
-
 3.  **Private Key Reuse:** To not apply for a Code Signing Certificate if the Public Key in the Certificate is or will be used with a non-Code Signing Certificate.
-
 4.  **Use:** To use the Certificate and associated Private Key only for authorized and legal purposes, including not using the Certificate to sign Suspect Code and to use the Certificate and Private Key solely in compliance with all applicable laws and solely in accordance with the Subscriber Agreement or Terms of Use.
-
 5.  **Compliance with Industry Standards**: An acknowledgment and acceptance that the CA may modify the Subscriber Agreement or Terms of Use when necessary to comply with any changes in these Requirements or the Baseline Requirements.
-
 6.  **Prevention of Misuse:** To provide adequate network and other security controls to protect against misuse of the Private Key and that the CA will revoke the Certificate without requiring prior notification if there is unauthorized access to the Private Keys.
-
 7.  **Acceptance of Certificate:** Not to use the Certificate until after the Applicant, or an agent of Applicant, has reviewed and verified the Certificate contents for accuracy.
-
 8.  **Reporting and Revocation:** To promptly cease using a Certificate and its associated Private Key and promptly request that the CA revoke the Certificate if the Subscriber believes that (a) any information in the Certificate is, or becomes, incorrect or inaccurate, (b) the Private Key associated with the Public Key contained in the Certificate was misused or compromised, or (c) there is evidence that the Certificate was used to sign Suspect Code.
-
 9.  **Sharing of Information**: An acknowledgment and acceptance that, if: (a) the Certificate or the Applicant is identified as a source of Suspect Code, (b) the authority to request the Certificate cannot be verified, or (c) the Certificate is revoked for reasons other than Subscriber request (e.g. as a result of private key compromise, discovery of malware, etc.), then the CA is authorized to share information about the Applicant, signed application, Certificate, and surrounding circumstances with other CAs or industry groups, including the CA/Browser Forum.
-
 10. **Termination of Use of Certificate:** To promptly cease using the Private Key corresponding to the Public Key listed in a Certificate upon expiration or revocation of the Certificate.
-
 11. **Responsiveness:** An obligation to respond to the CA's instructions concerning Key Compromise or Certificate misuse within a specified time period.
-
 12. **Acknowledgment and Acceptance:** An acknowledgement and acceptance that the CA is entitled to revoke the certificate immediately if the Applicant were to violate the Terms of Use or the Subscriber Agreement.
 
 ### 9.6.4  Relying party representations and warranties
@@ -1160,9 +1119,9 @@ The CA MUST contractually obligate each Signing Service to inform the CA if the 
 
 Signing Services MUST obtain the Subscriber's commitment to:
 
-1. Use such signing services solely for authorized purposes that comply with the Subscriber Agreement/Terms of Use, these Requirements, and all applicable laws,
-2. Not knowingly submit software for Code Signature that contains Suspect Code, and
-3. Inform the Signing Service if it is discovered (by whatever means) that Code submitted to the Signing Service for Code Signature contained Suspect Code
+1.  Use such signing services solely for authorized purposes that comply with the Subscriber Agreement/Terms of Use, these Requirements, and all applicable laws,
+2.  Not knowingly submit software for Code Signature that contains Suspect Code, and
+3.  Inform the Signing Service if it is discovered (by whatever means) that Code submitted to the Signing Service for Code Signature contained Suspect Code
 
 ## 9.7  Disclaimers of warranties
 
