@@ -46,7 +46,6 @@ With the exception of revocation checking for timestamped and expired Certificat
 Ordinarily, a Code Signature created by a Subscriber is only considered valid until expiration of the Certificate. However, the "Timestamp" method and the "Signing Service" methods permit Code to remain valid for longer periods of time.
 
 1. Timestamp Method: In this method, the Subscriber signs the Code, appends its Code Signing Certificate and submits it to a Timestamp Authority to be timestamped. The resulting package can be considered valid after expiration of the Code Signing Certificate.
-
 2. Signing Service Method: In this method, the Subscriber uses the service to sign compiled code, binary, file, app, or similar object. Alternatively, the service MAY sign a digest of the preceding objects. The resulting Code Signature is valid up to the expiration time of the Signing Service's Code Signing Certificate and any applicable revocation date, whichever comes first. Signing Services MAY also timestamp signed Code.
 
 ### 1.3.5  Other participants
@@ -93,15 +92,11 @@ Capitalized Terms are as defined in the Baseline Requirements or the EV SSL Guid
 
 **Declaration of Identity**: A written document that consists of the following:
 
-1.  the identity of the person performing the verification,
-
-2.  a signature of the Applicant,
-
-3.  a unique identifying number from an identification document of the Applicant,
-
-4.  the date of the verification, and
-
-5.  a signature of the Verifying Person.
+  1.  the identity of the person performing the verification,
+  2.  a signature of the Applicant,
+  3.  a unique identifying number from an identification document of the Applicant,
+  4.  the date of the verification, and
+  5.  a signature of the Verifying Person.
 
 **EV Code Signing Certificate:** A Code Signing Certificate validated and issued in accordance the EV Code Signing requirements.
 
@@ -179,7 +174,7 @@ In either case, each CA MUST include a link to the official version of these Req
 
 ## 2.4  Access controls on repositories
 
-# 3. IDENTIFICATION AND AUTHENTICATION (11)
+# 3. IDENTIFICATION AND AUTHENTICATION
 
 ## 3.1  Naming
 
@@ -217,21 +212,15 @@ Prior to issuing a Code Signing Certificate to an Organizational Applicant, the 
 
 Before issuing a EV Code Signing Certificate, the CA MUST ensure that all Subject organization information to be included in the EV Code Signing Certificate conforms to the requirements of, and is verified in accordance with the EV Guidelines and matches the information confirmed and documented by the CA pursuant to its verification processes. Such verification processes are intended to accomplish the following:
 
-\(1) Verify Applicant's existence and identity, including;
+1. Verify Applicant's existence and identity, including;
+  a. Verify the Applicant's legal existence and identity (as more fully set forth in Section 11.2.3 herein),
+  b. Verify the Applicant's physical existence (business presence at a physical address), and
+  c. Verify the Applicant's operational existence (business activity).
 
-> \(A) Verify the Applicant's legal existence and identity (as more fully set forth in Section 11.2.3 herein),
->
-> \(B) Verify the Applicant's physical existence (business presence at a physical address), and
->
-> \(C) Verify the Applicant's operational existence (business activity).
-
-\(2) Verify the Applicant's authorization for the EV Code Signing Certificate, including;
-
-> \(A) Verify the name, title, and authority of the Contract Signer, Certificate Approver, and Certificate Requester,
->
-> \(B) Verify that a Contract Signer signed the Subscriber Agreement or that a duly authorized Applicant Representative acknowledged and agreed to the Terms of Use; and
->
-> \(C) Verify that a Certificate Approver has signed or otherwise approved the EV Code Signing Certificate Request.
+2. Verify the Applicant's authorization for the EV Code Signing Certificate, including;
+  a. Verify the name, title, and authority of the Contract Signer, Certificate Approver, and Certificate Requester,
+  b. Verify that a Contract Signer signed the Subscriber Agreement or that a duly authorized Applicant Representative acknowledged and agreed to the Terms of Use; and
+  c. Verify that a Certificate Approver has signed or otherwise approved the EV Code Signing Certificate Request.
 
 As a general rule, the CA is responsible for taking all verification steps reasonably necessary to satisfy each of the Verification Requirements set forth in the subsections below. The Acceptable Methods of Verification are set forth in the EV Guidelines. In all cases, however, the CA is responsible for taking any additional verification steps that may be reasonably necessary under the circumstances to satisfy the applicable Verification Requirement.
 
@@ -285,19 +274,15 @@ Prior to issuing a Code Signing Certificate to an Individual Applicant, the CA M
 
 The CA MUST verify the Applicant's identity using one of the following processes:
 
-1.  The CA MUST obtain a legible copy, which discernibly shows the Requester's face, of at least one currently valid government-issued photo ID (passport, driver's license, military ID, national ID, or equivalent document type). The CA MUST inspect the copy for any indication of alteration or falsification. The CA MUST also verify the address of the Requester using (i) a government-issued photo ID, (ii) a QIIS or QGIS, or (iii) an access code to activate the Certificate where the access code was physically mailed to the Requester; OR
-
-2.  The CA MUST have the Requester digitally sign the Certificate Request using a valid personal Certificate that was issued under one of the following adopted standards: Qualified Certificates issued pursuant to ETSI TS 101 862, IGTF, Adobe Signing Certificate issued under the AATL or CDS program, the Kantara identity assurance framework at level 2, NIST SP 800-63 at level 2, or the FBCA CP at Basic or higher assurance.
+1. The CA MUST obtain a legible copy, which discernibly shows the Requester's face, of at least one currently valid government-issued photo ID (passport, driver's license, military ID, national ID, or equivalent document type). The CA MUST inspect the copy for any indication of alteration or falsification. The CA MUST also verify the address of the Requester using (i) a government-issued photo ID, (ii) a QIIS or QGIS, or (iii) an access code to activate the Certificate where the access code was physically mailed to the Requester; OR
+2. The CA MUST have the Requester digitally sign the Certificate Request using a valid personal Certificate that was issued under one of the following adopted standards: Qualified Certificates issued pursuant to ETSI TS 101 862, IGTF, Adobe Signing Certificate issued under the AATL or CDS program, the Kantara identity assurance framework at level 2, NIST SP 800-63 at level 2, or the FBCA CP at Basic or higher assurance.
 
 The CA MUST verify the authenticity of the Certificate Request using one of the following:
 
-1.  Having the Requester provide a photo of the Requester holding the submitted government-issued photo ID where the photo is of sufficient quality to read both the name listed on the photo ID and the issuing authority; OR
-
-2.  Having the CA perform an in-person or web camera-based verification of the Requester where an employee or contractor of the CA can see the Requester, review the Requester's photo ID, and confirm that the Requester is the individual identified in the submitted photo ID; OR
-
-3.  Having the CA obtain an executed Declaration of Identity of the Requester that includes at least one unique biometric identifier (such as a fingerprint or handwritten signature). The CA MUST confirm the document's authenticity directly with the Verifying Person using contact information confirmed with a QIIS or QGIS; OR
-
-4.  Verifying that the digital signature used to sign the Request under [Section 3.2.2.2](#3222-authentication-of-organization-identity-for-ev-code-signing-certificates) (2) is a valid signature and originated from a Certificate issued at the appropriate level of assurance as evidenced by the certificate chain. Acceptable verification under this section includes validation that the Certificate was issued by a CA qualified by the entity responsible for adopting, enforcing, or maintaining the adopted standard and chains to an intermediate certificate or root certificate designated as complying with such standard.
+1. Having the Requester provide a photo of the Requester holding the submitted government-issued photo ID where the photo is of sufficient quality to read both the name listed on the photo ID and the issuing authority; OR
+2. Having the CA perform an in-person or web camera-based verification of the Requester where an employee or contractor of the CA can see the Requester, review the Requester's photo ID, and confirm that the Requester is the individual identified in the submitted photo ID; OR
+3. Having the CA obtain an executed Declaration of Identity of the Requester that includes at least one unique biometric identifier (such as a fingerprint or handwritten signature). The CA MUST confirm the document's authenticity directly with the Verifying Person using contact information confirmed with a QIIS or QGIS; OR
+4. Verifying that the digital signature used to sign the Request under [Section 3.2.2.2](#3222-authentication-of-organization-identity-for-ev-code-signing-certificates) (2) is a valid signature and originated from a Certificate issued at the appropriate level of assurance as evidenced by the certificate chain. Acceptable verification under this section includes validation that the Certificate was issued by a CA qualified by the entity responsible for adopting, enforcing, or maintaining the adopted standard and chains to an intermediate certificate or root certificate designated as complying with such standard.
 
 ### 3.2.4  Non-verified subscriber information
 
@@ -462,18 +447,12 @@ The CA MUST revoke a Code Signing Certificate within one (1) business day if the
 For all incidents involving malware, CAs SHALL revoke the Code Signing Certificate in accordance with and within the following maximum timeframes. Nothing herein prohibits a CA from revoking a Code Signing Certificate prior to these timeframes.
 
 1.  The CA MUST contact the software publisher within one (1) business day after the CA is made aware of the incident.
-
 2.  The CA MUST determine the volume of relying parties that are impacted (e.g., based on OCSP logs) within 72 hours after being made aware of the incident.
-
 3.  The CA MUST request the software publisher send an acknowledgement to the CA within 72 hours of receipt of the request.
-
-    a.  If the publisher responds within 72 hours, the CA and publisher MUST determine a "reasonable date" to revoke the certificate based on discussions with the CA.
-
-    b.  If CA does not receive a response, the CA must notify the publisher that the CA will revoke in 7 days if no further response is received.
-
-        i.  If the publisher responds within 7 days, the CA and the publisher will determine a "reasonable date" to revoke the certificate based on discussion with the CA.
-
-        ii. If no response is received after 7 days, the CA must revoke the certificate except if the CA has documented proof (e.g., OCSP logs) that this will cause significant impact to the general public.
+  a. If the publisher responds within 72 hours, the CA and publisher MUST determine a "reasonable date" to revoke the certificate based on discussions with the CA.
+  b. If CA does not receive a response, the CA must notify the publisher that the CA will revoke in 7 days if no further response is received.
+    i. If the publisher responds within 7 days, the CA and the publisher will determine a "reasonable date" to revoke the certificate based on discussion with the CA.
+    ii. If no response is received after 7 days, the CA must revoke the certificate except if the CA has documented proof (e.g., OCSP logs) that this will cause significant impact to the general public.
 
 A CA revoking a Certificate because the Certificate was associated with signed Suspect Code or other fraudulent or illegal conduct SHOULD provide all relevant information and risk indicators to other CAs or industry groups. The CA SHOULD indicate whether its investigation found that the Suspect Code was a false positive or an inadvertent signing.
 
@@ -500,11 +479,8 @@ The CA MUST acknowledge receipt of plausible notices about Suspect Code signed w
 The CA MUST begin investigating Certificate Problem Reports within twenty-four hours of receipt, and decide whether revocation or other appropriate action is warranted based on at least the following criteria:
 
 1. The nature of the alleged problem (adware, spyware, malware, software bug, etc.),
-
 2. The number of Certificate Problem Reports received about a particular Certificate or Subscriber,
-
 3. The entity making the report (for example, a notification from an Anti-Malware Organization or law enforcement agency carries more weight than an anonymous complaint), and
-
 4. Relevant legislation.
 
 When revoking a Certificate, the CA SHOULD work with the Subscriber to estimate a date of when the revocation should occur in order to mitigate the impact of revocation on validly signed Code. For key compromise events, this date SHOULD be the earliest date of suspected compromise.
@@ -567,7 +543,7 @@ The CA SHALL maintain a Repository of the current status of Code Signing and Tim
 
 ### 4.12.2 Session key encapsulation and recovery policy and practices
 
-# 5. FACILITY, MANAGEMENT, AND OPERATIONAL CONTROLS (11)
+# 5. FACILITY, MANAGEMENT, AND OPERATIONAL CONTROLS
 
 ## 5.1  Physical controls
 
@@ -624,33 +600,19 @@ Both CAs and Signing Services are required to abide by the obligations under BR 
 The Timestamp Authority MUST log the following information:
 
 1.  All data related to the creation of a timestamp, including all requests for a timestamp, the connecting IP, and results of the timestamp,
-
 2.  Physical or remote access to a timestamp server, including the time of the access and the identity of the individual accessing the server,
-
 3.  History of the timestamp server configuration,
-
 4.  Any attempt to delete or modify timestamp logs,
-
 5.  Security events, including:
-
-a. Successful and unsuccessful PKI system access attempts;
-
-b. PKI and security system actions performed;
-
-c. Security profile changes;
-
-d. System crashes, hardware failures, and other anomalies;
-
-e. Firewall and router activities; and
-
-f. Entries to and exits from the CA facility
-
+  a. Successful and unsuccessful PKI system access attempts;
+  b. PKI and security system actions performed;
+  c. Security profile changes;
+  d. System crashes, hardware failures, and other anomalies;
+  e. Firewall and router activities; and
+  f. Entries to and exits from the CA facility
 6.  Revocation of a timestamp certificate,
-
 7.  Major changes to the timestamp server's time,
-
 8.  System startup and shutdown, and
-
 9.  Equipment failures or malfunctions.
 
 ### 5.4.2  Frequency of processing log
@@ -701,7 +663,7 @@ Data MUST be retained as specified in BR Section 5.4.3, except for item number 1
 
 If the CA wishes to stop supporting validation of Code Signing Certificates or Timestamp Certificates prior to the date specified in its Certificate Policy/Certificate Practice Statement, the CA MUST give 90 days' prior notice to all Application Software Suppliers relying on the root certificate and permit the Application Software Suppliers sufficient time to take appropriate action as determined by the Application Software Supplier.
 
-# 6.  TECHNICAL SECURITY CONTROLS (11)
+# 6.  TECHNICAL SECURITY CONTROLS
 
 ## 6.1  Key pair generation and installation
 
@@ -875,105 +837,93 @@ CAs SHALL generate serial numbers as defined in BR Section 7.1.
 
 ### 7.1.4  Name forms
 
-#### 7.1.4.1 Name Encoding
+#### 7.1.4.1 Name encoding
 
 As specified in BR Section 7.1.4.1.
 
-#### 7.1.4.2 Subject Information - Subscriber Certificates
+#### 7.1.4.2 Subject information - Subscriber Certificates
 
-##### 7.1.4.2.1 Subject Alternative Name Extension
+##### 7.1.4.2.1 Subject alternative name extension
 
 No stipulation.
 
-##### 7.1.4.2.2 Subject Distinguished Name Fields
+##### 7.1.4.2.2 Subject distinguished name fields - EV and Non-EV Code Signing Certificates
 
-Code Signing Certificates issued to Subscribers MUST include the following information in the fields listed:
+a. __Certificate Field:__ `subject:commonName` (OID 2.5.4.3)
 
+   __Required/Optional:__ Required
 
-### Subject Common Name Field
+   __Contents:__ This field MUST contain the Subject's legal name as verified under [Section 3.2.2](#322-authentication-of-organization-identity) or [3.2.3](#323-authentication-of-individual-identity).
 
-**Certificate Field**: subject:commonName (OID 2.5.4.3)
+b. __Certificate Field:__ `subject:organizationalUnitName` (OID 2.5.4.11)
 
-**Required/Optional**: Required
+   __Required/Optional:__ Optional
 
-**Contents**: This field MUST contain the Subject's legal name as verified under [Section 3.2.2](#322-authentication-of-organization-identity) or [3.2.3](#323-authentication-of-individual-identity).
+   __Contents:__ The CA MUST implement a process that prevents an OU attribute from including a name, DBA, tradename, trademark, address, location, or other text that refers to a specific natural person or Legal Entity unless the CA has verified this information in accordance with [Section 3.2](#32-initial-identity-validation).
 
-### Subject Organizational Unit Field
+c. __Certificate Field:__ `subject:domainComponent` (OID 0.9.2342.19200300.100.1.25)
 
-**Certificate Field**: subject:organizationalUnitName (OID 2.5.4.11)
+   __Required/Optional:__ Prohibited
 
-**Required/Optional**: Optional.
+   __Contents:__ This field MUST not be present in a Code Signing Certificate.
 
-**Contents**: The CA MUST implement a process that prevents an OU attribute from including a name, DBA, tradename, trademark, address, location, or other text that refers to a specific natural person or Legal Entity unless the CA has verified this information in accordance with [Section 3.2](#32-initial-identity-validation).
+d. __Certificate Field:__ Other subject attributes
 
-### Subject Domain Component Field
+   __Required/Optional:__ Optional
 
-This field MUST not be present in a Code Signing Certificate.
+   __Contents:__ As specified in BR Section 7.1.4.2.2.j. Subject attributes MUST NOT contain only metadata such as '.', '-', and ' ' (i.e. space) characters, and/or any other indication that the value is absent, incomplete, or not applicable.
 
-### Other Subject Attributes
+##### 7.1.4.2.3 Subject distinguished name field - Non-EV Code Signing Certificates
 
-As specified in BR Section 7.1.4.2.2.j. Subject attributes MUST NOT contain only metadata such as '.', '-', and ' ' (i.e. space) characters, and/or any other indication that the value is absent, incomplete, or not applicable.
+a. __Certificate Field:__ `subject:organizationName` (OID 2.5.4.10)
+   __Required/Optional:__ Required
+   __Contents:__ The `subject:organizationName` field MUST contain either the Subject's name or DBA as verified under BR Section 3.2. The CA MAY include information in this field that differs slightly from the verified name, such as common variations or abbreviations, provided that the CA documents the difference and any abbreviations used are locally accepted abbreviations; e.g., if the official record shows "Company Name Incorporated", the CA MAY use "Company Name Inc." or "Company Name". Because subject name attributes for individuals (e.g. `subject:givenName` (2.5.4.42) and `subject:surname` (2.5.4.4)) are not broadly supported by application software, the CA MAY use the `subject:organizationName` field to convey a natural person Subject's name or DBA. The CA MUST have a documented process for verifying that the information included in the `subject:organizationName` field is not misleading to a Relying Party.
 
+b. __Certificate Field:__ `subject:streetAddress` (OID: 2.5.4.9)
 
-###### 7.1.4.2.2.1 Non-EV Code Signing Certificate Subject Distinguished Name Fields
+   __Required/Optional:__ Optional
 
-a.  **Certificate Field**: subject:organizationName (OID 2.5.4.10)
+   __Contents:__ If present, the subject:streetAddress field MUST contain the Subject's street address information as verified under BR Section 3.2.2.1 or 3.2.3.
 
-**Required/Optional**: Required.
+c. __Certificate Field:__ `subject:localityName` (OID: 2.5.4.7)
 
-**Contents**: The subject:organizationName field MUST contain either the Subject's name or DBA as verified under BR Section 3.2. The CA MAY include information in this field that differs slightly from the verified name, such as common variations or abbreviations, provided that the CA documents the difference and any abbreviations used are locally accepted abbreviations; e.g., if the official record shows "Company Name Incorporated", the CA MAY use "Company Name Inc." or "Company Name". Because subject name attributes for individuals (e.g. givenName (2.5.4.42) and surname (2.5.4.4)) are not broadly supported by application software, the CA MAY use the subject:organizationName field to convey a natural person Subject's name or DBA. The CA MUST have a documented process for verifying that the information included in the subject:organizationName field is not misleading to a Relying Party.
+   __Required/Optional:__ Required if the `subject:stateOrProvinceName` field is absent. Optional if the `subject:stateOrProvinceName` field is present.
 
-b.  **Certificate Field**: Number and street: subject:streetAddress (OID: 2.5.4.9)
+   __Contents:__ If present, the `subject:localityName` field MUST contain the Subject's locality information as verified under BR Section 3.2. If the `subject:countryName` field specifies the ISO 3166-1 user-assigned code of XX in accordance with BR Section 7.1.4.2.2.h., the `subject:localityName` field MAY contain the Subject's locality and/or state or province information as verified under BR Section 3.2.2.1 or 3.2.3.
 
-**Required/Optional**: Optional.
+d. __Certificate Field:__ `subject:stateOrProvinceName` (OID: 2.5.4.8)
+   __Required/Optional:__ Required if the `subject:localityName` field is absent. Optional if the `subject:localityName` field is present.
+   __Contents:__ If present, the `subject:stateOrProvinceName` field MUST contain the Subject's state or province information as verified under BR Section 3.2.2.1 or 3.2.3. If the `subject:countryName` field specifies the ISO 3166-1 user-assigned code of XX in accordance with BR Section 7.1.4.2.2.h., the `subject:stateOrProvinceName` field MAY contain the full name of the Subject's country information as verified under BR Section 3.2.2.1 or 3.2.3.
 
-**Contents**: If present, the subject:streetAddress field MUST contain the Subject's street address information as verified under BR Section 3.2.2.1 or 3.2.3.
+e. __Certificate Field:__ `subject:postalCode` (OID: 2.5.4.17)
+   __Required/Optional:__ Optional
+   __Contents:__ If present, the `subject:postalCode` field MUST contain the Subject's zip or postal information as verified under BR Section 3.2.2.1 or 3.2.3.
 
-c.  **Certificate Field**: subject:localityName (OID: 2.5.4.7)
+f. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
+   __Required/Optional:__ Required
+   __Contents:__ The `subject:countryName` MUST contain the two-letter ISO 3166-1 country code associated with the location of the Subject verified under BR Section 3.2.2.3. If a Country is not represented by an official ISO 3166-1 country code, the CA MAY specify the ISO 3166-1 user-assigned code of XX indicating that an official ISO 3166-1 alpha-2 code has not been assigned.
 
-**Required/Optional**: Required if the subject:stateOrProvinceName field is absent. Optional if the subject:stateOrProvinceName field is present.
+##### 7.1.4.2.4 Subject distinguished name fields - EV Code Signing Certificates
 
-**Contents**: If present, the subject:localityName field MUST contain the Subject's locality information as verified under BR Section 3.2. If the subject:countryName field specifies the ISO 3166-1 user-assigned code of XX in accordance with BR Section 7.1.4.2.2.h., the localityName field MAY contain the Subject's locality and/or state or province information as verified under BR Section 3.2.2.1 or 3.2.3.
+a. __Certificate Field:__ `subject:organizationName` (OID 2.5.4.10)
+   __Required/Optional:__ Required
+   __Contents:__ As specified in Section 9.2.1 of the EV Guidelines.
 
-d.  **Certificate Field**: subject:stateOrProvinceName (OID: 2.5.4.8)
+b. __Certificate Field:__ `subject:businessCategory` (OID 2.5.4.15)
+   __Required/Optional:__ Required
+   __Contents:__ As specified in Section 9.2.3 of the EV Guidelines.
 
-**Required/Optional**: Required if the subject:localityName field is absent. Optional if thesubject:localityName field is present.
+c. __Certificate Field:__ sSubject Jurisdiction of Incorporation or Registration Fields
+   __Required/Optional:__ Required
+   __Contents:__ As specified in Section 9.2.4 of the EV Guidelines.
 
-**Contents**: If present, the subject:stateOrProvinceName field MUST contain the Subject's state or province information as verified under BR Section 3.2.2.1 or 3.2.3. If the subject:countryName field specifies the ISO 3166-1 user-assigned code of XX in accordance with BR Section 7.1.4.2.2.h., the subject:stateOrProvinceName field MAY contain the full name of the Subject's country information as verified under BR Section 3.2.2.1 or 3.2.3.
+d. __Certificate Field:__ `subject:serialNumber` (2.5.4.5)
+   __Required/Optional:__ Required
+   __Contents__: As specified in Section 9.2.5 of the EV Guidelines.
 
-e.  **Certificate Field**: subject:postalCode (OID: 2.5.4.17)
-
-**Required/Optional**: Optional
-
-**Contents**: If present, the subject:postalCode field MUST contain the Subject's zip or postal information as verified under BR Section 3.2.2.1 or 3.2.3.
-
-f.  **Certificate Field**: subject:countryName (OID: 2.5.4.6)
-
-**Required/Optional**: Required
-
-**Contents**: The subject:countryName MUST contain the two-letter ISO 3166-1 country code associated with the location of the Subject verified under BR Section 3.2.2.3. If a Country is not represented by an official ISO 3166-1 country code, the CA MAY specify the ISO 3166-1 user-assigned code of XX indicating that an official ISO 3166-1 alpha-2 code has not been assigned.
-
-###### 7.1.4.2.2.2 EV Code Signing Certificate Subject Distinguished Name Fields
-
-g.  **Certificate Field**: subject:organizationName (OID 2.5.4.10)
-
-As specified in Section 9.2.1 of the EV Guidelines.
-
-h.  **Certificate Field:** subject:businessCategory (OID 2.5.4.15)
-
-As specified in Section 9.2.3 of the EV Guidelines.
-
-i.  **Subject Jurisdiction of Incorporation or Registration Field**
-
-As specified in Section 9.2.4 of the EV Guidelines.
-
-j.  **Certificate Field:** subject:serialNumber (2.5.4.5)
-
-As specified in Section 9.2.5 of the EV Guidelines.
-
-k.  **Subject Physical Address of Place of Business Field**
-
-As specified in Section 9.2.6 of the EV Guidelines.
+e. __Certificate Field:__ Subject Physical Address of Place of Business Fields
+   __Required/Optional:__ Required
+   __Contents__: As specified in Section 9.2.6 of the EV Guidelines.
 
 ### 7.1.5  Name constraints
 
@@ -999,15 +949,15 @@ A Root CA Certificate SHOULD NOT contain the certificatePolicies extension.
 
 A Certificate issued after 31 January 2017 to a Subordinate CA that is not an Affiliate of the Issuing CA:
 
-> 1\. MUST include the policy identifier specified in [Section 7.1.6.1](#7161-reserved-certificate-policy-identifiers) that indicates the Subordinate CA's adherence to and compliance with these Requirements (i.e. either the CA/Browser Forum reserved identifiers or identifiers defined by the CA in its Certificate Policy and/or Certification Practice Statement), and
->
-> 2\. MUST NOT contain the "anyPolicy" identifier (`2.5.29.32.0`).
+1. MUST include the policy identifier specified in [Section 7.1.6.1](#7161-reserved-certificate-policy-identifiers) that indicates the Subordinate CA's adherence to and compliance with these Requirements (i.e. either the CA/Browser Forum reserved identifiers or identifiers defined by the CA in its Certificate Policy and/or Certification Practice Statement), and
 
-A Certificate issued after 31 January 2017 to a Subordinate CA that is an affiliate of the Issuing CA:
+2. MUST NOT contain the "anyPolicy" identifier (`2.5.29.32.0`).
 
-> 1\. MUST include the CA/Browser Forum reserved identifier specified in [Section 7.1.6.1](#7161-reserved-certificate-policy-identifiers) to indicate the Subordinate CA's compliance with these Requirements, and
->
-> 2\. MAY contain the "anyPolicy" identifier (2.5.29.32.0) in place of an explicit policy identifier.
+Certificate issued after 31 January 2017 to a Subordinate CA that is an affiliate of the Issuing CA:
+
+1. MUST include the CA/Browser Forum reserved identifier specified in [Section 7.1.6.1](#7161-reserved-certificate-policy-identifiers) to indicate the Subordinate CA's compliance with these Requirements, and
+
+2. MAY contain the "anyPolicy" identifier (`2.5.29.32.0`) in place of an explicit policy identifier.
 
 A Subordinate CA MUST represent, in its Certificate Policy and/or Certification Practice Statement, that all Certificates containing a policy identifier indicating compliance with these Requirements are issued and managed in accordance with these Requirements.
 
