@@ -31,9 +31,9 @@ Before the CA authorizes a Delegated Third Party to perform a delegated function
 3.  Abide by the other provisions of these Requirements that are applicable to the delegated function, and
 4.  Comply with (a) the CA's Certificate Policy/Certification Practice Statement or (b) the Delegated Third Party's practice statement that the CA has verified complies with these Requirements.
 
-The CA MUST verify that the Signing Service and any other Delegated Third Party's personnel involved in the issuance of a Certificate meet the training and skills requirements of Section 5.3 of this document and the document retention and event logging requirements of Section 5.4 of this document.
+The CA MUST verify that the Signing Service and any other Delegated Third Party's personnel involved in the issuance of a Certificate meet the training and skills requirements of [Section 5.3](#53-personnel-controls) of this document and the document retention and event logging requirements of [Section 5.4](#54-audit-logging-procedures) of this document.
 
-If a Delegated Third Party fulfills any of the CA's obligations under Section 4.2.1 of this document, the CA MUST verify that the process used by the Delegated Third Party to identify and further verify High Risk Certificate Requests provides at least the same level of assurance as the CA's own processes.
+If a Delegated Third Party fulfills any of the CA's obligations under [Section 4.2.1](#421-performing-identification-and-authentication-functions) of this document, the CA MUST verify that the process used by the Delegated Third Party to identify and further verify High Risk Certificate Requests provides at least the same level of assurance as the CA's own processes.
 
 In all cases, the CA MUST contractually obligate each Delegated Third Party to comply with all applicable requirements in these Requirements and to perform them as required of the CA itself. The CA MUST enforce these obligations and internally audit each Delegated Third Party's compliance with these Requirements on an annual basis.
 
@@ -297,7 +297,7 @@ The CA MUST verify the authenticity of the Certificate Request using one of the 
 
 3.  Having the CA obtain an executed Declaration of Identity of the Requester that includes at least one unique biometric identifier (such as a fingerprint or handwritten signature). The CA MUST confirm the document's authenticity directly with the Verifying Person using contact information confirmed with a QIIS or QGIS; OR
 
-4.  Verifying that the digital signature used to sign the Request under Section 3.2.2.2 (2) is a valid signature and originated from a Certificate issued at the appropriate level of assurance as evidenced by the certificate chain. Acceptable verification under this section includes validation that the Certificate was issued by a CA qualified by the entity responsible for adopting, enforcing, or maintaining the adopted standard and chains to an intermediate certificate or root certificate designated as complying with such standard.
+4.  Verifying that the digital signature used to sign the Request under [Section 3.2.2.2](#3222-authentication-of-organization-identity-for-ev-code-signing-certificates) (2) is a valid signature and originated from a Certificate issued at the appropriate level of assurance as evidenced by the certificate chain. Acceptable verification under this section includes validation that the Certificate was issued by a CA qualified by the entity responsible for adopting, enforcing, or maintaining the adopted standard and chains to an intermediate certificate or root certificate designated as complying with such standard.
 
 ### 3.2.4  Non-verified subscriber information
 
@@ -329,7 +329,7 @@ For EV Code Signing Certificates, the CA MAY only issue to Applicants that meet 
 
 ### 4.1.2  Enrollment process and responsibilities
 
-Prior to the issuance of a Certificate, the CA MUST obtain from the Applicant a request for a certificate in a form prescribed by the CA and that complies with these Requirements. One request MAY suffice for multiple Certificates to be issued to the same Applicant, subject to the aging and updating requirement in Section 4.2.1, provided that each Certificate is supported by a valid, current request signed by the appropriate Applicant Representative on behalf of the Applicant. The request MAY be made, submitted and/or signed electronically.
+Prior to the issuance of a Certificate, the CA MUST obtain from the Applicant a request for a certificate in a form prescribed by the CA and that complies with these Requirements. One request MAY suffice for multiple Certificates to be issued to the same Applicant, subject to the aging and updating requirement in [Section 4.2.1](#421-performing-identification-and-authentication-functions), provided that each Certificate is supported by a valid, current request signed by the appropriate Applicant Representative on behalf of the Applicant. The request MAY be made, submitted and/or signed electronically.
 
 Prior to signing Code, the Signing Service MUST obtain from the Applicant a signing request in a form prescribed by the Signing Service and that complies with these Requirements. One signing request MAY suffice for multiple Code Signatures for the same Applicant, subject to the requirements specified herein. The signing request MAY be made, submitted and/or signed electronically.
 
@@ -343,13 +343,13 @@ The certificate request or signing request MAY include all factual information a
 
 In addition to the procedures required by BR Section 4.2.1, prior to issuing a Code Signing Certificate, each CA SHOULD check at least one database containing information about known or suspected producers, publishers, or distributors of Suspect Code, as identified or indicated by an Anti-Malware Organization and any database of deceptive names maintained by an Application Software Provider. The CA MUST determine whether the entity is identified as requesting a Code Signing Certificate from a High Risk Region of Concern. The CA MUST also maintain and check an internal database listing Certificates revoked due to Code Signatures on Suspect Code and previous certificate requests rejected by the CA.
 
-A CA identifying a high risk application under this section MUST follow the additional procedures defined in Section 4.2.2 of this document to ensure that the applicant will protect its Private Keys and not sign Suspect Code.
+A CA identifying a high risk application under this section MUST follow the additional procedures defined in [Section 4.2.2](#422-approval-or-rejection-of-certificate-applications) of this document to ensure that the applicant will protect its Private Keys and not sign Suspect Code.
 
 \[These requirements do not specify a particular database and leave the decision of qualifying databases to the implementers.\]
 
-For Non-EV Code Signing Certificates, the CA MAY use the documents and data provided in Section 3.2 to verify certificate information, or may reuse previous validations themselves, provided that the CA obtained the data or document from a source specified under Section 3.2 or completed the validation itself no more than 825 days prior to issuing the Certificate.
+For Non-EV Code Signing Certificates, the CA MAY use the documents and data provided in [Section 3.2](#32-initial-identity-validation) to verify certificate information, or may reuse previous validations themselves, provided that the CA obtained the data or document from a source specified under [Section 3.2](#32-initial-identity-validation) or completed the validation itself no more than 825 days prior to issuing the Certificate.
 
-For EV Code Signing Certificates, use of documents, data, and previous validations performed per Section 3.2 SHALL be governed by the usage periods as defined in EV Guidelines Section 11.14.
+For EV Code Signing Certificates, use of documents, data, and previous validations performed per [Section 3.2](#32-initial-identity-validation) SHALL be governed by the usage periods as defined in EV Guidelines Section 11.14.
 
 Prior to issuing Code Signing Certificates, the CA SHALL perform "due diligence" verification as specified in EV Guidelines 11.13.
 
@@ -657,7 +657,7 @@ f. Entries to and exits from the CA facility
 
 ### 5.4.3  Retention period for audit log
 
-Data MUST be retained as specified in BR Section 5.4.3, except for item number 1 in Section 5.4.1 above, which MUST be retained for a minimum of 5 days.
+Data MUST be retained as specified in BR Section 5.4.3, except for item number 1 in [Section 5.4.1](#541-types-of-events-recorded) above, which MUST be retained for a minimum of 5 days.
 
 ### 5.4.4  Protection of audit log
 
@@ -717,7 +717,7 @@ As specified in BR Section 6.1.1.1.
 
 #### 6.1.1.3  Subscriber Key Pair Generation
 
-The CA SHALL reject a certificate request if the requested Public Key does not meet the requirements set forth in Sections 6.1.5, 6.1.6, and BR Section 6.1.6 or if it has a known weak Private Key (such as a Debian weak key, see <http://wiki.debian.org/SSLkeys>).
+The CA SHALL reject a certificate request if the requested Public Key does not meet the requirements set forth in Sections [6.1.5](#615-key-sizes), [6.1.6](#616-public-key-parameters-generation-and-quality-checking), and BR Section 6.1.6 or if it has a known weak Private Key (such as a Debian weak key, see <http://wiki.debian.org/SSLkeys>).
 
 
 ### 6.1.2  Private key delivery to subscriber
@@ -760,7 +760,7 @@ Private Keys corresponding to Root Certificates MUST NOT be used to sign Certifi
 
 ### 6.2.6  Private key transfer into or from a cryptographic module
 
-For Certificates transported outside of a Signing Service's secure infrastructure, the CA or Signing Service MUST require, by contract, each Subscriber to generate their own Private Key and protect the Private Key in accordance with Section 6.2.7.4.
+For Certificates transported outside of a Signing Service's secure infrastructure, the CA or Signing Service MUST require, by contract, each Subscriber to generate their own Private Key and protect the Private Key in accordance with [Section 6.2.7.4](#6274-private-key-storage-for-subscribers).
 
 ### 6.2.7  Private key storage on cryptographic module
 
@@ -803,7 +803,7 @@ For Non-EV Code Signing Certificates, the CA MUST obtain a representation from t
 
 3.  Another type of hardware storage token with a unit design form factor of SD Card or USB token (not necessarily certified as conformant with FIPS 140 Level 2 or Common Criteria EAL 4+). The Subscriber MUST also warrant that it will keep the token physically separate from the device that hosts the code signing function until a signing session is begun.
 
-For Non-EV Code Signing Certificates, a CA MUST recommend that the Subscriber protect Private Keys using the method described in Section 6.2.7.4 (1) or 6.2.7.4 (2) over the method described in Section 6.2.7.4 (3) and obligate the Subscriber to protect Private Keys in accordance with 9.6.3 (2)
+For Non-EV Code Signing Certificates, a CA MUST recommend that the Subscriber protect Private Keys using the method described in [Section 6.2.7.4](#6274-private-key-storage-for-subscribers) (1) or 6.2.7.4 (2) over the method described in [Section 6.2.7.4](#6274-private-key-storage-for-subscribers) (3) and obligate the Subscriber to protect Private Keys in accordance with 9.6.3 (2)
 
 For EV Code Signing Certificates, CAs SHALL ensure that the Subscriber's private key is generated, stored and used in a crypto module that meets or exceeds the requirements of FIPS 140-2 level 2 or Common Criteria EAL 4+. Acceptable methods of satisfying this requirement include (but are not limited to) the following:
 
@@ -831,7 +831,7 @@ Subscribers and Signing Services MAY sign Code at any point in the development o
 
 The validity period for a Code Signing Certificate issued to a Subscriber or Signing Service MUST NOT exceed 39 months.
 
-The Timestamp Authority MUST use a new Timestamp Certificate with a new private key no later than every 15 months to minimize the impact to users in the event that a Timestamp Certificate\'s private key is compromised. The validity for a Timestamp Certificate must not exceed 135 months. The Timestamp Certificate MUST meet the requirements in Section 6.1.5 for the communicated time period.
+The Timestamp Authority MUST use a new Timestamp Certificate with a new private key no later than every 15 months to minimize the impact to users in the event that a Timestamp Certificate\'s private key is compromised. The validity for a Timestamp Certificate must not exceed 135 months. The Timestamp Certificate MUST meet the requirements in [Section 6.1.5](#615-key-sizes) for the communicated time period.
 
 Cryptographic algorithms, key sizes and certificate life-times for both authorities and Subscribers are governed by the NIST key management guidelines.
 
@@ -896,7 +896,7 @@ Code Signing Certificates issued to Subscribers MUST include the following infor
 
 **Required/Optional**: Required
 
-**Contents**: This field MUST contain the Subject's legal name as verified under Section 3.2.2 or 3.2.3.
+**Contents**: This field MUST contain the Subject's legal name as verified under [Section 3.2.2](#322-authentication-of-organization-identity) or [3.2.3](#323-authentication-of-individual-identity).
 
 ### Subject Organizational Unit Field
 
@@ -904,7 +904,7 @@ Code Signing Certificates issued to Subscribers MUST include the following infor
 
 **Required/Optional**: Optional.
 
-**Contents**: The CA MUST implement a process that prevents an OU attribute from including a name, DBA, tradename, trademark, address, location, or other text that refers to a specific natural person or Legal Entity unless the CA has verified this information in accordance with Section 3.2.
+**Contents**: The CA MUST implement a process that prevents an OU attribute from including a name, DBA, tradename, trademark, address, location, or other text that refers to a specific natural person or Legal Entity unless the CA has verified this information in accordance with [Section 3.2](#32-initial-identity-validation).
 
 ### Subject Domain Component Field
 
@@ -999,13 +999,13 @@ A Root CA Certificate SHOULD NOT contain the certificatePolicies extension.
 
 A Certificate issued after 31 January 2017 to a Subordinate CA that is not an Affiliate of the Issuing CA:
 
-> 1\. MUST include the policy identifier specified in Section 7.1.6.1 that indicates the Subordinate CA's adherence to and compliance with these Requirements (i.e. either the CA/Browser Forum reserved identifiers or identifiers defined by the CA in its Certificate Policy and/or Certification Practice Statement), and
+> 1\. MUST include the policy identifier specified in [Section 7.1.6.1](#7161-reserved-certificate-policy-identifiers) that indicates the Subordinate CA's adherence to and compliance with these Requirements (i.e. either the CA/Browser Forum reserved identifiers or identifiers defined by the CA in its Certificate Policy and/or Certification Practice Statement), and
 >
 > 2\. MUST NOT contain the "anyPolicy" identifier (`2.5.29.32.0`).
 
 A Certificate issued after 31 January 2017 to a Subordinate CA that is an affiliate of the Issuing CA:
 
-> 1\. MUST include the CA/Browser Forum reserved identifier specified in Section 7.1.6.1 to indicate the Subordinate CA's compliance with these Requirements, and
+> 1\. MUST include the CA/Browser Forum reserved identifier specified in [Section 7.1.6.1](#7161-reserved-certificate-policy-identifiers) to indicate the Subordinate CA's compliance with these Requirements, and
 >
 > 2\. MAY contain the "anyPolicy" identifier (2.5.29.32.0) in place of an explicit policy identifier.
 
@@ -1054,7 +1054,7 @@ The period during which the CA issues Certificates SHALL be divided into an unbr
 
 If the CA has a currently valid Audit Report indicating compliance with an audit scheme listed in [Section 8.4](#84-topics-covered-by-assessment), then no pre-issuance readiness assessment is necessary.
 
-If the CA does not have a currently valid Audit Report indicating compliance with one of the audit schemes listed in Section 8.4, then, before issuing Code Signing Certificates, the CA MUST successfully complete a point-in-time readiness assessment performed in accordance with applicable standards under one of the audit schemes listed in Section 8.4. The point-in-time readiness assessment MUST be completed no earlier than twelve (12) months prior to issuing Code Signing Certificates and MUST be followed by a complete audit under such scheme within ninety (90) days of issuing the first Code Signing Certificate.
+If the CA does not have a currently valid Audit Report indicating compliance with one of the audit schemes listed in [Section 8.4](#84-topics-covered-by-assessment), then, before issuing Code Signing Certificates, the CA MUST successfully complete a point-in-time readiness assessment performed in accordance with applicable standards under one of the audit schemes listed in [Section 8.4](#84-topics-covered-by-assessment). The point-in-time readiness assessment MUST be completed no earlier than twelve (12) months prior to issuing Code Signing Certificates and MUST be followed by a complete audit under such scheme within ninety (90) days of issuing the first Code Signing Certificate.
 
 Audits MUST be conducted for all obligations under these Guidelines, including timestamping and signing services, regardless of whether they are performed directly by the CA or by a Delegated Third Party. Functions performed by a Delegated Third Party MUST be included in the CA's audit or the CA MUST obtain an audit report from the Delegated Third Party. If the opinion is that the Delegated Third Party does not comply, then the CA MUST not allow the Delegated Third Party to continue performing delegated functions.
 
