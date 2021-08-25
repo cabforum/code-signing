@@ -61,7 +61,7 @@ In all cases, the CA MUST contractually obligate each Delegated Third Party to c
 
 ## 1.6  Definitions and acronyms
 
-### 1.6.1 Definition
+### 1.6.1 Definitions
 
 Capitalized Terms are as defined in the Baseline Requirements or the EV SSL Guidelines except where defined below:
 
@@ -81,7 +81,7 @@ Capitalized Terms are as defined in the Baseline Requirements or the EV SSL Guid
 
 **Code Signature:** A Signature logically associated with a signed Code.
 
-**Code Signing Certificate:** A digital certificate issued by a CA that contains a code Signing EKU.
+**Code Signing Certificate:** A digital certificate issued by a CA that contains a Code Signing EKU.
 
 **Declaration of Identity**: A written document that consists of the following:
 
@@ -1273,10 +1273,11 @@ The audit period for the Delegated Third Party MUST NOT exceed one year (ideally
 
 The CA MUST undergo a conformity assessment audit for compliance with these Requirements performed in accordance with one of the following schemes:
 
-1.  "WebTrust for CAs v2.0 or newer" AND "WebTrust for Certification Authorities -- Publicly Trusted Code Signing Certificates v1.0.1 or newer"; or
-2.  "WebTrust for CAs v2.0 or newer" AND "WebTrust for Certification Authorities -- Extended Validation Code Signing v1.4.1 or newer"; or
-3.  ETSI EN 319 411-1, which includes normative references to ETSI EN 319 401 (the latest version of the referenced ETSI documents should be applied); or
-4.  If a Government CA is required by its Certificate Policy to use a different internal audit scheme, it MAY use such scheme provided that the audit either (a) encompasses all requirements of one of the above schemes or (b) consists of comparable criteria that are available for public review.
+1.  For Audit Periods starting before November 1st, 2020: "WebTrust for CAs v2.0 or newer" AND "WebTrust for Certification Authorities -- Publicly Trusted Code Signing Certificates v1.0.1 or newer"; or
+2.  For Audit Periods starting before November 1st, 2020: "WebTrust for CAs v2.0 or newer" AND "WebTrust for Certification Authorities -- Extended Validation Code Signing v1.4.1 or newer"; or
+3.  “WebTrust for CAs v2.0 or newer” AND “WebTrust for Certification Authorities – Code Signing Baseline Requirements v2.0 or newer”; or 
+4.  ETSI EN 319 411-1, which includes normative references to ETSI EN 319 401 (the latest version of the referenced ETSI documents should be applied); or
+5.  If a Government CA is required by its Certificate Policy to use a different internal audit scheme, it MAY use such scheme provided that the audit either (a) encompasses all requirements of one of the above schemes or (b) consists of comparable criteria that are available for public review.
 
 Whichever scheme is chosen, it MUST incorporate periodic monitoring and/or accountability procedures to ensure that its audits continue to be conducted in accordance with the requirements of the scheme.
 
@@ -1453,6 +1454,6 @@ The CA SHOULD issue Code Signing and Timestamp Certificates that allow Applicati
 
 # Appendix B  High risk regions of concern
 
-The geographic locations listed below have more than 5% of the Code Signing Certificates for that location associated with signed Suspect Code when compared to the number of all Code Signing Certificates for that area. Applications originating or associated from one of these HRRCs are considered high risk and require additional verification as specified under [Section 4.2.2](#422-approval-or-rejection-of-certificate-application) of this document:
+The geographic locations listed below have more than 5% of the Code Signing Certificates for that location associated with signed Suspect Code when compared to the number of all Code Signing Certificates for that area. Applications originating or associated from one of these HRRCs are considered high risk and require additional verification as specified under [Section 4.2.2](#422-approval-or-rejection-of-certificate-applications) of this document:
 
 NONE
