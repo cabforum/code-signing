@@ -41,13 +41,6 @@ In all cases, the CA MUST contractually obligate each Delegated Third Party to c
 
 ### 1.3.4 Relying parties
 
-With the exception of revocation checking for timestamped and expired Certificates, Platforms are expected to validate Code Signatures in accordance with RFC 5280 when first encountered. Subsequent Code Signature validation MAY ignore revocation, especially if rejecting the Code will cause the device to fail to boot. When a Platform encounters a Certificate that fails to validate due to revocation, the Platform should not permit the Code to execute. When a Platform encounters a Certificate that fails to validate for reasons other than revocation, the Platform should treat the Code as unsigned.
-
-Ordinarily, a Code Signature created by a Subscriber is only considered valid until expiration of the Certificate. However, the "Timestamp" method and the "Signing Service" methods permit Code to remain valid for longer periods of time.
-
-1. Timestamp Method: In this method, the Subscriber signs the Code, appends its Code Signing Certificate and submits it to a Timestamp Authority to be timestamped. The resulting package can be considered valid after expiration of the Code Signing Certificate.
-2. Signing Service Method: In this method, the Subscriber uses the service to sign compiled code, binary, file, app, or similar object. Alternatively, the service MAY sign a digest of the preceding objects. The resulting Code Signature is valid up to the expiration time of the Signing Service's Code Signing Certificate and any applicable revocation date, whichever comes first. Signing Services MAY also timestamp signed Code.
-
 ### 1.3.5  Other participants
 
 ## 1.4  Certificate usage
@@ -76,7 +69,7 @@ Capitalized Terms are as defined in the Baseline Requirements or the EV SSL Guid
 
 **Application Software Supplier**: A supplier of software or other relying-party application software that displays or uses Code Signing Certificates, incorporates Root Certificates, and adopts these Requirements as all or part of its requirements for participation in a root store program.
 
-**Baseline Requirements:** The Baseline Requirements for the Issuance and Management of Publicly-Trusted Certificates as published by the CA/Browser Forum, version 1.6.9.
+**Baseline Requirements:** The Baseline Requirements for the Issuance and Management of Publicly-Trusted Certificates as published by the CA/Browser Forum.
 
 **Certification Authority:** An organization subject to these Requirements that is responsible for a Code Signing Certificate and, under these Requirements, oversees the creation, issuance, revocation, and management of Code Signing Certificates. Where the CA is also the Root CA, references to the CA are synonymous with Root CA.
 
@@ -88,7 +81,7 @@ Capitalized Terms are as defined in the Baseline Requirements or the EV SSL Guid
 
 **Code Signature:** A Signature logically associated with a signed Code.
 
-**Code Signing Certificate:** A digital certificate issued by a CA that contains a code Signing EKU, contains the anyExtendedKeyUsage EKU, or omits the EKU extension and is trusted in an Application Software Provider's root store to sign software objects. \[NOTE: Appendix B, subsection (3) of Appendix B requires the presence of the codeSigning EKU and prohibits use of the anyExtendedKeyUsage EKU.\]
+**Code Signing Certificate:** A digital certificate issued by a CA that contains a code Signing EKU.
 
 **Declaration of Identity**: A written document that consists of the following:
 
@@ -100,9 +93,9 @@ Capitalized Terms are as defined in the Baseline Requirements or the EV SSL Guid
 
 **EV Code Signing Certificate:** A Code Signing Certificate validated and issued in accordance the EV Code Signing requirements.
 
-**EV Guidelines:** The CA/Browser Forum Guidelines for the Issuance and Management of Extended Validation Certificates, version 1.7.2.
+**EV Guidelines:** The CA/Browser Forum Guidelines for the Issuance and Management of Extended Validation Certificates.
 
-**High Risk Region of Concern (HRRC):** As set forth in Appendix D, a geographic location where the detected number of Code Signing Certificates associated with signed Suspect Code exceeds 5% of the total number of detected Code Signing Certificates originating or associated with the same geographic area.
+**High Risk Region of Concern (HRRC):** As set forth in Appendix B, a geographic location where the detected number of Code Signing Certificates associated with signed Suspect Code exceeds 5% of the total number of detected Code Signing Certificates originating or associated with the same geographic area.
 
 **Individual Applicant**: An Applicant who is a natural person and requests a Certificate that will list the Applicant's legal name as the Certificate's Subject.
 
@@ -144,9 +137,14 @@ As specified in the Baseline Requirements and EV Guidelines.
 
 ### 1.6.3 References
 
-As specified in the Baseline Requirements. Cross-references to Sections of the Baseline Requirements are notated with the letters "BR", as in "BR Section 1.2."
+This document references the following CA/B Forum documents:
+* The Baseline Requirements, version 1.6.9
+* The EV Guidelines, version 1.7.2
 
-This document may also mention or refer to the CA/Browser Forum's Extended Validation Guidelines for the Issuance and Management of Extended Validation Certificates ("EV SSL Guidelines"), also available on the CA/Browser Forum's website at www.cabforum.org.
+These documents available on the CA/Browser Forum's website at https://www.cabforum.org.
+
+Cross-references to Sections of the Baseline Requirements are notated with the letters "BR", as in "BR Section 1.2."
+
 
 ### 1.6.4 Conventions
 
@@ -203,14 +201,16 @@ Prior to issuing a Code Signing Certificate to an Organizational Applicant, the 
 1.  Verify the Subject's legal identity, including any DBA proposed for inclusion in a Certificate, in accordance with BR Sections 3.2.2.1 and 3.2.2.2.  The CA MUST also obtain, whenever available, a specific Registration Identifier assigned to the Applicant by a government agency in the jurisdiction of the Applicant's legal creation, existence, or recognition,
 3.  Verify the Subject's address in accordance with BR Section 3.2.2.1,
 4.  Verify the Certificate Requester's authority to request a Code Signing Certificate and the authenticity of the Certificate Request using a Reliable Method of Communication in accordance with BR Section 3.2.5., and
-5.  If the Subject's or Subject's Affiliate's, Parent Company's, or Subsidiary Company's date of formation, as indicated by either a QIIS or QGIS, was less than three years prior to the date of the Certificate Request, verify the identity of the Certificate Requester.
+5.  If the Subject's or Subject's Affiliate's, Parent Company's, or Subsidiary Company's date of formation, as indicated by either a QIIS or QGIS, was less than three years prior to the date of the Certificate Request, verify the identity of the Certificate Requester. Effective 1 
+November 2021, the method used to verify the identity of the Certificate Requester SHALL 
+be per [Section 3.2.3.1](#3231-individual-identity-verification).
 
 #### 3.2.2.2  Authentication of organization identity for EV Code Signing Certificates
 
 Before issuing a EV Code Signing Certificate, the CA MUST ensure that all Subject organization information to be included in the EV Code Signing Certificate conforms to the requirements of, and is verified in accordance with the EV Guidelines and matches the information confirmed and documented by the CA pursuant to its verification processes. Such verification processes are intended to accomplish the following:
 
 1.  Verify Applicant's existence and identity, including;
-  a.  Verify the Applicant's legal existence and identity (as more fully set forth in Section 11.2.3 herein),
+  a.  Verify the Applicant's legal existence and identity (as more fully set forth in [Section 3.2.2.2.1](#32221-verification-of-applicants-legal-existence-and-identity) herein),
   b.  Verify the Applicant's physical existence (business presence at a physical address), and
   c.  Verify the Applicant's operational existence (business activity).
 2.  Verify the Applicant's authorization for the EV Code Signing Certificate, including;
@@ -268,17 +268,22 @@ As specified in EV Guidelines Section 11.12.3.
 
 Prior to issuing a Code Signing Certificate to an Individual Applicant, the CA MUST verify the Subject's Identity and authenticity of the Identity as follows.
 
+
+### 3.2.3.1  Individual identity verification
+
 The CA MUST verify the Applicant's identity using one of the following processes:
 
 1.  The CA MUST obtain a legible copy, which discernibly shows the Requester's face, of at least one currently valid government-issued photo ID (passport, driver's license, military ID, national ID, or equivalent document type). The CA MUST inspect the copy for any indication of alteration or falsification. The CA MUST also verify the address of the Requester using (i) a government-issued photo ID, (ii) a QIIS or QGIS, or (iii) an access code to activate the Certificate where the access code was physically mailed to the Requester; OR
 2.  The CA MUST have the Requester digitally sign the Certificate Request using a valid personal Certificate that was issued under one of the following adopted standards: Qualified Certificates issued pursuant to ETSI TS 101 862, IGTF, Adobe Signing Certificate issued under the AATL or CDS program, the Kantara identity assurance framework at level 2, NIST SP 800-63 at level 2, or the FBCA CP at Basic or higher assurance.
+
+### 3.2.3.2  Authenticity of Certificate requests for Individual Applicants
 
 The CA MUST verify the authenticity of the Certificate Request using one of the following:
 
 1.  Having the Requester provide a photo of the Requester holding the submitted government-issued photo ID where the photo is of sufficient quality to read both the name listed on the photo ID and the issuing authority; OR
 2.  Having the CA perform an in-person or web camera-based verification of the Requester where an employee or contractor of the CA can see the Requester, review the Requester's photo ID, and confirm that the Requester is the individual identified in the submitted photo ID; OR
 3.  Having the CA obtain an executed Declaration of Identity of the Requester that includes at least one unique biometric identifier (such as a fingerprint or handwritten signature). The CA MUST confirm the document's authenticity directly with the Verifying Person using contact information confirmed with a QIIS or QGIS; OR
-4.  Verifying that the digital signature used to sign the Request under [Section 3.2.2.2](#3222-authentication-of-organization-identity-for-ev-code-signing-certificates) (2) is a valid signature and originated from a Certificate issued at the appropriate level of assurance as evidenced by the certificate chain. Acceptable verification under this section includes validation that the Certificate was issued by a CA qualified by the entity responsible for adopting, enforcing, or maintaining the adopted standard and chains to an intermediate certificate or root certificate designated as complying with such standard.
+4.  Verifying that the digital signature used to sign the Request under item (2) of [Section 3.2.3.1](#3231-individual-identity-verification) is a valid signature and originated from a Certificate issued at the appropriate level of assurance as evidenced by the certificate chain. Acceptable verification under this section includes validation that the Certificate was issued by a CA qualified by the entity responsible for adopting, enforcing, or maintaining the adopted standard and chains to an intermediate certificate or root certificate designated as complying with such standard.
 
 ### 3.2.4  Non-verified subscriber information
 
@@ -340,11 +345,13 @@ CAs MUST not issue new or replacement Code Signing Certificates to an entity tha
 
 CAs MAY issue new or replacement Code Signing Certificates to an entity who is the victim of a documented Takeover Attack, resulting in either a loss of control of their code-signing service or loss of the Private Key associated with their Code Signing Certificate.
 
-If the CA is aware that the Applicant was the victim of a Takeover Attack, the CA MUST verify that the Applicant is protecting its Code Signing Private Keys under Section 16.3(1) or Section 16.3(2). The CA MUST verify the Applicant's compliance with Section 16.3(1) or Section 16.3(2) (i) through technical means that confirm the Private Keys are protected using the method described in 16.3(1) or 16.3.2(2) or (ii) by relying on a report provided by the Applicant that is signed by an auditor who is approved by the CA and who has IT and security training or is a CISA.
+If the CA is aware that the Applicant was the victim of a Takeover Attack, the CA MUST verify that the Applicant is protecting its Code Signing Private Keys under [Section 6.2.7.4](#6274-private-key-storage-for-subscribers). The CA MUST verify the Applicant's compliance with [Section 6.2.7.4](#6274-private-key-storage-for-subscribers) through:
+  1. Technical means that confirm the Private Keys are protected using the method described in [Section 6.2.7.4](#6274-private-key-storage-for-subscribers; or
+  2. Relying on a report provided by the Applicant that is signed by an auditor who is approved by the CA and who has IT and security training or is a CISA.
 
 Documentation of a Takeover Attack MAY include a police report (validated by the CA) or public news report that admits that the attack took place. The Subscriber MUST provide a report from an auditor with IT and security training or a CISA that provides information on how the Subscriber was storing and using Private keys and how the intended solution for better security meets the guidelines for improved security.
 
-Except where issuance is expressly authorized by the Application Software Supplier, CAs MUST not issue new Code Signing Certificates to an entity where the CA is aware that the entity has been the victim of two Takeover Attacks or where the CA is aware that entity breached a requirement under this Section to protect Private Keys under either Section 16.3(1) or 16.3(2).
+Except where issuance is expressly authorized by the Application Software Supplier, CAs MUST not issue new Code Signing Certificates to an entity where the CA is aware that the entity has been the victim of two Takeover Attacks or where the CA is aware that entity breached a requirement under this Section to protect Private Keys under [Section 6.2.7.4](#6274-private-key-storage-for-subscribers).
 
 ### 4.2.3  Time to process certificate applications
 
@@ -448,7 +455,7 @@ For all incidents involving malware, CAs SHALL revoke the Code Signing Certifica
   a.  If the publisher responds within 72 hours, the CA and publisher MUST determine a "reasonable date" to revoke the certificate based on discussions with the CA.
   b.  If CA does not receive a response, the CA must notify the publisher that the CA will revoke in 7 days if no further response is received.
     i.  If the publisher responds within 7 days, the CA and the publisher will determine a "reasonable date" to revoke the certificate based on discussion with the CA.
-    ii.  If no response is received after 7 days, the CA must revoke the certificate except if the CA has documented proof (e.g., OCSP logs) that this will cause significant impact to the general public.
+    ii.  If no response is received after 7 days, the CA must revoke the certificate except if the CA has documented proof (e.g., OCSP logs) that the revocation will cause significant impact to the general public.
 
 A CA revoking a Certificate because the Certificate was associated with signed Suspect Code or other fraudulent or illegal conduct SHOULD provide all relevant information and risk indicators to other CAs or industry groups. The CA SHOULD indicate whether its investigation found that the Suspect Code was a false positive or an inadvertent signing.
 
@@ -487,15 +494,19 @@ When revoking a Certificate, the CA SHOULD work with the Subscriber to estimate 
 
 ### 4.9.7 CRL issuance frequency
 
+For the status of Subordinate CA Certificates: 
+1. The Issuing CA SHALL publish a CRL, then update and reissue a CRL at least once every twelve months and within 24 hours after revoking a Subordinate CA Certificate. The `nextUpdate` field MUST NOT be more than twelve months beyond the value of the `thisUpdate` field; and 
+2. If the Issuing CA provides OCSP responses, the Issuing CA SHALL update information provided via an OCSP response at least every twelve months and within 24 hours after revoking a Subordinate CA Certificate.
+
 For the status of Code Signing Certificates:
 
-1.  The CA SHALL publish a CRL, then update and reissue a CRL at least once every seven days, and the value of the nextUpdate field MUST NOT be more than ten days beyond the value of the thisUpdate field; and
-2.  If the CA provides OCSP responses, the CA SHALL update information provided via an OCSP response at least every four days. OCSP responses from this service MUST have a maximum expiration time of ten days.
+1.  The Subordinate CA SHALL publish a CRL, then update and reissue a CRL at least once every seven days, and the value of the `nextUpdate` field MUST NOT be more than ten days beyond the value of the `thisUpdate` field; and
+2.  If the Subordinate CA provides OCSP responses, the CA SHALL update information provided via an OCSP response at least every four days. OCSP responses from this service MUST have a maximum expiration time of ten days.
 
 For the status of Timestamp Certificates:
 
-1.  The CA SHALL update and reissue CRLs at least (i) once every twelve months and (ii) within 24 hours after revoking a Timestamp Certificate, and the value of the nextUpdate field MUST NOT be more than twelve months beyond the value of the thisUpdate field; and
-2.  If the CA provides OCSP responses, the CA SHALL update information provided via an OCSP response at least (i) every twelve months and (ii) within 24 hours after revoking a Subordinate CA Certificate.
+1.  The Subordinate CA SHALL update and reissue CRLs at least once every twelve months and within 24 hours after revoking a Timestamp Certificate, and the value of the `nextUpdate` field MUST NOT be more than twelve months beyond the value of the `thisUpdate` field; and
+2.  If the Subordinate CA provides OCSP responses, the Subordinate CA SHALL update information provided via an OCSP response at least every twelve months and within 24 hours after revoking a Timestamp Certificate.
 
 ### 4.9.8 Maximum latency for CRLs
 
@@ -593,27 +604,24 @@ Both CAs and Signing Services are required to abide by the obligations under BR 
 
 The Timestamp Authority MUST log the following information:
 
-1.  All data related to the creation of a timestamp, including all requests for a timestamp, the connecting IP, and results of the timestamp,
-2.  Physical or remote access to a timestamp server, including the time of the access and the identity of the individual accessing the server,
-3.  History of the timestamp server configuration,
-4.  Any attempt to delete or modify timestamp logs,
-5.  Security events, including:
-  a.  Successful and unsuccessful PKI system access attempts;
-  b.  PKI and security system actions performed;
+1.  Physical or remote access to a timestamp server, including the time of the access and the identity of the individual accessing the server,
+2.  History of the timestamp server configuration,
+3.  Any attempt to delete or modify timestamp logs,
+4.  Security events, including:
+  a.  Successful and unsuccessful Timestamp Authority access attempts;
+  b.  Timestamp Authority actions performed;
   c.  Security profile changes;
-  d.  System crashes, hardware failures, and other anomalies;
-  e.  Firewall and router activities; and
-  f.  Entries to and exits from the CA facility
-6.  Revocation of a timestamp certificate,
-7.  Major changes to the timestamp server's time,
-8.  System startup and shutdown, and
-9.  Equipment failures or malfunctions.
+  d.  System crashes, hardware failures, and other anomalies; and
+  e.  Firewall and router activities.
+5.  Revocation of a timestamp certificate,
+6.  Major changes to the timestamp server's time; and
+7.  System startup and shutdown
 
 ### 5.4.2  Frequency of processing log
 
 ### 5.4.3  Retention period for audit log
 
-Data MUST be retained as specified in BR Section 5.4.3, except for item number 1 in [Section 5.4.1](#541-types-of-events-recorded) above, which MUST be retained for a minimum of 5 days.
+Data MUST be retained as specified in BR Section 5.4.3.
 
 ### 5.4.4  Protection of audit log
 
@@ -686,6 +694,22 @@ If the CA or any Delegated Third Party is generating the Private Key on behalf o
 
 ### 6.1.5  Key sizes
 
+#### 6.1.5.1  Root and Subordinate CA key sizes
+
+For Keys corresponding to Root and Subordinate CAs:
+
+* If the Key is RSA, then the modulus MUST be at least 4096 bits in length. [^legacy_key_length]
+* If the Key is ECDSA, then the curve MUST be one of NIST P-256, P-384, or P-521.
+
+[^legacy_key_length]: CAs MAY sign Cross-Certificates with Root CA RSA Private Keys whose modulus length is less than 4096 bits, provided that the Cross-Certificate is issued to a Root CA whose Public Key adheres to the key size requirements of this section. 
+
+#### 6.1.5.2  Code signing Certificate and Timestamp Authority key sizes
+
+For Keys corresponding to Subscriber code signing and Timestamp Authority Certificates:
+
+* If the Key is RSA, then the modulus MUST be at least 3072 bits in length.
+* If the Key is ECDSA, then the curve MUST be one of NIST P-256, P-384, or P-521.
+
 ### 6.1.6  Public key parameters generation and quality checking
 
 ### 6.1.7  Key usage purposes
@@ -722,7 +746,7 @@ Private Keys corresponding to CA Keys MUST be stored in accordance with BR Secti
 
 #### 6.2.7.2  Private key storage for Timestamp Authorities
 
-1.  Each CA MUST operate an RFC-3161-compliant Timestamp Authority that is available for use by customers of its Code Signing Certificates. CAs MUST recommend to Subscribers that they use the CA's Timestamp Authority to timestamp signed code.
+1.  If the CA issues Code Signing Certificates, then the CA MUST operate a Timestamp Authority that complies with RFC 3161. CAs MUST recommend to Subscribers that they use the CA's Timestamp Authority to timestamp signed code.
 2.  A Timestamp Authority MUST protect its signing key using a process that is at least to FIPS 140-2 Level 3, Common Criteria EAL 4+ (ALC\_FLR.2), or higher. The CA MUST protect its signing operations in accordance with the CA/Browser Forum's Network Security Guidelines. Any changes to its signing process MUST be an auditable event.
 3.  The Timestamp Authority MUST ensure that clock synchronization is maintained when a leap second occurs. A Timestamp Authority MUST synchronize its timestamp server at least every 24 hours with a UTC(k) time source. The timestamp server MUST automatically detect and report on clock drifts or jumps out of synchronization with UTC. Clock adjustments of one second or greater MUST be auditable events.
 
@@ -749,7 +773,7 @@ For Non-EV Code Signing Certificates, the CA MUST obtain a representation from t
 2.  A hardware crypto module with a unit design form factor certified as conforming to at least FIPS 140 Level 2, Common Criteria EAL 4+, or equivalent.
 3.  Another type of hardware storage token with a unit design form factor of SD Card or USB token (not necessarily certified as conformant with FIPS 140 Level 2 or Common Criteria EAL 4+). The Subscriber MUST also warrant that it will keep the token physically separate from the device that hosts the code signing function until a signing session is begun.
 
-For Non-EV Code Signing Certificates, a CA MUST recommend that the Subscriber protect Private Keys using the method described in [Section 6.2.7.4](#6274-private-key-storage-for-subscribers) (1) or 6.2.7.4 (2) over the method described in [Section 6.2.7.4](#6274-private-key-storage-for-subscribers) (3) and obligate the Subscriber to protect Private Keys in accordance with 9.6.3 (2)
+For Non-EV Code Signing Certificates, a CA MUST recommend that the Subscriber protect Private Keys using the method described in [Section 6.2.7.4](#6274-private-key-storage-for-subscribers) (1) or 6.2.7.4 (2) over the method described in [Section 6.2.7.4](#6274-private-key-storage-for-subscribers) (3) and obligate the Subscriber to protect Private Keys in accordance with [Section 9.6.3](#963-subscriber-representations-and-warranties) (2).
 
 For EV Code Signing Certificates, CAs SHALL ensure that the Subscriber's private key is generated, stored and used in a crypto module that meets or exceeds the requirements of FIPS 140-2 level 2 or Common Criteria EAL 4+. Acceptable methods of satisfying this requirement include (but are not limited to) the following:
 4.  The CA ships a suitable hardware crypto module, with a preinstalled key pair, in the form of a smartcard or USB device or similar;
@@ -814,7 +838,256 @@ CAs SHALL generate serial numbers as defined in BR Section 7.1.
 
 ### 7.1.2  Certificate extensions
 
+This section specifies the additional requirements for Certificate content and extensions for Certificates.
+
+#### 7.1.2.1 Root CA Certificate
+
+a. `basicConstraints`
+
+   This extension MUST appear as a critical extension. The `cA` field MUST be set true. The `pathLenConstraint` field SHOULD NOT be present.
+
+b. `keyUsage`
+
+   This extension MUST be present and MUST be marked critical. Bit positions for `keyCertSign` and `cRLSign` MUST be set. If the Root CA Private Key is used for signing OCSP responses, then the `digitalSignature` bit MUST be set.
+
+c. `certificatePolicies`
+
+   This extension SHOULD NOT be present.
+
+d. `extKeyUsage`
+
+   This extension MUST NOT be present.
+
+#### 7.1.2.2 Subordinate CA Certificate
+
+a. `certificatePolicies`
+
+   This extension MUST be present and SHOULD NOT be marked critical.
+
+   `certificatePolicies:policyIdentifier` (Required)
+
+   The following fields MAY be present if the Subordinate CA is not an Affiliate of the entity that controls the Root CA.
+
+   * `certificatePolicies:policyQualifiers:policyQualifierId` (Optional)
+
+     `id-qt 1` [RFC5280].
+
+   * `certificatePolicies:policyQualifiers:qualifier:cPSuri` (Optional)
+
+     HTTP URL for the Root CA's Certificate Policies, Certification Practice Statement, Relying Party Agreement, or other pointer to online policy information provided by the CA.
+
+b. `cRLDistributionPoints`
+
+   This extension MUST be present and MUST NOT be marked critical. It MUST contain the HTTP URL of the CA's CRL service.
+
+c. `authorityInformationAccess`
+
+   This extension SHOULD be present. It MUST NOT be marked critical.
+
+   It SHOULD contain the HTTP URL of the Issuing CA's certificate (`accessMethod` = 1.3.6.1.5.5.7.48.2).
+   It MAY contain the HTTP URL of the Issuing CA's OCSP responder (`accessMethod` = 1.3.6.1.5.5.7.48.1).
+
+d. `basicConstraints`
+
+   This extension MUST be present and MUST be marked critical. The `cA` field MUST be set true. The `pathLenConstraint` field MAY be present.
+
+e. `keyUsage`
+
+   This extension MUST be present and MUST be marked critical. Bit positions for `keyCertSign` and `cRLSign` MUST be set. If the Subordinate CA Private Key is used for signing OCSP responses, then the `digitalSignature` bit MUST be set.
+
+g. `extKeyUsage`
+
+This extension MUST be present and SHOULD NOT be marked critical.
+
+If the Subordinate CA will be used to issue Code Signing Certificates:
+* `id-kp-codeSigning` MUST be present.
+* `id-kp-timeStamping` MUST NOT be present.
+
+If the Subordinate CA will be used to issue Timestamp Certificates:
+* `id-kp-timeStamping` MUST be present.
+* `id-kp-codeSigning` MUST NOT be present.
+
+Other values MUST NOT be present unless the CA has a business agreement with a Platform vendor requiring that EKU in order to issue a Platform-specific code signing certificate with that EKU.
+
+h. `authorityKeyIdentifier`
+
+   This extension MUST be present and MUST NOT be marked critical.
+
+#### 7.1.2.3 Code signing and Timestamp Certificate
+
+a. `certificatePolicies`
+
+   This extension MUST be present and SHOULD NOT be marked critical.
+
+   * `certificatePolicies:policyIdentifier` (Required)
+
+      A Policy Identifier, defined by the issuing CA, that indicates a Certificate Policy asserting the issuing CA's adherence to and compliance with these Requirements.
+
+   The following extensions MAY be present:
+
+   * `certificatePolicies:policyQualifiers:policyQualifierId` (Recommended)
+
+      `id-qt 1` [RFC 5280].
+
+   * `certificatePolicies:policyQualifiers:qualifier:cPSuri` (Optional)
+
+      HTTP URL for the Subordinate CA's Certification Practice Statement, Relying Party Agreement or other pointer to online information provided by the CA.
+
+b. `cRLDistributionPoints`
+
+   This extension MUST be present. It MUST NOT be marked critical, and it MUST contain the HTTP URL of the CA's CRL service.
+
+c. `authorityInformationAccess`
+
+   This extension MUST be present. It MUST NOT be marked critical, and it MUST contain the HTTP URL of the Issuing CA's OCSP responder (`accessMethod` = 1.3.6.1.5.5.7.48.1). It SHOULD also contain the HTTP URL of the Issuing CA's certificate (`accessMethod` = 1.3.6.1.5.5.7.48.2).
+
+d. `basicConstraints` (optional)
+
+   The `cA` field MUST NOT be true.
+
+e. `keyUsage`
+
+   This extension MUST be present and MUST be marked critical.
+
+   The bit position for `digitalSignature` MUST be set. Bit positions for `keyCertSign` and `cRLSign` MUST NOT be set. All other bit positions SHOULD NOT be set.
+
+f. `extKeyUsage`
+
+   If the Certificate is a Code Signing Certificate, then `id-kp-codeSigning` MUST be present.
+   If the Certificate is a timestamp Certificate, then `id-kp-timeStamping` MUST be present and MUST be marked critical.
+
+   Other values MUST NOT be present unless the CA has a business agreement with a Platform vendor requiring that EKU in order to issue a Platform-specific code signing certificate with that EKU.
+
+g. `authorityKeyIdentifier`
+
+   This extension MUST be present and MUST NOT be marked critical.
+
+#### 7.1.2.4 All Certificates
+
+All other fields and extensions MUST be set in accordance with RFC 5280. The CA SHALL NOT issue a Certificate that contains a `keyUsage` flag, `extKeyUsage` value, Certificate extension, or other data not specified in [Section 7.1.2.1](#7121-root-ca-certificate), [Section 7.1.2.2](#7122-subordinate-ca-certificate), or [Section 7.1.2.3](#7123-subscriber-certificate) unless the CA is aware of a reason for including the data in the Certificate.
+
+CAs SHALL NOT issue a Certificate with:
+
+a. Extensions that do not apply in the context of the public Internet (such as an extKeyUsage value for a service that is only valid in the context of a privately managed network), unless:
+   i. such value falls within an OID arc for which the Applicant demonstrates ownership, or
+   ii. the Applicant can otherwise demonstrate the right to assert the data in a public context; or
+b. semantics that, if included, will mislead a Relying Party about the certificate information verified by the CA (such as including an `extKeyUsage` value for a smart card, where the CA is not able to verify that the corresponding Private Key is confined to such hardware due to remote issuance).
+
+
 ### 7.1.3  Algorithm object identifiers
+
+#### 7.1.3.1 SubjectPublicKeyInfo
+
+The following requirements apply to the `subjectPublicKeyInfo` field within a Certificate. No other encodings are permitted.
+
+##### 7.1.3.1.1 RSA
+
+The CA SHALL indicate an RSA key using the rsaEncryption (OID: 1.2.840.113549.1.1.1) algorithm identifier. The parameters MUST be present, and MUST be an explicit NULL.
+The CA SHALL NOT use a different algorithm, such as the id-RSASSA-PSS (OID: 1.2.840.113549.1.1.10) algorithm identifier, to indicate an RSA key.
+
+When encoded, the `AlgorithmIdentifier` for RSA keys MUST be byte-for-byte identical with the following hex-encoded bytes: `300d06092a864886f70d0101010500`
+
+##### 7.1.3.1.2 ECDSA
+
+The CA SHALL indicate an ECDSA key using the id-ecPublicKey (OID: 1.2.840.10045.2.1) algorithm identifier. The parameters MUST use the `namedCurve` encoding.
+
+* For P-256 keys, the `namedCurve` MUST be secp256r1 (OID: 1.2.840.10045.3.1.7).
+* For P-384 keys, the `namedCurve` MUST be secp384r1 (OID: 1.3.132.0.34).
+* For P-521 keys, the `namedCurve` MUST be secp521r1 (OID: 1.3.132.0.35).
+
+When encoded, the `AlgorithmIdentifier` for ECDSA keys MUST be byte-for-byte identical with the following hex-encoded bytes:
+
+* For P-256 keys, `301306072a8648ce3d020106082a8648ce3d030107`.
+* For P-384 keys, `301006072a8648ce3d020106052b81040022`.
+* For P-521 keys, `301006072a8648ce3d020106052b81040023`.
+
+TODO: DSA?
+
+#### 7.1.3.2 Signature AlgorithmIdentifier
+
+All objects signed by a CA Private Key MUST conform to these requirements on the use of the `AlgorithmIdentifier` or `AlgorithmIdentifier`-derived type in the context of signatures.
+
+In particular, it applies to all of the following objects and fields:
+
+* The `signatureAlgorithm` field of a Certificate.
+* The `signature` field of a TBSCertificate.
+* The `signatureAlgorithm` field of a CertificateList
+* The `signature` field of a TBSCertList
+* The `signatureAlgorithm` field of a BasicOCSPResponse
+* The `digestAlgorithms` field of a SignedData corresponding to a Timestamp token
+
+No other encodings are permitted for these fields.
+
+##### 7.1.3.2.1 RSA
+
+The CA SHALL use one of the following signature algorithms and encodings. When encoded, the `AlgorithmIdentifier` MUST be byte-for-byte identical with the specified hex-encoded bytes.
+
+* RSASSA-PKCS1-v1_5 with SHA-256:
+
+  Encoding:
+  `300d06092a864886f70d01010b0500`.
+
+* RSASSA-PKCS1-v1_5 with SHA-384:
+
+  Encoding:
+  `300d06092a864886f70d01010c0500`.
+
+* RSASSA-PKCS1-v1_5 with SHA-512:
+
+  Encoding:
+  `300d06092a864886f70d01010d0500`.
+
+* RSASSA-PSS with SHA-256, MGF-1 with SHA-256, and a salt length of 32 bytes:
+
+  Encoding:
+
+  ```hexdump
+  304106092a864886f70d01010a3034a00f300d0609608648016503040201
+  0500a11c301a06092a864886f70d010108300d0609608648016503040201
+  0500a203020120
+  ```
+
+* RSASSA-PSS with SHA-384, MGF-1 with SHA-384, and a salt length of 48 bytes:
+
+  Encoding:
+
+  ```hexdump
+  304106092a864886f70d01010a3034a00f300d0609608648016503040202
+  0500a11c301a06092a864886f70d010108300d0609608648016503040202
+  0500a203020130
+  ```
+
+* RSASSA-PSS with SHA-512, MGF-1 with SHA-512, and a salt length of 64 bytes:
+
+  Encoding:
+
+  ```hexdump
+  304106092a864886f70d01010a3034a00f300d0609608648016503040203
+  0500a11c301a06092a864886f70d010108300d0609608648016503040203
+  0500a203020140
+  ```
+
+In addition, the CA MAY use the following signature algorithm and encoding if one of the following conditions are met:
+
+* It is used within Timestamp Authority Certificate and the date of the `notBefore` field is not greater than 2022-04-30; or,
+* It is used within an OCSP response; or,
+* It is used within a CRL; or
+* It is used within a Timestamp Token and the date of the `genTime` field is not greater than 2022-04-30
+
+* RSASSA-PKCS1-v1_5 with SHA-1:
+
+  Encoding:
+  `300d06092a864886f70d0101050500`
+
+##### 7.1.3.2.2 ECDSA
+
+The CA SHALL use the appropriate signature algorithm and encoding based upon the signing key used.
+
+If the signing key is P-256, the signature MUST use ECDSA with SHA-256. When encoded, the `AlgorithmIdentifier` MUST be byte-for-byte identical with the following hex-encoded bytes: `300a06082a8648ce3d040302`.
+
+If the signing key is P-384, the signature MUST use ECDSA with SHA-384. When encoded, the `AlgorithmIdentifier` MUST be byte-for-byte identical with the following hex-encoded bytes: `300a06082a8648ce3d040303`.
+
+If the signing key is P-521, the signature MUST use ECDSA with SHA-512. When encoded, the `AlgorithmIdentifier` MUST be byte-for-byte identical with the following hex-encoded bytes: `300a06082a8648ce3d040304`.
 
 ### 7.1.4  Name forms
 
@@ -831,27 +1104,19 @@ No stipulation.
 ##### 7.1.4.2.2 Subject distinguished name fields - EV and Non-EV Code Signing Certificates
 
 a. __Certificate Field:__ `subject:commonName` (OID 2.5.4.3)
-
    __Required/Optional:__ Required
-
    __Contents:__ This field MUST contain the Subject's legal name as verified under [Section 3.2.2](#322-authentication-of-organization-identity) or [3.2.3](#323-authentication-of-individual-identity).
 
 b. __Certificate Field:__ `subject:organizationalUnitName` (OID 2.5.4.11)
-
    __Required/Optional:__ Optional
-
    __Contents:__ The CA MUST implement a process that prevents an OU attribute from including a name, DBA, tradename, trademark, address, location, or other text that refers to a specific natural person or Legal Entity unless the CA has verified this information in accordance with [Section 3.2](#32-initial-identity-validation).
 
 c. __Certificate Field:__ `subject:domainComponent` (OID 0.9.2342.19200300.100.1.25)
-
    __Required/Optional:__ Prohibited
-
    __Contents:__ This field MUST not be present in a Code Signing Certificate.
 
 d. __Certificate Field:__ Other subject attributes
-
    __Required/Optional:__ Optional
-
    __Contents:__ As specified in BR Section 7.1.4.2.2.j. Subject attributes MUST NOT contain only metadata such as '.', '-', and ' ' (i.e. space) characters, and/or any other indication that the value is absent, incomplete, or not applicable.
 
 ##### 7.1.4.2.3 Subject distinguished name field - Non-EV Code Signing Certificates
@@ -861,20 +1126,16 @@ a. __Certificate Field:__ `subject:organizationName` (OID 2.5.4.10)
    __Contents:__ The `subject:organizationName` field MUST contain either the Subject's name or DBA as verified under BR Section 3.2. The CA MAY include information in this field that differs slightly from the verified name, such as common variations or abbreviations, provided that the CA documents the difference and any abbreviations used are locally accepted abbreviations; e.g., if the official record shows "Company Name Incorporated", the CA MAY use "Company Name Inc." or "Company Name". Because subject name attributes for individuals (e.g. `subject:givenName` (2.5.4.42) and `subject:surname` (2.5.4.4)) are not broadly supported by application software, the CA MAY use the `subject:organizationName` field to convey a natural person Subject's name or DBA. The CA MUST have a documented process for verifying that the information included in the `subject:organizationName` field is not misleading to a Relying Party.
 
 b. __Certificate Field:__ `subject:streetAddress` (OID: 2.5.4.9)
-
    __Required/Optional:__ Optional
-
    __Contents:__ If present, the subject:streetAddress field MUST contain the Subject's street address information as verified under BR Section 3.2.2.1 or 3.2.3.
 
 c. __Certificate Field:__ `subject:localityName` (OID: 2.5.4.7)
-
    __Required/Optional:__ Required if the `subject:stateOrProvinceName` field is absent. Optional if the `subject:stateOrProvinceName` field is present.
-
    __Contents:__ If present, the `subject:localityName` field MUST contain the Subject's locality information as verified under BR Section 3.2. If the `subject:countryName` field specifies the ISO 3166-1 user-assigned code of XX in accordance with BR Section 7.1.4.2.2.h., the `subject:localityName` field MAY contain the Subject's locality and/or state or province information as verified under BR Section 3.2.2.1 or 3.2.3.
 
 d. __Certificate Field:__ `subject:stateOrProvinceName` (OID: 2.5.4.8)
    __Required/Optional:__ Required if the `subject:localityName` field is absent. Optional if the `subject:localityName` field is present.
-   __Contents:__ If present, the `subject:stateOrProvinceName` field MUST contain the Subject's state or province information as verified under BR Section 3.2.2.1 or 3.2.3. If the `subject:countryName` field specifies the ISO 3166-1 user-assigned code of XX in accordance with BR Section 7.1.4.2.2.h., the `subject:stateOrProvinceName` field MAY contain the full name of the Subject's country information as verified under BR Section 3.2.2.1 or 3.2.3.
+   __Contents:__ If present, the `subject:stateOrProvinceName` field MUST contain the Subject's state or province information as verified under BR Section 3.2.2.1 or 3.2.3. If the `subject:countryName` field specifies the ISO 3166-1 user-assigned code of `XX` in accordance with BR Section 7.1.4.2.2.h., the `subject:stateOrProvinceName` field MAY contain the full name of the Subject's country information as verified under BR Section 3.2.2.1 or 3.2.3.
 
 e. __Certificate Field:__ `subject:postalCode` (OID: 2.5.4.17)
    __Required/Optional:__ Optional
@@ -882,7 +1143,7 @@ e. __Certificate Field:__ `subject:postalCode` (OID: 2.5.4.17)
 
 f. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
    __Required/Optional:__ Required
-   __Contents:__ The `subject:countryName` MUST contain the two-letter ISO 3166-1 country code associated with the location of the Subject verified under BR Section 3.2.2.3. If a Country is not represented by an official ISO 3166-1 country code, the CA MAY specify the ISO 3166-1 user-assigned code of XX indicating that an official ISO 3166-1 alpha-2 code has not been assigned.
+   __Contents:__ The `subject:countryName` MUST contain the two-letter ISO 3166-1 country code associated with the location of the Subject verified under BR Section 3.2.2.3. If a Country is not represented by an official ISO 3166-1 country code, the CA MAY specify the ISO 3166-1 user-assigned code of `XX` indicating that an official ISO 3166-1 alpha-2 code has not been assigned.
 
 ##### 7.1.4.2.4 Subject distinguished name fields - EV Code Signing Certificates
 
@@ -922,23 +1183,31 @@ The following Certificate Policy Identifier is reserved for use by CAs as a requ
 
 `{joint-iso-itu-t(2) international-organizations(23) ca-browser-forum(140) certificate-policies(1) code-signing-requirements(3)}` (`2.23.140.1.3`)
 
+The following Certificate Policy Identifier is reserved for use by CAs as a required means of asserting compliance with these Requirements for Timestamp Certificates:
+
+`{joint-iso-itu-t(2) international-organizations(23) ca-browser-forum(140) certificate-policies(1) code-signing-requirements(4) timestamping(2)}` (`2.23.140.1.4.2`)
+
 #### 7.1.6.2  Root CA Certificates
 
 A Root CA Certificate SHOULD NOT contain the certificatePolicies extension.
 
 #### 7.1.6.3  Subordinate CA Certificates
 
-A Certificate issued after 31 January 2017 to a Subordinate CA that is not an Affiliate of the Issuing CA:
+A Certificate issued to a Subordinate CA that is not an Affiliate of the Issuing CA:
 
-1. MUST include the policy identifier specified in [Section 7.1.6.1](#7161-reserved-certificate-policy-identifiers) that indicates the Subordinate CA's adherence to and compliance with these Requirements (i.e. either the CA/Browser Forum reserved identifiers or identifiers defined by the CA in its Certificate Policy and/or Certification Practice Statement), and
-
+1. MUST include the policy identifier that indicates the Subordinate CA's adherence to and compliance with these Requirements (i.e. either the CA/Browser Forum reserved identifiers as specified in [Section 7.1.6.1](#7161-reserved-certificate-policy-identifiers) or identifiers defined by the CA in its Certificate Policy and/or Certification Practice Statement), and
 2. MUST NOT contain the "anyPolicy" identifier (`2.5.29.32.0`).
 
-Certificate issued after 31 January 2017 to a Subordinate CA that is an affiliate of the Issuing CA:
+A Certificate issued to a Subordinate CA that issues Code Signing Certificates and is an Affiliate of the Issuing CA:
 
 1. MUST include the CA/Browser Forum reserved identifier specified in [Section 7.1.6.1](#7161-reserved-certificate-policy-identifiers) to indicate the Subordinate CA's compliance with these Requirements, and
-
 2. MAY contain the "anyPolicy" identifier (`2.5.29.32.0`) in place of an explicit policy identifier.
+
+A Certificate issued after 31 March 2022 to a Subordinate CA that issues Timestamp Certificates and is an Affiliate of the Issuing CA:
+
+1. MUST include the CA/Browser Forum reserved identifier specified in [Section 7.1.6.1](#7161-reserved-certificate-policy-identifiers) to 
+indicate the Subordinate CA’s compliance with these Requirements, and  
+2. MAY contain the “anyPolicy” identifier (`2.5.29.32.0`) in place of an explicit policy identifier. 
 
 A Subordinate CA MUST represent, in its Certificate Policy and/or Certification Practice Statement, that all Certificates containing a policy identifier indicating compliance with these Requirements are issued and managed in accordance with these Requirements.
 
@@ -967,6 +1236,11 @@ The serial number of a revoked Certificate MUST remain on the CRL for at least 1
 ### 7.3.1  Version number(s)
 
 ### 7.3.2  OCSP extensions
+
+### 7.4  Timestamp token profile
+
+The digest algorithm used to sign Timestamp tokens must match the digest algorithm used to sign the Timestamp Certificate.
+
 
 # 8. COMPLIANCE AUDIT AND OTHER ASSESSMENTS
 
@@ -1099,7 +1373,7 @@ Prior to the issuance of a Certificate, the CA SHALL obtain, for the express ben
 The CA SHALL implement a process to ensure that each Subscriber Agreement or Terms of Use is legally enforceable against the Applicant. In either case, the Agreement MUST apply to the Certificate to be issued pursuant to the certificate request. The CA MAY use an electronic or “click‐through” Agreement provided that the CA has determined that such agreements are legally enforceable. A separate Agreement MAY be used for each certificate request, or a single Agreement MAY be used to cover multiple future certificate requests and the resulting Certificates, so long as each Certificate that the CA issues to the Applicant is clearly covered by that Subscriber Agreement or Terms of Use. The Subscriber Agreement or Terms of Use MUST contain provisions imposing on the Applicant itself (or made by the Applicant on behalf of its principal or agent under a subcontractor or hosting service relationship) the following obligations and warranties:
 
 1.  **Accuracy of Information:** To provide accurate and complete information at all times in connection with the issuance of a Certificate, including in the Certificate Request and as otherwise requested by the CA.
-2.  **Protection of Private Key:** Where the key is available outside a Signing Service, to maintain sole control of, keep confidential, and properly protect, at all times in accordance with Section 16, the Private Key that corresponds to the Public Key to be included in the requested Certificate(s) (and any associated activation data or device, e.g. password or token). The CA MUST provide the Subscriber with documentation on how to protect a Private Key. The CA MAY provide this documentation as a white paper or as part of the Subscriber Agreement. The Subscriber MUST represent that it will generate and operate any device storing private keys in a secure manner, as described in a document of code signing best practices, which the CA MUST provide to the Subscriber during the ordering process. The CA MUST obligate the Subscriber to use passwords that are randomly generated with at least 16 characters containing uppercase letters, lowercase letters, numbers, and symbols to transport private keys.
+2.  **Protection of Private Key:** Where the key is available outside a Signing Service, to maintain sole control of, keep confidential, and properly protect, at all times in accordance with [Section 6.2.7.4](#6274-private-key-storage-for-subscribers), the Private Key that corresponds to the Public Key to be included in the requested Certificate(s) (and any associated activation data or device, e.g. password or token). The CA MUST provide the Subscriber with documentation on how to protect a Private Key. The CA MAY provide this documentation as a white paper or as part of the Subscriber Agreement. The Subscriber MUST represent that it will generate and operate any device storing private keys in a secure manner, as described in a document of code signing best practices, which the CA MUST provide to the Subscriber during the ordering process. The CA MUST obligate the Subscriber to use passwords that are randomly generated with at least 16 characters containing uppercase letters, lowercase letters, numbers, and symbols to transport private keys.
 3.  **Private Key Reuse:** To not apply for a Code Signing Certificate if the Public Key in the Certificate is or will be used with a non-Code Signing Certificate.
 4.  **Use:** To use the Certificate and associated Private Key only for authorized and legal purposes, including not using the Certificate to sign Suspect Code and to use the Certificate and Private Key solely in compliance with all applicable laws and solely in accordance with the Subscriber Agreement or Terms of Use.
 5.  **Compliance with Industry Standards**: An acknowledgment and acceptance that the CA may modify the Subscriber Agreement or Terms of Use when necessary to comply with any changes in these Requirements or the Baseline Requirements.
@@ -1172,3 +1446,13 @@ If a court or government body with jurisdiction over the activities covered by t
 ### 9.16.5  Force Majeure
 
 ## 9.17  Other provisions
+
+# Appendix A  User agent verification
+
+The CA SHOULD issue Code Signing and Timestamp Certificates that allow Application Software Suppliers to test their software with Certificates that chain up to each publicly trusted Root Certificate. At a minimum, the CA SHOULD issue and make available to Application Software Suppliers upon request Code Signing and Timestamp Certificates that are valid.
+
+# Appendix B  High risk regions of concern
+
+The geographic locations listed below have more than 5% of the Code Signing Certificates for that location associated with signed Suspect Code when compared to the number of all Code Signing Certificates for that area. Applications originating or associated from one of these HRRCs are considered high risk and require additional verification as specified under [Section 4.2.2](#422-approval-or-rejection-of-certificate-application) of this document:
+
+NONE
