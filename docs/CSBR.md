@@ -3,7 +3,7 @@ title: Baseline Requirements for the Issuance and Management of Publicly-Trusted
 subtitle: Version 3.0.0
 author:
   - CA/Browser Forum
-date: 24 June, 2021  
+date: XX XXXX, 2021  
 copyright: |
   Copyright 2021 CA/Browser Forum
 
@@ -14,7 +14,46 @@ copyright: |
 
 ## 1.1  Overview
 
+The Baseline Requirements for the Issuance and Management of Publicly-Trusted CodeSigning Certificates describe a subset of the requirements that a Certification Authority must meet to issue Code Signing Certificates. Except where specifically stated or in the event of conflict in which case these Requirements will prevail, this document incorporates by reference the Baseline Requirements for the Issuance and Management of Publicly-Trusted Certificates (“Baseline Requirements”), the Network and Certificate System Security Requirements and, in the case of EV Code Signing Certificates, the Guidelines For The Issuance And Management of Extended Validation Certificates as established by the CA/Browser Forum, copies of which are available on the CA/Browser Forum's website at https://www.cabforum.org. 
+
+The scope of these Requirements includes all "Code Signing Certificates", as defined below, and associated Timestamp Authorities, and all Certification Authorities technically capable of issuing Code Signing Certificates, including any Root CA that is publicly trusted for code signing and all other CAs that might serve to complete the validation path to such Root CA. These Requirements do not address the issuance, use, maintenance, or revocation of Certificates by enterprises that operate their own Public Key Infrastructure for internal purposes only, where the Root CA Certificate is not distributed by any Application Software Supplier (as defined in the Baseline Requirements).
+
 ## 1.2  Document name and identification
+
+The following Certificate Policy Identifier is reserved for use by CAs as a required means of asserting compliance with these Requirements for Non-EV Code Signing Certificates: 
+
+`{joint-iso-itu-t(2) international-organizations(23) ca-browser-forum(140) certificate-policies(1) code-signing-requirements(4) code signing(1)} (2.23.140.1.4.1)`.
+
+The following Certificate Policy Identifier is reserved for use by CAs as a required means of asserting compliance with these Requirements for EV Code Signing Certificates follows:
+
+`{joint-iso-itu-t(2) international-organizations(23) ca-browser-forum(140) certificate-policies(1) code-signing-requirements(3)}(2.23.140.1.3)`.
+
+The following Certificate Policy Identifier is reserved for use by CAs as a required means of asserting compliance with these Requirements for Timestamp Certificates:
+
+`{joint-iso-itu-t(2) international-organizations(23) ca-browser-forum(140) certificate-policies(1) code-signing-requirements(4) timestamping(2)} (2.23.140.1.4.2)`.
+
+### 1.2.1 Revisions
+
+| **Ver.** | **Ballot** | **Description** | **Effective** |
+|-|-|-----|--|
+| 1.2 | CSC-1 | Adopt Baseline Requirements version 1.2 | 13 Aug 2019 |
+| 2.0 | CSC-2 | Adopt combined EV and BR Code Signing Document | 2 Sept 2020 |
+| 2.1 | CSC-4 | Move deadline for transition to RSA-3072 and SHA-2 timestamp tokens | 7 Nov 2020 |
+| 2.2 | CSC-7 | Update to merge EV and non-EV clauses | 8 March 2021 |
+| 2.3 | CSC-8 | Update to Revocation response mechanisms. key protection for EV certificates, and clean-up of 11.2.1 & Appendix B | 2 May 2021 |
+| 2.4 | CSC-9 | Spring 2021 Clean-up | XX XXXX 2021 |
+
+### 1.2.2 Relevant Dates
+
+| **Compliance** | **Section(s)** | **Summary Description (See Full Text for Details)** |
+|--|--|----------|
+| 2021-06-01 | Appendix A (1) | CAs SHALL support minimum RSA-3072 for Code Signing Certificates, Root Certificates and Subordinate CA Certificates. CAs SHALL NOT support SHA-1 digest algorithm for Code Signing Certificates.|
+| 2021-06-01 | Appendix A (2) | CAs SHALL support minimum RSA-3072 for Timestamp Certificates, Root Certificates and Subordinate CA Certificates. CAs SHALL NOT support SHA-1 digest algorithm for Timestamp Certificates.|
+| 2022-04-30 | Appendix A (3) | CAs SHALL NOT support SHA-1 digest algorithm for Timestamp tokens.|
+| 2021-06-01 | 14.1 | After 2021-06-01, the CA shall meet the requirements of EV Guidelines Section 14.1 for Non-EV and EV Code Signing Certificates.|
+| 2021-06-01 | 16.2 | For EV Code Signing Certificates, Signing Services shall protect private keys in a FIPS 140-2 level 2 (or equivalent) crypto module. After 2021-06-01, the same protection requirements SHALL apply to Non EV Code Signing Certificates.|
+| 2021-11-01 | 11.1.1(4) | The method used to verify the identity of the Certificate Requester SHALL be per section 11.1.2.|
+| 2022-03-31 | 9.3.3 | Subordinate CA Certificates issued for Subordinate CA that issues Timestamping Certificates and is an Affiliate of the Issuing CA must include the reserved identifier specified in Section 9.3.1.|
 
 ## 1.3  PKI participants
 
