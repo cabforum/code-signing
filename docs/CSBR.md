@@ -41,19 +41,19 @@ The following Certificate Policy Identifier is reserved for use by CAs as a requ
 | 2.1 | CSC-4 | Move deadline for transition to RSA-3072 and SHA-2 timestamp tokens | 7 Nov 2020 |
 | 2.2 | CSC-7 | Update to merge EV and non-EV clauses | 8 March 2021 |
 | 2.3 | CSC-8 | Update to Revocation response mechanisms. key protection for EV certificates, and clean-up of 11.2.1 & Appendix B | 2 May 2021 |
-| 2.4 | CSC-9 | Spring 2021 Clean-up | XX XXXX 2021 |
+| 2.4 | CSC-9 | Spring 2021 Clean-up and Clarification | 8 September 2021 |
+| 2.5 | CSC-10 | WebTrust CSBR v2.0 Audit Criteria | 12 September 2021 |
 
 ### 1.2.2 Relevant Dates
 
 | **Compliance** | **Section(s)** | **Summary Description (See Full Text for Details)** |
 |--|--|----------|
-| 2021-06-01 | Appendix A (1) | CAs SHALL support minimum RSA-3072 for Code Signing Certificates, Root Certificates and Subordinate CA Certificates. CAs SHALL NOT support SHA-1 digest algorithm for Code Signing Certificates.|
-| 2021-06-01 | Appendix A (2) | CAs SHALL support minimum RSA-3072 for Timestamp Certificates, Root Certificates and Subordinate CA Certificates. CAs SHALL NOT support SHA-1 digest algorithm for Timestamp Certificates.|
-| 2022-04-30 | Appendix A (3) | CAs SHALL NOT support SHA-1 digest algorithm for Timestamp tokens.|
-| 2021-06-01 | 14.1 | After 2021-06-01, the CA shall meet the requirements of EV Guidelines Section 14.1 for Non-EV and EV Code Signing Certificates.|
-| 2021-06-01 | 16.2 | For EV Code Signing Certificates, Signing Services shall protect private keys in a FIPS 140-2 level 2 (or equivalent) crypto module. After 2021-06-01, the same protection requirements SHALL apply to Non EV Code Signing Certificates.|
-| 2021-11-01 | 11.1.1(4) | The method used to verify the identity of the Certificate Requester SHALL be per section 11.1.2.|
-| 2022-03-31 | 9.3.3 | Subordinate CA Certificates issued for Subordinate CA that issues Timestamping Certificates and is an Affiliate of the Issuing CA must include the reserved identifier specified in Section 9.3.1.|
+| 2021-06-01 | 6.1.5 | CAs SHALL support minimum RSA-3072 for Code Signing Certificates, Root Certificates and Subordinate CA Certificates. CAs SHALL NOT support SHA-1 digest algorithm for Code Signing Certificates.|
+| 2021-06-01 | 5.3 | After 2021-06-01, the CA shall meet the requirements of EV Guidelines Section 14.1 for Non-EV and EV Code Signing Certificates.|
+| 2021-06-01 | 6.2.7.4 | For EV Code Signing Certificates, Signing Services shall protect private keys in a FIPS 140-2 level 2 (or equivalent) crypto module. After 2021-06-01, the same protection requirements SHALL apply to Non EV Code Signing Certificates.|
+| 2021-11-01 | 3.2.2.1 (5) | The method used to verify the identity of the Certificate Requester SHALL be per section 3.2.3.|
+| 2022-03-31 | 7.1.6.3 | Subordinate CA Certificates issued for Subordinate CA that issues Timestamp Certificates and is an Affiliate of the Issuing CA must include the reserved identifier specified in Section 7.1.6.1.|
+| 2022-04-30 | 7.1.3.2.1 | CAs SHALL NOT support SHA-1 digest algorithm for Timestamp tokens.|
 
 ## 1.3  PKI participants
 
@@ -240,9 +240,7 @@ Prior to issuing a Code Signing Certificate to an Organizational Applicant, the 
 1.  Verify the Subject's legal identity, including any DBA proposed for inclusion in a Certificate, in accordance with BR Sections 3.2.2.1 and 3.2.2.2.  The CA MUST also obtain, whenever available, a specific Registration Identifier assigned to the Applicant by a government agency in the jurisdiction of the Applicant's legal creation, existence, or recognition,
 3.  Verify the Subject's address in accordance with BR Section 3.2.2.1,
 4.  Verify the Certificate Requester's authority to request a Code Signing Certificate and the authenticity of the Certificate Request using a Reliable Method of Communication in accordance with BR Section 3.2.5., and
-5.  If the Subject's or Subject's Affiliate's, Parent Company's, or Subsidiary Company's date of formation, as indicated by either a QIIS or QGIS, was less than three years prior to the date of the Certificate Request, verify the identity of the Certificate Requester. Effective 1 
-November 2021, the method used to verify the identity of the Certificate Requester SHALL 
-be per [Section 3.2.3.1](#3231-individual-identity-verification).
+5.  If the Subject's or Subject's Affiliate's, Parent Company's, or Subsidiary Company's date of formation, as indicated by either a QIIS or QGIS, was less than three years prior to the date of the Certificate Request, verify the identity of the Certificate Requester. Effective 1 November 2021, the method used to verify the identity of the Certificate Requester SHALL be per [Section 3.2.3.1](#3231-individual-identity-verification).
 
 #### 3.2.2.2  Authentication of organization identity for EV Code Signing Certificates
 
@@ -306,7 +304,6 @@ As specified in EV Guidelines Section 11.12.3.
 ### 3.2.3  Authentication of individual identity
 
 Prior to issuing a Code Signing Certificate to an Individual Applicant, the CA MUST verify the Subject's Identity and authenticity of the Identity as follows.
-
 
 ### 3.2.3.1  Individual identity verification
 
@@ -708,8 +705,6 @@ If the CA wishes to stop supporting validation of Code Signing Certificates or T
 
 ## 6.1  Key pair generation and installation
 
-
-
 ### 6.1.1  Key pair generation
 
 #### 6.1.1.1  CA Key Pair Generation
@@ -1007,7 +1002,7 @@ g. `authorityKeyIdentifier`
 
 #### 7.1.2.4 All Certificates
 
-All other fields and extensions MUST be set in accordance with RFC 5280. The CA SHALL NOT issue a Certificate that contains a `keyUsage` flag, `extKeyUsage` value, Certificate extension, or other data not specified in [Section 7.1.2.1](#7121-root-ca-certificate), [Section 7.1.2.2](#7122-subordinate-ca-certificate), or [Section 7.1.2.3](#7123-subscriber-certificate) unless the CA is aware of a reason for including the data in the Certificate.
+All other fields and extensions MUST be set in accordance with RFC 5280. The CA SHALL NOT issue a Certificate that contains a `keyUsage` flag, `extKeyUsage` value, Certificate extension, or other data not specified in [Section 7.1.2.1](#7121-root-ca-certificate), [Section 7.1.2.2](#7122-subordinate-ca-certificate), or [Section 7.1.2.3](#7123-code-signing-and-timestamp-certificate) unless the CA is aware of a reason for including the data in the Certificate.
 
 CAs SHALL NOT issue a Certificate with:
 
@@ -1115,7 +1110,8 @@ In addition, the CA MAY use the following signature algorithm and encoding if on
 * It is used within Timestamp Authority Certificate and the date of the `notBefore` field is not greater than 2022-04-30; or,
 * It is used within an OCSP response; or,
 * It is used within a CRL; or
-* It is used within a Timestamp Token and the date of the `genTime` field is not greater than 2022-04-30
+* It is used within a Timestamp Token and the date of the `genTime` field is not greater than 2022-04-30.
+
 
 * RSASSA-PKCS1-v1_5 with SHA-1:
 
