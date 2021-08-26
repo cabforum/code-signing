@@ -746,9 +746,7 @@ Private Keys corresponding to CA Keys MUST be stored in accordance with BR Secti
 
 #### 6.2.7.2  Private key storage for Timestamp Authorities
 
-1.  If the CA issues Code Signing Certificates, then the CA MUST operate a Timestamp Authority that complies with RFC 3161. CAs MUST recommend to Subscribers that they use the CA's Timestamp Authority to timestamp signed code.
-2.  A Timestamp Authority MUST protect its signing key using a process that is at least to FIPS 140-2 Level 3, Common Criteria EAL 4+ (ALC\_FLR.2), or higher. The CA MUST protect its signing operations in accordance with the CA/Browser Forum's Network Security Guidelines. Any changes to its signing process MUST be an auditable event.
-3.  The Timestamp Authority MUST ensure that clock synchronization is maintained when a leap second occurs. A Timestamp Authority MUST synchronize its timestamp server at least every 24 hours with a UTC(k) time source. The timestamp server MUST automatically detect and report on clock drifts or jumps out of synchronization with UTC. Clock adjustments of one second or greater MUST be auditable events.
+A Timestamp Authority MUST protect its signing key using a process that is at least to FIPS 140-2 Level 3, Common Criteria EAL 4+ (ALC\_FLR.2), or higher. The CA MUST protect its signing operations in accordance with the CA/Browser Forum's Network Security Guidelines.
 
 #### 6.2.7.3  Private key storage for Signing Services
 
@@ -827,6 +825,12 @@ Cryptographic algorithms, key sizes and certificate life-times for both authorit
 ## 6.7  Network security controls
 
 ## 6.8  Time-stamping
+
+If the CA issues Code Signing Certificates, then the CA MUST operate a Timestamp Authority that complies with RFC 3161. CAs MUST recommend to Subscribers that they use the CA's Timestamp Authority to timestamp signed code.
+
+The Timestamp Authority MUST ensure that clock synchronization is maintained when a leap second occurs. A Timestamp Authority MUST synchronize its timestamp server at least every 24 hours with a UTC(k) time source. The timestamp server MUST automatically detect and report on clock drifts or jumps out of synchronization with UTC. Clock adjustments of one second or greater MUST be auditable events. Any changes to its signing process MUST be an auditable event.
+
+The digest algorithm used to sign Timestamp tokens must match the digest algorithm used to sign the Timestamp Certificate.
 
 # 7.  CERTIFICATE, CRL, AND OCSP PROFILES
 
@@ -1236,11 +1240,6 @@ The serial number of a revoked Certificate MUST remain on the CRL for at least 1
 ### 7.3.1  Version number(s)
 
 ### 7.3.2  OCSP extensions
-
-### 7.4  Timestamp token profile
-
-The digest algorithm used to sign Timestamp tokens must match the digest algorithm used to sign the Timestamp Certificate.
-
 
 # 8. COMPLIANCE AUDIT AND OTHER ASSESSMENTS
 
