@@ -197,7 +197,9 @@ The key words \"MUST", "MUST NOT", \"REQUIRED\", \"SHALL\", \"SHALL NOT\", \"SHO
 
 ## 2.2  Publication of certification information
 
-The CA and its Root CA MUST develop, implement, enforce, display prominently on its Web site, and periodically update its policies and practices, including its Certificate Policy and/or Certification Practice Statement, that implement the most current version of these Requirements. The Certificate Policy and/or Certification Practice Statement MUST specify the CA's (and applicable Root CA's) entire root certificate hierarchy including all roots that its Code Signing Certificates depend on for proof of those Code Signing Certificates' authenticity. Each CA MUST represent that it has disclosed all Cross Certificates in its Certificate Policy/Certificate Practice Statement that identify the CA as the Subject, provided that the CA arranged for or accepted the establishment of the trust relationship (i.e. the Cross Certificate at issue).
+The CA and its Root CA MUST develop, implement, enforce, display prominently on its Web site, and periodically update its policies and practices, including its Certificate Policy and/or Certification Practice Statement, that implement the most current version of these Requirements. The Certificate Policy and/or Certification Practice Statement MUST specify the CA's (and applicable Root CA's) entire root certificate hierarchy including all roots that its Code Signing Certificates depend on for proof of those Code Signing Certificates' authenticity.
+
+Each CA MUST represent that it has disclosed all Cross Certificates in its Certificate Policy/Certificate Practice Statement that identify the CA as the Subject, provided that the CA arranged for or accepted the establishment of the trust relationship (i.e. the Cross Certificate at issue).
 
 Each CA, including Root CAs, MUST publicly disclose their policies and practices through an appropriate and readily accessible online means that is available on a 24x7 basis. The CA MUST publicly disclose its Certificate Practice Statement and/or Certificate Policies and structure the disclosures in accordance with RFC 3647.
 
@@ -548,9 +550,13 @@ For the status of Timestamp Certificates:
 
 ### 4.9.9  On-line revocation/status checking availability
 
+The CA SHALL maintain an online 24x7 Repository that application software can use to automatically check the current status of Code Signing and Timestamp Certificates issued by the CA.
+
 ### 4.9.10 On-line revocation checking requirements
 
-CAs MAY provide OCSP responses for Code Signing Certificates and Timestamp Certificates for the time period specified in their CPS, which MAY be at least 10 years after the expiration of the certificate. If the CA provides OCSP responses, the CA SHALL support an OCSP capability using the GET method for Certificates issued in accordance with these Requirements.
+CAs MAY provide OCSP responses for Code Signing Certificates and Timestamp Certificates for the time period specified in their CPS, which MAY be at least 10 years after the expiration of the certificate.
+
+If the CA provides OCSP responses, the CA SHALL support an OCSP capability using the GET method for Certificates issued in accordance with these Requirements.
 
 ### 4.9.11 Other forms of revocation advertisements available
 
@@ -715,8 +721,7 @@ As specified in BR Section 6.1.1.1.
 
 #### 6.1.1.3  Subscriber Key Pair Generation
 
-The CA SHALL reject a certificate request if the requested Public Key does not meet the requirements set forth in Sections [6.1.5](#615-key-sizes), [6.1.6](#616-public-key-parameters-generation-and-quality-checking), and BR Section 6.1.6 or if it has a known weak Private Key (such as a Debian weak key, see <http://wiki.debian.org/SSLkeys>).
-
+The CA SHALL reject a certificate request if the requested Public Key does not meet the requirements set forth in Sections [6.1.5](#615-key-sizes) and BR Section 6.1.6, or if it has a known weak Private Key (such as a Debian weak key, see <http://wiki.debian.org/SSLkeys>).
 
 ### 6.1.2  Private key delivery to subscriber
 
@@ -797,7 +802,7 @@ Techniques that MAY be used to satisfy this requirement include:
 
 #### 6.2.7.4  Private key storage for Subscribers
 
-The requirements in BR Sections 5, 6.1 and 6.2 apply equally to Code Signing Certificates.
+The requirements in BR Section 6.2 apply equally to Code Signing Certificates.
 
 For Non-EV Code Signing Certificates, the CA MUST obtain a representation from the Subscriber that the Subscriber will use one of the following options to generate and protect their Code Signing Certificate private keys:
 
@@ -805,7 +810,7 @@ For Non-EV Code Signing Certificates, the CA MUST obtain a representation from t
 2.  A hardware crypto module with a unit design form factor certified as conforming to at least FIPS 140 Level 2, Common Criteria EAL 4+, or equivalent.
 3.  Another type of hardware storage token with a unit design form factor of SD Card or USB token (not necessarily certified as conformant with FIPS 140 Level 2 or Common Criteria EAL 4+). The Subscriber MUST also warrant that it will keep the token physically separate from the device that hosts the code signing function until a signing session is begun.
 
-For Non-EV Code Signing Certificates, a CA MUST recommend that the Subscriber protect Private Keys using the method described in [Section 6.2.7.4](#6274-private-key-storage-for-subscribers) (1) or 6.2.7.4 (2) over the method described in [Section 6.2.7.4](#6274-private-key-storage-for-subscribers) (3) and obligate the Subscriber to protect Private Keys in accordance with [Section 9.6.3](#963-subscriber-representations-and-warranties) (2).
+For Non-EV Code Signing Certificates, a CA MUST recommend that the Subscriber protect Private Keys using the method described in [Section 6.2.7.4](#6274-private-key-storage-for-subscribers) (1) or [Section 6.2.7.4](#6274-private-key-storage-for-subscribers) (2) over the method described in [Section 6.2.7.4](#6274-private-key-storage-for-subscribers) (3) and obligate the Subscriber to protect Private Keys in accordance with [Section 9.6.3](#963-subscriber-representations-and-warranties) (2).
 
 For EV Code Signing Certificates, CAs SHALL ensure that the Subscriber's private key is generated, stored and used in a crypto module that meets or exceeds the requirements of FIPS 140-2 level 2 or Common Criteria EAL 4+. Acceptable methods of satisfying this requirement include (but are not limited to) the following:
 4.  The CA ships a suitable hardware crypto module, with a preinstalled key pair, in the form of a smartcard or USB device or similar;
@@ -902,9 +907,9 @@ a. `certificatePolicies`
 
    This extension MUST be present and SHOULD NOT be marked critical.
 
-   `certificatePolicies:policyIdentifier` (Required)
+   `certificatePolicies:policyIdentifier` Required; see [Section 7.1.6.3](#7163-subordinate-ca-certificates) for requirements on Policy Identifiers.
 
-   The following fields MAY be present if the Subordinate CA is not an Affiliate of the entity that controls the Root CA.
+   The following fields MUST be present if the Subordinate CA is not an Affiliate of the entity that controls the Root CA.
 
    * `certificatePolicies:policyQualifiers:policyQualifierId` (Optional)
 
@@ -920,10 +925,10 @@ b. `cRLDistributionPoints`
 
 c. `authorityInformationAccess`
 
-   This extension SHOULD be present. It MUST NOT be marked critical.
+   This extension MUST be present. It MUST NOT be marked critical.
 
-   It SHOULD contain the HTTP URL of the Issuing CA's certificate (`accessMethod` = 1.3.6.1.5.5.7.48.2).
-   It MAY contain the HTTP URL of the Issuing CA's OCSP responder (`accessMethod` = 1.3.6.1.5.5.7.48.1).
+   It MUST contain the HTTP URL of the Issuing CA's certificate (`accessMethod` = 1.3.6.1.5.5.7.48.2).
+   If the CA provides OCSP responses, it MUST contain the HTTP URL of the Issuing CA's OCSP responder (`accessMethod` = 1.3.6.1.5.5.7.48.1).
 
 d. `basicConstraints`
 
@@ -961,7 +966,7 @@ a. `certificatePolicies`
 
       A Policy Identifier, defined by the issuing CA, that indicates a Certificate Policy asserting the issuing CA's adherence to and compliance with these Requirements.
 
-   The following extensions MAY be present:
+   The following fields MAY be present:
 
    * `certificatePolicies:policyQualifiers:policyQualifierId` (Recommended)
 
@@ -977,8 +982,11 @@ b. `cRLDistributionPoints`
 
 c. `authorityInformationAccess`
 
-   This extension MUST be present. It MUST NOT be marked critical, and it MUST contain the HTTP URL of the Issuing CA's OCSP responder (`accessMethod` = 1.3.6.1.5.5.7.48.1). It SHOULD also contain the HTTP URL of the Issuing CA's certificate (`accessMethod` = 1.3.6.1.5.5.7.48.2).
+   This extension MUST be present. It MUST NOT be marked critical.
 
+   It MUST contain the HTTP URL of the Issuing CA's certificate (`accessMethod` = 1.3.6.1.5.5.7.48.2).
+   If the CA provides OCSP responses, it MUST contain the HTTP URL of the Issuing CA's OCSP responder (`accessMethod` = 1.3.6.1.5.5.7.48.1).
+    
 d. `basicConstraints` (optional)
 
    The `cA` field MUST NOT be true.
@@ -1297,9 +1305,11 @@ If the CA does not have a currently valid Audit Report indicating compliance wit
 
 Audits MUST be conducted for all obligations under these Guidelines, including timestamping and signing services, regardless of whether they are performed directly by the CA or by a Delegated Third Party. Functions performed by a Delegated Third Party MUST be included in the CA's audit or the CA MUST obtain an audit report from the Delegated Third Party. If the opinion is that the Delegated Third Party does not comply, then the CA MUST not allow the Delegated Third Party to continue performing delegated functions.
 
-The audit period for the Delegated Third Party MUST NOT exceed one year (ideally aligned with the CA's audit)
+The audit period for the Delegated Third Party MUST NOT exceed one year (ideally aligned with the CA's audit).
 
 ## 8.2  Identity/qualifications of assessor
+
+As specified in BR Section 8.2.
 
 ## 8.3  Assessor's relationship to assessed entity
 
@@ -1317,7 +1327,7 @@ Whichever scheme is chosen, it MUST incorporate periodic monitoring and/or accou
 
 The audit MUST be conducted by a Qualified Auditor, as specified in BR Section 8.2.
 
-The audit MUST cover all CA obligations under these Guidelines regardless of whether they are performed directly by the CA, an RA, or subcontractor
+The audit MUST cover all CA obligations under these Guidelines regardless of whether they are performed directly by the CA, an RA, or subcontractor.
 
 ## 8.5  Actions taken as a result of deficiency
 
@@ -1387,7 +1397,7 @@ The Certificate warranties specifically include, but are not limited to the foll
 
 1.  **Compliance**. The CA and any Signing Service each represents that it has complied with these Requirements and the applicable Certificate Policy and Certification Practice Statement in issuing each Code Signing Certificate and operating its PKI or Signing Service.
 2.  **Legal Existence**: For EV Code Signing Certificates, the CA has confirmed with the Incorporating or Registration Agency in the Subject's Jurisdiction of Incorporation or Registration that, as of the date the EV Code Signing Certificate was issued, the Subject of the EV Code Signing Certificate legally exists as a valid organization or entity in the Jurisdiction of Incorporation or Registration.
-3.  **Identity of Subscriber**: At the time of issuance, the CA or Signing Service represents that it (i) operated a procedure for verifying the identity of the Subscriber that at least meets the requirements in Section 11 of this document, (ii) followed the procedure when issuing or managing the Certificate, and (iii) accurately described the same procedure in the CA's Certificate Policy or Certification Practice Statement.
+3.  **Identity of Subscriber**: At the time of issuance, the CA or Signing Service represents that it (i) operated a procedure for verifying the identity of the Subscriber that at least meets the requirements in [Section 3.2](#32-initial-identity-validation) of this document, (ii) followed the procedure when issuing or managing the Certificate, and (iii) accurately described the same procedure in the CA's Certificate Policy or Certification Practice Statement.
 4.  **Authorization for Certificate:** At the time of issuance, the CA represents that it (i) operated a procedure for verifying that the Applicant authorized the issuance of the Certificate, (ii) followed the procedure, and (iii) accurately described the same procedure in the CA's Certificate Policy or Certification Practice Statement.
 5.  **Accuracy of Information:** At the time of issuance, the CA represents that it (i) operated a procedure for verifying that all of the information contained in the Certificate (with the exception of the subject:organizationalUnitName attribute) was true and accurate, (ii) followed the procedure, and (iii) accurately described the same procedure in the CA's Certificate Policy or Certification Practice Statement.
 6.  **Key Protection:** The CA represents that it provided the Subscriber at the time of issuance with documentation on how to securely store and prevent the misuse of Private Keys associated with Code Signing Certificates, or in the case of a Signing Service, securely stored and prevented the misuse of Private Keys associated with Code Signing Certificates;
@@ -1436,11 +1446,13 @@ Signing Services MUST obtain the Subscriber's commitment to:
 
 ## 9.8  Limitations of liability
 
+For delegated tasks, the CA and any Delegated Third Party MAY allocate liability between themselves contractually as they determine, but the CA SHALL remain fully responsible for the performance of all parties in accordance with these Requirements, as if the tasks had not been delegated.
+
 CAs MAY limit their liability as described in Section 9.8 of the Baseline Requirements except for EV Code Signing Certificates, a CA MAY NOT limit its liability to Subscribers or Relying Parties for legally recognized and provable claims to a monetary amount less than two thousand US dollars per Subscriber or Relying Party per EV Code Signing Certificate.
 
 ## 9.9  Indemnities
 
-A CA's indemnification obligations and a Root CA's obligations with respect to subordinate CAs are set forth in Section 9.9 of the Baseline Requirements.
+As specified in BR Section 9.9.
 
 ## 9.10  Term and termination
 
