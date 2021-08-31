@@ -134,7 +134,7 @@ Capitalized Terms are as defined in the Baseline Requirements or the EV SSL Guid
 
 **EV Guidelines:** The CA/Browser Forum Guidelines for the Issuance and Management of Extended Validation Certificates.
 
-**High Risk Region of Concern (HRRC):** As set forth in Appendix B, a geographic location where the detected number of Code Signing Certificates associated with signed Suspect Code exceeds 5% of the total number of detected Code Signing Certificates originating or associated with the same geographic area.
+**High Risk Region of Concern (HRRC):** As set forth in Appendix A, a geographic location where the detected number of Code Signing Certificates associated with signed Suspect Code exceeds 5% of the total number of detected Code Signing Certificates originating or associated with the same geographic area.
 
 **Individual Applicant**: An Applicant who is a natural person and requests a Certificate that will list the Applicant's legal name as the Certificate's Subject.
 
@@ -328,6 +328,8 @@ The CA MUST verify the authenticity of the Certificate Request using one of the 
 ### 3.2.5 Validation of authority
 
 ### 3.2.6  Criteria for interoperation
+
+The CA SHOULD issue Code Signing and Timestamp Certificates that allow Application Software Suppliers to test their software with Certificates that chain up to each publicly trusted Root Certificate. At a minimum, the CA SHOULD issue and make available to Application Software Suppliers upon request Code Signing and Timestamp Certificates that are valid (non-revoked and unexpired).
 
 ### 3.2.7  Data source accuracy
 
@@ -1494,11 +1496,7 @@ If a court or government body with jurisdiction over the activities covered by t
 
 ## 9.17  Other provisions
 
-# Appendix A  User agent verification
-
-The CA SHOULD issue Code Signing and Timestamp Certificates that allow Application Software Suppliers to test their software with Certificates that chain up to each publicly trusted Root Certificate. At a minimum, the CA SHOULD issue and make available to Application Software Suppliers upon request Code Signing and Timestamp Certificates that are valid.
-
-# Appendix B  High risk regions of concern
+# Appendix A  High risk regions of concern
 
 The geographic locations listed below have more than 5% of the Code Signing Certificates for that location associated with signed Suspect Code when compared to the number of all Code Signing Certificates for that area. Applications originating or associated from one of these HRRCs are considered high risk and require additional verification as specified under [Section 4.2.2](#422-approval-or-rejection-of-certificate-applications) of this document:
 
