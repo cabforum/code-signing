@@ -138,7 +138,7 @@ Capitalized Terms are as defined in the Baseline Requirements or the EV SSL Guid
 
 **Individual Applicant**: An Applicant who is a natural person and requests a Certificate that will list the Applicant's legal name as the Certificate's Subject.
 
-**Lifetime Signing OID:** An optional extended key usage OID (1.3.6.1.4.1.311.10.3.13) used by Microsoft Authenticode to limit the lifetime of the code signature to the expiration of the code signing certificate.
+**Lifetime Signing OID:** An optional extended key usage OID (`1.3.6.1.4.1.311.10.3.13`) used by Microsoft Authenticode to limit the lifetime of the code signature to the expiration of the code signing certificate.
 
 **Organizational Applicant:** An Applicant that requests a Certificate with a name in the Subject field that is for an organization and not the name of an individual. Organizational Applicants include private and public corporations, LLCs, partnerships, government entities, non-profit organizations, trade associations, and other legal entities.
 
@@ -258,6 +258,8 @@ Before issuing a EV Code Signing Certificate, the CA MUST ensure that all Subjec
   c.  Verify that a Certificate Approver has signed or otherwise approved the EV Code Signing Certificate Request.
 
 As a general rule, the CA is responsible for taking all verification steps reasonably necessary to satisfy each of the Verification Requirements set forth in the subsections below. The Acceptable Methods of Verification are set forth in the EV Guidelines. In all cases, however, the CA is responsible for taking any additional verification steps that may be reasonably necessary under the circumstances to satisfy the applicable Verification Requirement.
+
+Roles are specified in EV Guidelines Section 10.1.2.
 
 ##### 3.2.2.2.1  Verification of Applicant's Legal Existence and Identity 
 
@@ -535,18 +537,13 @@ When revoking a Certificate, the CA SHOULD work with the Subscriber to estimate 
 ### 4.9.7 CRL issuance frequency
 
 For the status of Subordinate CA Certificates: 
-1. The Issuing CA SHALL publish a CRL, then update and reissue a CRL at least once every twelve months and within 24 hours after revoking a Subordinate CA Certificate. The `nextUpdate` field MUST NOT be more than twelve months beyond the value of the `thisUpdate` field; and 
-2. If the Issuing CA provides OCSP responses, the Issuing CA SHALL update information provided via an OCSP response at least every twelve months and within 24 hours after revoking a Subordinate CA Certificate.
+  * The Issuing CA SHALL publish a CRL, then update and reissue a CRL at least once every twelve months and within 24 hours after revoking a Subordinate CA Certificate. The `nextUpdate` field MUST NOT be more than twelve months beyond the value of the `thisUpdate` field.
 
 For the status of Code Signing Certificates:
-
-1.  The Subordinate CA SHALL publish a CRL, then update and reissue a CRL at least once every seven days, and the value of the `nextUpdate` field MUST NOT be more than ten days beyond the value of the `thisUpdate` field; and
-2.  If the Subordinate CA provides OCSP responses, the CA SHALL update information provided via an OCSP response at least every four days. OCSP responses from this service MUST have a maximum expiration time of ten days.
+  * The Subordinate CA SHALL publish a CRL, then update and reissue a CRL at least once every seven days, and the value of the `nextUpdate` field MUST NOT be more than ten days beyond the value of the `thisUpdate` field.
 
 For the status of Timestamp Certificates:
-
-1.  The Subordinate CA SHALL update and reissue CRLs at least once every twelve months and within 24 hours after revoking a Timestamp Certificate, and the value of the `nextUpdate` field MUST NOT be more than twelve months beyond the value of the `thisUpdate` field; and
-2.  If the Subordinate CA provides OCSP responses, the Subordinate CA SHALL update information provided via an OCSP response at least every twelve months and within 24 hours after revoking a Timestamp Certificate.
+  * The Subordinate CA SHALL update and reissue CRLs at least once every twelve months and within 24 hours after revoking a Timestamp Certificate, and the value of the `nextUpdate` field MUST NOT be more than twelve months beyond the value of the `thisUpdate` field.
 
 ### 4.9.8 Maximum latency for CRLs
 
@@ -559,6 +556,15 @@ The CA SHALL maintain an online 24x7 Repository that application software can us
 CAs MAY provide OCSP responses for Code Signing Certificates and Timestamp Certificates for the time period specified in their CPS, which MAY be at least 10 years after the expiration of the certificate.
 
 If the CA provides OCSP responses, the CA SHALL support an OCSP capability using the GET method for Certificates issued in accordance with these Requirements.
+
+For the status of Subordinate CA Certificates:
+  * If the Issuing CA provides OCSP responses, the Issuing CA SHALL update information provided via an OCSP response at least every twelve months and within 24 hours after revoking a Subordinate CA Certificate.
+
+For the status of Code Signing Certificates:
+  * If the Subordinate CA provides OCSP responses, the CA SHALL update information provided via an OCSP response at least every four days. OCSP responses from this service MUST have a maximum expiration time of ten days.
+
+For the status of Timestamp Certificates:
+  * If the Subordinate CA provides OCSP responses, the Subordinate CA SHALL update information provided via an OCSP response at least every twelve months and within 24 hours after revoking a Timestamp Certificate.
 
 ### 4.9.11 Other forms of revocation advertisements available
 
@@ -1001,7 +1007,8 @@ e. `keyUsage`
 
 f. `extKeyUsage`
 
-   If the Certificate is a Code Signing Certificate, then `id-kp-codeSigning` MUST be present.
+   If the Certificate is a Code Signing Certificate, then `id-kp-codeSigning` MUST be present and the Lifetime Signing OID (`1.3.6.1.4.1.311.10.3.13`) MAY be present.
+
    If the Certificate is a timestamp Certificate, then `id-kp-timeStamping` MUST be present and MUST be marked critical.
 
    Other values MUST NOT be present unless the CA has a business agreement with a Platform vendor requiring that EKU in order to issue a Platform-specific code signing certificate with that EKU.
