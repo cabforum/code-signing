@@ -756,6 +756,9 @@ For Keys corresponding to Subscriber code signing and Timestamp Authority Certif
 
 * If the Key is RSA, then the modulus MUST be at least 3072 bits in length.
 * If the Key is ECDSA, then the curve MUST be one of NIST P-256, P-384, or P-521.
+* If the Key is DSA, then one of the following key parameter options MUST be used:
+  * Key length (`L`) of 2048 bits and modulus length (`N`) of 224 bits
+  * Key length (`L`) of 2048 bits and modulus length (`N`) of 256 bits
 
 ### 6.1.6  Public key parameters generation and quality checking
 
@@ -1033,30 +1036,7 @@ b. semantics that, if included, will mislead a Relying Party about the certifica
 
 #### 7.1.3.1 SubjectPublicKeyInfo
 
-The following requirements apply to the `subjectPublicKeyInfo` field within a Certificate. No other encodings are permitted.
-
-##### 7.1.3.1.1 RSA
-
-The CA SHALL indicate an RSA key using the rsaEncryption (OID: 1.2.840.113549.1.1.1) algorithm identifier. The parameters MUST be present, and MUST be an explicit NULL.
-The CA SHALL NOT use a different algorithm, such as the id-RSASSA-PSS (OID: 1.2.840.113549.1.1.10) algorithm identifier, to indicate an RSA key.
-
-When encoded, the `AlgorithmIdentifier` for RSA keys MUST be byte-for-byte identical with the following hex-encoded bytes: `300d06092a864886f70d0101010500`
-
-##### 7.1.3.1.2 ECDSA
-
-The CA SHALL indicate an ECDSA key using the id-ecPublicKey (OID: 1.2.840.10045.2.1) algorithm identifier. The parameters MUST use the `namedCurve` encoding.
-
-* For P-256 keys, the `namedCurve` MUST be secp256r1 (OID: 1.2.840.10045.3.1.7).
-* For P-384 keys, the `namedCurve` MUST be secp384r1 (OID: 1.3.132.0.34).
-* For P-521 keys, the `namedCurve` MUST be secp521r1 (OID: 1.3.132.0.35).
-
-When encoded, the `AlgorithmIdentifier` for ECDSA keys MUST be byte-for-byte identical with the following hex-encoded bytes:
-
-* For P-256 keys, `301306072a8648ce3d020106082a8648ce3d030107`.
-* For P-384 keys, `301006072a8648ce3d020106052b81040022`.
-* For P-521 keys, `301006072a8648ce3d020106052b81040023`.
-
-TODO: DSA?
+As defined in [Section 6.1.5](#615--key-sizes).
 
 #### 7.1.3.2 Signature AlgorithmIdentifier
 
@@ -1071,79 +1051,44 @@ In particular, it applies to all of the following objects and fields:
 * The `signatureAlgorithm` field of a BasicOCSPResponse
 * The `digestAlgorithms` field of a SignedData corresponding to a Timestamp token
 
-No other encodings are permitted for these fields.
-
 ##### 7.1.3.2.1 RSA
 
-The CA SHALL use one of the following signature algorithms and encodings. When encoded, the `AlgorithmIdentifier` MUST be byte-for-byte identical with the specified hex-encoded bytes.
+The CA SHALL use one of the following signature algorithms:
 
-* RSASSA-PKCS1-v1_5 with SHA-256:
+* RSASSA-PKCS1-v1_5 with SHA-256
+* RSASSA-PKCS1-v1_5 with SHA-384
+* RSASSA-PKCS1-v1_5 with SHA-512
+* RSASSA-PSS with SHA-256
+* RSASSA-PSS with SHA-384
+* RSASSA-PSS with SHA-512
 
-  Encoding:
-  `300d06092a864886f70d01010b0500`.
-
-* RSASSA-PKCS1-v1_5 with SHA-384:
-
-  Encoding:
-  `300d06092a864886f70d01010c0500`.
-
-* RSASSA-PKCS1-v1_5 with SHA-512:
-
-  Encoding:
-  `300d06092a864886f70d01010d0500`.
-
-* RSASSA-PSS with SHA-256, MGF-1 with SHA-256, and a salt length of 32 bytes:
-
-  Encoding:
-
-  ```hexdump
-  304106092a864886f70d01010a3034a00f300d0609608648016503040201
-  0500a11c301a06092a864886f70d010108300d0609608648016503040201
-  0500a203020120
-  ```
-
-* RSASSA-PSS with SHA-384, MGF-1 with SHA-384, and a salt length of 48 bytes:
-
-  Encoding:
-
-  ```hexdump
-  304106092a864886f70d01010a3034a00f300d0609608648016503040202
-  0500a11c301a06092a864886f70d010108300d0609608648016503040202
-  0500a203020130
-  ```
-
-* RSASSA-PSS with SHA-512, MGF-1 with SHA-512, and a salt length of 64 bytes:
-
-  Encoding:
-
-  ```hexdump
-  304106092a864886f70d01010a3034a00f300d0609608648016503040203
-  0500a11c301a06092a864886f70d010108300d0609608648016503040203
-  0500a203020140
-  ```
-
-In addition, the CA MAY use the following signature algorithm and encoding if one of the following conditions are met:
+In addition, the CA MAY use `RSASSA-PKCS1-v1_5 with SHA-1` if one of the following conditions are met:
 
 * It is used within Timestamp Authority Certificate and the date of the `notBefore` field is not greater than 2022-04-30; or,
 * It is used within an OCSP response; or,
-* It is used within a CRL; or
+* It is used within a CRL; or,
 * It is used within a Timestamp Token and the date of the `genTime` field is not greater than 2022-04-30.
-
-
-* RSASSA-PKCS1-v1_5 with SHA-1:
-
-  Encoding:
-  `300d06092a864886f70d0101050500`
 
 ##### 7.1.3.2.2 ECDSA
 
-The CA SHALL use the appropriate signature algorithm and encoding based upon the signing key used.
+The CA SHALL use one of the following signature algorithms:
 
-If the signing key is P-256, the signature MUST use ECDSA with SHA-256. When encoded, the `AlgorithmIdentifier` MUST be byte-for-byte identical with the following hex-encoded bytes: `300a06082a8648ce3d040302`.
+* ECDSA with SHA-256
+* ECDSA with SHA-384
+* ECDSA with SHA-512
 
-If the signing key is P-384, the signature MUST use ECDSA with SHA-384. When encoded, the `AlgorithmIdentifier` MUST be byte-for-byte identical with the following hex-encoded bytes: `300a06082a8648ce3d040303`.
+##### 7.1.3.2.3 DSA
 
-If the signing key is P-521, the signature MUST use ECDSA with SHA-512. When encoded, the `AlgorithmIdentifier` MUST be byte-for-byte identical with the following hex-encoded bytes: `300a06082a8648ce3d040304`.
+The CA SHALL use the following signature algorithm:
+
+* DSA with SHA-256
+
+In addition, the CA MAY use `DSA with SHA-1` if one of the following conditions are met:
+
+* It is used within Timestamp Authority Certificate and the date of the `notBefore` field is not greater than 2022-04-30; or,
+* It is used within an OCSP response; or,
+* It is used within a CRL; or,
+* It is used within a Timestamp Token and the date of the `genTime` field is not greater than 2022-04-30.
 
 ### 7.1.4  Name forms
 
