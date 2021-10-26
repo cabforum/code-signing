@@ -86,6 +86,8 @@ In all cases, the CA MUST contractually obligate each Delegated Third Party to c
 
 ### 1.4.1  Appropriate certificate uses
 
+The primary goal of these Requirements is to enable the secure distribution of signed Code, while addressing user concerns about the trustworthiness of Certificates. These Requirements also serve to inform users and help them to make informed decisions when relying on Certificates.
+
 ### 1.4.2 Prohibited certificate uses
 
 ## 1.5  Policy administration
@@ -184,7 +186,6 @@ These documents available on the CA/Browser Forum's website at https://www.cabfo
 
 Cross-references to Sections of the Baseline Requirements are notated with the letters "BR", as in "BR Section 1.2."
 
-
 ### 1.6.4 Conventions
 
 Terms not otherwise defined in these Requirements are as defined in the CA's applicable agreements, user manuals, Certificate Policies, and Certification Practice Statements.
@@ -194,6 +195,8 @@ The key words \"MUST", "MUST NOT", \"REQUIRED\", \"SHALL\", \"SHALL NOT\", \"SHO
 # 2. PUBLICATION AND REPOSITORY RESPONSIBILITIES
 
 ## 2.1  Repositories
+
+The CA SHALL maintain an online 24x7 Repository that application software can use to automatically check the current status of Code Signing and Timestamp Certificates issued by the CA.
 
 ## 2.2  Publication of certification information
 
@@ -547,9 +550,7 @@ For the status of Timestamp Certificates:
 
 ### 4.9.8 Maximum latency for CRLs
 
-### 4.9.9  On-line revocation/status checking availability
-
-The CA SHALL maintain an online 24x7 Repository that application software can use to automatically check the current status of Code Signing and Timestamp Certificates issued by the CA.
+### 4.9.9 On-line revocation/status checking availability
 
 ### 4.9.10 On-line revocation checking requirements
 
@@ -585,8 +586,6 @@ Because some Application Software Suppliers utilize non-standard revocation mech
 ### 4.10.1 Operational characteristics
 
 ### 4.10.2 Service availability
-
-The CA SHALL maintain a Repository of the current status of Code Signing and Timestamp Certificates issued by the CA as specified in BR Section 4.10.2.
 
 ### 4.10.3 Optional features
 
@@ -810,7 +809,6 @@ Techniques that MAY be used to satisfy this requirement include:
 2.  A hardware crypto module provided by the CA;
 3.  Contractual terms in the subscriber agreement requiring the Subscriber to protect the private key to a standard equivalent to FIPS 140-2 level 2 or Common Criteria EAL 4+ and with compliance being confirmed by means of an audit.
 
-
 #### 6.2.7.4  Private key storage for Subscribers
 
 The requirements in BR Section 6.2 apply equally to Code Signing Certificates.
@@ -885,8 +883,6 @@ The digest algorithm used to sign Timestamp tokens must match the digest algorit
 # 7.  CERTIFICATE, CRL, AND OCSP PROFILES
 
 ## 7.1  Certificate profile
-
-CAs SHALL generate serial numbers as defined in BR Section 7.1.
 
 ### 7.1.1  Version number(s)
 
