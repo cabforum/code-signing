@@ -1075,7 +1075,7 @@ b. semantics that, if included, will mislead a Relying Party about the certifica
 
 #### 7.1.3.1 SubjectPublicKeyInfo
 
-As defined in [Section 6.1.5](#615--key-sizes).
+As defined in [Section 6.1.5](#615-key-sizes).
 
 #### 7.1.3.2 Signature AlgorithmIdentifier
 
