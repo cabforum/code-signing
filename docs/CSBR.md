@@ -43,6 +43,7 @@ The following Certificate Policy Identifier is reserved for use by CAs as a requ
 | 2.3 | CSC-8 | Update to Revocation response mechanisms. key protection for EV certificates, and clean-up of 11.2.1 & Appendix B | 2 May 2021 |
 | 2.4 | CSC-9 | Spring 2021 Clean-up and Clarification | 8 September 2021 |
 | 2.5 | CSC-10 | WebTrust CSBR v2.0 Audit Criteria | 12 September 2021 |
+| 2.6 | CSC-11 | Update to log data retention requirements | 3 November 2021 |
 
 ### 1.2.2 Relevant Dates
 
@@ -649,28 +650,70 @@ As specified in EV Guidelines Section 14.1.
 
 ### 5.4.1  Types of events recorded
 
-Both CAs and Signing Services are required to abide by the obligations under BR Section 5.4.1.
+#### 5.4.1.1  Types of events recorded for CAs
 
-The Timestamp Authority MUST log the following information:
+The CA and each Delegated Third Party SHALL record details of the actions taken to process a certificate request and to issue a certificate, including all information generated and documentation received in connection with the certificate request; the time and date; and the personnel involved. The CA SHALL make these records available to its Qualified Auditor as proof of the CA’s compliance with these Requirements.
 
-1.  Physical or remote access to a timestamp server, including the time of the access and the identity of the individual accessing the server,
-2.  History of the timestamp server configuration,
-3.  Any attempt to delete or modify timestamp logs,
-4.  Security events, including:
-  a.  Successful and unsuccessful Timestamp Authority access attempts;
-  b.  Timestamp Authority actions performed;
-  c.  Security profile changes;
-  d.  System crashes, hardware failures, and other anomalies; and
-  e.  Firewall and router activities.
-5.  Revocation of a timestamp certificate,
-6.  Major changes to the timestamp server's time; and
-7.  System startup and shutdown
+The CA SHALL record at least the following events:
+
+   1.	CA certificate and key lifecycle management events, including:
+      a.	Key generation, backup, storage, recovery, archival, and destruction;
+      b.	Certificate requests, renewal, and re-key requests, and revocation;
+      c.	Approval and rejection of certificate requests ;
+      d.	Cryptographic device lifecycle management events;
+      e.	Generation of Certificate Revocation Lists and OCSP entries ;
+      f.	Introduction of new Certificate Profiles and retirement of existing Certificate Profiles
+   2.	CA and Subscriber lifecycle management events, including:
+      a.	Certificate requests, renewals, re-key requests, and revocation;
+      b.	All verification activities stipulated in these Requirements and the CA’s Certification Practice Statement (CPS);
+      c.	Acceptance and rejection of certificate requests;
+      d.	Issuance of Certificates; and
+      e.	Generation of Certificate Revocation Lists and OCSP entries.
+   3.	Security events, including:
+      a.	Successful and unsuccessful PKI system access attempts;
+      b.	PKI and security system actions performed;
+      c.	Security profile changes;
+      d.	System crashes, hardware failures, and other anomalies;
+      e.	Firewall and router activities; and
+      f.	Entries to and exits from the CA facility.
+
+Log entries MUST include the following elements:
+
+   1.	Date and time of entry;
+   2.	Identity of the person making the journal entry; and 
+   3.	Description of the entry.
+
+# 5.4.1.2  Types of events recorded for Timestamp Authorities
+
+The Timestamp Authority MUST log the following information and make these records available to its Qualified Auditor as proof of the Timestamp Authority’s compliance with these Requirements:
+
+   1.	Physical or remote access to a timestamp server, including the time of the access and the identity of the individual accessing the server,
+   2.	History of the timestamp server configuration,
+   3.	Any attempt to delete or modify timestamp logs,
+   4.	Security events, including:
+      a. Successful and unsuccessful Timestamp Authority access attempts;
+      b. Timestamp Authority server actions performed;
+      c. Security profile changes;
+      d. System crashes and other anomalies; and
+      e. Firewall and router activities;
+   5.	Revocation of a timestamp certificate,
+   6.	Major changes to the timestamp server's time, and
+   7.	System startup and shutdown.
 
 ### 5.4.2  Frequency of processing log
 
 ### 5.4.3  Retention period for audit log
 
-Data MUST be retained as specified in BR Section 5.4.3.
+The CA, Delegated Third Parties, and Timestamp Authority MUST retain, for at least two years:
+
+1.	CA certificate and key lifecycle management event records (as set forth in [Section 5.4.1.1](#5411-types-of-events-recorded-for-cas))(1) after the later occurrence of:
+   a.	the destruction of the CA Private Key; or
+   b.	the revocation or expiration of the final CA Certificate in that set of Certificates that have an X.509v3 basicConstraints extension with the cA field set to true and which share a common Public Key corresponding to the CA Private Key;
+2.	Subscriber Certificate lifecycle management event records (as set forth in [Section 5.4.1.2](#5412-types-of-events-recorded-for-timestamp-authorities))(2) after the revocation or expiration of the Subscriber Certificate;
+3.	Timestamp Authority data records (as set forth in [Section 5.4.1.2](#5412-types-of-events-recorded-for-timestamp-authorities)) after the revocation or renewal of the Timestamp Certificate private key (as set forth in [Section 6.3.2](#632-certificate-operational-periods-and-key-pair-usage-periods));
+4.	Any security event records (as set forth in [Section 5.4.1.1](#5412-types-of-events-recorded-for-timestamp-authorities)(3) and for Timestamp Authority security event records set forth in [Section 5.4.1.2](#5412-types-of-events-recorded-for-timestamp-authorities)(3)) after the event occurred
+
+**Note**: While these Requirements set the minimum retention period, the CA, Delegated Third Parties, and Timestamp Authority may choose a greater value as more appropriate in order to be able to investigate possible security or other types of incidents that will require retrospection and examination of past events. 
 
 ### 5.4.4  Protection of audit log
 
