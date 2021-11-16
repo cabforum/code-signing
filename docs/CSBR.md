@@ -994,11 +994,9 @@ This extension MUST be present and SHOULD NOT be marked critical.
 
 If the Subordinate CA will be used to issue Code Signing Certificates:
 * `id-kp-codeSigning` MUST be present.
-* `id-kp-timeStamping` MUST NOT be present.
 
 If the Subordinate CA will be used to issue Timestamp Certificates:
 * `id-kp-timeStamping` MUST be present.
-* `id-kp-codeSigning` MUST NOT be present.
 
 Other values MUST NOT be present unless the CA has a business agreement with a Platform vendor requiring that EKU in order to issue a Platform-specific code signing certificate with that EKU.
 
@@ -1441,7 +1439,9 @@ Signing Services MUST obtain the Subscriber's commitment to:
 
 For delegated tasks, the CA and any Delegated Third Party MAY allocate liability between themselves contractually as they determine, but the CA SHALL remain fully responsible for the performance of all parties in accordance with these Requirements, as if the tasks had not been delegated.
 
-CAs MAY limit their liability as described in Section 9.8 of the Baseline Requirements except for EV Code Signing Certificates, a CA MAY NOT limit its liability to Subscribers or Relying Parties for legally recognized and provable claims to a monetary amount less than two thousand US dollars per Subscriber or Relying Party per EV Code Signing Certificate.
+For EV Code Signing Certificates, CAs MAY limit their liability as described in Section 9.8 of the Baseline Requirements but MUST NOT limit its liability to Subscribers or Relying Parties for legally recognized and provable claims to a monetary amount less than two thousand US dollars per Subscriber or Relying Party per EV Code Signing Certificate.
+
+For Non-EV Code Signing Certificates, CAs MAY limit their liability as described in Section 9.8 of the Baseline Requirements.
 
 ## 9.9  Indemnities
 
