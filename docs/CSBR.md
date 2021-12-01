@@ -62,7 +62,7 @@ The following Certificate Policy Identifier is reserved for use by CAs as a requ
 
 ### 1.3.2  Registration authorities
 
-The CA MAY delegate the performance of all, or any part, of these Requirements to a Delegated Third Party, provided that the process as a whole fulfills all of the requirements of this document.
+Except as stated in [Section 8](#8-compliance-audit-and-other-assessments) (5), the CA MAY delegate the performance of all, or any part, of these Requirements to a Delegated Third Party, provided that the process as a whole fulfills all of the requirements of this document.
 
 Before the CA authorizes a Delegated Third Party to perform a delegated function, the CA MUST contractually require the Delegated Third Party to:
 
@@ -74,8 +74,6 @@ Before the CA authorizes a Delegated Third Party to perform a delegated function
 The CA MUST verify that the Signing Service and any other Delegated Third Party's personnel involved in the issuance of a Certificate meet the training and skills requirements of [Section 5.3](#53-personnel-controls) of this document and the document retention and event logging requirements of [Section 5.4](#54-audit-logging-procedures) of this document.
 
 If a Delegated Third Party fulfills any of the CA's obligations under [Section 4.2.1](#421-performing-identification-and-authentication-functions) of this document, the CA MUST verify that the process used by the Delegated Third Party to identify and further verify High Risk Certificate Requests provides at least the same level of assurance as the CA's own processes.
-
-In all cases, the CA MUST contractually obligate each Delegated Third Party to comply with all applicable requirements in these Requirements and to perform them as required of the CA itself. The CA MUST enforce these obligations and internally audit each Delegated Third Party's compliance with these Requirements on an annual basis.
 
 ### 1.3.3  Subscribers
 
@@ -994,11 +992,18 @@ This extension MUST be present and SHOULD NOT be marked critical.
 
 If the Subordinate CA will be used to issue Code Signing Certificates:
 * `id-kp-codeSigning` MUST be present.
+* `id-kp-timeStamping` MUST NOT be present.
 
 If the Subordinate CA will be used to issue Timestamp Certificates:
 * `id-kp-timeStamping` MUST be present.
+* `id-kp-codeSigning` MUST NOT be present.
 
-Other values MUST NOT be present unless the CA has a business agreement with a Platform vendor requiring that EKU in order to issue a Platform-specific code signing certificate with that EKU.
+Additionally, the following EKUs MUST NOT be present:
+* `anyExtendedKeyUsage`
+* `id-kp-serverAuth`
+* `id-kp-emailProtection`
+
+Other values SHOULD NOT be present. If any other value is present, the CA MUST have a business agreement with a Platform vendor requiring that EKU in order to issue a Platform-specific code signing certificate with that EKU.
 
 h. `authorityKeyIdentifier`
 
@@ -1047,11 +1052,18 @@ e. `keyUsage`
 
 f. `extKeyUsage`
 
-   If the Certificate is a Code Signing Certificate, then `id-kp-codeSigning` MUST be present and the Lifetime Signing OID (`1.3.6.1.4.1.311.10.3.13`) MAY be present.
+   If the Certificate is a Code Signing Certificate, then `id-kp-codeSigning` MUST be present and the following EKUs MAY be present:
+   * Lifetime Signing OID (`1.3.6.1.4.1.311.10.3.13`)
+   * `id-kp-emailProtection`
+   * Document Signing (`1.3.6.1.4.1.311.3.10.3.12`)
 
-   If the Certificate is a timestamp Certificate, then `id-kp-timeStamping` MUST be present and MUST be marked critical.
+   If the Certificate is a Timestamp Certificate, then `id-kp-timeStamping` MUST be present and MUST be marked critical.
 
-   Other values MUST NOT be present unless the CA has a business agreement with a Platform vendor requiring that EKU in order to issue a Platform-specific code signing certificate with that EKU.
+   Additionally, the following EKUs MUST NOT be present:
+   * `anyExtendedKeyUsage`
+   * `id-kp-serverAuth`
+
+   Other values SHOULD NOT be present. If any other value is present, the CA MUST have a business agreement with a Platform vendor requiring that EKU in order to issue a Platform-specific code signing certificate with that EKU.
 
 g. `authorityKeyIdentifier`
 
@@ -1283,6 +1295,7 @@ The CA and/or all Signing Services MUST, at all times:
 2.  Comply with these Requirements,
 3.  Comply with the audit requirements set forth in this section, and
 4.  If a CA, be licensed as a CA in each jurisdiction where it operates, if licensing is required by the law of such jurisdiction for the issuance of Certificates.
+5.  In all cases, the CA MUST contractually obligate each Delegated Third Party to comply with all applicable requirements in these Requirements and to perform them as required of the CA itself. The CA MUST enforce these obligations and internally audit each Delegated Third Party’s compliance with these Requirements on an annual basis. 
 
 ## 8.1  Frequency or circumstances of assessment
 
