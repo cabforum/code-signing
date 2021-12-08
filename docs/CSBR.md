@@ -44,6 +44,7 @@ The following Certificate Policy Identifier is reserved for use by CAs as a requ
 | 2.4 | CSC-9 | Spring 2021 Clean-up and Clarification | 8 September 2021 |
 | 2.5 | CSC-10 | WebTrust CSBR v2.0 Audit Criteria | 12 September 2021 |
 | 2.6 | CSC-11 | Update to log data retention requirements | 3 November 2021 |
+| 2.7 | CSC-12 | CRL Revocation Date Clarification | 3 December 2021 |
 
 ### 1.2.2 Relevant Dates
 
@@ -55,6 +56,7 @@ The following Certificate Policy Identifier is reserved for use by CAs as a requ
 | 2021-11-01 | 3.2.2.1 (5) | The method used to verify the identity of the Certificate Requester SHALL be per section 3.2.3.|
 | 2022-03-31 | 7.1.6.3 | Subordinate CA Certificates issued for Subordinate CA that issues Timestamp Certificates and is an Affiliate of the Issuing CA must include the reserved identifier specified in Section 7.1.6.1.|
 | 2022-04-30 | 7.1.3.2.1 | CAs SHALL NOT support SHA-1 digest algorithm for Timestamp tokens.|
+| 2022-07-01 | 7.2.2 | For Code Signing Certificates, the time encoded in the Invalidity Date CRL entry extension MUST be equal to the time encoded in the revocationDate field of the CRL entry. |
 
 ## 1.3  PKI participants
 
@@ -534,7 +536,9 @@ When revoking a Certificate, the CA SHOULD work with the Subscriber to estimate 
 
 ### 4.9.6  Revocation checking requirement for relying parties
 
- Certificate MAY have a one-to-one relationship or one-to-many relationship with the signed Code. Regardless, revocation of a Certificate may invalidate the Code Signatures on all signed Code, some of which could be perfectly sound. Because of this, the CA MAY specify a revocation date in a CRL or OCSP response to time-bind the set of software affected by the revocation, and software should continue to treat objects containing a timestamp dated before the revocation date as valid.
+ A Certificate MAY have a one-to-one relationship or one-to-many relationship with the signed Code. Regardless, revocation of a Certificate may invalidate the Code Signatures on all signed Code, some of which could be perfectly sound. Because of this, the CA MAY specify the time at which the Certificate is first considered to be invalid in the `revocationDate` field of a CRL entry or the `revocationTime` field of an OCSP response to time-bind the set of software affected by the revocation[^*], and software should continue to treat objects containing a timestamp dated before the revocation date as valid.
+
+[^*]: Backdating the `revocationDate` field is an exception to best practice described in RFC 5280 (section 5.3.2); however, these Requirements specify the use of the `revocationDate` field to convey the “invalidity date” to support Application Software Supplier software implementations that process the `revocationDate` field as the date when the Certificate is first considered to be invalid.
 
 ### 4.9.7 CRL issuance frequency
 
@@ -1277,11 +1281,17 @@ The CA MUST document in its Certificate Policy or Certification Practice Stateme
 
 The serial number of a revoked Certificate MUST remain on the CRL for at least 10 years after the expiration of the Certificate. Application Software Suppliers MAY require the CA to support a longer life-time in its contract with the CA. If a Code Signing Certificate contains the Lifetime Signing OID, the Code Signature becomes invalid when the Code Signing Certificate expires, even if the Code Signature is timestamped. Because the Lifetime Signing OID is intended to be used with test purposes only, a CA MAY cease maintaining revocation information for a Code Signing Certificate with the Lifetime Signing OID after the Code Signing Certificate expires.
 
+If a Code Signing Certificate previously has been revoked, and the CA later becomes aware of a more appropriate revocation date, then the CA MAY use that revocation date in subsequent CRL entries for that Code Signing Certificate.
+
 ### 7.2.1  Version number(s)
 
 ### 7.2.2  CRL and CRL entry extensions
 
+If a CRL has a `thisUpdate` field value of 2022-07-01 00:00:00 UTC or later and the CA includes the Invalidity Date CRL entry extension in a CRL entry for a Code Signing Certificate, then the time encoded in the Invalidity Date CRL extension SHALL be equal to the time encoded in the `revocationDate` field of the CRL entry.
+
 ## 7.3  OCSP profile
+
+If a Code Signing Certificate previously has been revoked, and the CA later becomes aware of a more appropriate revocation date, then the CA MAY use that revocation date in subsequent OCSP responses for that Code Signing Certificate.
 
 ### 7.3.1  Version number(s)
 
