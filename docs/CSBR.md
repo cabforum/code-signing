@@ -12,7 +12,7 @@ copyright: |
 
 # 1.  INTRODUCTION
 
-## 1.1  Overview
+## 1.1 Overview
 
 The Baseline Requirements for the Issuance and Management of Publicly-Trusted CodeSigning Certificates describe a subset of the requirements that a Certification Authority must meet to issue Code Signing Certificates. Except where specifically stated or in the event of conflict in which case these Requirements will prevail, this document incorporates by reference the Baseline Requirements for the Issuance and Management of Publicly-Trusted Certificates (“Baseline Requirements”), the Network and Certificate System Security Requirements and, in the case of EV Code Signing Certificates, the Guidelines For The Issuance And Management of Extended Validation Certificates as established by the CA/Browser Forum, copies of which are available on the CA/Browser Forum's website at https://www.cabforum.org. 
 
@@ -20,7 +20,7 @@ The scope of these Requirements includes all "Code Signing Certificates", as def
 
 The primary goal of these Requirements is to enable trusted signing of code intended for public distribution, while addressing user concerns about the trustworthiness of signed objects and accurately identifying the software publisher. The Requirements also serve to inform users about the purpose of signed code, help users make informed decisions when relying on Certificates, help establish the legitimacy of signed code, help maintain the trustworthiness of software Platforms, help users make informed software choices, and limit the spread of malware. Code Signing Certificates do not identify a particular software object, identifying only the publisher of software.
 
-## 1.2  Document name and identification
+## 1.2 Document name and identification
 
 The following Certificate Policy Identifier is reserved for use by CAs as a required means of asserting compliance with these Requirements for Non-EV Code Signing Certificates: 
 
@@ -60,11 +60,11 @@ The following Certificate Policy Identifier is reserved for use by CAs as a requ
 | 2022-04-30 | 7.1.3.2.1 | CAs SHALL NOT support SHA-1 digest algorithm for Timestamp tokens.|
 | 2022-07-01 | 7.2.2 | For Code Signing Certificates, the time encoded in the Invalidity Date CRL entry extension MUST be equal to the time encoded in the revocationDate field of the CRL entry. |
 
-## 1.3  PKI participants
+## 1.3 PKI participants
 
-### 1.3.1  Certification authorities
+### 1.3.1 Certification authorities
 
-### 1.3.2  Registration authorities
+### 1.3.2 Registration authorities
 
 Except as stated in [Section 8](#8-compliance-audit-and-other-assessments) (5), the CA MAY delegate the performance of all, or any part, of these Requirements to a Delegated Third Party, provided that the process as a whole fulfills all of the requirements of this document.
 
@@ -79,31 +79,31 @@ The CA MUST verify that the Signing Service and any other Delegated Third Party'
 
 If a Delegated Third Party fulfills any of the CA's obligations under [Section 4.2.1](#421-performing-identification-and-authentication-functions) of this document, the CA MUST verify that the process used by the Delegated Third Party to identify and further verify High Risk Certificate Requests provides at least the same level of assurance as the CA's own processes.
 
-### 1.3.3  Subscribers
+### 1.3.3 Subscribers
 
 ### 1.3.4 Relying parties
 
-### 1.3.5  Other participants
+### 1.3.5 Other participants
 
-## 1.4  Certificate usage
+## 1.4 Certificate usage
 
-### 1.4.1  Appropriate certificate uses
+### 1.4.1 Appropriate certificate uses
 
 The primary goal of these Requirements is to enable the secure distribution of signed Code, while addressing user concerns about the trustworthiness of Certificates. These Requirements also serve to inform users and help them to make informed decisions when relying on Certificates.
 
 ### 1.4.2 Prohibited certificate uses
 
-## 1.5  Policy administration
+## 1.5 Policy administration
 
-### 1.5.1  Organization administering the document
+### 1.5.1 Organization administering the document
 
-### 1.5.2  Contact person
+### 1.5.2 Contact person
 
-### 1.5.3  Person determining CPS suitability for the policy
+### 1.5.3 Person determining CPS suitability for the policy
 
-### 1.5.4  CPS approval procedures
+### 1.5.4 CPS approval procedures
 
-## 1.6  Definitions and acronyms
+## 1.6 Definitions and acronyms
 
 ### 1.6.1 Definitions
 
@@ -197,11 +197,11 @@ The key words \"MUST", "MUST NOT", \"REQUIRED\", \"SHALL\", \"SHALL NOT\", \"SHO
 
 # 2. PUBLICATION AND REPOSITORY RESPONSIBILITIES
 
-## 2.1  Repositories
+## 2.1 Repositories
 
 The CA SHALL maintain an online 24x7 Repository that application software can use to automatically check the current status of Code Signing and Timestamp Certificates issued by the CA.
 
-## 2.2  Publication of certification information
+## 2.2 Publication of certification information
 
 The CA and its Root CA MUST develop, implement, enforce, display prominently on its Web site, and periodically update its policies and practices, including its Certificate Policy and/or Certification Practice Statement, that implement the most current version of these Requirements. The Certificate Policy and/or Certification Practice Statement MUST specify the CA's (and applicable Root CA's) entire root certificate hierarchy including all roots that its Code Signing Certificates depend on for proof of those Code Signing Certificates' authenticity.
 
@@ -215,33 +215,33 @@ Each CA MUST give public effect to these Requirements and represent that they wi
 
 In either case, each CA MUST include a link to the official version of these Requirements. In addition, each CA MUST include (directly or by reference) applicable parts of these Requirements in all contracts with Subordinate CAs, RAs, Signing Services and subcontractors, that involve or relate to the issuance or management of Certificates. CAs MUST enforce compliance with such terms.
 
-## 2.3  Time or frequency of publication
+## 2.3 Time or frequency of publication
 
-## 2.4  Access controls on repositories
+## 2.4 Access controls on repositories
 
 # 3. IDENTIFICATION AND AUTHENTICATION
 
-## 3.1  Naming
+## 3.1 Naming
 
-### 3.1.1  Types of names
+### 3.1.1 Types of names
 
-### 3.1.2  Need for names to be meaningful
+### 3.1.2 Need for names to be meaningful
 
-### 3.1.3  Anonymity or pseudonymity of subscribers
+### 3.1.3 Anonymity or pseudonymity of subscribers
 
-### 3.1.4  Rules for interpreting various name forms
+### 3.1.4 Rules for interpreting various name forms
 
-### 3.1.5  Uniqueness of names
+### 3.1.5 Uniqueness of names
 
-### 3.1.6  Recognition, authentication, and role of trademarks
+### 3.1.6 Recognition, authentication, and role of trademarks
 
-## 3.2  Initial identity validation
+## 3.2 Initial identity validation
 
-### 3.2.1  Method to prove possession of private key
+### 3.2.1 Method to prove possession of private key
 
-### 3.2.2  Authentication of organization identity
+### 3.2.2 Authentication of organization identity
 
-#### 3.2.2.1  Authentication of organization identity for Non-EV Code Signing Certificates
+#### 3.2.2.1 Authentication of organization identity for Non-EV Code Signing Certificates
 
 Prior to issuing a Code Signing Certificate to an Organizational Applicant, the CA MUST:
 
@@ -250,7 +250,7 @@ Prior to issuing a Code Signing Certificate to an Organizational Applicant, the 
 4.  Verify the Certificate Requester's authority to request a Code Signing Certificate and the authenticity of the Certificate Request using a Reliable Method of Communication in accordance with BR Section 3.2.5., and
 5.  If the Subject's or Subject's Affiliate's, Parent Company's, or Subsidiary Company's date of formation, as indicated by either a QIIS or QGIS, was less than three years prior to the date of the Certificate Request, verify the identity of the Certificate Requester. Effective 1 November 2021, the method used to verify the identity of the Certificate Requester SHALL be per [Section 3.2.3.1](#3231-individual-identity-verification).
 
-#### 3.2.2.2  Authentication of organization identity for EV Code Signing Certificates
+#### 3.2.2.2 Authentication of organization identity for EV Code Signing Certificates
 
 Before issuing a EV Code Signing Certificate, the CA MUST ensure that all Subject organization information to be included in the EV Code Signing Certificate conforms to the requirements of, and is verified in accordance with the EV Guidelines and matches the information confirmed and documented by the CA pursuant to its verification processes. Such verification processes are intended to accomplish the following:
 
@@ -267,62 +267,62 @@ As a general rule, the CA is responsible for taking all verification steps reaso
 
 Roles are specified in EV Guidelines Section 10.1.2.
 
-##### 3.2.2.2.1  Verification of Applicant's Legal Existence and Identity 
+##### 3.2.2.2.1 Verification of Applicant's Legal Existence and Identity 
 
 As specified in EV Guidelines Section 11.2.
 
-##### 3.2.2.2.2  Verification of Applicant's Legal Existence and Identity -- Assumed Name 
+##### 3.2.2.2.2 Verification of Applicant's Legal Existence and Identity -- Assumed Name 
 
 As specified in EV Guidelines Section 11.3.
 
-##### 3.2.2.2.3  Verification of Applicant's Physical Existence
+##### 3.2.2.2.3 Verification of Applicant's Physical Existence
 
 As specified in EV Guidelines Section 11.4.
 
-##### 3.2.2.2.4  Verified Method of Communication
+##### 3.2.2.2.4 Verified Method of Communication
 
 As specified in EV Guidelines Section 11.5.
 
-##### 3.2.2.2.5  Verification of Applicant's Operational Existence
+##### 3.2.2.2.5 Verification of Applicant's Operational Existence
 
 As specified in EV Guidelines Section 11.6.
 
-##### 3.2.2.2.6  Verification of Applicant's Domain Name 
+##### 3.2.2.2.6 Verification of Applicant's Domain Name 
 
 Code Signing Certificates SHALL NOT include a Domain Name.
 
-##### 3.2.2.2.7  Verification of Name, Title, and Authority of Contract Signer and Certificate Approver 
+##### 3.2.2.2.7 Verification of Name, Title, and Authority of Contract Signer and Certificate Approver 
 
 As specified in EV Guidelines Section 11.8.
 
-##### 3.2.2.2.8  Verification of Signature on Subscriber Agreement and EV Code Signing Certificate Requests
+##### 3.2.2.2.8 Verification of Signature on Subscriber Agreement and EV Code Signing Certificate Requests
 
 As specified in EV Guidelines Section 11.9.
 
-##### 3.2.2.2.9  Verification of Approval of EV Code Signing Certificate Request 
+##### 3.2.2.2.9 Verification of Approval of EV Code Signing Certificate Request 
 
 As specified in EV Guidelines Section 11.10.
 
-##### 3.2.2.2.10  Verification of Certain Information Sources 
+##### 3.2.2.2.10 Verification of Certain Information Sources 
 
 As specified in EV Guidelines Section 11.11.
 
-##### 3.2.2.2.11  Parent/Subsidiary/Affiliate Relationship
+##### 3.2.2.2.11 Parent/Subsidiary/Affiliate Relationship
 
 As specified in EV Guidelines Section 11.12.3.
 
-### 3.2.3  Authentication of individual identity
+### 3.2.3 Authentication of individual identity
 
 Prior to issuing a Code Signing Certificate to an Individual Applicant, the CA MUST verify the Subject's Identity and authenticity of the Identity as follows.
 
-### 3.2.3.1  Individual identity verification
+### 3.2.3.1 Individual identity verification
 
 The CA MUST verify the Applicant's identity using one of the following processes:
 
 1.  The CA MUST obtain a legible copy, which discernibly shows the Requester's face, of at least one currently valid government-issued photo ID (passport, driver's license, military ID, national ID, or equivalent document type). The CA MUST inspect the copy for any indication of alteration or falsification. The CA MUST also verify the address of the Requester using (i) a government-issued photo ID, (ii) a QIIS or QGIS, or (iii) an access code to activate the Certificate where the access code was physically mailed to the Requester; OR
 2.  The CA MUST have the Requester digitally sign the Certificate Request using a valid personal Certificate that was issued under one of the following adopted standards: Qualified Certificates issued pursuant to ETSI TS 101 862, IGTF, Adobe Signing Certificate issued under the AATL or CDS program, the Kantara identity assurance framework at level 2, NIST SP 800-63 at level 2, or the FBCA CP at Basic or higher assurance.
 
-### 3.2.3.2  Authenticity of Certificate requests for Individual Applicants
+### 3.2.3.2 Authenticity of Certificate requests for Individual Applicants
 
 The CA MUST verify the authenticity of the Certificate Request using one of the following:
 
@@ -331,37 +331,37 @@ The CA MUST verify the authenticity of the Certificate Request using one of the 
 3.  Having the CA obtain an executed Declaration of Identity of the Requester that includes at least one unique biometric identifier (such as a fingerprint or handwritten signature). The CA MUST confirm the document's authenticity directly with the Verifying Person using contact information confirmed with a QIIS or QGIS; OR
 4.  Verifying that the digital signature used to sign the Request under item (2) of [Section 3.2.3.1](#3231-individual-identity-verification) is a valid signature and originated from a Certificate issued at the appropriate level of assurance as evidenced by the certificate chain. Acceptable verification under this section includes validation that the Certificate was issued by a CA qualified by the entity responsible for adopting, enforcing, or maintaining the adopted standard and chains to an intermediate certificate or root certificate designated as complying with such standard.
 
-### 3.2.4  Non-verified subscriber information
+### 3.2.4 Non-verified subscriber information
 
 ### 3.2.5 Validation of authority
 
-### 3.2.6  Criteria for interoperation
+### 3.2.6 Criteria for interoperation
 
 The CA SHOULD issue Code Signing and Timestamp Certificates that allow Application Software Suppliers to test their software with Certificates that chain up to each publicly trusted Root Certificate. At a minimum, the CA SHOULD issue and make available to Application Software Suppliers upon request Code Signing and Timestamp Certificates that are valid (non-revoked and unexpired).
 
-### 3.2.7  Data source accuracy
+### 3.2.7 Data source accuracy
 
 As specified in BR Section 3.2.2.7.
 
-## 3.3  Identification and authentication for re-key requests
+## 3.3 Identification and authentication for re-key requests
 
-### 3.3.1  Identification and authentication for routine re-key
+### 3.3.1 Identification and authentication for routine re-key
 
-### 3.3.2  Identification and authentication for re-key after revocation
+### 3.3.2 Identification and authentication for re-key after revocation
 
 ## 3.4 Identification and authentication for revocation request
 
 # 4.  CERTIFICATE LIFE-CYCLE OPERATIONAL REQUIREMENTS
 
-## 4.1  Certificate Application
+## 4.1 Certificate Application
 
-### 4.1.1  Who can submit a certificate application
+### 4.1.1 Who can submit a certificate application
 
 For Non-EV Code Signing Certificates, the CA SHALL implement procedures to identify suspicious certificate requests as defined in BR Section 4.1.1.
 
 For EV Code Signing Certificates, the CA MAY only issue to Applicants that meet the requirements specified in Section 8.5 of the EV Guidelines. The CA SHALL implement procedures to identify suspicious certificate requests as defined in EV Guidelines Section 11.12.2.
 
-### 4.1.2  Enrollment process and responsibilities
+### 4.1.2 Enrollment process and responsibilities
 
 Prior to the issuance of a Certificate, the CA MUST obtain from the Applicant a request for a certificate in a form prescribed by the CA and that complies with these Requirements. One request MAY suffice for multiple Certificates to be issued to the same Applicant, subject to the aging and updating requirement in [Section 4.2.1](#421-performing-identification-and-authentication-functions), provided that each Certificate is supported by a valid, current request signed by the appropriate Applicant Representative on behalf of the Applicant. The request MAY be made, submitted and/or signed electronically.
 
@@ -401,85 +401,85 @@ Documentation of a Takeover Attack MAY include a police report (validated by the
 
 Except where issuance is expressly authorized by the Application Software Supplier, CAs MUST not issue new Code Signing Certificates to an entity where the CA is aware that the entity has been the victim of two Takeover Attacks or where the CA is aware that entity breached a requirement under this Section to protect Private Keys under [Section 6.2.7.4](#6274-private-key-storage-for-subscribers).
 
-### 4.2.3  Time to process certificate applications
+### 4.2.3 Time to process certificate applications
 
-## 4.3  Certificate issuance
+## 4.3 Certificate issuance
 
-### 4.3.1  CA actions during certificate issuance
+### 4.3.1 CA actions during certificate issuance
 
 Certificate issuance by the Root CA MUST require an individual authorized by the CA (i.e. the CA system operator, system officer, or PKI administrator) to deliberately issue a direct command in order for the Root CA to perform a certificate signing operation.
 
-### 4.3.2  Notification to subscriber by the CA of issuance of certificate
+### 4.3.2 Notification to subscriber by the CA of issuance of certificate
 
-## 4.4  Certificate acceptance
+## 4.4 Certificate acceptance
 
-### 4.4.1  Conduct constituting certificate acceptance
+### 4.4.1 Conduct constituting certificate acceptance
 
-### 4.4.2  Publication of the certificate by the CA
+### 4.4.2 Publication of the certificate by the CA
 
-### 4.4.3  Notification of certificate issuance by the CA to other entities
+### 4.4.3 Notification of certificate issuance by the CA to other entities
 
 ## 4.5 Key pair and certificate usage
 
-### 4.5.1  Subscriber private key and certificate usage
+### 4.5.1 Subscriber private key and certificate usage
 
-### 4.5.2  Relying party public key and certificate usage
+### 4.5.2 Relying party public key and certificate usage
 
-## 4.6  Certificate renewal
+## 4.6 Certificate renewal
 
-### 4.6.1  Circumstance for certificate renewal
+### 4.6.1 Circumstance for certificate renewal
 
-### 4.6.2  Who may request renewal
+### 4.6.2 Who may request renewal
 
-### 4.6.3  Processing certificate renewal requests
+### 4.6.3 Processing certificate renewal requests
 
-### 4.6.4  Notification of new certificate issuance to subscriber
+### 4.6.4 Notification of new certificate issuance to subscriber
 
-### 4.6.5  Conduct constituting acceptance of a renewal certificate
+### 4.6.5 Conduct constituting acceptance of a renewal certificate
 
-### 4.6.6  Publication of the renewal certificate by the CA
+### 4.6.6 Publication of the renewal certificate by the CA
 
-### 4.6.7  Notification of certificate issuance by the CA to other entities
+### 4.6.7 Notification of certificate issuance by the CA to other entities
 
-## 4.7  Certificate re-key
+## 4.7 Certificate re-key
 
-### 4.7.1  Circumstance for certificate re-key
+### 4.7.1 Circumstance for certificate re-key
 
-### 4.7.2  Who may request certification of a new public key
+### 4.7.2 Who may request certification of a new public key
 
-### 4.7.3  Processing certificate re-keying requests
+### 4.7.3 Processing certificate re-keying requests
 
-### 4.7.4  Notification of new certificate issuance to subscriber
+### 4.7.4 Notification of new certificate issuance to subscriber
 
-### 4.7.5  Conduct constituting acceptance of a re-keyed certificate
+### 4.7.5 Conduct constituting acceptance of a re-keyed certificate
 
-### 4.7.6  Publication of the re-keyed certificate by the CA
+### 4.7.6 Publication of the re-keyed certificate by the CA
 
-### 4.7.7  Notification of certificate issuance by the CA to other entities
+### 4.7.7 Notification of certificate issuance by the CA to other entities
 
-## 4.8  Certificate modification
+## 4.8 Certificate modification
 
-### 4.8.1  Circumstance for certificate modification
+### 4.8.1 Circumstance for certificate modification
 
-### 4.8.2  Who may request certificate modification
+### 4.8.2 Who may request certificate modification
 
-### 4.8.3  Processing certificate modification requests
+### 4.8.3 Processing certificate modification requests
 
-### 4.8.4  Notification of new certificate issuance to subscriber
+### 4.8.4 Notification of new certificate issuance to subscriber
 
-### 4.8.5  Conduct constituting acceptance of modified certificate
+### 4.8.5 Conduct constituting acceptance of modified certificate
 
-### 4.8.6  Publication of the modified certificate by the CA
+### 4.8.6 Publication of the modified certificate by the CA
 
-### 4.8.7  Notification of certificate issuance by the CA to other entities
+### 4.8.7 Notification of certificate issuance by the CA to other entities
 
-## 4.9  Certificate revocation and suspension
+## 4.9 Certificate revocation and suspension
 
-### 4.9.1  Circumstances for revocation
+### 4.9.1 Circumstances for revocation
 
 A CA MUST revoke a Code Signing Certificate in any of the four circumstances: (1) the Application Software Supplier requests revocation, (2) the subscriber requests revocation, (3) a third party provides information that leads the CA to believe that the certificate is compromised or is being used for Suspect Code, or (4) the CA otherwise decides that the certificate should be revoked. This section describes the CA's obligations for each scenario.
 
-#### 4.9.1.1  Revocation Based on an Application Software Supplier's Request
+#### 4.9.1.1 Revocation Based on an Application Software Supplier's Request
 
 If the Application Software Supplier requests the CA revoke because the Application Software Supplier believes that a Certificate attribute is deceptive, or that the Certificate is being used for malware, bundle ware, unwanted software, or some other illicit purpose, then the Application Software Supplier may request that the CA revoke the certificate.
 
@@ -489,11 +489,11 @@ If the CA decides to conduct an investigation, it MUST inform the Application So
 
 If the CA decides that the revocation will have an unreasonable impact on its customer, then the CA MUST propose an alternative course of action to the Application Software Supplier based on its investigation.
 
-#### 4.9.1.2  Revocation Based on the Subscriber's Request
+#### 4.9.1.2 Revocation Based on the Subscriber's Request
 
 The CA MUST revoke a Code Signing Certificate within one (1) business day if the Subscriber requests in writing that the CA revoke the Certificate or notifies the CA that the original certificate request was not authorized and does not retroactively grant authorization.
 
-#### 4.9.1.3  Revocation Based on Reported or Detected Compromise or Use in Malware
+#### 4.9.1.3 Revocation Based on Reported or Detected Compromise or Use in Malware
 
 For all incidents involving malware, CAs SHALL revoke the Code Signing Certificate in accordance with and within the following maximum timeframes. Nothing herein prohibits a CA from revoking a Code Signing Certificate prior to these timeframes.
 
@@ -507,21 +507,21 @@ For all incidents involving malware, CAs SHALL revoke the Code Signing Certifica
 
 A CA revoking a Certificate because the Certificate was associated with signed Suspect Code or other fraudulent or illegal conduct SHOULD provide all relevant information and risk indicators to other CAs or industry groups. The CA SHOULD indicate whether its investigation found that the Suspect Code was a false positive or an inadvertent signing.
 
-#### 4.9.1.4  Revocation of a Subordinate CA Certificate
+#### 4.9.1.4 Revocation of a Subordinate CA Certificate
 
 As specified in BR Section 4.9.1.2.
 
-### 4.9.2  Who can request revocation
+### 4.9.2 Who can request revocation
 
 The CA MUST provide Anti-Malware Organizations, Subscribers, Relying Parties, Application Software Suppliers, and other third parties with clear instructions on how they can report suspected private key compromise, Certificate misuse, Certificates used to sign Suspect Code, Takeover Attacks, or other types of possible fraud, compromise, misuse, inappropriate conduct, or any other matter related to Certificates. The CA MUST publicly disclose the instructions on its website.
 
-### 4.9.3  Procedure for revocation request
+### 4.9.3 Procedure for revocation request
 
 As specified in BR Section 4.9.3.
 
-### 4.9.4  Revocation request grace period
+### 4.9.4 Revocation request grace period
 
-### 4.9.5  Time within which CA must process the revocation request
+### 4.9.5 Time within which CA must process the revocation request
 
 The CA MUST maintain a continuous 24x7 ability to communicate with Anti-Malware Organizations, Application Software Suppliers, and law enforcement agencies and respond to high-priority Certificate Problem Reports, such as reports requesting revocation of Certificates used to sign malicious code, fraud, or other illegal conduct.
 
@@ -536,7 +536,7 @@ The CA MUST begin investigating Certificate Problem Reports within twenty-four h
 
 When revoking a Certificate, the CA SHOULD work with the Subscriber to estimate a date of when the revocation should occur in order to mitigate the impact of revocation on validly signed Code. For key compromise events, this date SHOULD be the earliest date of suspected compromise.
 
-### 4.9.6  Revocation checking requirement for relying parties
+### 4.9.6 Revocation checking requirement for relying parties
 
  A Certificate MAY have a one-to-one relationship or one-to-many relationship with the signed Code. Regardless, revocation of a Certificate may invalidate the Code Signatures on all signed Code, some of which could be perfectly sound. Because of this, the CA MAY specify the time at which the Certificate is first considered to be invalid in the `revocationDate` field of a CRL entry or the `revocationTime` field of an OCSP response to time-bind the set of software affected by the revocation[^*], and software should continue to treat objects containing a timestamp dated before the revocation date as valid.
 
@@ -586,7 +586,7 @@ Because some Application Software Suppliers utilize non-standard revocation mech
 
 ### 4.9.16 Limits on suspension period
 
-## 4.10  Certificate status services
+## 4.10 Certificate status services
 
 ### 4.10.1 Operational characteristics
 
@@ -594,9 +594,9 @@ Because some Application Software Suppliers utilize non-standard revocation mech
 
 ### 4.10.3 Optional features
 
-## 4.11  End of subscription
+## 4.11 End of subscription
 
-## 4.12  Key escrow and recovery
+## 4.12 Key escrow and recovery
 
 ### 4.12.1 Key escrow and recovery policy and practices
 
@@ -604,57 +604,57 @@ Because some Application Software Suppliers utilize non-standard revocation mech
 
 # 5. FACILITY, MANAGEMENT, AND OPERATIONAL CONTROLS
 
-## 5.1  Physical controls
+## 5.1 Physical controls
 
-### 5.1.2  Physical access
+### 5.1.2 Physical access
 
-### 5.1.3  Power and air conditioning
+### 5.1.3 Power and air conditioning
 
-### 5.1.4  Water exposures
+### 5.1.4 Water exposures
 
-### 5.1.5  Fire prevention and protection
+### 5.1.5 Fire prevention and protection
 
-### 5.1.6  Media storage
+### 5.1.6 Media storage
 
-### 5.1.7  Waste disposal
+### 5.1.7 Waste disposal
 
-### 5.1.8  Off-site backup
+### 5.1.8 Off-site backup
 
-## 5.2  Procedural controls
+## 5.2 Procedural controls
 
-### 5.2.1  Trusted roles
+### 5.2.1 Trusted roles
 
-### 5.2.2  Number of persons required per task
+### 5.2.2 Number of persons required per task
 
-### 5.2.3  Identification and authentication for each role
+### 5.2.3 Identification and authentication for each role
 
-### 5.2.4  Roles requiring separation of duties
+### 5.2.4 Roles requiring separation of duties
 
-## 5.3  Personnel controls
+## 5.3 Personnel controls
 
 As specified in EV Guidelines Section 14.1.
 
-### 5.3.1  Qualifications, experience, and clearance requirements
+### 5.3.1 Qualifications, experience, and clearance requirements
 
-### 5.3.2  Background check procedures
+### 5.3.2 Background check procedures
 
-### 5.3.3  Training requirements
+### 5.3.3 Training requirements
 
-### 5.3.4  Retraining frequency and requirements
+### 5.3.4 Retraining frequency and requirements
 
-### 5.3.5  Job rotation frequency and sequence
+### 5.3.5 Job rotation frequency and sequence
 
-### 5.3.6  Sanctions for unauthorized actions
+### 5.3.6 Sanctions for unauthorized actions
 
-### 5.3.7  Independent contractor requirements
+### 5.3.7 Independent contractor requirements
 
-### 5.3.8  Documentation supplied to personnel
+### 5.3.8 Documentation supplied to personnel
 
-## 5.4  Audit logging procedures
+## 5.4 Audit logging procedures
 
-### 5.4.1  Types of events recorded
+### 5.4.1 Types of events recorded
 
-#### 5.4.1.1  Types of events recorded for CAs
+#### 5.4.1.1 Types of events recorded for CAs
 
 The CA and each Delegated Third Party SHALL record details of the actions taken to process a certificate request and to issue a certificate, including all information generated and documentation received in connection with the certificate request; the time and date; and the personnel involved. The CA SHALL make these records available to its Qualified Auditor as proof of the CA’s compliance with these Requirements.
 
@@ -687,7 +687,7 @@ Log entries MUST include the following elements:
    2.	Identity of the person making the journal entry; and 
    3.	Description of the entry.
 
-# 5.4.1.2  Types of events recorded for Timestamp Authorities
+# 5.4.1.2 Types of events recorded for Timestamp Authorities
 
 The Timestamp Authority MUST log the following information and make these records available to its Qualified Auditor as proof of the Timestamp Authority’s compliance with these Requirements:
 
@@ -704,9 +704,9 @@ The Timestamp Authority MUST log the following information and make these record
    6.	Major changes to the timestamp server's time, and
    7.	System startup and shutdown.
 
-### 5.4.2  Frequency of processing log
+### 5.4.2 Frequency of processing log
 
-### 5.4.3  Retention period for audit log
+### 5.4.3 Retention period for audit log
 
 The CA, Delegated Third Parties, and Timestamp Authority MUST retain, for at least two years:
 
@@ -719,75 +719,75 @@ The CA, Delegated Third Parties, and Timestamp Authority MUST retain, for at lea
 
 **Note**: While these Requirements set the minimum retention period, the CA, Delegated Third Parties, and Timestamp Authority may choose a greater value as more appropriate in order to be able to investigate possible security or other types of incidents that will require retrospection and examination of past events. 
 
-### 5.4.4  Protection of audit log
+### 5.4.4 Protection of audit log
 
-### 5.4.5  Audit log backup procedures
+### 5.4.5 Audit log backup procedures
 
-### 5.4.6  Audit collection system (internal vs. external)
+### 5.4.6 Audit collection system (internal vs. external)
 
-### 5.4.7  Notification to event-causing subject
+### 5.4.7 Notification to event-causing subject
 
-### 5.4.8  Vulnerability assessments
+### 5.4.8 Vulnerability assessments
 
-## 5.5  Records archival
+## 5.5 Records archival
 
-### 5.5.1  Types of records archived
+### 5.5.1 Types of records archived
 
-### 5.5.2  Retention period for archive
+### 5.5.2 Retention period for archive
 
-### 5.5.3  Protection of archive
+### 5.5.3 Protection of archive
 
-### 5.5.4  Archive backup procedures
+### 5.5.4 Archive backup procedures
 
-### 5.5.5  Requirements for time-stamping of records
+### 5.5.5 Requirements for time-stamping of records
 
-### 5.5.6  Archive collection system (internal or external)
+### 5.5.6 Archive collection system (internal or external)
 
-### 5.5.7  Procedures to obtain and verify archive information
+### 5.5.7 Procedures to obtain and verify archive information
 
-## 5.6  Key changeover
+## 5.6 Key changeover
 
-## 5.7  Compromise and disaster recovery
+## 5.7 Compromise and disaster recovery
 
-### 5.7.1  Incident and compromise handling procedures
+### 5.7.1 Incident and compromise handling procedures
 
-### 5.7.2  Computing resources, software, and/or data are corrupted
+### 5.7.2 Computing resources, software, and/or data are corrupted
 
-### 5.7.3  Entity private key compromise procedures
+### 5.7.3 Entity private key compromise procedures
 
-### 5.7.4  Business continuity capabilities after a disaster
+### 5.7.4 Business continuity capabilities after a disaster
 
-## 5.8  CA or RA termination
+## 5.8 CA or RA termination
 
 If the CA wishes to stop supporting validation of Code Signing Certificates or Timestamp Certificates prior to the date specified in its Certificate Policy/Certificate Practice Statement, the CA MUST give 90 days' prior notice to all Application Software Suppliers relying on the root certificate and permit the Application Software Suppliers sufficient time to take appropriate action as determined by the Application Software Supplier.
 
 # 6.  TECHNICAL SECURITY CONTROLS
 
-## 6.1  Key pair generation and installation
+## 6.1 Key pair generation and installation
 
-### 6.1.1  Key pair generation
+### 6.1.1 Key pair generation
 
-#### 6.1.1.1  CA Key Pair Generation
+#### 6.1.1.1 CA Key Pair Generation
 
 As specified in BR Section 6.1.1.1.
 
-#### 6.1.1.2  RA Key Pair Generation
+#### 6.1.1.2 RA Key Pair Generation
 
-#### 6.1.1.3  Subscriber Key Pair Generation
+#### 6.1.1.3 Subscriber Key Pair Generation
 
 The CA SHALL reject a certificate request if the requested Public Key does not meet the requirements set forth in Sections [6.1.5](#615-key-sizes) and BR Section 6.1.6, or if it has a known weak Private Key (such as a Debian weak key, see <http://wiki.debian.org/SSLkeys>).
 
-### 6.1.2  Private key delivery to subscriber
+### 6.1.2 Private key delivery to subscriber
 
 If the CA or any Delegated Third Party is generating the Private Key on behalf of the Subscriber where the Private Keys will be transported to the Subscriber outside of the Signing Service's secure infrastructure, then the entity generating the Private Key MUST either transport the Private Key in hardware with an activation method that is equivalent to 128 bits of encryption or encrypt the Private Key with at least 128 bits of encryption strength. Allowed methods include using a 128-bit AES key to wrap the private key or storing the key in a PKCS 12 file encrypted with a randomly generated password of more than 16 characters containing uppercase letters, lowercase letters, numbers, and symbols for transport.
 
-### 6.1.3  Public key delivery to certificate issuer
+### 6.1.3 Public key delivery to certificate issuer
 
-### 6.1.4  CA public key delivery to relying parties
+### 6.1.4 CA public key delivery to relying parties
 
-### 6.1.5  Key sizes
+### 6.1.5 Key sizes
 
-#### 6.1.5.1  Root and Subordinate CA key sizes
+#### 6.1.5.1 Root and Subordinate CA key sizes
 
 For Keys corresponding to Root and Subordinate CAs:
 
@@ -799,7 +799,7 @@ For Keys corresponding to Root and Subordinate CAs:
 
 [^legacy_key_length]: CAs MAY sign Cross-Certificates with Root CA RSA Private Keys whose modulus length is less than 4096 bits, provided that the Cross-Certificate is issued to a Root CA whose Public Key adheres to the key size requirements of this section. 
 
-#### 6.1.5.2  Code signing Certificate and Timestamp Authority key sizes
+#### 6.1.5.2 Code signing Certificate and Timestamp Authority key sizes
 
 For Keys corresponding to Subscriber code signing and Timestamp Authority Certificates:
 
@@ -809,9 +809,9 @@ For Keys corresponding to Subscriber code signing and Timestamp Authority Certif
   * Key length (`L`) of 2048 bits and modulus length (`N`) of 224 bits
   * Key length (`L`) of 2048 bits and modulus length (`N`) of 256 bits
 
-### 6.1.6  Public key parameters generation and quality checking
+### 6.1.6 Public key parameters generation and quality checking
 
-### 6.1.7  Key usage purposes
+### 6.1.7 Key usage purposes
 
 Private Keys corresponding to Root Certificates MUST NOT be used to sign Certificates or create other Signatures except in the following cases:
 
@@ -821,33 +821,33 @@ Private Keys corresponding to Root Certificates MUST NOT be used to sign Certifi
 4.  Certificates for OCSP Response verification; and
 5.  Signatures for OCSP Responses.
 
-## 6.2  Private Key Protection and Cryptographic Module Engineering Controls
+## 6.2 Private Key Protection and Cryptographic Module Engineering Controls
 
-### 6.2.1  Cryptographic module standards and controls
+### 6.2.1 Cryptographic module standards and controls
 
-### 6.2.2  Private key (n out of m) multi-person control
+### 6.2.2 Private key (n out of m) multi-person control
 
-### 6.2.3  Private key escrow
+### 6.2.3 Private key escrow
 
-### 6.2.4  Private key backup
+### 6.2.4 Private key backup
 
-### 6.2.5  Private key archival
+### 6.2.5 Private key archival
 
-### 6.2.6  Private key transfer into or from a cryptographic module
+### 6.2.6 Private key transfer into or from a cryptographic module
 
 For Certificates transported outside of a Signing Service's secure infrastructure, the CA or Signing Service MUST require, by contract, each Subscriber to generate their own Private Key and protect the Private Key in accordance with [Section 6.2.7.4](#6274-private-key-storage-for-subscribers).
 
-### 6.2.7  Private key storage on cryptographic module
+### 6.2.7 Private key storage on cryptographic module
 
-#### 6.2.7.1  Private key storage for CA keys
+#### 6.2.7.1 Private key storage for CA keys
 
 Private Keys corresponding to CA Keys MUST be stored in accordance with BR Section 6.2.7.
 
-#### 6.2.7.2  Private key storage for Timestamp Authorities
+#### 6.2.7.2 Private key storage for Timestamp Authorities
 
 A Timestamp Authority MUST protect its signing key using a process that is at least to FIPS 140-2 Level 3, Common Criteria EAL 4+ (ALC\_FLR.2), or higher. The CA MUST protect its signing operations in accordance with the CA/Browser Forum's Network Security Guidelines.
 
-#### 6.2.7.3  Private key storage for Signing Services
+#### 6.2.7.3 Private key storage for Signing Services
 
 The Signing Service MUST ensure that a Subscriber's private key is generated, stored, and used in a secure environment that has controls to prevent theft or misuse. A Signing Service MUST enforce multi-factor authentication to access and authorize Code Signing and obtain a representation from the Subscriber that they will securely store the tokens required for multi-factor access. A system used to host a Signing Service MUST NOT be used for web browsing. The Signing Service MUST run a regularly updated antivirus solution to scan the service for possible virus infection. The Signing Service MUST comply with the Network Security Guidelines as a "Delegated Third Party".
 
@@ -859,7 +859,7 @@ Techniques that MAY be used to satisfy this requirement include:
 2.  A hardware crypto module provided by the CA;
 3.  Contractual terms in the subscriber agreement requiring the Subscriber to protect the private key to a standard equivalent to FIPS 140-2 level 2 or Common Criteria EAL 4+ and with compliance being confirmed by means of an audit.
 
-#### 6.2.7.4  Private key storage for Subscribers
+#### 6.2.7.4 Private key storage for Subscribers
 
 The requirements in BR Section 6.2 apply equally to Code Signing Certificates.
 
@@ -876,19 +876,19 @@ For EV Code Signing Certificates, CAs SHALL ensure that the Subscriber's private
 5.  The Subscriber counter-signs certificate requests that can be verified by using a manufacturer's certificate indicating that the key is managed in a suitable hardware module;
 6.  The Subscriber provides a suitable IT audit indicating that its operating environment achieves a level of security at least equivalent to that of FIPS 140-2 level 2.
 
-### 6.2.8  Method of activating private key
+### 6.2.8 Method of activating private key
 
-### 6.2.9  Method of deactivating private key
+### 6.2.9 Method of deactivating private key
 
 ### 6.2.10 Method of destroying private key
 
 ### 6.2.11 Cryptographic Module Rating
 
-## 6.3  Other aspects of key pair management
+## 6.3 Other aspects of key pair management
 
-### 6.3.1  Public key archival
+### 6.3.1 Public key archival
 
-### 6.3.2  Certificate operational periods and key pair usage periods
+### 6.3.2 Certificate operational periods and key pair usage periods
 
 Subscribers and Signing Services MAY sign Code at any point in the development or distribution process. Code Signatures may be verified at any time, including during download, unpacking, installation, reinstallation, or execution, or during a forensic investigation.
 
@@ -898,31 +898,31 @@ The Timestamp Authority MUST use a new Timestamp Certificate with a new private 
 
 Cryptographic algorithms, key sizes and certificate life-times for both authorities and Subscribers are governed by the NIST key management guidelines.
 
-## 6.4  Activation data
+## 6.4 Activation data
 
-### 6.4.1  Activation data generation and installation
+### 6.4.1 Activation data generation and installation
 
-### 6.4.2  Activation data protection
+### 6.4.2 Activation data protection
 
-### 6.4.3  Other aspects of activation data
+### 6.4.3 Other aspects of activation data
 
-## 6.5  Computer security controls
+## 6.5 Computer security controls
 
-### 6.5.1  Specific computer security technical requirements
+### 6.5.1 Specific computer security technical requirements
 
-### 6.5.2  Computer security rating
+### 6.5.2 Computer security rating
 
-## 6.6  Life cycle technical controls
+## 6.6 Life cycle technical controls
 
-### 6.6.1  System development controls
+### 6.6.1 System development controls
 
-### 6.6.2  Security management controls
+### 6.6.2 Security management controls
 
-### 6.6.3  Life cycle security controls
+### 6.6.3 Life cycle security controls
 
-## 6.7  Network security controls
+## 6.7 Network security controls
 
-## 6.8  Time-stamping
+## 6.8 Time-stamping
 
 If the CA issues Code Signing Certificates, then the CA MUST operate a Timestamp Authority that complies with RFC 3161. CAs MUST recommend to Subscribers that they use the CA's Timestamp Authority to timestamp signed code.
 
@@ -932,11 +932,11 @@ The digest algorithm used to sign Timestamp tokens must match the digest algorit
 
 # 7.  CERTIFICATE, CRL, AND OCSP PROFILES
 
-## 7.1  Certificate profile
+## 7.1 Certificate profile
 
-### 7.1.1  Version number(s)
+### 7.1.1 Version number(s)
 
-### 7.1.2  Certificate extensions
+### 7.1.2 Certificate extensions
 
 This section specifies the additional requirements for Certificate content and extensions for Certificates.
 
@@ -1090,7 +1090,7 @@ a. Extensions that do not apply in the context of the public Internet (such as a
 b. semantics that, if included, will mislead a Relying Party about the certificate information verified by the CA (such as including an `extKeyUsage` value for a smart card, where the CA is not able to verify that the corresponding Private Key is confined to such hardware due to remote issuance).
 
 
-### 7.1.3  Algorithm object identifiers
+### 7.1.3 Algorithm object identifiers
 
 #### 7.1.3.1 SubjectPublicKeyInfo
 
@@ -1148,7 +1148,7 @@ In addition, the CA MAY use `DSA with SHA-1` if one of the following conditions 
 * It is used within a CRL; or,
 * It is used within a Timestamp Token and the date of the `genTime` field is not greater than 2022-04-30.
 
-### 7.1.4  Name forms
+### 7.1.4 Name forms
 
 #### 7.1.4.1 Name encoding
 
@@ -1162,77 +1162,77 @@ No stipulation.
 
 ##### 7.1.4.2.2 Subject distinguished name fields - EV and Non-EV Code Signing Certificates
 
-a. __Certificate Field:__ `subject:commonName` (OID 2.5.4.3)
-   __Required/Optional:__ Required
+a. __Certificate Field:__ `subject:commonName` (OID 2.5.4.3)  
+   __Required/Optional:__ Required  
    __Contents:__ This field MUST contain the Subject's legal name as verified under [Section 3.2.2](#322-authentication-of-organization-identity) or [3.2.3](#323-authentication-of-individual-identity).
 
-b. __Certificate Field:__ `subject:organizationalUnitName` (OID 2.5.4.11)
-   __Required/Optional:__ Optional
+b. __Certificate Field:__ `subject:organizationalUnitName` (OID 2.5.4.11)  
+   __Required/Optional:__ Optional  
    __Contents:__ The CA MUST implement a process that prevents an OU attribute from including a name, DBA, tradename, trademark, address, location, or other text that refers to a specific natural person or Legal Entity unless the CA has verified this information in accordance with [Section 3.2](#32-initial-identity-validation).
 
-c. __Certificate Field:__ `subject:domainComponent` (OID 0.9.2342.19200300.100.1.25)
-   __Required/Optional:__ Prohibited
+c. __Certificate Field:__ `subject:domainComponent` (OID 0.9.2342.19200300.100.1.25)  
+   __Required/Optional:__ Prohibited  
    __Contents:__ This field MUST not be present in a Code Signing Certificate.
 
-d. __Certificate Field:__ Other subject attributes
-   __Required/Optional:__ Optional
+d. __Certificate Field:__ Other subject attributes  
+   __Required/Optional:__ Optional  
    __Contents:__ As specified in BR Section 7.1.4.2.2.j. Subject attributes MUST NOT contain only metadata such as '.', '-', and ' ' (i.e. space) characters, and/or any other indication that the value is absent, incomplete, or not applicable.
 
 ##### 7.1.4.2.3 Subject distinguished name field - Non-EV Code Signing Certificates
 
-a. __Certificate Field:__ `subject:organizationName` (OID 2.5.4.10)
-   __Required/Optional:__ Required
+a. __Certificate Field:__ `subject:organizationName` (OID 2.5.4.10)  
+   __Required/Optional:__ Required  
    __Contents:__ The `subject:organizationName` field MUST contain either the Subject's name or DBA as verified under BR Section 3.2. The CA MAY include information in this field that differs slightly from the verified name, such as common variations or abbreviations, provided that the CA documents the difference and any abbreviations used are locally accepted abbreviations; e.g., if the official record shows "Company Name Incorporated", the CA MAY use "Company Name Inc." or "Company Name". Because subject name attributes for individuals (e.g. `subject:givenName` (2.5.4.42) and `subject:surname` (2.5.4.4)) are not broadly supported by application software, the CA MAY use the `subject:organizationName` field to convey a natural person Subject's name or DBA. The CA MUST have a documented process for verifying that the information included in the `subject:organizationName` field is not misleading to a Relying Party.
 
-b. __Certificate Field:__ `subject:streetAddress` (OID: 2.5.4.9)
-   __Required/Optional:__ Optional
+b. __Certificate Field:__ `subject:streetAddress` (OID: 2.5.4.9)  
+   __Required/Optional:__ Optional  
    __Contents:__ If present, the subject:streetAddress field MUST contain the Subject's street address information as verified under BR Section 3.2.2.1 or 3.2.3.
 
-c. __Certificate Field:__ `subject:localityName` (OID: 2.5.4.7)
-   __Required/Optional:__ Required if the `subject:stateOrProvinceName` field is absent. Optional if the `subject:stateOrProvinceName` field is present.
+c. __Certificate Field:__ `subject:localityName` (OID: 2.5.4.7)  
+   __Required/Optional:__ Required if the `subject:stateOrProvinceName` field is absent. Optional if the `subject:stateOrProvinceName` field is present.  
    __Contents:__ If present, the `subject:localityName` field MUST contain the Subject's locality information as verified under BR Section 3.2. If the `subject:countryName` field specifies the ISO 3166-1 user-assigned code of XX in accordance with BR Section 7.1.4.2.2.h., the `subject:localityName` field MAY contain the Subject's locality and/or state or province information as verified under BR Section 3.2.2.1 or 3.2.3.
 
-d. __Certificate Field:__ `subject:stateOrProvinceName` (OID: 2.5.4.8)
-   __Required/Optional:__ Required if the `subject:localityName` field is absent. Optional if the `subject:localityName` field is present.
+d. __Certificate Field:__ `subject:stateOrProvinceName` (OID: 2.5.4.8)  
+   __Required/Optional:__ Required if the `subject:localityName` field is absent. Optional if the `subject:localityName` field is present.  
    __Contents:__ If present, the `subject:stateOrProvinceName` field MUST contain the Subject's state or province information as verified under BR Section 3.2.2.1 or 3.2.3. If the `subject:countryName` field specifies the ISO 3166-1 user-assigned code of `XX` in accordance with BR Section 7.1.4.2.2.h., the `subject:stateOrProvinceName` field MAY contain the full name of the Subject's country information as verified under BR Section 3.2.2.1 or 3.2.3.
 
-e. __Certificate Field:__ `subject:postalCode` (OID: 2.5.4.17)
-   __Required/Optional:__ Optional
+e. __Certificate Field:__ `subject:postalCode` (OID: 2.5.4.17)  
+   __Required/Optional:__ Optional  
    __Contents:__ If present, the `subject:postalCode` field MUST contain the Subject's zip or postal information as verified under BR Section 3.2.2.1 or 3.2.3.
 
-f. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
-   __Required/Optional:__ Required
+f. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)  
+   __Required/Optional:__ Required  
    __Contents:__ The `subject:countryName` MUST contain the two-letter ISO 3166-1 country code associated with the location of the Subject verified under BR Section 3.2.2.3. If a Country is not represented by an official ISO 3166-1 country code, the CA MAY specify the ISO 3166-1 user-assigned code of `XX` indicating that an official ISO 3166-1 alpha-2 code has not been assigned.
 
 ##### 7.1.4.2.4 Subject distinguished name fields - EV Code Signing Certificates
 
-a. __Certificate Field:__ `subject:organizationName` (OID 2.5.4.10)
-   __Required/Optional:__ Required
+a. __Certificate Field:__ `subject:organizationName` (OID 2.5.4.10)  
+   __Required/Optional:__ Required  
    __Contents:__ As specified in Section 9.2.1 of the EV Guidelines.
 
-b. __Certificate Field:__ `subject:businessCategory` (OID 2.5.4.15)
-   __Required/Optional:__ Required
+b. __Certificate Field:__ `subject:businessCategory` (OID 2.5.4.15)  
+   __Required/Optional:__ Required  
    __Contents:__ As specified in Section 9.2.3 of the EV Guidelines.
 
-c. __Certificate Field:__ sSubject Jurisdiction of Incorporation or Registration Fields
-   __Required/Optional:__ Required
+c. __Certificate Field:__ sSubject Jurisdiction of Incorporation or Registration Fields  
+   __Required/Optional:__ Required  
    __Contents:__ As specified in Section 9.2.4 of the EV Guidelines.
 
-d. __Certificate Field:__ `subject:serialNumber` (2.5.4.5)
-   __Required/Optional:__ Required
+d. __Certificate Field:__ `subject:serialNumber` (2.5.4.5)  
+   __Required/Optional:__ Required  
    __Contents__: As specified in Section 9.2.5 of the EV Guidelines.
 
-e. __Certificate Field:__ Subject Physical Address of Place of Business Fields
-   __Required/Optional:__ Required
+e. __Certificate Field:__ Subject Physical Address of Place of Business Fields  
+   __Required/Optional:__ Required  
    __Contents__: As specified in Section 9.2.6 of the EV Guidelines.
 
-### 7.1.5  Name constraints
+### 7.1.5 Name constraints
 
-### 7.1.6  Certificate policy object identifier
+### 7.1.6 Certificate policy object identifier
 
 This section sets forth minimum requirements for the content of the Subscriber, Subordinate CA, and Root CA Certificates, as they relate to the identification of Certificate Policy.
 
-#### 7.1.6.1  Reserved Certificate Policy Identifiers
+#### 7.1.6.1 Reserved Certificate Policy Identifiers
 
 The following Certificate Policy Identifier is reserved for use by CAs as a required means of asserting compliance with these Requirements for Non-EV Code Signing Certificates:
 
@@ -1246,11 +1246,11 @@ The following Certificate Policy Identifier is reserved for use by CAs as a requ
 
 `{joint-iso-itu-t(2) international-organizations(23) ca-browser-forum(140) certificate-policies(1) code-signing-requirements(4) timestamping(2)}` (`2.23.140.1.4.2`)
 
-#### 7.1.6.2  Root CA Certificates
+#### 7.1.6.2 Root CA Certificates
 
 A Root CA Certificate SHOULD NOT contain the certificatePolicies extension.
 
-#### 7.1.6.3  Subordinate CA Certificates
+#### 7.1.6.3 Subordinate CA Certificates
 
 A Certificate issued to a Subordinate CA that is not an Affiliate of the Issuing CA:
 
@@ -1276,31 +1276,31 @@ A Certificate issued to a Subscriber MUST contain one or more policy identifier(
 
 The CA MUST document in its Certificate Policy or Certification Practice Statement that the Certificates it issues containing the specified policy identifier(s) are managed in accordance with these Requirements.
 
-### 7.1.7  Usage of Policy Constraints extension
+### 7.1.7 Usage of Policy Constraints extension
 
-### 7.1.8  Policy qualifiers syntax and semantics
+### 7.1.8 Policy qualifiers syntax and semantics
 
 ### 7.1.9 Processing semantics for the critical Certificate Policies extension
 
-## 7.2  CRL profile
+## 7.2 CRL profile
 
 The serial number of a revoked Certificate MUST remain on the CRL for at least 10 years after the expiration of the Certificate. Application Software Suppliers MAY require the CA to support a longer life-time in its contract with the CA. If a Code Signing Certificate contains the Lifetime Signing OID, the Code Signature becomes invalid when the Code Signing Certificate expires, even if the Code Signature is timestamped. Because the Lifetime Signing OID is intended to be used with test purposes only, a CA MAY cease maintaining revocation information for a Code Signing Certificate with the Lifetime Signing OID after the Code Signing Certificate expires.
 
 If a Code Signing Certificate previously has been revoked, and the CA later becomes aware of a more appropriate revocation date, then the CA MAY use that revocation date in subsequent CRL entries for that Code Signing Certificate.
 
-### 7.2.1  Version number(s)
+### 7.2.1 Version number(s)
 
-### 7.2.2  CRL and CRL entry extensions
+### 7.2.2 CRL and CRL entry extensions
 
 If a CRL has a `thisUpdate` field value of 2022-07-01 00:00:00 UTC or later and the CA includes the Invalidity Date CRL entry extension in a CRL entry for a Code Signing Certificate, then the time encoded in the Invalidity Date CRL extension SHALL be equal to the time encoded in the `revocationDate` field of the CRL entry.
 
-## 7.3  OCSP profile
+## 7.3 OCSP profile
 
 If a Code Signing Certificate previously has been revoked, and the CA later becomes aware of a more appropriate revocation date, then the CA MAY use that revocation date in subsequent OCSP responses for that Code Signing Certificate.
 
-### 7.3.1  Version number(s)
+### 7.3.1 Version number(s)
 
-### 7.3.2  OCSP extensions
+### 7.3.2 OCSP extensions
 
 # 8. COMPLIANCE AUDIT AND OTHER ASSESSMENTS
 
@@ -1312,7 +1312,7 @@ The CA and/or all Signing Services MUST, at all times:
 4.  If a CA, be licensed as a CA in each jurisdiction where it operates, if licensing is required by the law of such jurisdiction for the issuance of Certificates.
 5.  In all cases, the CA MUST contractually obligate each Delegated Third Party to comply with all applicable requirements in these Requirements and to perform them as required of the CA itself. The CA MUST enforce these obligations and internally audit each Delegated Third Party’s compliance with these Requirements on an annual basis. 
 
-## 8.1  Frequency or circumstances of assessment
+## 8.1 Frequency or circumstances of assessment
 
 Certificates that are capable of being used to issue new certificates MUST be fully audited in line with all remaining requirements from this section. A Certificate is deemed as capable of being used to issue new certificates if it contains an X.509v3 `basicConstraints` extension, with the `cA` boolean set to true and is therefore by definition a Root CA Certificate or a Subordinate CA Certificate.
 
@@ -1326,13 +1326,13 @@ Audits MUST be conducted for all obligations under these Guidelines, including t
 
 The audit period for the Delegated Third Party MUST NOT exceed one year (ideally aligned with the CA's audit).
 
-## 8.2  Identity/qualifications of assessor
+## 8.2 Identity/qualifications of assessor
 
 As specified in BR Section 8.2.
 
-## 8.3  Assessor's relationship to assessed entity
+## 8.3 Assessor's relationship to assessed entity
 
-## 8.4  Topics covered by assessment
+## 8.4 Topics covered by assessment
 
 The CA MUST undergo a conformity assessment audit for compliance with these Requirements performed in accordance with one of the following schemes:
 
@@ -1348,69 +1348,69 @@ The audit MUST be conducted by a Qualified Auditor, as specified in BR Section 8
 
 The audit MUST cover all CA obligations under these Guidelines regardless of whether they are performed directly by the CA, an RA, or subcontractor.
 
-## 8.5  Actions taken as a result of deficiency
+## 8.5 Actions taken as a result of deficiency
 
-## 8.6  Communication of results
+## 8.6 Communication of results
 
 As specified in BR Section 8.6.
 
-## 8.7  Self-audits
+## 8.7 Self-audits
 
 CAs must abide by the self-audit requirements of these Guidelines. During the period in which it issues Code Signing Certificates, the CA MUST strictly control its service quality by performing ongoing self-audits against a randomly selected sample of at least three percent of the Non-EV Code Signing Certificates and at least three percent of the EV Code Signing Certificates it has issued in the period beginning immediately after the last sample was taken. For all Code Signing Certificates where the final cross-correlation and due diligence requirements of Section 8 of these Guidelines is performed by an RA, the CA MUST strictly control its service quality by performing ongoing self-audits against a randomly selected sample of at least six percent of the Non-EV Code Signing Certificates and at least six percent of the EV Code Signing Certificates it has issued in the period beginning immediately after the last sample was taken.
 
 # 9. OTHER BUSINESS AND LEGAL MATTERS
 
-## 9.1  Fees
+## 9.1 Fees
 
-### 9.1.1  Certificate issuance or renewal fees
+### 9.1.1 Certificate issuance or renewal fees
 
-### 9.1.2  Certificate access fees
+### 9.1.2 Certificate access fees
 
-### 9.1.3  Revocation or status information access fees
+### 9.1.3 Revocation or status information access fees
 
-### 9.1.4  Fees for other services
+### 9.1.4 Fees for other services
 
-### 9.1.5  Refund policy
+### 9.1.5 Refund policy
 
-## 9.2  Financial responsibility
+## 9.2 Financial responsibility
 
-### 9.2.1  Insurance coverage
+### 9.2.1 Insurance coverage
 
 For EV Code Signing Certificates, the CA must meet the requirements and abide by the obligation in Section 8.4 of the EV Guidelines.
 
-### 9.2.2  Other assets
+### 9.2.2 Other assets
 
-### 9.2.3  Insurance or warranty coverage for end-entities
+### 9.2.3 Insurance or warranty coverage for end-entities
 
-## 9.3  Confidentiality of business information
+## 9.3 Confidentiality of business information
 
-### 9.3.1  Scope of confidential information
+### 9.3.1 Scope of confidential information
 
-### 9.3.2  Information not within the scope of confidential information
+### 9.3.2 Information not within the scope of confidential information
 
-### 9.3.3  Responsibility to protect confidential information
+### 9.3.3 Responsibility to protect confidential information
 
-## 9.4  Privacy of personal information
+## 9.4 Privacy of personal information
 
-### 9.4.1  Privacy plan
+### 9.4.1 Privacy plan
 
-### 9.4.2  Information treated as private
+### 9.4.2 Information treated as private
 
-### 9.4.3  Information not deemed private
+### 9.4.3 Information not deemed private
 
-### 9.4.4  Responsibility to protect private information
+### 9.4.4 Responsibility to protect private information
 
-### 9.4.5  Notice and consent to use private information
+### 9.4.5 Notice and consent to use private information
 
 ### 9.4.6 Disclosure pursuant to judicial or administrative process
 
-### 9.4.7  Other information disclosure circumstances
+### 9.4.7 Other information disclosure circumstances
 
-## 9.5  Intellectual property rights
+## 9.5 Intellectual property rights
 
-## 9.6  Representations and warranties
+## 9.6 Representations and warranties
 
-### 9.6.1  CA representations and warranties
+### 9.6.1 CA representations and warranties
 
 The Certificate warranties specifically include, but are not limited to the following:
 
@@ -1424,9 +1424,9 @@ The Certificate warranties specifically include, but are not limited to the foll
 8.  **Status:** The CA represents that it will maintain a 24 x 7 online-accessible Repository with current information regarding the status of Certificates as valid or revoked for the period required by these Requirements.
 9.  **Revocation:** The CA represents that it will revoke a Certificate upon the occurrence of a revocation event specified in these Requirements.
 
-### 9.6.2  RA representations and warranties
+### 9.6.2 RA representations and warranties
 
-### 9.6.3  Subscriber representations and warranties
+### 9.6.3 Subscriber representations and warranties
 
 The CA or Signing Service MUST require, as part of the Subscriber Agreement, that the Applicant make the commitments and warranties set forth in this section, as applicable, for the benefit of the CA and the Certificate Beneficiaries.
 
@@ -1449,9 +1449,9 @@ The CA SHALL implement a process to ensure that each Subscriber Agreement or Ter
 11. **Responsiveness:** An obligation to respond to the CA's instructions concerning Key Compromise or Certificate misuse within a specified time period.
 12. **Acknowledgment and Acceptance:** An acknowledgement and acceptance that the CA is entitled to revoke the certificate immediately if the Applicant were to violate the Terms of Use or the Subscriber Agreement.
 
-### 9.6.4  Relying party representations and warranties
+### 9.6.4 Relying party representations and warranties
 
-### 9.6.5  Representations and warranties of other participants
+### 9.6.5 Representations and warranties of other participants
 
 The CA MUST contractually obligate each Signing Service to inform the CA if the Signing Service becomes aware (by whatever means) that the Signing Service has signed Suspect Code. The CA MUST require the Signing Service to request revocation of the affected Certificate and provide immediate notice to the CA if the Signing Service's private key, or private key activation data, is compromised or believed to be compromised. The CA MUST revoke the affected Certificate upon request by the Signing Service or if the CA determines the Signing Service failed to notify the CA within 24 hours after identifying a private key compromise.
 
@@ -1461,9 +1461,9 @@ Signing Services MUST obtain the Subscriber's commitment to:
 2.  Not knowingly submit software for Code Signature that contains Suspect Code, and
 3.  Inform the Signing Service if it is discovered (by whatever means) that Code submitted to the Signing Service for Code Signature contained Suspect Code
 
-## 9.7  Disclaimers of warranties
+## 9.7 Disclaimers of warranties
 
-## 9.8  Limitations of liability
+## 9.8 Limitations of liability
 
 For delegated tasks, the CA and any Delegated Third Party MAY allocate liability between themselves contractually as they determine, but the CA SHALL remain fully responsible for the performance of all parties in accordance with these Requirements, as if the tasks had not been delegated.
 
@@ -1471,49 +1471,49 @@ For EV Code Signing Certificates, CAs MAY limit their liability as described in 
 
 For Non-EV Code Signing Certificates, CAs MAY limit their liability as described in Section 9.8 of the Baseline Requirements.
 
-## 9.9  Indemnities
+## 9.9 Indemnities
 
 As specified in BR Section 9.9.
 
-## 9.10  Term and termination
+## 9.10 Term and termination
 
-### 9.10.1  Term
+### 9.10.1 Term
 
-### 9.10.2  Termination
+### 9.10.2 Termination
 
-### 9.10.3  Effect of termination and survival
+### 9.10.3 Effect of termination and survival
 
-## 9.11  Individual notices and communications with participants
+## 9.11 Individual notices and communications with participants
 
-## 9.12  Amendments
+## 9.12 Amendments
 
-### 9.12.1  Procedure for amendment
+### 9.12.1 Procedure for amendment
 
-### 9.12.2  Notification mechanism and period
+### 9.12.2 Notification mechanism and period
 
-### 9.12.3  Circumstances under which OID must be changed
+### 9.12.3 Circumstances under which OID must be changed
 
-## 9.13  Dispute resolution provisions
+## 9.13 Dispute resolution provisions
 
-## 9.14  Governing law
+## 9.14 Governing law
 
-## 9.15  Compliance with applicable law
+## 9.15 Compliance with applicable law
 
-## 9.16  Miscellaneous provisions
+## 9.16 Miscellaneous provisions
 
-### 9.16.1  Entire agreement
+### 9.16.1 Entire agreement
 
-### 9.16.2  Assignment
+### 9.16.2 Assignment
 
-### 9.16.3  Severability
+### 9.16.3 Severability
 
 If a court or government body with jurisdiction over the activities covered by these Requirements determines that the performance of any mandatory requirement is illegal, then such requirement is considered reformed to the minimum extent necessary to make the requirement valid and legal. This applies only to operations or certificate issuances that are subject to the laws of that jurisdiction. The parties involved MUST notify the CA/Browser Forum of the facts, circumstances, and law(s) involved.
 
-### 9.16.4  Enforcement (attorneys' fees and waiver of rights)
+### 9.16.4 Enforcement (attorneys' fees and waiver of rights)
 
-### 9.16.5  Force Majeure
+### 9.16.5 Force Majeure
 
-## 9.17  Other provisions
+## 9.17 Other provisions
 
 # Appendix A  High risk regions of concern
 
