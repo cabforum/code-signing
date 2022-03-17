@@ -606,6 +606,8 @@ Because some Application Software Suppliers utilize non-standard revocation mech
 
 ## 5.1 Physical controls
 
+### 5.1.1 Site location and construction
+
 ### 5.1.2 Physical access
 
 ### 5.1.3 Power and air conditioning
