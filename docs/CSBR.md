@@ -381,11 +381,11 @@ A CA identifying a high risk application under this section MUST follow the addi
 
 \[These requirements do not specify a particular database and leave the decision of qualifying databases to the implementers.\]
 
+Prior to issuing Code Signing Certificates, the CA SHALL perform "due diligence" verification as specified in EV Guidelines 11.13.
+
 For Non-EV Code Signing Certificates, the CA MAY use the documents and data provided in [Section 3.2](#32-initial-identity-validation) to verify certificate information, or may reuse previous validations themselves, provided that the CA obtained the data or document from a source specified under [Section 3.2](#32-initial-identity-validation) or completed the validation itself no more than 825 days prior to issuing the Certificate.
 
 For EV Code Signing Certificates, use of documents, data, and previous validations performed per [Section 3.2](#32-initial-identity-validation) SHALL be governed by the usage periods as defined in EV Guidelines Section 11.14.
-
-Prior to issuing Code Signing Certificates, the CA SHALL perform "due diligence" verification as specified in EV Guidelines 11.13.
 
 ### 4.2.2 Approval or rejection of certificate applications
 
@@ -634,7 +634,7 @@ Because some Application Software Suppliers utilize non-standard revocation mech
 
 ## 5.3 Personnel controls
 
-As specified in EV Guidelines Section 14.1.
+As specified in EV Guidelines Section 14.1. Additionally, the CA SHALL require all Validation Specialists to pass an examination provided by the CA on the information verification requirements outlined in these Requirements.
 
 ### 5.3.1 Qualifications, experience, and clearance requirements
 
