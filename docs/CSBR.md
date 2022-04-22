@@ -3,9 +3,9 @@ title: Baseline Requirements for the Issuance and Management of Publicly-Trusted
 subtitle: Version 3.0.0
 author:
   - CA/Browser Forum
-date: XX XXXX, 2021  
+date: XX XXXX, 2022  
 copyright: |
-  Copyright 2021 CA/Browser Forum
+  Copyright 2022 CA/Browser Forum
 
   This work is licensed under the Creative Commons Attribution 4.0 International license.
 ---
