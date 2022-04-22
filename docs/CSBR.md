@@ -698,7 +698,7 @@ Log entries MUST include the following elements:
    2.	Identity of the person making the journal entry; and 
    3.	Description of the entry.
 
-# 5.4.1.2 Types of events recorded for Timestamp Authorities
+#### 5.4.1.2 Types of events recorded for Timestamp Authorities
 
 The Timestamp Authority MUST log the following information and make these records available to its Qualified Auditor as proof of the Timestamp Authority’s compliance with these Requirements:
 
