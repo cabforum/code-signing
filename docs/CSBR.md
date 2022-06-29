@@ -121,6 +121,8 @@ Capitalized Terms are as defined in the Baseline Requirements or the EV SSL Guid
 
 **Baseline Requirements:** The Baseline Requirements for the Issuance and Management of Publicly-Trusted Certificates as published by the CA/Browser Forum.
 
+**CA Certificate Beneficiaries:** All Application Software Suppliers with whom the CA or its Root CA has entered into a contract for distribution of its Root Certificate in software distributed by such Application Software Suppliers.
+
 **Certification Authority:** An organization subject to these Requirements that is responsible for a Code Signing Certificate and, under these Requirements, oversees the creation, issuance, revocation, and management of Code Signing Certificates. Where the CA is also the Root CA, references to the CA are synonymous with Root CA.
 
 **Certificate Beneficiaries**: All Application Software Suppliers with whom the CA or its Root CA has entered into a contract for distribution of its Root Certificate in software distributed by such Application Software Suppliers and all Relying Parties who reasonably rely on such a Certificate while a Code Signature associated with the Certificate is valid.
@@ -171,7 +173,7 @@ Capitalized Terms are as defined in the Baseline Requirements or the EV SSL Guid
 
 **Subscriber:** A natural person or Legal Entity to whom a Code Signing Certificate is issued and who is legally bound by a Subscriber Agreement or Terms of Use.
 
-**Suspect Code**: Code that contains malicious functionality or serious vulnerabilities, including spyware, malware and other code that installs without the user\'s consent and/or resists its own removal, and code that can be exploited in ways not intended by its designers to compromise the trustworthiness of the Platforms on which it executes.
+**Suspect Code**: Code that contains malicious functionality or serious vulnerabilities, including spyware, malware and other code that installs without the user\'s consent and/or resists its own removal, code that compromises user security and/or code that can be exploited in ways not intended by its designers to compromise the trustworthiness of the Platforms on which it executes.
 
 **Takeover Attack**: An attack where a Signing Service or Private Key associated with a Code Signing Certificate has been compromised by means of fraud, theft, intentional malicious act of the Subject's agent, or other illegal conduct.
 
@@ -503,17 +505,15 @@ If the CA decides that the revocation will have an unreasonable impact on its cu
 
 The CA MUST revoke a Code Signing Certificate within one (1) business day if the Subscriber requests in writing that the CA revoke the Certificate or notifies the CA that the original certificate request was not authorized and does not retroactively grant authorization.
 
-#### 4.9.1.3 Revocation Based on Reported or Detected Compromise or Use in Malware
+#### 4.9.1.3 Revocation Based on Reported or Detected Compromise or Use in Suspect Code
 
-For all incidents involving malware, CAs SHALL revoke the Code Signing Certificate in accordance with and within the following maximum timeframes. Nothing herein prohibits a CA from revoking a Code Signing Certificate prior to these timeframes.
+For all incidents that lead the CA to believe that the certificate private key is compromised or is being used for Suspect Code, CAs SHALL revoke the Code Signing Certificate in accordance with and within the following maximum timeframes. Nothing herein prohibits a CA from revoking a Code Signing Certificate prior to these timeframes.
 
-1.  The CA MUST contact the software publisher within one (1) business day after the CA is made aware of the incident.
-2.  The CA MUST determine the volume of relying parties that are impacted (e.g., based on OCSP logs) within 72 hours after being made aware of the incident.
-3.  The CA MUST request the software publisher send an acknowledgement to the CA within 72 hours of receipt of the request.
-  a.  If the publisher responds within 72 hours, the CA and publisher MUST determine a "reasonable date" to revoke the certificate based on discussions with the CA.
-  b.  If CA does not receive a response, the CA must notify the publisher that the CA will revoke in 7 days if no further response is received.
-    i.  If the publisher responds within 7 days, the CA and the publisher will determine a "reasonable date" to revoke the certificate based on discussion with the CA.
-    ii.  If no response is received after 7 days, the CA must revoke the certificate except if the CA has documented proof (e.g., OCSP logs) that the revocation will cause significant impact to the general public.
+1.  The CA MUST contact the CA Certificate Beneficiaries and Subscriber within 24 hours after the CA is made aware of the incident.
+   a.  The CA MAY omit contacting the Subscriber if requested by at least one CA Certificate Beneficiary
+2.  The CA MUST request the Subscriber send an acknowledgement to the CA within 72 hours of receipt of the request.
+   a.  If the Subscriber responds within 72 hours, the CA and Subscriber MAY determine a "reasonable date" to revoke the certificate based on discussions with the CA. The revocation date MUST NOT be more than 7 days after the incident was discovered, except if requested by at least one CA Certificate Beneficiary.
+   b.  If CA does not receive a response, the CA MUST revoke the certificate within 24 hours.
 
 A CA revoking a Certificate because the Certificate was associated with signed Suspect Code or other fraudulent or illegal conduct SHOULD provide all relevant information and risk indicators to other CAs or industry groups. The CA SHOULD indicate whether its investigation found that the Suspect Code was a false positive or an inadvertent signing.
 
