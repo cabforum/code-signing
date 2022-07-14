@@ -1,9 +1,9 @@
 ---
 title: Baseline Requirements for the Issuance and Management of Publicly-Trusted Code Signing Certificates
-subtitle: Version 3.0.0
+subtitle: Version 3.1.0
 author:
   - CA/Browser Forum
-date: 29 June, 2022  
+date: XX YY, 2022  
 copyright: |
   Copyright 2022 CA/Browser Forum
 
@@ -49,6 +49,7 @@ The following Certificate Policy Identifier is reserved for use by CAs as a requ
 | 2.7 | CSC-12 | CRL Revocation Date Clarification | 3 December 2021 |
 | 2.8 | CSC-13 | Update to Subscriber Key Protection Requirements | 6 May 2022 |
 | 3.0 | CSC-14 | Convert Code Signing Baseline Requirements to RFC 3647 Framework | 29 June 2022 |
+| 3.1 | CSC-XX | Summer 2022 Clean-up | XX YY 2022 |
 
 ### 1.2.2 Relevant Dates
 
@@ -871,7 +872,7 @@ Techniques that MAY be used to satisfy this requirement include:
 2.  A cloud-based key generation and protection solution with the following requirements:
     a.  Key creation, storage, and usage of Private Key must remain within the security boundaries of the cloud solution’s Hardware Crypto Module that conforms to the specified requirements;
     b.  Subscription at the level that manages the Private Key must be configured to log all access, operations, and configuration changes on the resources securing the Private Key.
-3.	 A hardware Hardware crypto Crypto module Module provided by the CA;
+3.	 A Hardware Crypto Module provided by the CA;
 4.	 Contractual terms in the Subscriber Agreement requiring the Subscriber to protect the Private Key to a standard of at least FIPS 140-2 level 2 or Common Criteria EAL 4+ and with compliance being confirmed by means of an audit.
 
 #### 6.2.7.4 Subscriber Private Key protection and verification 
@@ -905,7 +906,8 @@ The CA MUST obtain a contractual representation from the Subscriber that the Sub
 
 ###### 6.2.7.4.2 Subscriber Private Key verification
 
-Effective November, 15, 2022, for Code Signing Certificates, CAs SHALL ensure that the Subscriber’s Private Key is generated, stored, and used in a suitable Hardware Crypto Module that meets or exceeds the requirements specified in [Section 6.2.7.4.1](#62741-subscriber-private-key-protection). One of the following methods MUST be employed to satisfy this requirement:  
+Effective November, 15, 2022, for Code Signing Certificates, CAs SHALL ensure that the Subscriber’s Private Key is generated, stored, and used in a suitable Hardware Crypto Module that meets or exceeds the requirements specified in [Section 6.2.7.4.1](#62741-subscriber-private-key-protection). One of the following methods MUST be employed to satisfy this requirement:
+
 1.	 The CA ships a suitable Hardware Crypto Module, with one or more pre-generated Key Pairs that the CA has generated using the Hardware Crypto Module; 
 2.	 The Subscriber counter-signs certificate requests that can be verified by using a manufacturer’s certificate, commonly known as key attestation, indicating that the Private Key was generated in a non-exportable way using a suitable Hardware Crypto Module; 
 3.	 The Subscriber uses a CA prescribed crypto library and a suitable Hardware Crypto Module combination for the Key Pair generation and storage;
