@@ -505,14 +505,14 @@ The CA MUST revoke a Code Signing Certificate within one (1) business day if the
 
 #### 4.9.1.3 Revocation Based on Reported or Detected Compromise or Use in Suspect Code
 
-Except for cases that fall under Section 4.9.1.1, all incidents that lead the CA to believe that the Subscriber's Private Key is compromised or is being used for Suspect Code, CAs SHALL revoke the corresponding Code Signing Certificate in accordance with and within the following maximum time frames. Nothing herein prohibits a CA from revoking a Code Signing Certificate prior to these time frames.
+Except for cases that fall under Section 4.9.1.1, if, while investigating a problem report, the CA determines the Subscriber's Private Key is likely compromised or being used for Suspect Code, the CA SHALL revoke the corresponding Code Signing Certificate in accordance with and within the following maximum time frames. Nothing herein prohibits a CA from revoking a Code Signing Certificate prior to these time frames.
 
-1.  The CA MUST contact the Subscriber within 24 hours after the CA is made aware of the incident.
+1.  The CA MUST contact the Subscriber within 24 hours after the CA received the initial problem report.
 2.  The CA MUST request the Subscriber send an acknowledgement to the CA within 72 hours of receipt of the request.
    a.  If the Subscriber responds within 72 hours, the CA and Subscriber MAY determine a "reasonable date" to revoke the certificate. The revocation date MUST NOT be more than 7 calendar days after the incident was discovered.
    b.  If CA does not receive a response, then the CA MUST revoke the certificate within 24 hours from the end of the response period.
 
-A CA revoking a Certificate because the Certificate was associated with signed Suspect Code or other fraudulent or illegal conduct SHOULD provide all relevant information and risk indicators to other CAs or industry groups. The CA SHOULD indicate whether its investigation found that the Suspect Code was a false positive or an inadvertent signing. The CA SHOULD contact the Application Software Suppliers within 24 hours after the CA is made aware of an incident involving use in Suspect Code.
+A CA revoking a Certificate because the Certificate was associated with signed Suspect Code or other fraudulent or illegal conduct SHOULD provide all relevant information and risk indicators to other CAs, Application Software Suppliers, or industry groups. The CA SHOULD contact the Application Software Suppliers within 24 hours after the CA received the initial problem report.
 
 #### 4.9.1.4 Revocation of a Subordinate CA Certificate
 
