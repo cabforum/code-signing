@@ -3,7 +3,7 @@ title: Baseline Requirements for the Issuance and Management of Publicly-Trusted
 subtitle: Version 3.2.0
 author:
   - CA/Browser Forum
-date: XX YY, 2022  
+date: October 28, 2022  
 copyright: |
   Copyright 2022 CA/Browser Forum
 
@@ -50,7 +50,7 @@ The following Certificate Policy Identifier is reserved for use by CAs as a requ
 | 2.8 | CSC-13 | Update to Subscriber Key Protection Requirements | 6 May 2022 |
 | 3.0 | CSC-14 | Convert Code Signing Baseline Requirements to RFC 3647 Framework | 29 June 2022 |
 | 3.1 | CSC-15 | Summer 2022 Clean-up | 19 September 2022 |
-| 3.2 | CSC-17 | Subscriber Private Key Protection Extension | XX YY 2022 |
+| 3.2 | CSC-17 | Subscriber Private Key Protection Extension | 28 October 2022 |
 
 ### 1.2.2 Relevant Dates
 
