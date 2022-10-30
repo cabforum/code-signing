@@ -11,6 +11,7 @@ copyright: |
 ---
 
 # 1.  INTRODUCTION
+[EDITOR: Following the decision of the Code Signing Working Group, we will attempt to import the references of dependent documents (TLS Baseline Requirements, NetSec, EV Guidelines) into the CSBRs. Editorial comments that need to be addressed will be denoted with a "EDITOR:" label. We will first aim to import the TLS BRs]
 
 ## 1.1 Overview
 
