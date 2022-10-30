@@ -14,7 +14,7 @@ copyright: |
 
 ## 1.1 Overview
 
-The Baseline Requirements for the Issuance and Management of Publicly-Trusted CodeSigning Certificates describe a subset of the requirements that a Certification Authority must meet to issue Code Signing Certificates. Except where specifically stated or in the event of conflict in which case these Requirements will prevail, this document incorporates by reference the Baseline Requirements for the Issuance and Management of Publicly-Trusted Certificates (“Baseline Requirements”), the Network and Certificate System Security Requirements and, in the case of EV Code Signing Certificates, the Guidelines For The Issuance And Management of Extended Validation Certificates as established by the CA/Browser Forum, copies of which are available on the CA/Browser Forum's website at https://www.cabforum.org. 
+The Baseline Requirements for the Issuance and Management of Publicly-Trusted CodeSigning Certificates describe a subset of the requirements that a Certification Authority must meet to issue Code Signing Certificates. 
 
 The scope of these Requirements includes all "Code Signing Certificates", as defined below, and associated Timestamp Authorities, and all Certification Authorities technically capable of issuing Code Signing Certificates, including any Root CA that is publicly trusted for code signing and all other CAs that might serve to complete the validation path to such Root CA. These Requirements do not address the issuance, use, maintenance, or revocation of Certificates by enterprises that operate their own Public Key Infrastructure for internal purposes only, where the Root CA Certificate is not distributed by any Application Software Supplier (as defined in the Baseline Requirements).
 
@@ -51,6 +51,7 @@ The following Certificate Policy Identifier is reserved for use by CAs as a requ
 | 3.0 | CSC-14 | Convert Code Signing Baseline Requirements to RFC 3647 Framework | 29 June 2022 |
 | 3.1 | CSC-15 | Summer 2022 Clean-up | 19 September 2022 |
 | 3.2 | CSC-17 | Subscriber Private Key Protection Extension | 28 October 2022 |
+| 3.X | CSC-XX | Import of requirements referenced in other CA/B Forum Documents | XX XXXXXXX 2023 |
 
 ### 1.2.2 Relevant Dates
 
@@ -101,31 +102,80 @@ The primary goal of these Requirements is to enable the secure distribution of s
 
 ### 1.4.2 Prohibited certificate uses
 
+No stipulation.
+
 ## 1.5 Policy administration
+
+The Baseline Requirements for the Issuance and Management of Publicly-Trusted Code Signing Certificates present criteria established by the CA/Browser Forum for use by Certification Authorities when issuing, maintaining, and revoking publicly-trusted Code Signing Certificates. This document may be revised from time to time, as appropriate, in accordance with procedures adopted by the CA/Browser Forum. Because one of the primary beneficiaries of this document is the end user, the Forum openly invites anyone to make recommendations and suggestions by email to the CA/Browser Forum at <questions@cabforum.org>. The Forum members value all input, regardless of source, and will seriously consider all such input.
 
 ### 1.5.1 Organization administering the document
 
+No stipulation.
+
 ### 1.5.2 Contact person
+
+Contact information for the CA/Browser Forum is available here: <https://cabforum.org/leadership/>. In this section of a CA's CPS, the CA shall provide a link to a web page or an email address for contacting the person or persons responsible for operation of the CA.
 
 ### 1.5.3 Person determining CPS suitability for the policy
 
+No stipulation.
+
 ### 1.5.4 CPS approval procedures
+
+No stipulation.
 
 ## 1.6 Definitions and acronyms
 
+The Definitions found in the CA/Browser Forum's Network and Certificate System Security Requirements are incorporated by reference as if fully set forth herein.
+
 ### 1.6.1 Definitions
 
+[EDITOR: Need to import capitalized terms used in this document]
+
 Capitalized Terms are as defined in the Baseline Requirements or the EV SSL Guidelines except where defined below:
+
+**Affiliate**: A corporation, partnership, joint venture or other entity controlling, controlled by, or under common control with another entity, or an agency, department, political subdivision, or any entity operating under the direct control of a Government Entity.
+
+**Applicant**: The natural person or Legal Entity that applies for (or seeks renewal of) a Certificate. Once the Certificate issues, the Applicant is referred to as the Subscriber. For Certificates issued to devices, the Applicant is the entity that controls or operates the device named in the Certificate, even if the device is sending the actual certificate request.
+
+**Applicant Representative**: A natural person or human sponsor who is either the Applicant, employed by the Applicant, or an authorized agent who has express authority to represent the Applicant:
+   1. who signs and submits, or approves a certificate request on behalf of the Applicant, and/or
+   2. who signs and submits a Subscriber Agreement on behalf of the Applicant, and/or
+   3. who acknowledges the Terms of Use on behalf of the Applicant when the Applicant is an Affiliate of the CA or is the CA.
 
 **Anti-Malware Organization:** An entity that maintains information about Suspect Code and/or develops software used to prevent, detect, or remove malware.
 
 **Application Software Supplier**: A supplier of software or other relying-party application software that displays or uses Code Signing Certificates, incorporates Root Certificates, and adopts these Requirements as all or part of its requirements for participation in a root store program.
 
+**Attestation Letter**: A letter attesting that Subject Information is correct written by an accountant, lawyer, government official, or other reliable third party customarily relied upon for such information.
+
+**Audit Period**: In a period-of-time audit, the period between the first day (start) and the last day of operations (end) covered by the auditors in their engagement. (This is not the same as the period of time when the auditors are on-site at the CA.) The coverage rules and maximum length of audit periods are defined in [Section 8.1](#81-frequency-or-circumstances-of-assessment).
+
+**Audit Report**: A report from a Qualified Auditor stating the Qualified Auditor's opinion on whether an entity's processes and controls comply with the mandatory provisions of these Requirements.
+
 **Baseline Requirements:** The Baseline Requirements for the Issuance and Management of Publicly-Trusted Certificates as published by the CA/Browser Forum.
+
+**CA Key Pair**: A Key Pair where the Public Key appears as the Subject Public Key Info in one or more Root CA Certificate(s) and/or Subordinate CA Certificate(s).
+
+**Certificate**: An electronic document that uses a digital signature to bind a public key and an identity.
+
+**Certificate Data**: Certificate requests and data related thereto (whether obtained from the Applicant or otherwise) in the CA's possession or control or to which the CA has access.
+
+**Certificate Management Process**: Processes, practices, and procedures associated with the use of keys, software, and hardware, by which the CA verifies Certificate Data, issues Certificates, maintains a Repository, and revokes Certificates.
+
+**Certificate Beneficiaries**: All Application Software Suppliers with whom the CA or its Root CA has entered into a contract for distribution of its Root Certificate in software distributed by such Application Software Suppliers and all Relying Parties who reasonably rely on such a Certificate while a Code Signature associated with the Certificate is valid.
+
+**Certificate Policy**: A set of rules that indicates the applicability of a named Certificate to a particular community and/or PKI implementation with common security requirements.
+
+**Certificate Problem Report**: Complaint of suspected Key Compromise, Certificate misuse, or other types of fraud, compromise, misuse, or inappropriate conduct related to Certificates.
+
+**Certificate Profile**: A set of documents or files that defines requirements for Certificate content and Certificate extensions in accordance with [Section 7](#7-certificate-crl-and-ocsp-profiles). e.g. a Section in a CA’s CPS or a certificate template file used by CA software.
+
+**Certificate Revocation List**: A regularly updated time-stamped list of revoked Certificates that is created and digitally signed by the CA that issued the Certificates.
 
 **Certification Authority:** An organization subject to these Requirements that is responsible for a Code Signing Certificate and, under these Requirements, oversees the creation, issuance, revocation, and management of Code Signing Certificates. Where the CA is also the Root CA, references to the CA are synonymous with Root CA.
 
-**Certificate Beneficiaries**: All Application Software Suppliers with whom the CA or its Root CA has entered into a contract for distribution of its Root Certificate in software distributed by such Application Software Suppliers and all Relying Parties who reasonably rely on such a Certificate while a Code Signature associated with the Certificate is valid.
+**Certification Practice Statement**: One of several documents forming the governance framework in which Certificates are created, issued, managed, and used.
 
 **Certificate Requester:** A natural person who is the Applicant, employed by the Applicant, an authorized agent who has express authority to represent the Applicant, or the employee or agent of a third party (such as software publisher) who completes and submits a Certificate Request on behalf of the Applicant.
 
@@ -135,6 +185,16 @@ Capitalized Terms are as defined in the Baseline Requirements or the EV SSL Guid
 
 **Code Signing Certificate:** A digital certificate issued by a CA that contains a Code Signing EKU.
 
+**Control**: "Control" (and its correlative meanings, "controlled by" and "under common control with") means possession, directly or indirectly, of the power to: (1) direct the management, personnel, finances, or plans of such entity; (2) control the election of a majority of the directors ; or (3) vote that portion of voting shares required for "control" under the law of the entity's Jurisdiction of Incorporation or Registration but in no case less than 10%.
+
+**Country**: Either a member of the United Nations OR a geographic region recognized as a Sovereign State by at least two UN member nations.
+
+**Cross Certificate**: A certificate that is used to establish a trust relationship between two Root CAs.
+
+**CSPRNG**: A random number generator intended for use in cryptographic system.
+
+**Delegated Third Party**: A natural person or Legal Entity that is not the CA but is authorized by the CA, and whose activities are not within the scope of the appropriate CA audits, to assist in the Certificate Management Process by performing or fulfilling one or more of the CA requirements found herein.
+
 **Declaration of Identity**: A written document that consists of the following:
 
   1.  the identity of the person performing the verification,
@@ -143,9 +203,15 @@ Capitalized Terms are as defined in the Baseline Requirements or the EV SSL Guid
   4.  the date of the verification, and
   5.  a signature of the Verifying Person.
 
+**Enterprise RA**: An employee or agent of an organization unaffiliated with the CA who authorizes issuance of Certificates to that organization.
+
+**Expiry Date**: The "Not After" date in a Certificate that defines the end of a Certificate's validity period.
+
 **EV Code Signing Certificate:** A Code Signing Certificate validated and issued in accordance the EV Code Signing requirements.
 
 **EV Guidelines:** The CA/Browser Forum Guidelines for the Issuance and Management of Extended Validation Certificates.
+
+**Government Entity**: A government-operated legal entity, agency, department, ministry, branch, or similar element of the government of a country, or political subdivision within such country (such as a state, province, city, county, etc.).
 
 **Hardware Crypto Module:** A tamper-resistant device, with a cryptography processor, used for the specific purpose of protecting the lifecycle of cryptographic keys (generating, managing, processing, and storing).
 
@@ -153,29 +219,87 @@ Capitalized Terms are as defined in the Baseline Requirements or the EV SSL Guid
 
 **Individual Applicant**: An Applicant who is a natural person and requests a Certificate that will list the Applicant's legal name as the Certificate's Subject.
 
+**Issuing CA**: In relation to a particular Certificate, the CA that issued the Certificate. This could be either a Root CA or a Subordinate CA.
+
+**Key Compromise**: A Private Key is said to be compromised if its value has been disclosed to an unauthorized person, or an unauthorized person has had access to it.
+
+**Key Generation Script**: A documented plan of procedures for the generation of a CA Key Pair.
+
+**Key Pair**: The Private Key and its associated Public Key.
+
+**Legal Entity**: An association, corporation, partnership, proprietorship, trust, government entity or other entity with legal standing in a country's legal system.
+
 **Lifetime Signing OID:** An optional extended key usage OID (`1.3.6.1.4.1.311.10.3.13`) used by Microsoft Authenticode to limit the lifetime of the code signature to the expiration of the code signing certificate.
+
+**Object Identifier**: A unique alphanumeric or numeric identifier registered under the International Organization for Standardization's applicable standard for a specific object or object class.
+
+**OCSP Responder**: An online server operated under the authority of the CA and connected to its Repository for processing Certificate status requests. See also, Online Certificate Status Protocol.
+
+**Online Certificate Status Protocol**: An online Certificate-checking protocol that enables relying-party application software to determine the status of an identified Certificate. See also OCSP Responder.
 
 **Organizational Applicant:** An Applicant that requests a Certificate with a name in the Subject field that is for an organization and not the name of an individual. Organizational Applicants include private and public corporations, LLCs, partnerships, government entities, non-profit organizations, trade associations, and other legal entities.
 
 **Non-EV Code Signing Certificate:** Term used to signify requirements that are applicable to Code Signing Certificates which do not have to meet the EV requirements.
 
+**Parent Company**: A company that Controls a Subsidiary Company.
+
 **Platform:** The computing environment in which an Application Software Supplier uses Code Signing Certificates, incorporates Root Certificates, and adopts these Requirements.
+
+**Private Key**: The key of a Key Pair that is kept secret by the holder of the Key Pair, and that is used to create Digital Signatures and/or to decrypt electronic records or files that were encrypted with the corresponding Public Key.
+
+**Public Key**: The key of a Key Pair that may be publicly disclosed by the holder of the corresponding Private Key and that is used by a Relying Party to verify Digital Signatures created with the holder's corresponding Private Key and/or to encrypt messages so that they can be decrypted only with the holder's corresponding Private Key.
+
+**Public Key Infrastructure**: A set of hardware, software, people, procedures, rules, policies, and obligations used to facilitate the trustworthy creation, issuance, management, and use of Certificates and keys based on Public Key Cryptography.
+
+**Publicly-Trusted Certificate**: A Certificate that is trusted by virtue of the fact that its corresponding Root Certificate is distributed as a trust anchor in widely-available application software.
+
+**Qualified Auditor**: A natural person or Legal Entity that meets the requirements of [Section 8.2](#82-identityqualifications-of-assessor).
+
+**Random Value**: A value specified by a CA to the Applicant that exhibits at least 112 bits of entropy.
+
+**Registration Authority (RA)**: Any Legal Entity that is responsible for identification and authentication of subjects of Certificates, but is not a CA, and hence does not sign or issue Certificates. An RA may assist in the certificate application process or revocation process or both. When "RA" is used as an adjective to describe a role or function, it does not necessarily imply a separate body, but can be part of the CA.
 
 **Registration Identifier:** The unique code assigned to an Applicant by the Incorporating or Registration Agency in such entity's Jurisdiction of Incorporation or Registration.
 
-**Requirements**: This document, the Baseline Requirements, the Network and Certificate System Security Requirements and the EV SSL Guidelines.
+**Reliable Data Source**: An identification document or source of data used to verify Subject Identity Information that is generally recognized among commercial enterprises and governments as reliable, and which was created by a third party for a purpose other than the Applicant obtaining a Certificate.
+
+**Reliable Method of Communication**: A method of communication, such as a postal/courier delivery address, telephone number, or email address, that was verified using a source other than the Applicant Representative.
+
+**Relying Party**: Any natural person or Legal Entity that relies on a Valid Certificate. An Application Software Supplier is not considered a Relying Party when software distributed by such Supplier merely displays information relating to a Certificate.
+
+**Repository**: An online database containing publicly-disclosed PKI governance documents (such as Certificate Policies and Certification Practice Statements) and Certificate status information, either in the form of a CRL or an OCSP response.
+
+**Requirements**: This document, the Network and Certificate System Security Requirements and the EV SSL Guidelines.
+
+**Root CA**: The top level Certification Authority whose Root Certificate is distributed by Application Software Suppliers and that issues Subordinate CA Certificates.
+
+**Root Certificate**: The self-signed Certificate issued by the Root CA to identify itself and to facilitate verification of Certificates issued to its Subordinate CAs.
 
 **Signature**: An encrypted electronic data file which is attached to or logically associated with other electronic data and which (i) identifies and is uniquely linked to the signatory of the electronic data, (ii) is created using means that the signatory can maintain under its sole control, and (iii) is linked in a way so as to make any subsequent changes that have been made to the electronic data detectable.
 
 **Signing Service**: An organization that signs Code on behalf of a Subscriber using a Private Key associated with a Code Signing Certificate.
 
+**Sovereign State**: A state or country that administers its own government, and is not dependent upon, or subject to, another power.
+
 **Subject**: The Subject of a Code Signing Certificate is the entity responsible for distributing the software but does not necessarily hold the copyright to the Code.
 
+**Subject Identity Information**: Information that identifies the Certificate Subject.
+
+**Subordinate CA**: A Certification Authority whose Certificate is signed by the Root CA, or another Subordinate CA.
+
 **Subscriber:** A natural person or Legal Entity to whom a Code Signing Certificate is issued and who is legally bound by a Subscriber Agreement or Terms of Use.
+
+**Subscriber Agreement**: An agreement between the CA and the Applicant/Subscriber that specifies the rights and responsibilities of the parties.
+
+**Subsidiary Company**: A company that is controlled by a Parent Company.
 
 **Suspect Code**: Code that contains malicious functionality or serious vulnerabilities, including spyware, malware and other code that installs without the user\'s consent and/or resists its own removal, and code that can be exploited in ways not intended by its designers to compromise the trustworthiness of the Platforms on which it executes.
 
 **Takeover Attack**: An attack where a Signing Service or Private Key associated with a Code Signing Certificate has been compromised by means of fraud, theft, intentional malicious act of the Subject's agent, or other illegal conduct.
+
+**Technically Constrained Subordinate CA Certificate**: A Subordinate CA certificate which uses a combination of Extended Key Usage settings and Name Constraint settings to limit the scope within which the Subordinate CA Certificate may issue Subscriber or additional Subordinate CA Certificates. [EDITOR: This is probably not applicable to Code Signing but we should discuss]
+
+**Terms of Use**: Provisions regarding the safekeeping and acceptable uses of a Certificate issued in accordance with these Requirements when the Applicant/Subscriber is an Affiliate of the CA or is the CA.
 
 **Timestamp Authority**: A service operated by the CA or a delegated third party for its own code signing certificate users that timestamps data using a certificate chained to a public root, thereby asserting that the data (or the data from which the data were derived via a secure hashing algorithm) existed at the specified time.
 
@@ -183,13 +307,43 @@ Capitalized Terms are as defined in the Baseline Requirements or the EV SSL Guid
 
 **Trusted Platform Module**: A microcontroller that stores keys, passwords and digital certificates, usually affixed to the motherboard of a computer, which due to its physical nature makes the information stored there more secure against external software attack or physical theft.
 
+**Trustworthy System**: Computer hardware, software, and procedures that are: 
+  - reasonably secure from intrusion and misuse; 
+  - provide a reasonable level of availability, reliability, and correct operation; 
+  - are reasonably suited to performing their intended functions; and 
+  - enforce the applicable security policy.
+
+**Valid Certificate**: A Certificate that passes the validation procedure specified in RFC 5280.
+
+**Validation Specialists**: Someone who performs the information verification duties specified by these Requirements.
+
+**Validity Period**: The validity period is as defined within RFC 5280, Section 4.1.2.5: the period of time from notBefore through notAfter, inclusive.
+
 **Verifying Person**: A notary, attorney, Latin notary, accountant, individual designated by a government agency as authorized to verify identities, or agent of the CA, who attests to the identity of an individual.
 
 ### 1.6.2 Abbreviations and Acronyms
 
+[EDITOR: Need to import abbreviations and acronyms used in this document]
+
+| **Acronym** | **Meaning** |
+| --- | --- |
+| CA | Certification Authority |
+| CP | Certificate Policy |
+| CPS | Certification Practice Statement |
+| CRL | Certificate Revocation List |
+| DBA | Doing Business As |
+| FIPS | (US Government) Federal Information Processing Standard |
+| ISO | International Organization for Standardization |
+| NIST | (US Government) National Institute of Standards and Technology |
+| OCSP | Online Certificate Status Protocol |
+| OID | Object Identifier |
+| PKI | Public Key Infrastructure |
+| RA | Registration Authority |
+
 As specified in the Baseline Requirements and EV Guidelines.
 
 ### 1.6.3 References
+[EDITOR: We should try importing the requirements from TLS BRs 1.8.4 and EV 1.7.9]
 
 This document references the following CA/B Forum documents:
 * The Baseline Requirements, version 1.6.9
@@ -199,21 +353,86 @@ These documents available on the CA/Browser Forum's website at https://www.cabfo
 
 Cross-references to Sections of the Baseline Requirements are notated with the letters "BR", as in "BR Section 1.2."
 
+[EDITOR: We should remove all references below that are not related to Code Signing and Time-stamping]
+
+ETSI EN 319 403, Electronic Signatures and Infrastructures (ESI); Trust Service Provider Conformity Assessment - Requirements for conformity assessment bodies assessing Trust Service Providers
+
+ETSI EN 319 411-1, Electronic Signatures and Infrastructures (ESI); Policy and security requirements for Trust Service Providers issuing certificates; Part 1: General requirements
+
+ETSI TS 102 042, Electronic Signatures and Infrastructures (ESI); Policy requirements for certification authorities issuing public key certificates.
+
+FIPS 140-2, Federal Information Processing Standards Publication - Security Requirements For Cryptographic Modules, Information Technology Laboratory, National Institute of Standards and Technology, May 25, 2001.
+
+FIPS 186-4, Federal Information Processing Standards Publication - Digital Signature Standard (DSS), Information Technology Laboratory, National Institute of Standards and Technology, July 2013.
+
+ISO 21188:2006, Public key infrastructure for financial services -- Practices and policy framework.
+
+Network and Certificate System Security Requirements, v.1.0, 1/1/2013.
+
+NIST SP 800-89, Recommendation for Obtaining Assurances for Digital Signature Applications, <http://csrc.nist.gov/publications/nistpubs/800-89/SP-800-89_November2006.pdf>.
+
+RFC2119, Request for Comments: 2119, Key words for use in RFCs to Indicate Requirement Levels, Bradner, March 1997.
+
+RFC2527, Request for Comments: 2527, Internet X.509 Public Key Infrastructure: Certificate Policy and Certification Practices Framework, Chokhani, et al, March 1999.
+
+RFC3492, Request for Comments: 3492, Punycode: A Bootstring encoding of Unicode for Internationalized Domain Names in Applications (IDNA). A. Costello. March 2003.
+
+RFC3647, Request for Comments: 3647, Internet X.509 Public Key Infrastructure: Certificate Policy and Certification Practices Framework, Chokhani, et al, November 2003.
+
+RFC3912, Request for Comments: 3912, WHOIS Protocol Specification, Daigle, September 2004.
+
+RFC3986, Request for Comments: 3986, Uniform Resource Identifier (URI): Generic Syntax. T. Berners-Lee, et al. January 2005.
+
+RFC4366, Request for Comments: 4366, Transport Layer Security (TLS) Extensions, Blake-Wilson, et al, April 2006.
+
+RFC5019, Request for Comments: 5019, The Lightweight Online Certificate Status Protocol (OCSP) Profile for High-Volume Environments, A. Deacon, et al, September 2007.
+
+RFC5280, Request for Comments: 5280, Internet X.509 Public Key Infrastructure: Certificate and Certificate Revocation List (CRL) Profile, Cooper et al, May 2008.
+
+RFC5890, Request for Comments: 5890, Internationalized Domain Names for Applications (IDNA): Definitions and Document Framework. J. Klensin. August 2010.
+
+RFC5952, Request for Comments: 5952, A Recommendation for IPv6 Address Text Representation. S. Kawamura, et al. August 2010.
+
+RFC8659, Request for Comments: 8659, DNS Certification Authority Authorization (CAA) Resource Record, Hallam-Baker, Stradling, Hoffman-Andrews, November 2019.
+
+RFC6960, Request for Comments: 6960, X.509 Internet Public Key Infrastructure Online Certificate Status Protocol - OCSP. Santesson, Myers, Ankney, Malpani, Galperin, Adams, June 2013.
+
+RFC6962, Request for Comments: 6962, Certificate Transparency. B. Laurie, A. Langley, E. Kasper. June 2013.
+
+RFC7231, Request For Comments: 7231, Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content, R. Fielding, J. Reschke. June 2014.
+
+RFC7538, Request For Comments: 7538, The Hypertext Transfer Protocol Status Code 308 (Permanent Redirect), J. Reschke. April 2015.
+
+RFC7482, Request for Comments: 7482, Registration Data Access Protocol (RDAP) Query Format, Newton, et al, March 2015.
+
+RFC8499, Request for Comments: 8499, DNS Terminology. P. Hoffman, et al. January 2019.
+
+WebTrust for Certification Authorities, SSL Baseline with Network Security, Version 2.3, available at <https://www.cpacanada.ca/-/media/site/business-and-accounting-resources/docs/webtrust/wt-pcca-ss-lbns2-3.pdf>.
+
+X.509, Recommendation ITU-T X.509 (10/2012) \| ISO/IEC 9594-8:2014 (E), Information technology – Open Systems Interconnection – The Directory: Public-key and attribute certificate frameworks.
+
+
 ### 1.6.4 Conventions
 
 Terms not otherwise defined in these Requirements are as defined in the CA's applicable agreements, user manuals, Certificate Policies, and Certification Practice Statements.
 
 The key words \"MUST", "MUST NOT", \"REQUIRED\", \"SHALL\", \"SHALL NOT\", \"SHOULD\", \"SHOULD NOT\", \"RECOMMENDED\", \"MAY\", and \"OPTIONAL\" in these Requirements are used in accordance with RFC 2119.
 
+By convention, this document omits time and timezones when listing effective requirements such as dates. Except when explicitly specified, the associated time with a date shall be 00:00:00 UTC.
+
 # 2. PUBLICATION AND REPOSITORY RESPONSIBILITIES
+
+The CA SHALL develop, implement, enforce, and annually update a Certificate Policy and/or Certification Practice Statement that describes in detail how the CA implements the latest version of these Requirements.
 
 ## 2.1 Repositories
 
 The CA SHALL maintain an online 24x7 Repository that application software can use to automatically check the current status of Code Signing and Timestamp Certificates issued by the CA.
 
+The CA SHALL make revocation information for Subordinate Certificates and Subscriber Certificates available in accordance with this Policy.
+
 ## 2.2 Publication of certification information
 
-The CA and its Root CA MUST develop, implement, enforce, display prominently on its Web site, and periodically update its policies and practices, including its Certificate Policy and/or Certification Practice Statement, that implement the most current version of these Requirements. The Certificate Policy and/or Certification Practice Statement MUST specify the CA's (and applicable Root CA's) entire root certificate hierarchy including all roots that its Code Signing Certificates depend on for proof of those Code Signing Certificates' authenticity.
+The CA and its Root CA MUST develop, implement, enforce, display prominently on its web site, and periodically update its policies and practices, including its Certificate Policy and/or Certification Practice Statement, that implement the most current version of these Requirements. The Certificate Policy and/or Certification Practice Statement MUST specify the CA's (and applicable Root CA's) entire root certificate hierarchy including all roots that its Code Signing Certificates depend on for proof of those Code Signing Certificates' authenticity.
 
 Each CA MUST represent that it has disclosed all Cross Certificates in its Certificate Policy/Certificate Practice Statement that identify the CA as the Subject, provided that the CA arranged for or accepted the establishment of the trust relationship (i.e. the Cross Certificate at issue).
 
@@ -227,7 +446,11 @@ In either case, each CA MUST include a link to the official version of these Req
 
 ## 2.3 Time or frequency of publication
 
+The CA SHALL develop, implement, enforce, and annually update a Certificate Policy and/or Certification Practice Statement that describes in detail how the CA implements the latest version of these Requirements. The CA SHALL indicate conformance with this requirement by incrementing the version number and adding a dated changelog entry, even if no other changes are made to the document.
+
 ## 2.4 Access controls on repositories
+
+The CA shall make its Repository publicly available in a read-only manner.
 
 # 3. IDENTIFICATION AND AUTHENTICATION
 
@@ -644,23 +867,58 @@ Because some Application Software Suppliers utilize non-standard revocation mech
 
 ### 5.2.4 Roles requiring separation of duties
 
-## 5.3 Personnel controls
+1. The CA MUST enforce rigorous control procedures for the separation of validation duties to ensure that no one person can single-handedly validate and authorize the issuance of an EV Certificate. The Final Cross-Correlation and Due Diligence steps, as outlined in Section 11.13 of the EV Guidelines, MAY be performed by one of the persons. For example, one Validation Specialist MAY review and verify all the Applicant information and a second Validation Specialist MAY approve issuance of the EV Certificate.
+2. Such controls MUST be auditable.
 
-As specified in EV Guidelines Section 14.1. Additionally, the CA SHALL require all Validation Specialists to pass an examination provided by the CA on the information verification requirements outlined in these Requirements.
+## 5.3 Personnel controls
 
 ### 5.3.1 Qualifications, experience, and clearance requirements
 
+Prior to the engagement of any person in the Certificate Management Process, whether as an employee, agent, or an independent contractor of the CA, the CA SHALL verify the identity and trustworthiness of such person.
+
 ### 5.3.2 Background check procedures
 
-### 5.3.3 Training requirements
+Prior to the commencement of employment of any person by the CA for engagement in the EV Processes, whether as an employee, agent, or an independent contractor of the CA, the CA MUST:
+
+1. **Verify the Identity of Such Person**: Verification of identity MUST be performed through:
+
+   A.  The personal (physical) presence of such person before trusted persons who perform human resource or security functions, and
+   B.  The verification of well-recognized forms of government-issued photo identification (e.g., passports and/or drivers licenses);
+
+   and
+
+2. **Verify the Trustworthiness of Such Person**: Verification of trustworthiness SHALL include background checks, which address at least the following, or their equivalent:
+
+   A.  Confirmation of previous employment,
+   B.  Check of professional references;
+   C.  Confirmation of the highest or most-relevant educational qualification obtained;
+   D.  Search of criminal records (local, state or provincial, and national) where allowed by the jurisdiction in which the person will be employed;
+
+   and
+
+3. In the case of employees already in the employ of the CA at the time of adoption of these Guidelines whose identity and background has not previously been verified as set forth above, the CA SHALL conduct such verification within three months of the date of adoption of these Guidelines.
+
+### 5.3.3 Training requirements and procedures
+
+The CA SHALL provide all personnel performing information verification duties with skills-training that covers basic Public Key Infrastructure knowledge, authentication and vetting policies and procedures (including the CA's Certificate Policy and/or Certification Practice Statement), common threats to the information verification process (including phishing and other social engineering tactics), and these Requirements.
+
+The CA SHALL maintain records of such training and ensure that personnel entrusted with Validation Specialist duties maintain a skill level that enables them to perform such duties satisfactorily.
+
+The CA SHALL document that each Validation Specialist possesses the skills required by a task before allowing the Validation Specialist to perform that task.
+
+The CA SHALL require all Validation Specialists to pass an examination provided by the CA on the information verification requirements outlined in these Requirements.
 
 ### 5.3.4 Retraining frequency and requirements
+
+All personnel in Trusted roles SHALL maintain skill levels consistent with the CA's training and performance programs.
 
 ### 5.3.5 Job rotation frequency and sequence
 
 ### 5.3.6 Sanctions for unauthorized actions
 
 ### 5.3.7 Independent contractor requirements
+
+The CA SHALL verify that the Delegated Third Party's personnel involved in the issuance of a Certificate meet the training and skills requirements of [Section 5.3.3](#533-training-requirements-and-procedures) and the document retention and event logging requirements of [Section 5.4.1](#541-types-of-events-recorded).
 
 ### 5.3.8 Documentation supplied to personnel
 
