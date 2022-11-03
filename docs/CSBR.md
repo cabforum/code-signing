@@ -896,7 +896,7 @@ For EV Code Signing Certificates issued prior to June 1, 2023, CAs SHALL ensure 
 5.	 The Subscriber counter-signs certificate requests that can be verified by using a manufacturer’s certificate indicating that the Private Key is managed in a suitable Hardware Crypto Module;
 6.	 The Subscriber provides a suitable IT audit indicating that its operating environment achieves a level of security at least equivalent to that of FIPS 140-2 level 2.
 
-Effective November, 15, 2022, Subscriber Private Keys for Code Signing Certificates SHALL be protected per the following requirements.
+Effective June 1, 2023, Subscriber Private Keys for Code Signing Certificates SHALL be protected per the following requirements.
 The CA MUST obtain a contractual representation from the Subscriber that the Subscriber will use one of the following options to generate and protect their Code Signing Certificate Private Keys in a Hardware Crypto Module with a unit design form factor certified as conforming to at least FIPS 140-2 Level 2 or Common Criteria EAL 4+:
 
 7.	 Subscriber uses a Hardware Crypto Module meeting the specified requirement;  
@@ -907,7 +907,7 @@ The CA MUST obtain a contractual representation from the Subscriber that the Sub
 
 ###### 6.2.7.4.2 Subscriber Private Key verification
 
-Effective November, 15, 2022, for Code Signing Certificates, CAs SHALL ensure that the Subscriber’s Private Key is generated, stored, and used in a suitable Hardware Crypto Module that meets or exceeds the requirements specified in [Section 6.2.7.4.1](#62741-subscriber-private-key-protection). One of the following methods MUST be employed to satisfy this requirement:
+Effective June 1, 2023, for Code Signing Certificates, CAs SHALL ensure that the Subscriber’s Private Key is generated, stored, and used in a suitable Hardware Crypto Module that meets or exceeds the requirements specified in [Section 6.2.7.4.1](#62741-subscriber-private-key-protection). One of the following methods MUST be employed to satisfy this requirement:
 
 1.	 The CA ships a suitable Hardware Crypto Module, with one or more pre-generated Key Pairs that the CA has generated using the Hardware Crypto Module; 
 2.	 The Subscriber counter-signs certificate requests that can be verified by using a manufacturer’s certificate, commonly known as key attestation, indicating that the Private Key was generated in a non-exportable way using a suitable Hardware Crypto Module; 
