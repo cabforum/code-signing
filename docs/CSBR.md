@@ -509,7 +509,8 @@ Except for cases that fall under Section 4.9.1.1, if, while investigating a prob
 
 1.  The CA MUST contact the Subscriber within 24 hours after the CA received the Certificate Problem Report and request acknowledgement of receipt.
 2.  The CA MUST request the Subscriber to respond with an acknowledgement to the CA within 72 hours of the CA sending the request.
-   a.  If the Subscriber responds within 72 hours, the CA and Subscriber MAY determine a "reasonable date" to revoke the certificate. The revocation date MUST NOT be more than 7 calendar days after the incident was discovered.
+   a.  If the Subscriber responds within 72 hours, the CA and Subscriber MAY determine a "reasonable date" to revoke the certificate. The revocation date MUST NOT be more than 7 calendar days after the CA received the Certificate Problem Report.
+
    b.  If CA does not receive a response, then the CA MUST revoke the certificate within 24 hours from the end of the response period.
 
 A CA revoking a Certificate because the Certificate was associated with signed Suspect Code or other fraudulent or illegal conduct SHOULD provide all relevant information and risk indicators to other CAs, Application Software Suppliers, or industry groups. The CA SHOULD contact the Application Software Suppliers within 24 hours after the CA received the Certificate Problem Report.
