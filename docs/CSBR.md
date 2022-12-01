@@ -505,7 +505,7 @@ The CA MUST revoke a Code Signing Certificate within one (1) business day if the
 
 #### 4.9.1.3 Revocation Based on Reported or Detected Compromise or Use in Suspect Code
 
-Except for cases that fall under Section 4.9.1.1, if, while investigating a problem report, the CA determines the Subscriber's Private Key is compromised or likely being used for Suspect Code, the CA SHALL revoke the corresponding Code Signing Certificate in accordance with and within the following maximum time frames. Nothing herein prohibits a CA from revoking a Code Signing Certificate prior to these time frames.
+Except for cases that fall under Section 4.9.1.1, if, while investigating a Certificate Problem Report, the CA determines the Subscriber's Private Key is compromised or likely being used for Suspect Code, the CA SHALL revoke the corresponding Code Signing Certificate in accordance with and within the following maximum time frames. Nothing herein prohibits a CA from revoking a Code Signing Certificate prior to these time frames.
 
 1.  The CA MUST contact the Subscriber within 24 hours after the CA received the Certificate Problem Report and request acknowledgement of receipt.
 2.  The CA MUST request the Subscriber to respond with an acknowledgement to the CA within 72 hours of the CA sending the request.
