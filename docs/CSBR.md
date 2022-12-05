@@ -13,6 +13,8 @@ copyright: |
 # 1.  INTRODUCTION
 [EDITOR: Following the decision of the Code Signing Working Group, we will attempt to import the references of dependent documents (TLS Baseline Requirements, NetSec, EV Guidelines) into the CSBRs. Editorial comments that need to be addressed will be denoted with a "EDITOR:" label. We will first aim to import the TLS BRs]
 
+[EDITOR: We must also clarify the term "Network Security Guidelines" and point to the correct title]
+
 ## 1.1 Overview
 
 The Baseline Requirements for the Issuance and Management of Publicly-Trusted CodeSigning Certificates describe a subset of the requirements that a Certification Authority must meet to issue Code Signing Certificates. 
@@ -475,14 +477,40 @@ The CA shall make its Repository publicly available in a read-only manner.
 
 ### 3.2.2 Authentication of organization identity
 
+If the Applicant requests a Certificate that will contain the countryName field and other Subject Identity Information, then the CA SHALL verify the identity of the Applicant, and the authenticity of the Applicant Representative's certificate request using a verification process meeting the requirements of [Section 3.2.2.1](#3221-identity) and that is described in the CA's Certificate Policy and/or Certification Practice Statement. The CA SHALL inspect any document relied upon under this Section for alteration or falsification.
+
 #### 3.2.2.1 Authentication of organization identity for Non-EV Code Signing Certificates
 
 Prior to issuing a Code Signing Certificate to an Organizational Applicant, the CA MUST:
 
-1.  Verify the Subject's legal identity, including any DBA proposed for inclusion in a Certificate, in accordance with BR Sections 3.2.2.1 and 3.2.2.2.  The CA MUST also obtain, whenever available, a specific Registration Identifier assigned to the Applicant by a government agency in the jurisdiction of the Applicant's legal creation, existence, or recognition,
-3.  Verify the Subject's address in accordance with BR Section 3.2.2.1,
-4.  Verify the Certificate Requester's authority to request a Code Signing Certificate and the authenticity of the Certificate Request using a Reliable Method of Communication in accordance with BR Section 3.2.5., and
+1.  Verify the Subject's legal identity, including any DBA proposed for inclusion in a Certificate, in accordance with [Section 3.2.2.1.1](#32211-identity) and [Section 3.2.2.1.2](#32212-dbatradename). The CA MUST also obtain, whenever available, a specific Registration Identifier assigned to the Applicant by a government agency in the jurisdiction of the Applicant's legal creation, existence, or recognition,
+3.  Verify the Subject's address in accordance with [Section 3.2.2.1.1](#32211-identity),
+4.  Verify the Certificate Requester's authority to request a Code Signing Certificate and the authenticity of the Certificate Request using a Reliable Method of Communication in accordance with [Section 3.2.5](#325-validation-of-authority), and
 5.  If the Subject's or Subject's Affiliate's, Parent Company's, or Subsidiary Company's date of formation, as indicated by either a QIIS or QGIS, was less than three years prior to the date of the Certificate Request, verify the identity of the Certificate Requester. Effective 1 November 2021, the method used to verify the identity of the Certificate Requester SHALL be per [Section 3.2.3.1](#3231-individual-identity-verification).
+
+##### 3.2.2.1.1 Identity
+
+If the Subject Identity Information is to include the name or address of an organization, the CA SHALL verify the identity and address of the organization and that the address is the Applicant's address of existence or operation. The CA SHALL verify the identity and address of the Applicant using documentation provided by, or through communication with, at least one of the following:
+
+1. A government agency in the jurisdiction of the Applicant's legal creation, existence, or recognition;
+2. A third party database that is periodically updated and considered a Reliable Data Source;
+3. A site visit by the CA or a third party who is acting as an agent for the CA; or
+4. An Attestation Letter.
+
+The CA MAY use the same documentation or communication described in 1 through 4 above to verify both the Applicant's identity and address.
+
+Alternatively, the CA MAY verify the address of the Applicant (but not the identity of the Applicant) using a utility bill, bank statement, credit card statement, government-issued tax document, or other form of identification that the CA determines to be reliable.
+
+##### 3.2.2.1.2 DBA/Tradename
+
+If the Subject Identity Information is to include a DBA or tradename, the CA SHALL verify the Applicant's right to use the DBA/tradename using at least one of the following:
+
+1. Documentation provided by, or communication with, a government agency in the jurisdiction of the Applicant's legal creation, existence, or recognition;
+2. A Reliable Data Source;
+3. Communication with a government agency responsible for the management of such DBAs or trade names;
+4. An Attestation Letter accompanied by documentary support; or
+5. A utility bill, bank statement, credit card statement, government-issued tax document, or other form of identification that the CA determines to be reliable.
+
 
 #### 3.2.2.2 Authentication of organization identity for EV Code Signing Certificates
 
@@ -569,13 +597,27 @@ The CA MUST verify the authenticity of the Certificate Request using one of the 
 
 ### 3.2.5 Validation of authority
 
+If the Applicant for a Certificate containing Subject Identity Information is an organization, the CA SHALL use a Reliable Method of Communication to verify the authenticity of the Applicant Representative's certificate request.
+
+The CA MAY use the sources listed in [Section 3.2.2.1.1](#32211-identity) to verify the Reliable Method of Communication. Provided that the CA uses a Reliable Method of Communication, the CA MAY establish the authenticity of the certificate request directly with the Applicant Representative or with an authoritative source within the Applicant's organization, such as the Applicant's main business offices, corporate offices, human resource offices, information technology offices, or other department that the CA deems appropriate.
+
+In addition, the CA SHALL establish a process that allows an Applicant to specify the individuals who may request Certificates. If an Applicant specifies, in writing, the individuals who may request a Certificate, then the CA SHALL NOT accept any certificate requests that are outside this specification. The CA SHALL provide an Applicant with a list of its authorized certificate requesters upon the Applicant's verified written request.
+
 ### 3.2.6 Criteria for interoperation
 
 The CA SHOULD issue Code Signing and Timestamp Certificates that allow Application Software Suppliers to test their software with Certificates that chain up to each publicly trusted Root Certificate. At a minimum, the CA SHOULD issue and make available to Application Software Suppliers upon request Code Signing and Timestamp Certificates that are valid (non-revoked and unexpired).
 
 ### 3.2.7 Data source accuracy
 
-As specified in BR Section 3.2.2.7.
+Prior to using any data source as a Reliable Data Source, the CA SHALL evaluate the source for its reliability, accuracy, and resistance to alteration or falsification. The CA SHOULD consider the following during its evaluation:
+
+1. The age of the information provided,
+2. The frequency of updates to the information source,
+3. The data provider and purpose of the data collection,
+4. The public accessibility of the data availability, and
+5. The relative difficulty in falsifying or altering the data.
+
+Databases maintained by the CA, its owner, or its affiliated companies do not qualify as a Reliable Data Source if the primary purpose of the database is to collect information for the purpose of fulfilling the validation requirements under this [Section 3.2](#32-initial-identity-validation).
 
 ## 3.3 Identification and authentication for re-key requests
 
@@ -590,8 +632,6 @@ As specified in BR Section 3.2.2.7.
 ## 4.1 Certificate Application
 
 ### 4.1.1 Who can submit a certificate application
-
-For Non-EV Code Signing Certificates, the CA SHALL implement procedures to identify suspicious certificate requests as defined in BR Section 4.1.1.
 
 For EV Code Signing Certificates, the CA MAY only issue to Applicants that meet the requirements specified in Section 8.5 of the EV Guidelines. The CA SHALL implement procedures to identify suspicious certificate requests as defined in EV Guidelines Section 11.12.2.
 
@@ -639,6 +679,8 @@ Except where issuance is expressly authorized by the Application Software Suppli
 
 ### 4.2.3 Time to process certificate applications
 
+No stipulation.
+
 ## 4.3 Certificate issuance
 
 ### 4.3.1 CA actions during certificate issuance
@@ -647,67 +689,121 @@ Certificate issuance by the Root CA MUST require an individual authorized by the
 
 ### 4.3.2 Notification to subscriber by the CA of issuance of certificate
 
+No stipulation.
+
 ## 4.4 Certificate acceptance
 
 ### 4.4.1 Conduct constituting certificate acceptance
 
+No stipulation.
+
 ### 4.4.2 Publication of the certificate by the CA
 
+No stipulation.
+
 ### 4.4.3 Notification of certificate issuance by the CA to other entities
+
+No stipulation.
 
 ## 4.5 Key pair and certificate usage
 
 ### 4.5.1 Subscriber private key and certificate usage
 
+See [Section 9.6.3](#963-subscriber-representations-and-warranties), provisions 2. and 4.
+
 ### 4.5.2 Relying party public key and certificate usage
+
+No stipulation.
 
 ## 4.6 Certificate renewal
 
 ### 4.6.1 Circumstance for certificate renewal
 
+No stipulation.
+
 ### 4.6.2 Who may request renewal
+
+No stipulation.
 
 ### 4.6.3 Processing certificate renewal requests
 
+No stipulation.
+
 ### 4.6.4 Notification of new certificate issuance to subscriber
+
+No stipulation.
 
 ### 4.6.5 Conduct constituting acceptance of a renewal certificate
 
+No stipulation.
+
 ### 4.6.6 Publication of the renewal certificate by the CA
 
+No stipulation.
+
 ### 4.6.7 Notification of certificate issuance by the CA to other entities
+
+No stipulation.
 
 ## 4.7 Certificate re-key
 
 ### 4.7.1 Circumstance for certificate re-key
 
+No stipulation.
+
 ### 4.7.2 Who may request certification of a new public key
+
+No stipulation.
 
 ### 4.7.3 Processing certificate re-keying requests
 
+No stipulation.
+
 ### 4.7.4 Notification of new certificate issuance to subscriber
+
+No stipulation.
 
 ### 4.7.5 Conduct constituting acceptance of a re-keyed certificate
 
+No stipulation.
+
 ### 4.7.6 Publication of the re-keyed certificate by the CA
 
+No stipulation.
+
 ### 4.7.7 Notification of certificate issuance by the CA to other entities
+
+No stipulation.
 
 ## 4.8 Certificate modification
 
 ### 4.8.1 Circumstance for certificate modification
 
+No stipulation.
+
 ### 4.8.2 Who may request certificate modification
+
+No stipulation.
 
 ### 4.8.3 Processing certificate modification requests
 
+No stipulation.
+
 ### 4.8.4 Notification of new certificate issuance to subscriber
+
+No stipulation.
 
 ### 4.8.5 Conduct constituting acceptance of modified certificate
 
+No stipulation.
+
 ### 4.8.6 Publication of the modified certificate by the CA
 
+No stipulation.
+
 ### 4.8.7 Notification of certificate issuance by the CA to other entities
+
+No stipulation.
 
 ## 4.9 Certificate revocation and suspension
 
@@ -791,9 +887,29 @@ For the status of Timestamp Certificates:
 
 ### 4.9.8 Maximum latency for CRLs
 
+No stipulation.
+
 ### 4.9.9 On-line revocation/status checking availability
 
+OCSP responses MUST conform to RFC6960 and/or RFC5019. OCSP responses MUST either:
+
+1. Be signed by the CA that issued the Certificates whose revocation status is being checked, or
+2. Be signed by an OCSP Responder whose Certificate is signed by the CA that issued the Certificate whose
+   revocation status is being checked.
+
+In the latter case, the OCSP signing Certificate MUST contain an extension of type `id-pkix-ocsp-nocheck`, as
+defined by RFC6960.
+
 ### 4.9.10 On-line revocation checking requirements
+
+--- EDITOR NOTE BEGIN ---
+[EDITOR: The following is language from BR section 4.9.10 which was not in the CSBRs and is not in "conflict" with existing CSBR section 4.9.10 language. How should we treat these requirements? How is a "conflict" defined? Is it that there is no practical requirement conflict or that the entire section is empty?]
+
+OCSP responders operated by the CA SHALL support the HTTP GET method, as described in RFC 6960 and/or RFC 5019.
+
+The validity interval of an OCSP response is the difference in time between the `thisUpdate` and `nextUpdate` field, inclusive. For purposes of computing differences, a difference of 3,600 seconds shall be equal to one hour, and a difference of 86,400 seconds shall be equal to one day, ignoring leap-seconds.
+
+--- EDITOR NOTE END ---
 
 CAs MAY provide OCSP responses for Code Signing Certificates and Timestamp Certificates for the time period specified in their CPS, which MAY be at least 10 years after the expiration of the certificate.
 
@@ -814,31 +930,90 @@ Because some Application Software Suppliers utilize non-standard revocation mech
 
 ### 4.9.12 Special requirements re key compromise
 
+See [Section 4.9.1](#491-circumstances-for-revocation).
+
 ### 4.9.13 Circumstances for suspension
+
+[EDITOR: This is a controversial issue because some CAs might allow suspension of Code Signing Certificates because the scope is different. Suggest adding an effective date if we are to include this requirement and subsequent statements in 4.9.14, 4.9.15, 4.9.16.]
+
+The Repository MUST NOT include entries that indicate that a Certificate is suspended.
 
 ### 4.9.14 Who can request suspension
 
+Not applicable.
+
 ### 4.9.15 Procedure for suspension request
 
+Not applicable.
+
 ### 4.9.16 Limits on suspension period
+
+Not applicable.
 
 ## 4.10 Certificate status services
 
 ### 4.10.1 Operational characteristics
 
+[EDITOR: We might need to keep these entries even after the expiration of Code Signing or Timestamping Certificates]
+
+Revocation entries on a CRL or OCSP Response MUST NOT be removed until after the Expiry Date of the revoked Certificate.
+
 ### 4.10.2 Service availability
+
+The CA SHALL operate and maintain its CRL and OCSP capability with resources sufficient to provide a response time of ten seconds or less under normal operating conditions.
+
+[EDITOR: Section 2.1 of the CSBRs have a similar statement. We should not include this paragraph]
+The CA SHALL maintain an online 24x7 Repository that application software can use to automatically check the current status of all unexpired Certificates issued by the CA.
+
+[EDITOR: This is already in section 4.9.5 of the CSBRs. We should not include this paragraph.]
+The CA SHALL maintain a continuous 24x7 ability to respond internally to a high-priority Certificate Problem Report, and where appropriate, forward such a complaint to law enforcement authorities, and/or revoke a Certificate that is the subject of such a complaint.
 
 ### 4.10.3 Optional features
 
+No stipulation.
+
 ## 4.11 End of subscription
+
+No stipulation.
 
 ## 4.12 Key escrow and recovery
 
 ### 4.12.1 Key escrow and recovery policy and practices
 
+No stipulation.
+
 ### 4.12.2 Session key encapsulation and recovery policy and practices
 
+Not applicable.
+
 # 5. FACILITY, MANAGEMENT, AND OPERATIONAL CONTROLS
+
+[EDITOR: This paragraph is also ]
+The CA/Browser Forum's Network and Certificate System Security Requirements are incorporated by reference as if fully set forth herein.
+
+The CA SHALL develop, implement, and maintain a comprehensive security program designed to:
+
+1. Protect the confidentiality, integrity, and availability of Certificate Data and Certificate Management Processes;
+2. Protect against anticipated threats or hazards to the confidentiality, integrity, and availability of the Certificate Data and Certificate Management Processes;
+3. Protect against unauthorized or unlawful access, use, disclosure, alteration, or destruction of any Certificate Data or Certificate Management Processes;
+4. Protect against accidental loss or destruction of, or damage to, any Certificate Data or Certificate Management Processes; and
+5. Comply with all other security requirements applicable to the CA by law.
+
+The Certificate Management Process MUST include:
+
+1. physical security and environmental controls;
+2. system integrity controls, including configuration management, integrity maintenance of trusted code, and malware detection/prevention;
+3. network security and firewall management, including port restrictions and IP address filtering;
+4. user management, separate trusted-role assignments, education, awareness, and training; and
+5. logical access controls, activity logging, and inactivity time-outs to provide individual accountability.
+
+The CA's security program MUST include an annual Risk Assessment that:
+
+1. Identifies foreseeable internal and external threats that could result in unauthorized access, disclosure, misuse, alteration, or destruction of any Certificate Data or Certificate Management Processes;
+2. Assesses the likelihood and potential damage of these threats, taking into consideration the sensitivity of the Certificate Data and Certificate Management Processes; and
+3. Assesses the sufficiency of the policies, procedures, information systems, technology, and other arrangements that the CA has in place to counter such threats.
+
+Based on the Risk Assessment, the CA SHALL develop, implement, and maintain a security plan consisting of security procedures, measures, and products designed to achieve the objectives set forth above and to manage and control the risks identified during the Risk Assessment, commensurate with the sensitivity of the Certificate Data and Certificate Management Processes. The security plan MUST include administrative, organizational, technical, and physical safeguards appropriate to the sensitivity of the Certificate Data and Certificate Management Processes. The security plan MUST also take into account then-available technology and the cost of implementing the specific measures, and SHALL implement a reasonable level of security appropriate to the harm that might result from a breach of security and the nature of the data to be protected.
 
 ## 5.1 Physical controls
 
@@ -863,6 +1038,8 @@ Because some Application Software Suppliers utilize non-standard revocation mech
 ### 5.2.1 Trusted roles
 
 ### 5.2.2 Number of persons required per task
+
+The CA Private Key SHALL be backed up, stored, and recovered only by personnel in trusted roles using, at least, dual control in a physically secured environment.
 
 ### 5.2.3 Identification and authentication for each role
 
@@ -939,13 +1116,15 @@ The CA SHALL record at least the following events:
       c.	Approval and rejection of certificate requests ;
       d.	Cryptographic device lifecycle management events;
       e.	Generation of Certificate Revocation Lists and OCSP entries ;
-      f.	Introduction of new Certificate Profiles and retirement of existing Certificate Profiles
+      f.    Signing of OCSP Responses (as described in [Section 4.9](#49-certificate-revocation-and-suspension) and [Section 4.10](#410-certificate-status-services)); and 
+      g.	Introduction of new Certificate Profiles and retirement of existing Certificate Profiles
    2.	CA and Subscriber lifecycle management events, including:
       a.	Certificate requests, renewals, re-key requests, and revocation;
       b.	All verification activities stipulated in these Requirements and the CA’s Certification Practice Statement (CPS);
       c.	Acceptance and rejection of certificate requests;
-      d.	Issuance of Certificates; and
-      e.	Generation of Certificate Revocation Lists and OCSP entries.
+      d.	Issuance of Certificates;
+      e.	Generation of Certificate Revocation Lists and OCSP entries; and
+      f.    Signing of OCSP Responses (as described in [Section 4.9](#49-certificate-revocation-and-suspension) and [Section 4.10](#410-certificate-status-services)).
    3.	Security events, including:
       a.	Successful and unsuccessful PKI system access attempts;
       b.	PKI and security system actions performed;
@@ -954,11 +1133,11 @@ The CA SHALL record at least the following events:
       e.	Firewall and router activities; and
       f.	Entries to and exits from the CA facility.
 
-Log entries MUST include the following elements:
+Log records MUST include the following elements:
 
-   1.	Date and time of entry;
-   2.	Identity of the person making the journal entry; and 
-   3.	Description of the entry.
+   1.	Date and time of event;
+   2.	Identity of the person making the journal record; and 
+   3.	Description of the event.
 
 #### 5.4.1.2 Types of events recorded for Timestamp Authorities
 
@@ -981,7 +1160,7 @@ The Timestamp Authority MUST log the following information and make these record
 
 ### 5.4.3 Retention period for audit log
 
-The CA, Delegated Third Parties, and Timestamp Authority MUST retain, for at least two years:
+The CA, Delegated Third Parties, and Timestamp Authority MUST retain, for at least two (2) years:
 
 1.	CA certificate and key lifecycle management event records (as set forth in [Section 5.4.1.1](#5411-types-of-events-recorded-for-cas))(1) after the later occurrence of:
    a.	the destruction of the CA Private Key; or
@@ -990,7 +1169,7 @@ The CA, Delegated Third Parties, and Timestamp Authority MUST retain, for at lea
 3.	Timestamp Authority data records (as set forth in [Section 5.4.1.2](#5412-types-of-events-recorded-for-timestamp-authorities)) after the revocation or renewal of the Timestamp Certificate private key (as set forth in [Section 6.3.2](#632-certificate-operational-periods-and-key-pair-usage-periods));
 4.	Any security event records (as set forth in [Section 5.4.1.1](#5412-types-of-events-recorded-for-timestamp-authorities)(3) and for Timestamp Authority security event records set forth in [Section 5.4.1.2](#5412-types-of-events-recorded-for-timestamp-authorities)(3)) after the event occurred
 
-**Note**: While these Requirements set the minimum retention period, the CA, Delegated Third Parties, and Timestamp Authority may choose a greater value as more appropriate in order to be able to investigate possible security or other types of incidents that will require retrospection and examination of past events. 
+**Note**: While these Requirements set the minimum retention period, the CA, Delegated Third Parties, and Timestamp Authority may choose a greater value as more appropriate in order to be able to investigate possible security or other types of incidents that will require retrospection and examination of past events.
 
 ### 5.4.4 Protection of audit log
 
@@ -1002,11 +1181,37 @@ The CA, Delegated Third Parties, and Timestamp Authority MUST retain, for at lea
 
 ### 5.4.8 Vulnerability assessments
 
+Additionally, the CA's security program MUST include an annual Risk Assessment that:
+
+1. Identifies foreseeable internal and external threats that could result in unauthorized access, disclosure, misuse, alteration, or destruction of any Certificate Data or Certificate Management Processes;
+2. Assesses the likelihood and potential damage of these threats, taking into consideration the sensitivity of the Certificate Data and Certificate Management Processes; and
+3. Assesses the sufficiency of the policies, procedures, information systems, technology, and other arrangements that the CA has in place to counter such threats.
+
 ## 5.5 Records archival
 
 ### 5.5.1 Types of records archived
 
+[EDITOR: Must check if we need to make additional modifications to match the language of section 5.4]
+
+The CA and each Delegated Third Party SHALL archive all audit logs (as set forth in [Section 5.4.1](#541-types-of-events-recorded)).
+
+Additionally, the CA and each Delegated Third Party SHALL archive:
+1. Documentation related to the security of their Certificate Systems, Certificate Management Systems, Root CA Systems, and Delegated Third Party Systems; and
+2. Documentation related to their verification, issuance, and revocation of certificate requests and Certificates.
+
 ### 5.5.2 Retention period for archive
+
+[EDITOR: Must check if we need to make additional modifications to match the language of section 5.4]
+
+Archived audit logs (as set forth in [Section 5.5.1](#551-types-of-records-archived) SHALL be retained for a period of at least two (2) years from their record creation timestamp, or as long as they are required to be retained per [Section 5.4.3](#543-retention-period-for-audit-log), whichever is longer.
+
+Additionally, the CA and each Delegated Third Party SHALL retain, for at least two (2) years:
+1. All archived documentation related to the security of Certificate Systems, Certificate Management Systems, Root CA Systems and Delegated Third Party Systems (as set forth in [Section 5.5.1](#551-types-of-records-archived)); and
+2. All archived documentation relating to the verification, issuance, and revocation of certificate requests and Certificates (as set forth in [Section 5.5.1](#551-types-of-records-archived)) after the later occurrence of:
+    1. such records and documentation were last relied upon in the verification, issuance, or revocation of certificate requests and Certificates; or
+    2. the expiration of the Subscriber Certificates relying upon such records and documentation.
+
+Note: While these Requirements set the minimum retention period, the CA MAY choose a greater value as more appropriate in order to be able to investigate possible security or other types of incidents that will require retrospection and examination of past records archived.
 
 ### 5.5.3 Protection of archive
 
@@ -1023,6 +1228,28 @@ The CA, Delegated Third Parties, and Timestamp Authority MUST retain, for at lea
 ## 5.7 Compromise and disaster recovery
 
 ### 5.7.1 Incident and compromise handling procedures
+
+CA organizations shall have an Incident Response Plan and a Disaster Recovery Plan.
+
+The CA SHALL document a business continuity and disaster recovery procedures designed to notify and reasonably protect Application Software Suppliers, Subscribers, and Relying Parties in the event of a disaster, security compromise, or business failure. The CA is not required to publicly disclose its business continuity plans but SHALL make its business continuity plan and security plans available to the CA's auditors upon request. The CA SHALL annually test, review, and update these procedures.
+
+The business continuity plan MUST include:
+
+1. The conditions for activating the plan,
+2. Emergency procedures,
+3. Fallback procedures,
+4. Resumption procedures,
+5. A maintenance schedule for the plan;
+6. Awareness and education requirements;
+7. The responsibilities of the individuals;
+8. Recovery time objective (RTO);
+9. Regular testing of contingency plans.
+10. The CA's plan to maintain or restore the CA's business operations in a timely manner following interruption to or failure of critical business processes
+11. A requirement to store critical cryptographic materials (i.e., secure cryptographic device and activation materials) at an alternate location;
+12. What constitutes an acceptable system outage and recovery time
+13. How frequently backup copies of essential business information and software are taken;
+14. The distance of recovery facilities to the CA's main site; and
+15. Procedures for securing its facility to the extent possible during the period of time following a disaster and prior to restoring a secure environment either at the original or a remote site.
 
 ### 5.7.2 Computing resources, software, and/or data are corrupted
 
@@ -1042,17 +1269,56 @@ If the CA wishes to stop supporting validation of Code Signing Certificates or T
 
 #### 6.1.1.1 CA Key Pair Generation
 
-As specified in BR Section 6.1.1.1.
+For CA Key Pairs that are either
+
+i. used as a CA Key Pair for a Root Certificate or
+ii. used as a CA Key Pair for a Subordinate CA Certificate, where the Subordinate CA is not the operator of the Root CA or an Affiliate of the Root CA,
+
+the CA SHALL:
+
+1. prepare and follow a Key Generation Script,
+2. have a Qualified Auditor witness the CA Key Pair generation process or record a video of the entire CA Key Pair generation process, and
+3. have a Qualified Auditor issue a report opining that the CA followed its key ceremony during its Key and Certificate generation process and the controls used to ensure the integrity and confidentiality of the Key Pair.
+
+For other CA Key Pairs that are for the operator of the Root CA or an Affiliate of the Root CA, the CA SHOULD:
+
+1. prepare and follow a Key Generation Script and
+2. have a Qualified Auditor witness the CA Key Pair generation process or record a video of the entire CA Key Pair generation process.
+
+In all cases, the CA SHALL:
+
+1. generate the CA Key Pair in a physically secured environment as described in the CA's Certificate Policy and/or Certification Practice Statement;
+2. generate the CA Key Pair using personnel in Trusted Roles under the principles of multiple person control and split knowledge;
+3. generate the CA Key Pair within cryptographic modules meeting the applicable technical and business requirements as disclosed in the CA's Certificate Policy and/or Certification Practice Statement;
+4. log its CA Key Pair generation activities; and
+5. maintain effective controls to provide reasonable assurance that the Private Key was generated and protected in conformance with the procedures described in its Certificate Policy and/or Certification Practice Statement and (if applicable) its Key Generation Script.
 
 #### 6.1.1.2 RA Key Pair Generation
 
 #### 6.1.1.3 Subscriber Key Pair Generation
 
-The CA SHALL reject a certificate request if the requested Public Key does not meet the requirements set forth in Sections [6.1.5](#615-key-sizes) and BR Section 6.1.6, or if it has a known weak Private Key (such as a Debian weak key, see <http://wiki.debian.org/SSLkeys>).
+--- BEGIN EDITOR COMMENT ---
+[EDITOR: I prefer the language from section 6.1.1.3 of the BRs which seems clearer]
+
+The CA SHALL reject a certificate request if one or more of the following conditions are met:
+
+1. The Key Pair does not meet the requirements set forth in [Section 6.1.5](#615-key-sizes) and/or [Section 6.1.6](#616-public-key-parameters-generation-and-quality-checking);
+2. There is clear evidence that the specific method used to generate the Private Key was flawed;
+3. The CA is aware of a demonstrated or proven method that exposes the Applicant's Private Key to compromise;
+4. The CA has previously been made aware that the Applicant's Private Key has suffered a Key Compromise, such as through the provisions of [Section 4.9.1.1](#4911-reasons-for-revoking-a-subscriber-certificate);
+5. The CA is aware of a demonstrated or proven method to easily compute the Applicant's Private Key based on the Public Key (such as a Debian weak key, see <https://wiki.debian.org/SSLkeys>).
+
+--- END EDITOR COMMENT ---
+
+The CA SHALL reject a certificate request if the requested Public Key does not meet the requirements set forth in Section [6.1.5](#615-key-sizes) and Section [6.1.6](#616-public-key-parameters-generation-and-quality-checking), or if it has a known weak Private Key (such as a Debian weak key, see <http://wiki.debian.org/SSLkeys>).
 
 ### 6.1.2 Private key delivery to subscriber
 
 If the CA or any Delegated Third Party is generating the Private Key on behalf of the Subscriber where the Private Keys will be transported to the Subscriber outside of the Signing Service's secure infrastructure, then the entity generating the Private Key MUST either transport the Private Key in hardware with an activation method that is equivalent to 128 bits of encryption or encrypt the Private Key with at least 128 bits of encryption strength. Allowed methods include using a 128-bit AES key to wrap the private key or storing the key in a PKCS 12 file encrypted with a randomly generated password of more than 16 characters containing uppercase letters, lowercase letters, numbers, and symbols for transport.
+
+Parties other than the Subscriber SHALL NOT archive the Subscriber Private Key without authorization by the Subscriber.
+
+If the CA or any of its designated RAs become aware that a Subscriber's Private Key has been communicated to an unauthorized person or an organization not affiliated with the Subscriber, then the CA SHALL revoke all certificates that include the Public Key corresponding to the communicated Private Key.
 
 ### 6.1.3 Public key delivery to certificate issuer
 
@@ -1084,6 +1350,10 @@ For Keys corresponding to Subscriber code signing and Timestamp Authority Certif
 
 ### 6.1.6 Public key parameters generation and quality checking
 
+RSA: The CA SHALL confirm that the value of the public exponent is an odd number equal to 3 or more. Additionally, the public exponent SHOULD be in the range between 2^16 + 1 and 2^256 - 1. The modulus SHOULD also have the following characteristics: an odd number, not the power of a prime, and have no factors smaller than 752. [Source: Section 5.3.3, NIST SP 800-89]
+
+ECDSA: The CA SHOULD confirm the validity of all keys using either the ECC Full Public Key Validation Routine or the ECC Partial Public Key Validation Routine. [Source: Sections 5.6.2.3.2 and 5.6.2.3.3, respectively, of NIST SP 800-56A: Revision 2]
+
 ### 6.1.7 Key usage purposes
 
 Private Keys corresponding to Root Certificates MUST NOT be used to sign Certificates or create other Signatures except in the following cases:
@@ -1096,6 +1366,8 @@ Private Keys corresponding to Root Certificates MUST NOT be used to sign Certifi
 
 ## 6.2 Private Key Protection and Cryptographic Module Engineering Controls
 
+The CA SHALL implement physical and logical safeguards to prevent unauthorized certificate issuance. Protection of the CA Private Key outside the validated system or device specified above MUST consist of physical security, encryption, or a combination of both, implemented in a manner that prevents disclosure of the Private Key. The CA SHALL encrypt its Private Key with an algorithm and key-length that, according to the state of the art, are capable of withstanding cryptanalytic attacks for the residual life of the encrypted key or key part.
+
 ### 6.2.1 Cryptographic module standards and controls
 
 ### 6.2.2 Private key (n out of m) multi-person control
@@ -1104,9 +1376,15 @@ Private Keys corresponding to Root Certificates MUST NOT be used to sign Certifi
 
 ### 6.2.4 Private key backup
 
+See [Section 5.2.2](#522-number-of-individuals-required-per-task).
+
 ### 6.2.5 Private key archival
 
+Parties other than the Subordinate CA SHALL NOT archive the Subordinate CA Private Keys without authorization by the Subordinate CA.
+
 ### 6.2.6 Private key transfer into or from a cryptographic module
+
+If the Issuing CA generated the Private Key on behalf of the Subordinate CA, then the Issuing CA SHALL encrypt the Private Key for transport to the Subordinate CA. If the Issuing CA becomes aware that a Subordinate CA's Private Key has been communicated to an unauthorized person or an organization not affiliated with the Subordinate CA, then the Issuing CA SHALL revoke all certificates that include the Public Key corresponding to the communicated Private Key.
 
 For Certificates transported outside of a Signing Service's secure infrastructure, the CA or Signing Service MUST require, by contract, each Subscriber to generate their own Private Key and protect the Private Key in accordance with [Section 6.2.7.4](#6274-subscriber-private-key-protection-and-verification).
 
@@ -1114,7 +1392,7 @@ For Certificates transported outside of a Signing Service's secure infrastructur
 
 #### 6.2.7.1 Private key storage for CA keys
 
-Private Keys corresponding to CA Keys MUST be stored in accordance with BR Section 6.2.7.
+The CA SHALL protect its Private Key in a system or device that has been validated as meeting at least FIPS 140-2 level 3, FIPS 140-3 level 3, or an appropriate Common Criteria Protection Profile or Security Target, EAL 4 (or higher), which includes requirements to protect the Private Key and other assets against known threats.
 
 #### 6.2.7.2 Private key storage for Timestamp Authorities
 
@@ -1211,6 +1489,8 @@ Cryptographic algorithms, key sizes and certificate life-times for both authorit
 
 ### 6.5.1 Specific computer security technical requirements
 
+The CA SHALL enforce multi-factor authentication for all accounts capable of directly causing certificate issuance.
+
 ### 6.5.2 Computer security rating
 
 ## 6.6 Life cycle technical controls
@@ -1235,7 +1515,13 @@ The digest algorithm used to sign Timestamp tokens must match the digest algorit
 
 ## 7.1 Certificate profile
 
+The CA SHALL meet the technical requirements set forth in [Section 2.2 - Publication of Information](#22-publication-of-information), [Section 6.1.5 - Key Sizes](#615-key-sizes), and [Section 6.1.6 - Public Key Parameters Generation and Quality Checking](#616-public-key-parameters-generation-and-quality-checking).
+
+CAs SHALL generate non-sequential Certificate serial numbers greater than zero (0) containing at least 64 bits of output from a CSPRNG.
+
 ### 7.1.1 Version number(s)
+
+Certificates MUST be of type X.509 v3.
 
 ### 7.1.2 Certificate extensions
 
@@ -1395,6 +1681,8 @@ b. semantics that, if included, will mislead a Relying Party about the certifica
 
 #### 7.1.3.1 SubjectPublicKeyInfo
 
+[EDITOR: The BRs section 7.1.3.1 includes the exact encodings of permitted for `subjectPublicKeyInfo`. Should we import this language exactly as written in the BRs?]
+
 As defined in [Section 6.1.5](#615-key-sizes).
 
 #### 7.1.3.2 Signature AlgorithmIdentifier
@@ -1410,7 +1698,12 @@ In particular, it applies to all of the following objects and fields:
 * The `signatureAlgorithm` field of a BasicOCSPResponse
 * The `digestAlgorithms` field of a SignedData corresponding to a Timestamp token
 
+[EDITOR: The BRs in section 7.1.3.2 include the following requirement.]
+No other encodings are permitted for these fields.
+
 ##### 7.1.3.2.1 RSA
+
+[EDITOR: The BRs in section 7.1.3.2.1 include the exact encodings. Should we update?]
 
 The CA SHALL use one of the following signature algorithms:
 
@@ -1429,6 +1722,8 @@ In addition, the CA MAY use `RSASSA-PKCS1-v1_5 with SHA-1` if one of the followi
 * It is used within a Timestamp Token and the date of the `genTime` field is not greater than 2022-04-30.
 
 ##### 7.1.3.2.2 ECDSA
+
+[EDITOR: The BRs in section 7.1.3.2.1 include the exact encodings. Should we update?]
 
 The CA SHALL use one of the following signature algorithms:
 
