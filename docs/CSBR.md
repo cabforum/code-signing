@@ -82,8 +82,10 @@ Except as stated in [Section 8](#8-compliance-audit-and-other-assessments) (5), 
 
 Before the CA authorizes a Delegated Third Party to perform a delegated function, the CA MUST contractually require the Delegated Third Party to:
 
-1.  Meet the qualification requirements of BR Section 5.3 when applicable to the delegated function,
-2.  Retain documentation in accordance with BR Section 5.4.1,
+[EDITOR: Removed references to BR Section 5.3 and 5.4.1 and instead point to the same sections in the CSCBR. I see no conflict except that the CSCBR sections contain more requirements than the BR version.]
+
+1.  Meet the qualification requirements of [Section 5.3](#53-personnel-controls) when applicable to the delegated function,
+2.  Retain documentation in accordance with [Section 5.4.1](#541-types-of-events-recorded),
 3.  Abide by the other provisions of these Requirements that are applicable to the delegated function, and
 4.  Comply with (a) the CA's Certificate Policy/Certification Practice Statement or (b) the Delegated Third Party's practice statement that the CA has verified complies with these Requirements.
 
@@ -649,6 +651,8 @@ The certificate requestor signing request MUST contain a request from, or on beh
 
 The certificate request or signing request MAY include all factual information about the Applicant necessary to issue the Certificate or sign the Code, and such additional information as is necessary for the CA or Signing Service to obtain from the Applicant in order to comply with these Requirements and the CA's Certificate Policy and/or Certification Practice Statement. In cases where the certificate request or signing request does not contain all the necessary information about the Applicant, the CA or Signing Service MUST obtain the remaining information from the Applicant or, having obtained it from a reliable, independent, third-party data source, confirm it with the Applicant. The CA or Signing Service MUST establish and follow a documented procedure for verifying all data requested for inclusion in the Certificate by the Applicant.
 
+[EDITOR: I believe BR Section 4.2.1 to not be relevant for importing into the CSCBR. The actual valuable requirements seem to already be stated. Recommend removing the reference.]
+
 In addition to the procedures required by BR Section 4.2.1, prior to issuing a Code Signing Certificate, each CA SHOULD check at least one database containing information about known or suspected producers, publishers, or distributors of Suspect Code, as identified or indicated by an Anti-Malware Organization and any database of deceptive names maintained by an Application Software Provider. The CA MUST determine whether the entity is identified as requesting a Code Signing Certificate from a High Risk Region of Concern. The CA MUST also maintain and check an internal database listing Certificates revoked due to Code Signatures on Suspect Code and previous certificate requests rejected by the CA.
 
 A CA identifying a high risk application under this section MUST follow the additional procedures defined in [Section 4.2.2](#422-approval-or-rejection-of-certificate-applications) of this document to ensure that the applicant will protect its Private Keys and not sign Suspect Code.
@@ -841,7 +845,19 @@ A CA revoking a Certificate because the Certificate was associated with signed S
 
 #### 4.9.1.4 Revocation of a Subordinate CA Certificate
 
-As specified in BR Section 4.9.1.2.
+[EDITOR: The following is direct language from BR Section 4.9.1.2, which was previously referenced]
+
+The Issuing CA SHALL revoke a Subordinate CA Certificate within seven (7) days if one or more of the following occurs:
+
+1. The Subordinate CA requests revocation in writing;
+2. The Subordinate CA notifies the Issuing CA that the original certificate request was not authorized and does not retroactively grant authorization;
+3. The Issuing CA obtains evidence that the Subordinate CA's Private Key corresponding to the Public Key in the Certificate suffered a Key Compromise or no longer complies with the requirements of [Section 6.1.5](#615-key-sizes) and [Section 6.1.6](#616-public-key-parameters-generation-and-quality-checking);
+4. The Issuing CA obtains evidence that the Certificate was misused;
+5. The Issuing CA is made aware that the Certificate was not issued in accordance with or that Subordinate CA has not complied with this document or the applicable Certificate Policy or Certification Practice Statement;
+6. The Issuing CA determines that any of the information appearing in the Certificate is inaccurate or misleading;
+7. The Issuing CA or Subordinate CA ceases operations for any reason and has not made arrangements for another CA to provide revocation support for the Certificate;
+8. The Issuing CA's or Subordinate CA's right to issue Certificates under these Requirements expires or is revoked or terminated, unless the Issuing CA has made arrangements to continue maintaining the CRL/OCSP Repository; or
+9. Revocation is required by the Issuing CA's Certificate Policy and/or Certification Practice Statement.
 
 ### 4.9.2 Who can request revocation
 
@@ -849,7 +865,11 @@ The CA MUST provide Anti-Malware Organizations, Subscribers, Relying Parties, Ap
 
 ### 4.9.3 Procedure for revocation request
 
-As specified in BR Section 4.9.3.
+[EDITOR: The following is direct language from BR Section 4.9.3, which was previously referenced]
+
+The CA SHALL provide a process for Subscribers to request revocation of their own Certificates. The process MUST be described in the CA's Certificate Policy or Certification Practice Statement. The CA SHALL maintain a continuous 24x7 ability to accept and respond to revocation requests and Certificate Problem Reports.
+
+The CA SHALL provide Subscribers, Relying Parties, Application Software Suppliers, and other third parties with clear instructions for reporting suspected Private Key Compromise, Certificate misuse, or other types of fraud, compromise, misuse, inappropriate conduct, or any other matter related to Certificates. The CA SHALL publicly disclose the instructions through a readily accessible online means and in Section 1.5.2 of their CPS.
 
 ### 4.9.4 Revocation request grace period
 
@@ -1415,6 +1435,8 @@ Techniques that MAY be used to satisfy this requirement include:
 
 #### 6.2.7.4 Subscriber Private Key protection and verification 
 
+[EDITOR: This one seems odd. We're in a subsection of CSBR 6.2, and we're referencing BR 6.2. Meanwhile there are subsections that actually define the content. I'm leaving in this content so it's open for discussion, however my suggestion is to remove the paragraph completely and rely on the subsections.]
+
 The requirements in BR Section 6.2 apply equally to Code Signing Certificates.
 
 ##### 6.2.7.4.1 Subscriber Private Key protection
@@ -1748,7 +1770,14 @@ In addition, the CA MAY use `DSA with SHA-1` if one of the following conditions 
 
 #### 7.1.4.1 Name encoding
 
-As specified in BR Section 7.1.4.1.
+[EDITOR: The following is direct language from BR Section 7.1.4.1, which was previously referenced. ]
+
+The following requirements SHOULD be met by all newly-issued Subordinate CA Certificates that are not used to issue TLS certificates, as defined in [Section 7.1.2.2](#7122-subordinate-ca-certificate), and MUST be met for all other Certificates, regardless of whether the Certificate is a CA Certificate or a Subscriber Certificate.
+
+For every valid Certification Path (as defined by RFC 5280, Section 6):
+
+* For each Certificate in the Certification Path, the encoded content of the Issuer Distinguished Name field of a Certificate SHALL be byte-for-byte identical with the encoded form of the Subject Distinguished Name field of the Issuing CA certificate.
+* For each CA Certificate in the Certification Path, the encoded content of the Subject Distinguished Name field of a Certificate SHALL be byte-for-byte identical among all Certificates whose Subject Distinguished Names can be compared as equal according to RFC 5280, Section 7.1, and including expired and revoked Certificates.
 
 #### 7.1.4.2 Subject information - Subscriber Certificates
 
@@ -1771,8 +1800,9 @@ c. __Certificate Field:__ `subject:domainComponent` (OID 0.9.2342.19200300.100.1
    __Contents:__ This field MUST not be present in a Code Signing Certificate.
 
 d. __Certificate Field:__ Other subject attributes  
-   __Required/Optional:__ Optional  
-   __Contents:__ As specified in BR Section 7.1.4.2.2.j. Subject attributes MUST NOT contain only metadata such as '.', '-', and ' ' (i.e. space) characters, and/or any other indication that the value is absent, incomplete, or not applicable.
+   __Required/Optional:__ Optional
+     [EDITOR: The following is rewritten to import language from the BRs in section 7.1.4.2.2.j]
+   __Contents:__ Other attributes MAY be present within the subject field. If present, other attributes MUST contain information that has been verified by the CA. Subject attributes MUST NOT contain only metadata such as '.', '-', and ' ' (i.e. space) characters, and/or any other indication that the value is absent, incomplete, or not applicable.
 
 ##### 7.1.4.2.3 Subject distinguished name field - Non-EV Code Signing Certificates
 
@@ -1924,7 +1954,17 @@ The audit period for the Delegated Third Party MUST NOT exceed one year (ideally
 
 ## 8.2 Identity/qualifications of assessor
 
-As specified in BR Section 8.2.
+[EDITOR: The following is direct language from BR Section 8.2, which was previously referenced]
+
+The CA's audit SHALL be performed by a Qualified Auditor. A Qualified Auditor means a natural person, Legal Entity, or group of natural persons or Legal Entities that collectively possess the following qualifications and skills:
+
+1. Independence from the subject of the audit;
+2. The ability to conduct an audit that addresses the criteria specified in an Eligible Audit Scheme (see [Section 8.4](#84-topics-covered-by-assessment));
+3. Employs individuals who have proficiency in examining Public Key Infrastructure technology, information security tools and techniques, information technology and security auditing, and the third-party attestation function;
+4. (For audits conducted in accordance with any one of the ETSI standards) accredited in accordance with ISO 17065 applying the requirements specified in ETSI EN 319 403;
+5. (For audits conducted in accordance with the WebTrust standard) licensed by WebTrust;
+6. Bound by law, government regulation, or professional code of ethics; and
+7. Except in the case of an Internal Government Auditing Agency, maintains Professional Liability/Errors & Omissions insurance with policy limits of at least one million US dollars in coverage
 
 ## 8.3 Assessor's relationship to assessed entity
 
@@ -1940,7 +1980,9 @@ The CA MUST undergo a conformity assessment audit for compliance with these Requ
 
 Whichever scheme is chosen, it MUST incorporate periodic monitoring and/or accountability procedures to ensure that its audits continue to be conducted in accordance with the requirements of the scheme.
 
-The audit MUST be conducted by a Qualified Auditor, as specified in BR Section 8.2.
+[EDITOR: Updated reference from BR to CSCBR]
+
+The audit MUST be conducted by a Qualified Auditor, as specified in [Section 8.2](#82-identityqualifications-of-assessor).
 
 The audit MUST cover all CA obligations under these Guidelines regardless of whether they are performed directly by the CA, an RA, or subcontractor.
 
@@ -1948,7 +1990,29 @@ The audit MUST cover all CA obligations under these Guidelines regardless of whe
 
 ## 8.6 Communication of results
 
-As specified in BR Section 8.6.
+[EDITOR: The following is direct language from BR Section 8.6, which was previously referenced]
+
+The Audit Report SHALL state explicitly that it covers the relevant systems and processes used in the issuance of all Certificates that assert one or more of the policy identifiers listed in [Section 7.1.6.1](#7161-reserved-certificate-policy-identifiers). The CA SHALL make the Audit Report publicly available.
+
+The CA MUST make its Audit Report publicly available no later than three months after the end of the audit period. In the event of a delay greater than three months, the CA SHALL provide an explanatory letter signed by the Qualified Auditor.
+
+The Audit Report MUST contain at least the following clearly-labelled information:
+
+1. name of the organization being audited;
+2. name and address of the organization performing the audit;
+3. the SHA-256 fingerprint of all Roots and Subordinate CA Certificates, including Cross Certificates, that were in-scope of the audit;
+4. audit criteria, with version number(s), that were used to audit each of the certificates (and associated keys);
+5. a list of the CA policy documents, with version numbers, referenced during the audit;
+6. whether the audit assessed a period of time or a point in time;
+7. the start date and end date of the Audit Period, for those that cover a period of time;
+8. the point in time date, for those that are for a point in time;
+9. the date the report was issued, which will necessarily be after the end date or point in time date; and
+10. (for audits conducted in accordance with any of the ETSI standards) a statement to indicate if the audit was a full audit or a surveillance audit, and which portions of the criteria were applied and evaluated, e.g. DVCP, OVCP, NCP, NCP+, LCP, EVCP, EVCP+, QCP-w, Part 1 (General Requirements), and/or Part 2 (Requirements for Trust Service Providers).
+11. (for audits conducted in accordance with any of the ETSI standards) a statement to indicate that the auditor referenced the applicable CA/Browser Forum criteria, such as this document, and the version used.
+
+An authoritative English language version of the publicly available audit information MUST be provided by the Qualified Auditor and the CA SHALL ensure it is publicly available.
+
+The Audit Report MUST be available as a PDF, and SHALL be text searchable for all information required. Each SHA-256 fingerprint within the Audit Report MUST be uppercase letters and MUST NOT contain colons, spaces, or line feeds.
 
 ## 8.7 Self-audits
 
@@ -2069,7 +2133,10 @@ For Non-EV Code Signing Certificates, CAs MAY limit their liability as described
 
 ## 9.9 Indemnities
 
-As specified in BR Section 9.9.
+[EDITOR: The following is direct language from BR Section 9.9, which was previously referenced]
+
+Notwithstanding any limitations on its liability to Subscribers and Relying Parties, the CA understands and acknowledges that the Application Software Suppliers who have a Root Certificate distribution agreement in place with the Root CA do not assume any obligation or potential liability of the CA under these Requirements or that otherwise might exist because of the issuance or maintenance of Certificates or reliance thereon by Relying Parties or others. Thus, except in the case where the CA is a government entity, the CA SHALL defend, indemnify, and hold harmless each Application Software Supplier for any and all claims, damages, and losses suffered by such Application Software Supplier related to a Certificate issued by the CA, regardless of the cause of action or legal theory involved. This does not apply, however, to any claim, damages, or loss suffered by such Application Software Supplier related to a Certificate issued by the CA where such claim, damage, or loss was directly caused by such Application Software Supplier's software displaying as not trustworthy a Certificate that is still valid, or displaying as trustworthy: (1) a Certificate that has expired, or (2) a Certificate that has been revoked (but only in cases where the revocation status is currently available from the CA online, and the application software either failed to check such status or ignored an indication of revoked status).
+
 
 ## 9.10 Term and termination
 
