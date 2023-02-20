@@ -984,7 +984,6 @@ Not applicable.
 
 # 5. FACILITY, MANAGEMENT, AND OPERATIONAL CONTROLS
 
-[EDITOR: This paragraph is also ]
 The CA/Browser Forum's Network and Certificate System Security Requirements are incorporated by reference as if fully set forth herein.
 
 The CA SHALL develop, implement, and maintain a comprehensive security program designed to:
@@ -1046,6 +1045,8 @@ The CA Private Key SHALL be backed up, stored, and recovered only by personnel i
 
 ## 5.3 Personnel controls
 
+[EDITOR: Imported EV Guidelines section 14.1 requirements. EV sections 14.1.1, 14.1.2 have been imported in this section 5.3, and section 14.1.3 has been imported in section 5.2.4.]
+
 ### 5.3.1 Qualifications, experience, and clearance requirements
 
 Prior to the engagement of any person in the Certificate Management Process, whether as an employee, agent, or an independent contractor of the CA, the CA SHALL verify the identity and trustworthiness of such person.
@@ -1080,7 +1081,9 @@ The CA SHALL maintain records of such training and ensure that personnel entrust
 
 The CA SHALL document that each Validation Specialist possesses the skills required by a task before allowing the Validation Specialist to perform that task.
 
-The CA SHALL require all Validation Specialists to pass an examination provided by the CA on the information verification requirements outlined in these Requirements.
+The CA SHALL require all Validation Specialists to pass an examination provided by the CA on the information verification requirements outlined in these Requirements. 
+
+If a Validation Specialist is to be engaged in the EV Processes, the required internal examination must relate to the EV Certificate validation criteria outlined in the EV Guidelines.
 
 ### 5.3.4 Retraining frequency and requirements
 
