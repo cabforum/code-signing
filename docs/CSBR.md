@@ -821,8 +821,6 @@ A CA revoking a Certificate because the Certificate was associated with signed S
 
 #### 4.9.1.4 Revocation of a Subordinate CA Certificate
 
-[EDITOR: The following is direct language from BR Section 4.9.1.2, which was previously referenced]
-
 The Issuing CA SHALL revoke a Subordinate CA Certificate within seven (7) days if one or more of the following occurs:
 
 1. The Subordinate CA requests revocation in writing;
