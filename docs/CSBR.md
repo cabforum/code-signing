@@ -82,8 +82,6 @@ Except as stated in [Section 8](#8-compliance-audit-and-other-assessments) (5), 
 
 Before the CA authorizes a Delegated Third Party to perform a delegated function, the CA MUST contractually require the Delegated Third Party to:
 
-[EDITOR: Removed references to BR Section 5.3 and 5.4.1 and instead point to the same sections in the CSCBR. I see no conflict except that the CSCBR sections contain more requirements than the BR version.]
-
 1.  Meet the qualification requirements of [Section 5.3](#53-personnel-controls) when applicable to the delegated function,
 2.  Retain documentation in accordance with [Section 5.4.1](#541-types-of-events-recorded),
 3.  Abide by the other provisions of these Requirements that are applicable to the delegated function, and
@@ -158,7 +156,7 @@ Capitalized Terms are as defined in the Baseline Requirements or the EV SSL Guid
 
 **Audit Report**: A report from a Qualified Auditor stating the Qualified Auditor's opinion on whether an entity's processes and controls comply with the mandatory provisions of these Requirements.
 
-**Baseline Requirements:** The Baseline Requirements for the Issuance and Management of Publicly-Trusted Certificates as published by the CA/Browser Forum.
+**Baseline Requirements:** The Baseline Requirements for the Issuance and Management of Publicly-Trusted Code Signing Certificates as published by the CA/Browser Forum.
 
 **CA Key Pair**: A Key Pair where the Public Key appears as the Subject Public Key Info in one or more Root CA Certificate(s) and/or Subordinate CA Certificate(s).
 
@@ -274,7 +272,7 @@ Capitalized Terms are as defined in the Baseline Requirements or the EV SSL Guid
 
 **Repository**: An online database containing publicly-disclosed PKI governance documents (such as Certificate Policies and Certification Practice Statements) and Certificate status information, either in the form of a CRL or an OCSP response.
 
-**Requirements**: This document, the Network and Certificate System Security Requirements and the EV SSL Guidelines.
+**Requirements**: The Baseline Requirements found in this document.
 
 **Root CA**: The top level Certification Authority whose Root Certificate is distributed by Application Software Suppliers and that issues Subordinate CA Certificates.
 
@@ -328,51 +326,53 @@ Capitalized Terms are as defined in the Baseline Requirements or the EV SSL Guid
 
 ### 1.6.2 Abbreviations and Acronyms
 
-[EDITOR: Need to import abbreviations and acronyms used in this document]
-
 | **Acronym** | **Meaning** |
 | --- | --- |
+| BIPM | International Bureau of Weights and Measures |
+| BIS | (US Government) Bureau of Industry and Security |
 | CA | Certification Authority |
+| CEO | Chief Executive Officer |
+| CFO | Chief Financial Officer |
+| CIO | Chief Information Officer |
+| CISO | Chief Information Security Officer |
+| COO | Chief Operating Officer |
+| CPA | Chartered Professional Accountant |
 | CP | Certificate Policy |
 | CPS | Certification Practice Statement |
 | CRL | Certificate Revocation List |
+| CSO | Chief Security Officer |
 | DBA | Doing Business As |
+| EV | Extended Validation |
 | FIPS | (US Government) Federal Information Processing Standard |
+| IFAC | International Federation of Accountants |
+| IRS | Internal Revenue Service |
 | ISO | International Organization for Standardization |
 | NIST | (US Government) National Institute of Standards and Technology |
 | OCSP | Online Certificate Status Protocol |
 | OID | Object Identifier |
 | PKI | Public Key Infrastructure |
+| QGIS | Qualified Government Information Source |
+| QTIS | Qualified Government Tax Information Source |
+| QIIS | Qualified Independent Information Source |
 | RA | Registration Authority |
-
-As specified in the Baseline Requirements and EV Guidelines.
+| SEC | (US Government) Securities and Exchange Commission |
+| UTC(k) | National realization of Coordinated Universal Time |
 
 ### 1.6.3 References
-[EDITOR: We should try importing the requirements from TLS BRs 1.8.4 and EV 1.7.9]
-
-This document references the following CA/B Forum documents:
-* The Baseline Requirements, version 1.6.9
-* The EV Guidelines, version 1.7.2
-
-These documents available on the CA/Browser Forum's website at https://www.cabforum.org.
-
-Cross-references to Sections of the Baseline Requirements are notated with the letters "BR", as in "BR Section 1.2."
-
-[EDITOR: We should remove all references below that are not related to Code Signing and Time-stamping]
 
 ETSI EN 319 403, Electronic Signatures and Infrastructures (ESI); Trust Service Provider Conformity Assessment - Requirements for conformity assessment bodies assessing Trust Service Providers
 
 ETSI EN 319 411-1, Electronic Signatures and Infrastructures (ESI); Policy and security requirements for Trust Service Providers issuing certificates; Part 1: General requirements
 
-ETSI TS 102 042, Electronic Signatures and Infrastructures (ESI); Policy requirements for certification authorities issuing public key certificates.
-
 FIPS 140-2, Federal Information Processing Standards Publication - Security Requirements For Cryptographic Modules, Information Technology Laboratory, National Institute of Standards and Technology, May 25, 2001.
+
+FIPS 140-3, Federal Information Processing Standards Publication - Security Requirements For Cryptographic Modules, Information Technology Laboratory, National Institute of Standards and Technology, March 22, 2019.
 
 FIPS 186-4, Federal Information Processing Standards Publication - Digital Signature Standard (DSS), Information Technology Laboratory, National Institute of Standards and Technology, July 2013.
 
 ISO 21188:2006, Public key infrastructure for financial services -- Practices and policy framework.
 
-Network and Certificate System Security Requirements, v.1.0, 1/1/2013.
+Network and Certificate System Security Requirements, Version 1.7, available at https://cabforum.org/wp-content/uploads/CA-Browser-Forum-Network-Security-Guidelines-v1.7.pdf.
 
 NIST SP 800-89, Recommendation for Obtaining Assurances for Digital Signature Applications, <http://csrc.nist.gov/publications/nistpubs/800-89/SP-800-89_November2006.pdf>.
 
@@ -380,42 +380,19 @@ RFC2119, Request for Comments: 2119, Key words for use in RFCs to Indicate Requi
 
 RFC2527, Request for Comments: 2527, Internet X.509 Public Key Infrastructure: Certificate Policy and Certification Practices Framework, Chokhani, et al, March 1999.
 
-RFC3492, Request for Comments: 3492, Punycode: A Bootstring encoding of Unicode for Internationalized Domain Names in Applications (IDNA). A. Costello. March 2003.
-
 RFC3647, Request for Comments: 3647, Internet X.509 Public Key Infrastructure: Certificate Policy and Certification Practices Framework, Chokhani, et al, November 2003.
 
-RFC3912, Request for Comments: 3912, WHOIS Protocol Specification, Daigle, September 2004.
-
 RFC3986, Request for Comments: 3986, Uniform Resource Identifier (URI): Generic Syntax. T. Berners-Lee, et al. January 2005.
-
-RFC4366, Request for Comments: 4366, Transport Layer Security (TLS) Extensions, Blake-Wilson, et al, April 2006.
 
 RFC5019, Request for Comments: 5019, The Lightweight Online Certificate Status Protocol (OCSP) Profile for High-Volume Environments, A. Deacon, et al, September 2007.
 
 RFC5280, Request for Comments: 5280, Internet X.509 Public Key Infrastructure: Certificate and Certificate Revocation List (CRL) Profile, Cooper et al, May 2008.
 
-RFC5890, Request for Comments: 5890, Internationalized Domain Names for Applications (IDNA): Definitions and Document Framework. J. Klensin. August 2010.
-
-RFC5952, Request for Comments: 5952, A Recommendation for IPv6 Address Text Representation. S. Kawamura, et al. August 2010.
-
-RFC8659, Request for Comments: 8659, DNS Certification Authority Authorization (CAA) Resource Record, Hallam-Baker, Stradling, Hoffman-Andrews, November 2019.
-
 RFC6960, Request for Comments: 6960, X.509 Internet Public Key Infrastructure Online Certificate Status Protocol - OCSP. Santesson, Myers, Ankney, Malpani, Galperin, Adams, June 2013.
 
-RFC6962, Request for Comments: 6962, Certificate Transparency. B. Laurie, A. Langley, E. Kasper. June 2013.
-
-RFC7231, Request For Comments: 7231, Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content, R. Fielding, J. Reschke. June 2014.
-
-RFC7538, Request For Comments: 7538, The Hypertext Transfer Protocol Status Code 308 (Permanent Redirect), J. Reschke. April 2015.
-
-RFC7482, Request for Comments: 7482, Registration Data Access Protocol (RDAP) Query Format, Newton, et al, March 2015.
-
-RFC8499, Request for Comments: 8499, DNS Terminology. P. Hoffman, et al. January 2019.
-
-WebTrust for Certification Authorities, SSL Baseline with Network Security, Version 2.3, available at <https://www.cpacanada.ca/-/media/site/business-and-accounting-resources/docs/webtrust/wt-pcca-ss-lbns2-3.pdf>.
+WebTrust Principles and Criteria for Certification Authorities – Code Signing Baseline Requirements, available at <https://www.cpacanada.ca/en/business-and-accounting-resources/audit-and-assurance/overview-of-webtrust-services/principles-and-criteria>.
 
 X.509, Recommendation ITU-T X.509 (10/2012) \| ISO/IEC 9594-8:2014 (E), Information technology – Open Systems Interconnection – The Directory: Public-key and attribute certificate frameworks.
-
 
 ### 1.6.4 Conventions
 
