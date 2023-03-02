@@ -950,7 +950,7 @@ Not applicable.
 
 ### 4.10.1 Operational characteristics
 
-[EDITOR: We might need to keep these entries even after the expiration of Code Signing or Timestamping Certificates]
+[EDITOR: Section 7.2 requires CRL entries to remain for 10y after the expiration of a Code Signing or a Timestamping Certificates. It is too risky to import this statement from the TLS BRs. Must be consistent for OCSP.]
 
 Revocation entries on a CRL or OCSP Response MUST NOT be removed until after the Expiry Date of the revoked Certificate.
 
@@ -1102,6 +1102,7 @@ The CA SHALL verify that the Delegated Third Party's personnel involved in the i
 ## 5.4 Audit logging procedures
 
 ### 5.4.1 Types of events recorded
+[EDITOR: Need to check the updated TLS BR ballot updating the OCSP responses creation logging]
 
 #### 5.4.1.1 Types of events recorded for CAs
 
@@ -1296,9 +1297,6 @@ In all cases, the CA SHALL:
 
 #### 6.1.1.3 Subscriber Key Pair Generation
 
---- BEGIN EDITOR COMMENT ---
-[EDITOR: I prefer the language from section 6.1.1.3 of the BRs which seems clearer]
-
 The CA SHALL reject a certificate request if one or more of the following conditions are met:
 
 1. The Key Pair does not meet the requirements set forth in [Section 6.1.5](#615-key-sizes) and/or [Section 6.1.6](#616-public-key-parameters-generation-and-quality-checking);
@@ -1306,10 +1304,6 @@ The CA SHALL reject a certificate request if one or more of the following condit
 3. The CA is aware of a demonstrated or proven method that exposes the Applicant's Private Key to compromise;
 4. The CA has previously been made aware that the Applicant's Private Key has suffered a Key Compromise, such as through the provisions of [Section 4.9.1.1](#4911-reasons-for-revoking-a-subscriber-certificate);
 5. The CA is aware of a demonstrated or proven method to easily compute the Applicant's Private Key based on the Public Key (such as a Debian weak key, see <https://wiki.debian.org/SSLkeys>).
-
---- END EDITOR COMMENT ---
-
-The CA SHALL reject a certificate request if the requested Public Key does not meet the requirements set forth in Section [6.1.5](#615-key-sizes) and Section [6.1.6](#616-public-key-parameters-generation-and-quality-checking), or if it has a known weak Private Key (such as a Debian weak key, see <http://wiki.debian.org/SSLkeys>).
 
 ### 6.1.2 Private key delivery to subscriber
 
@@ -1413,10 +1407,6 @@ Techniques that MAY be used to satisfy this requirement include:
 4.	 Contractual terms in the Subscriber Agreement requiring the Subscriber to protect the Private Key to a standard of at least FIPS 140-2 level 2 or Common Criteria EAL 4+ and with compliance being confirmed by means of an audit.
 
 #### 6.2.7.4 Subscriber Private Key protection and verification 
-
-[EDITOR: This one seems odd. We're in a subsection of CSBR 6.2, and we're referencing BR 6.2. Meanwhile there are subsections that actually define the content. I'm leaving in this content so it's open for discussion, however my suggestion is to remove the paragraph completely and rely on the subsections.]
-
-The requirements in BR Section 6.2 apply equally to Code Signing Certificates.
 
 ##### 6.2.7.4.1 Subscriber Private Key protection
 
@@ -1682,8 +1672,6 @@ b. semantics that, if included, will mislead a Relying Party about the certifica
 
 #### 7.1.3.1 SubjectPublicKeyInfo
 
-[EDITOR: The BRs section 7.1.3.1 includes the exact encodings of permitted for `subjectPublicKeyInfo`. Should we import this language exactly as written in the BRs?]
-
 As defined in [Section 6.1.5](#615-key-sizes).
 
 #### 7.1.3.2 Signature AlgorithmIdentifier
@@ -1699,12 +1687,7 @@ In particular, it applies to all of the following objects and fields:
 * The `signatureAlgorithm` field of a BasicOCSPResponse
 * The `digestAlgorithms` field of a SignedData corresponding to a Timestamp token
 
-[EDITOR: The BRs in section 7.1.3.2 include the following requirement.]
-No other encodings are permitted for these fields.
-
 ##### 7.1.3.2.1 RSA
-
-[EDITOR: The BRs in section 7.1.3.2.1 include the exact encodings. Should we update?]
 
 The CA SHALL use one of the following signature algorithms:
 
@@ -1723,8 +1706,6 @@ In addition, the CA MAY use `RSASSA-PKCS1-v1_5 with SHA-1` if one of the followi
 * It is used within a Timestamp Token and the date of the `genTime` field is not greater than 2022-04-30.
 
 ##### 7.1.3.2.2 ECDSA
-
-[EDITOR: The BRs in section 7.1.3.2.1 include the exact encodings. Should we update?]
 
 The CA SHALL use one of the following signature algorithms:
 
@@ -1748,8 +1729,6 @@ In addition, the CA MAY use `DSA with SHA-1` if one of the following conditions 
 ### 7.1.4 Name forms
 
 #### 7.1.4.1 Name encoding
-
-[EDITOR: The following is direct language from BR Section 7.1.4.1, which was previously referenced. ]
 
 The following requirements SHOULD be met by all newly-issued Subordinate CA Certificates that are not used to issue TLS certificates, as defined in [Section 7.1.2.2](#7122-subordinate-ca-certificate), and MUST be met for all other Certificates, regardless of whether the Certificate is a CA Certificate or a Subscriber Certificate.
 
@@ -1780,7 +1759,6 @@ c. __Certificate Field:__ `subject:domainComponent` (OID 0.9.2342.19200300.100.1
 
 d. __Certificate Field:__ Other subject attributes  
    __Required/Optional:__ Optional
-     [EDITOR: The following is rewritten to import language from the BRs in section 7.1.4.2.2.j]
    __Contents:__ Other attributes MAY be present within the subject field. If present, other attributes MUST contain information that has been verified by the CA. Subject attributes MUST NOT contain only metadata such as '.', '-', and ' ' (i.e. space) characters, and/or any other indication that the value is absent, incomplete, or not applicable.
 
 ##### 7.1.4.2.3 Subject distinguished name field - Non-EV Code Signing Certificates
@@ -1933,8 +1911,6 @@ The audit period for the Delegated Third Party MUST NOT exceed one year (ideally
 
 ## 8.2 Identity/qualifications of assessor
 
-[EDITOR: The following is direct language from BR Section 8.2, which was previously referenced]
-
 The CA's audit SHALL be performed by a Qualified Auditor. A Qualified Auditor means a natural person, Legal Entity, or group of natural persons or Legal Entities that collectively possess the following qualifications and skills:
 
 1. Independence from the subject of the audit;
@@ -1943,7 +1919,7 @@ The CA's audit SHALL be performed by a Qualified Auditor. A Qualified Auditor me
 4. (For audits conducted in accordance with any one of the ETSI standards) accredited in accordance with ISO 17065 applying the requirements specified in ETSI EN 319 403;
 5. (For audits conducted in accordance with the WebTrust standard) licensed by WebTrust;
 6. Bound by law, government regulation, or professional code of ethics; and
-7. Except in the case of an Internal Government Auditing Agency, maintains Professional Liability/Errors & Omissions insurance with policy limits of at least one million US dollars in coverage
+7. Except in the case of an Internal Government Auditing Agency, maintains Professional Liability/Errors & Omissions insurance with policy limits of at least one million US dollars in coverage.
 
 ## 8.3 Assessor's relationship to assessed entity
 
@@ -1959,8 +1935,6 @@ The CA MUST undergo a conformity assessment audit for compliance with these Requ
 
 Whichever scheme is chosen, it MUST incorporate periodic monitoring and/or accountability procedures to ensure that its audits continue to be conducted in accordance with the requirements of the scheme.
 
-[EDITOR: Updated reference from BR to CSCBR]
-
 The audit MUST be conducted by a Qualified Auditor, as specified in [Section 8.2](#82-identityqualifications-of-assessor).
 
 The audit MUST cover all CA obligations under these Guidelines regardless of whether they are performed directly by the CA, an RA, or subcontractor.
@@ -1968,8 +1942,6 @@ The audit MUST cover all CA obligations under these Guidelines regardless of whe
 ## 8.5 Actions taken as a result of deficiency
 
 ## 8.6 Communication of results
-
-[EDITOR: The following is direct language from BR Section 8.6, which was previously referenced]
 
 The Audit Report SHALL state explicitly that it covers the relevant systems and processes used in the issuance of all Certificates that assert one or more of the policy identifiers listed in [Section 7.1.6.1](#7161-reserved-certificate-policy-identifiers). The CA SHALL make the Audit Report publicly available.
 
@@ -2111,8 +2083,6 @@ For EV Code Signing Certificates, CAs MAY limit their liability as described in 
 For Non-EV Code Signing Certificates, CAs MAY limit their liability as described in Section 9.8 of the Baseline Requirements.
 
 ## 9.9 Indemnities
-
-[EDITOR: The following is direct language from BR Section 9.9, which was previously referenced]
 
 Notwithstanding any limitations on its liability to Subscribers and Relying Parties, the CA understands and acknowledges that the Application Software Suppliers who have a Root Certificate distribution agreement in place with the Root CA do not assume any obligation or potential liability of the CA under these Requirements or that otherwise might exist because of the issuance or maintenance of Certificates or reliance thereon by Relying Parties or others. Thus, except in the case where the CA is a government entity, the CA SHALL defend, indemnify, and hold harmless each Application Software Supplier for any and all claims, damages, and losses suffered by such Application Software Supplier related to a Certificate issued by the CA, regardless of the cause of action or legal theory involved. This does not apply, however, to any claim, damages, or loss suffered by such Application Software Supplier related to a Certificate issued by the CA where such claim, damage, or loss was directly caused by such Application Software Supplier's software displaying as not trustworthy a Certificate that is still valid, or displaying as trustworthy: (1) a Certificate that has expired, or (2) a Certificate that has been revoked (but only in cases where the revocation status is currently available from the CA online, and the application software either failed to check such status or ignored an indication of revoked status).
 
