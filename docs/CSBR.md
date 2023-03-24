@@ -487,42 +487,45 @@ Certificate issuance by the Root CA MUST require an individual authorized by the
 
 ### 4.9.1 Circumstances for revocation
 
-A CA MUST revoke a Code Signing Certificate in any of the four circumstances: (1) the Application Software Supplier requests revocation, (2) the subscriber requests revocation, (3) a third party provides information that leads the CA to believe that the certificate is compromised or is being used for Suspect Code, or (4) the CA otherwise decides that the certificate should be revoked. This section describes the CA's obligations for each scenario.
+When revocation of a Subscriber Certificate is done due to a Key Compromise or use in Suspect Code the CA SHALL determine an appropriate value for the revocationDate based on its own investigation. The CA SHALL set a historic date as revocationDate if deemed appropriate.
 
-#### 4.9.1.1 Revocation Based on an Application Software Supplier's Request
-
-If the Application Software Supplier requests the CA revoke because the Application Software Supplier believes that a Certificate attribute is deceptive, or that the Certificate is being used for malware, bundle ware, unwanted software, or some other illicit purpose, then the Application Software Supplier may request that the CA revoke the certificate.
-
-Within two (2) business days of receipt of the request, the CA MUST either revoke the certificate or inform the Application Software Supplier that it is conducting an investigation.
-
-If the CA decides to conduct an investigation, it MUST inform the Application Software Supplier whether or not it will revoke the Certificate, within two (2) business days.
-
-If the CA decides that the revocation will have an unreasonable impact on its customer, then the CA MUST propose an alternative course of action to the Application Software Supplier based on its investigation.
-
-#### 4.9.1.2 Revocation Based on the Subscriber's Request
-
-The CA MUST revoke a Code Signing Certificate within one (1) business day if the Subscriber requests in writing that the CA revoke the Certificate or notifies the CA that the original certificate request was not authorized and does not retroactively grant authorization.
-
-#### 4.9.1.3 Revocation Based on Reported or Detected Compromise or Use in Suspect Code
-
-Except for cases that fall under Section 4.9.1.1, if, while investigating a Certificate Problem Report, the CA determines the Subscriber's Private Key is compromised or likely being used for Suspect Code, the CA SHALL revoke the corresponding Code Signing Certificate in accordance with and within the following maximum time frames. Nothing herein prohibits a CA from revoking a Code Signing Certificate prior to these time frames.
-
-1. The CA SHALL contact the Subscriber within 24 hours after the CA received the Certificate Problem Report, notifying that the Certificate is scheduled to be revoked with a revocation date set before the time that the Private Key became compromised or likely used to sign Suspect Code. This revocation date is set in the past to prevent Relying Parties from executing Suspect Code signed with the affected Code Signing Certificate.
-2. The CA SHALL request the Subscriber to respond with an acknowledgement and SHOULD request the Subscriber to respond with an impact assessment of affected Relying Parties if the revocation date is set before the time that the Private Key became compromised or likely used to sign Suspect Code, and to state the associated Application Software Supplier(s).
-3. The CA SHALL request the Subscriber to respond to the CA within 72 hours of the CA sending the notification.
-4. If the Subscriber responds within 72 hours, then based on the Subscriber's impact assessment:
-   1. The CA MAY submit a revocation plan to associated Application Software Suppliers no later than 7 calendar days after the CA received the Certificate Problem Report. The revocation plan:
-      1. SHALL contain informing about the planned revocation date to be set for the to-be-revoked Certificate; and
-      2. SHALL request suggestions for a "more appropriate" revocation date in case the proposed revocation date has a significant impact on Relying Parties associated with that particular Application Software Supplier.
-      3. The CA SHALL request the Application Software Supplier to respond within 72 hours.
-   2. Based on the feedback received, the CA MAY determine a more appropriate revocation date to be associated with the revocation of the Certificate. The CA SHALL revoke the Certificate within 7 days after the CA received the Certificate Problem Report.
-5. If the CA does not receive a response from the Subscriber, then the CA SHALL revoke the Certificate within 24 hours from the end of the response period.
-
-A CA revoking a Certificate because the Certificate was associated with signed Suspect Code or other fraudulent or illegal conduct SHOULD provide all relevant information and risk indicators to other CAs, Application Software Suppliers, or industry groups. The CA SHOULD contact the Application Software Suppliers within 24 hours after the CA received the Certificate Problem Report.
-
-#### 4.9.1.4 Revocation of a Subordinate CA Certificate
-
-As specified in BR Section 4.9.1.2.
+#### 4.9.1.1 Reasons for Revoking a Subscriber Certificate
+ 
+The CA SHALL revoke a Certificate within 24 hours if one or more of the following occurs:
+ 
+1. The Subscriber requests in writing that the CA revoke the Certificate;
+2. The Subscriber notifies the CA that the original certificate request was not authorized and does not retroactively grant authorization;
+3. The CA obtains evidence that the Subscriber's Private Key corresponding to the Public Key in the Certificate suffered a Key Compromise;
+4. The CA is made aware of a demonstrated or proven method that can easily compute the Subscriber's Private Key based on the Public Key in the Certificate;
+5. The CA is made aware of a demonstrated or proven method that exposes the Subscriber’s Private Key to compromise or if there is clear evidence that the specific method used to generate the Private Key was flawed; or
+6. The CA has reasonable assurance that a Certificate was used to sign Suspect Code.
+ 
+The CA SHOULD revoke a certificate within 24 hours and SHALL revoke a Certificate within 5 days if one or more of the following occurs:
+1. The Certificate no longer complies with the requirements of Section 6.1.5 and Section 6.1.6;
+2. The CA obtains evidence that the Certificate was misused.
+3. The CA is made aware that a Subscriber has violated one or more of its material obligations under the Subscriber Agreement or Terms of Use.
+4. The CA is made aware of a material change in the information contained in the Certificate.
+5. The CA is made aware that the Certificate was not issued in accordance with these Requirements or the CA's Certificate Policy or Certification Practice Statement.
+6. The CA determines or is made aware that any of the information appearing in the Certificate is inaccurate.
+7. The CA's right to issue Certificates under these Requirements expires or is revoked or terminated, unless the CA has made arrangements to continue maintaining the CRL/OCSP Repository.
+8. Revocation is required by the CA's Certificate Policy and/or Certification Practice Statement.
+ 
+**Note:** Nothing herein prohibits a CA from revoking a Code Signing Certificate prior to these time frames.
+ 
+#### 4.9.1.2 Reasons for Revoking a Subordinate CA Certificate
+ 
+The Issuing CA SHALL revoke a Subordinate CA Certificate within seven (7) days if one or more of the following occurs:
+ 
+1. The Subordinate CA requests revocation in writing;
+2. The Subordinate CA notifies the Issuing CA that the original certificate request was not authorized and does not retroactively grant authorization;
+3. The Issuing CA obtains evidence that the Subordinate CA's Private Key corresponding to the Public Key in the Certificate suffered a Key Compromise or no longer complies with the requirements of [Section 6.1.5](#615-key-sizes) and [Section 6.1.6](#616-public-key-parameters-generation-and-quality-checking);
+4. The Issuing CA obtains evidence that the Certificate was misused;
+5. The Issuing CA is made aware that the Certificate was not issued in accordance with or that Subordinate CA has not complied with this document or the applicable Certificate Policy or Certification Practice Statement;
+6. The Issuing CA determines that any of the information appearing in the Certificate is inaccurate or misleading;
+7. The Issuing CA or Subordinate CA ceases operations for any reason and has not made arrangements for another CA to provide revocation support for the Certificate;
+8. The Issuing CA's or Subordinate CA's right to issue Certificates under these Requirements expires or is revoked or terminated, unless the Issuing CA has made arrangements to continue maintaining the CRL/OCSP Repository; or
+9. Revocation is required by the Issuing CA's Certificate Policy and/or Certification Practice Statement.
+ 
 
 ### 4.9.2 Who can request revocation
 
