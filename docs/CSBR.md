@@ -133,8 +133,8 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 
 ### 1.6.1 Definitions
 
-[EDITOR: Need to import capitalized terms used in this document]
-[EDITOR: Need to import EV Guidelines definitions]
+[EDITOR: Need to import capitalized terms used in this document. This means search the entire document for capitalized terms and check whether that term is listed in 1.6.1, and the decide whether to remove the capital letter or create a definition for that term. Assistance needed!]
+[EDITOR: Need to import EV Guidelines definitions but after completing the import of the TLS BRs]
 
 Capitalized Terms are as defined in the Baseline Requirements or the EV SSL Guidelines except where defined below:
 
@@ -895,7 +895,7 @@ defined by RFC6960.
 ### 4.9.10 On-line revocation checking requirements
 
 --- EDITOR NOTE BEGIN ---
-[EDITOR: The following is language from BR section 4.9.10 which was not in the CSBRs and is not in "conflict" with existing CSBR section 4.9.10 language. How should we treat these requirements? How is a "conflict" defined? Is it that there is no practical requirement conflict or that the entire section is empty?]
+[EDITOR: The following is language from BR section 4.9.10 which was not in the CSBRs but should probably be imported.]
 
 OCSP responders operated by the CA SHALL support the HTTP GET method, as described in RFC 6960 and/or RFC 5019.
 
@@ -932,7 +932,7 @@ See [Section 4.9.1](#491-circumstances-for-revocation).
 
 [EDITOR: This is a controversial issue because some CAs might allow suspension of Code Signing Certificates because the scope is different. Suggest adding an effective date if we are to include this requirement and subsequent statements in 4.9.14, 4.9.15, 4.9.16.]
 
-The Repository MUST NOT include entries that indicate that a Certificate is suspended.
+Effective 2023-09-15, the Repository MUST NOT include entries that indicate that a Certificate is suspended.
 
 ### 4.9.14 Who can request suspension
 
@@ -950,15 +950,21 @@ Not applicable.
 
 ### 4.10.1 Operational characteristics
 
-[EDITOR: Section 7.2 requires CRL entries to remain for 10y after the expiration of a Code Signing or a Timestamping Certificates. It is too risky to import this statement from the TLS BRs. Must be consistent for OCSP.]
+[EDITOR: Section 7.2 requires CRL entries to remain for 10y after the expiration of a Code Signing or a Timestamping Certificates. It is too risky to import this statement from the TLS BRs. Must be consistent for OCSP. Suggest not to import this but point to section 7.2]
 
+[EDITOR BEGIN: This is what is in the TLS BRs and should not be imported]
 Revocation entries on a CRL or OCSP Response MUST NOT be removed until after the Expiry Date of the revoked Certificate.
+[EDITOR END: This is what is in the TLS BRs and should not be imported]
+
+[EDITOR BEGIN: This is a proposal to keep CRL and OCSP consistent]
+Revocation entries on an OCSP response MUST remain for the same amount of time as for the CRL entries, as described in [Section 7.2](#72-CRL-profile ).
+[EDITOR END: This is a proposal to keep CRL and OCSP consistent]
 
 ### 4.10.2 Service availability
 
 The CA SHALL operate and maintain its CRL and OCSP capability with resources sufficient to provide a response time of ten seconds or less under normal operating conditions.
 
-[EDITOR: Section 2.1 of the CSBRs have a similar statement. We should not include this paragraph]
+[EDITOR: Section 2.1 of the CSBRs has a similar statement. We should not include this paragraph]
 The CA SHALL maintain an online 24x7 Repository that application software can use to automatically check the current status of all unexpired Certificates issued by the CA.
 
 [EDITOR: This is already in section 4.9.5 of the CSBRs. We should not include this paragraph.]
@@ -1102,42 +1108,43 @@ The CA SHALL verify that the Delegated Third Party's personnel involved in the i
 ## 5.4 Audit logging procedures
 
 ### 5.4.1 Types of events recorded
-[EDITOR: Need to check the updated TLS BR ballot updating the OCSP responses creation logging]
+[EDITOR: Aligned with the TLS BRs to list the creation of OCSP responses logging separately, and fixed the formatting issues]
 
 #### 5.4.1.1 Types of events recorded for CAs
 
 The CA and each Delegated Third Party SHALL record details of the actions taken to process a certificate request and to issue a certificate, including all information generated and documentation received in connection with the certificate request; the time and date; and the personnel involved. The CA SHALL make these records available to its Qualified Auditor as proof of the CA’s compliance with these Requirements.
 
 The CA SHALL record at least the following events:
+1. CA certificate and key lifecycle management events, including:
+   1. Key generation, backup, storage, recovery, archival, and destruction;
+   2. Certificate requests, renewal, and re-key requests, and revocation;
+   3. Approval and rejection of certificate requests ;
+   4. Cryptographic device lifecycle management events;
+   5. Generation of Certificate Revocation Lists
+   6. Signing of OCSP Responses (as described in [Section 4.9](#49-certificate-revocation-and-suspension) and [Section 4.10](#410-certificate-status-services)); and 
+   7. Introduction of new Certificate Profiles and retirement of existing Certificate Profiles
 
-   1.	CA certificate and key lifecycle management events, including:
-      a.	Key generation, backup, storage, recovery, archival, and destruction;
-      b.	Certificate requests, renewal, and re-key requests, and revocation;
-      c.	Approval and rejection of certificate requests ;
-      d.	Cryptographic device lifecycle management events;
-      e.	Generation of Certificate Revocation Lists and OCSP entries ;
-      f.    Signing of OCSP Responses (as described in [Section 4.9](#49-certificate-revocation-and-suspension) and [Section 4.10](#410-certificate-status-services)); and 
-      g.	Introduction of new Certificate Profiles and retirement of existing Certificate Profiles
-   2.	CA and Subscriber lifecycle management events, including:
-      a.	Certificate requests, renewals, re-key requests, and revocation;
-      b.	All verification activities stipulated in these Requirements and the CA’s Certification Practice Statement (CPS);
-      c.	Acceptance and rejection of certificate requests;
-      d.	Issuance of Certificates;
-      e.	Generation of Certificate Revocation Lists and OCSP entries; and
-      f.    Signing of OCSP Responses (as described in [Section 4.9](#49-certificate-revocation-and-suspension) and [Section 4.10](#410-certificate-status-services)).
-   3.	Security events, including:
-      a.	Successful and unsuccessful PKI system access attempts;
-      b.	PKI and security system actions performed;
-      c.	Security profile changes;
-      d.	System crashes, hardware failures, and other anomalies;
-      e.	Firewall and router activities; and
-      f.	Entries to and exits from the CA facility.
+2. CA and Subscriber lifecycle management events, including:
+   1. Certificate requests, renewals, re-key requests, and revocation;
+   2. All verification activities stipulated in these Requirements and the CA’s Certification Practice Statement (CPS);
+   3. Acceptance and rejection of certificate requests;
+   4. Issuance of Certificates;
+   5. Generation of Certificate Revocation Lists and OCSP entries; and
+   6. Signing of OCSP Responses (as described in [Section 4.9](#49-certificate-revocation-and-suspension) and [Section 4.10](#410-certificate-status-services)).
+
+3.	Security events, including:
+   1. Successful and unsuccessful PKI system access attempts;
+   2. PKI and security system actions performed;
+   3. Security profile changes;
+   4. System crashes, hardware failures, and other anomalies;
+   5. Firewall and router activities; and
+   6. Entries to and exits from the CA facility.
 
 Log records MUST include the following elements:
 
-   1.	Date and time of event;
-   2.	Identity of the person making the journal record; and 
-   3.	Description of the event.
+1. Date and time of event;
+2. Identity of the person making the journal record; and 
+3. Description of the event.
 
 #### 5.4.1.2 Types of events recorded for Timestamp Authorities
 
@@ -1188,10 +1195,9 @@ Additionally, the CA's security program MUST include an annual Risk Assessment t
 3. Assesses the sufficiency of the policies, procedures, information systems, technology, and other arrangements that the CA has in place to counter such threats.
 
 ## 5.5 Records archival
+[EDITOR: Imported the TLS BRs section 5.5]
 
 ### 5.5.1 Types of records archived
-
-[EDITOR: Must check if we need to make additional modifications to match the language of section 5.4]
 
 The CA and each Delegated Third Party SHALL archive all audit logs (as set forth in [Section 5.4.1](#541-types-of-events-recorded)).
 
@@ -1200,8 +1206,6 @@ Additionally, the CA and each Delegated Third Party SHALL archive:
 2. Documentation related to their verification, issuance, and revocation of certificate requests and Certificates.
 
 ### 5.5.2 Retention period for archive
-
-[EDITOR: Must check if we need to make additional modifications to match the language of section 5.4]
 
 Archived audit logs (as set forth in [Section 5.5.1](#551-types-of-records-archived) SHALL be retained for a period of at least two (2) years from their record creation timestamp, or as long as they are required to be retained per [Section 5.4.3](#543-retention-period-for-audit-log), whichever is longer.
 
@@ -1369,7 +1373,7 @@ The CA SHALL implement physical and logical safeguards to prevent unauthorized c
 
 ### 6.2.4 Private key backup
 
-See [Section 5.2.2](#522-number-of-individuals-required-per-task).
+See [Section 5.2.2](#522-number-of-persons-required-per-task).
 
 ### 6.2.5 Private key archival
 
@@ -1506,7 +1510,7 @@ The digest algorithm used to sign Timestamp tokens must match the digest algorit
 
 ## 7.1 Certificate profile
 
-The CA SHALL meet the technical requirements set forth in [Section 2.2 - Publication of Information](#22-publication-of-information), [Section 6.1.5 - Key Sizes](#615-key-sizes), and [Section 6.1.6 - Public Key Parameters Generation and Quality Checking](#616-public-key-parameters-generation-and-quality-checking).
+The CA SHALL meet the technical requirements set forth in [Section 2.2 - Publication of certification information](#22-Publication-of-certification-information), [Section 6.1.5 - Key Sizes](#615-key-sizes), and [Section 6.1.6 - Public Key Parameters Generation and Quality Checking](#616-public-key-parameters-generation-and-quality-checking).
 
 CAs SHALL generate non-sequential Certificate serial numbers greater than zero (0) containing at least 64 bits of output from a CSPRNG.
 
