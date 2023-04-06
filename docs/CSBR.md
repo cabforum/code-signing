@@ -301,8 +301,6 @@ Capitalized Terms are as defined in the Baseline Requirements or the EV SSL Guid
 
 **Takeover Attack**: An attack where a Signing Service or Private Key associated with a Code Signing Certificate has been compromised by means of fraud, theft, intentional malicious act of the Subject's agent, or other illegal conduct.
 
-**Technically Constrained Subordinate CA Certificate**: A Subordinate CA certificate which uses a combination of Extended Key Usage settings and Name Constraint settings to limit the scope within which the Subordinate CA Certificate may issue Subscriber or additional Subordinate CA Certificates. [EDITOR: This is probably not applicable to Code Signing but we should discuss]
-
 **Terms of Use**: Provisions regarding the safekeeping and acceptable uses of a Certificate issued in accordance with these Requirements when the Applicant/Subscriber is an Affiliate of the CA or is the CA.
 
 **Timestamp Authority**: A service operated by the CA or a delegated third party for its own code signing certificate users that timestamps data using a certificate chained to a public root, thereby asserting that the data (or the data from which the data were derived via a secure hashing algorithm) existed at the specified time.
@@ -894,14 +892,9 @@ defined by RFC6960.
 
 ### 4.9.10 On-line revocation checking requirements
 
---- EDITOR NOTE BEGIN ---
-[EDITOR: The following is language from BR section 4.9.10 which was not in the CSBRs but should probably be imported.]
-
 Effective 2023-09-15, OCSP responders operated by the CA SHALL support the HTTP GET method, as described in RFC 6960 and/or RFC 5019.
 
 Effective 2023-09-15, the validity interval of an OCSP response is the difference in time between the `thisUpdate` and `nextUpdate` field, inclusive. For purposes of computing differences, a difference of 3,600 seconds shall be equal to one hour, and a difference of 86,400 seconds shall be equal to one day, ignoring leap-seconds.
-
---- EDITOR NOTE END ---
 
 CAs MAY provide OCSP responses for Code Signing Certificates and Timestamp Certificates for the time period specified in their CPS, which MAY be at least 10 years after the expiration of the certificate.
 
@@ -930,8 +923,6 @@ See [Section 4.9.1](#491-circumstances-for-revocation).
 
 ### 4.9.13 Circumstances for suspension
 
-[EDITOR: This is a controversial issue because some CAs might allow suspension of Code Signing Certificates because the scope is different. Suggest adding an effective date if we are to include this requirement and subsequent statements in 4.9.14, 4.9.15, 4.9.16.]
-
 Effective 2023-09-15, the Repository MUST NOT include entries that indicate that a Certificate is suspended.
 
 ### 4.9.14 Who can request suspension
@@ -950,25 +941,11 @@ Not applicable.
 
 ### 4.10.1 Operational characteristics
 
-[EDITOR: Section 7.2 requires CRL entries to remain for 10y after the expiration of a Code Signing or a Timestamping Certificates. It is too risky to import this statement from the TLS BRs. Must be consistent for OCSP. Suggest not to import this but point to section 7.2]
-
-[EDITOR BEGIN: This is what is in the TLS BRs and should not be imported]
-Revocation entries on a CRL or OCSP Response MUST NOT be removed until after the Expiry Date of the revoked Certificate.
-[EDITOR END: This is what is in the TLS BRs and should not be imported]
-
-[EDITOR BEGIN: This is a proposal to keep CRL and OCSP consistent]
 Revocation entries on an OCSP response MUST remain for the same amount of time as for the CRL entries, as described in [Section 7.2](#72-CRL-profile ).
-[EDITOR END: This is a proposal to keep CRL and OCSP consistent]
 
 ### 4.10.2 Service availability
 
 The CA SHALL operate and maintain its CRL and OCSP capability with resources sufficient to provide a response time of ten seconds or less under normal operating conditions.
-
-[EDITOR: Section 2.1 of the CSBRs has a similar statement. We should not include this paragraph]
-The CA SHALL maintain an online 24x7 Repository that application software can use to automatically check the current status of all unexpired Certificates issued by the CA.
-
-[EDITOR: This is already in section 4.9.5 of the CSBRs. We should not include this paragraph.]
-The CA SHALL maintain a continuous 24x7 ability to respond internally to a high-priority Certificate Problem Report, and where appropriate, forward such a complaint to law enforcement authorities, and/or revoke a Certificate that is the subject of such a complaint.
 
 ### 4.10.3 Optional features
 
@@ -1108,7 +1085,6 @@ The CA SHALL verify that the Delegated Third Party's personnel involved in the i
 ## 5.4 Audit logging procedures
 
 ### 5.4.1 Types of events recorded
-[EDITOR: Aligned with the TLS BRs to list the creation of OCSP responses logging separately, and fixed the formatting issues]
 
 #### 5.4.1.1 Types of events recorded for CAs
 
@@ -1195,7 +1171,6 @@ Additionally, the CA's security program MUST include an annual Risk Assessment t
 3. Assesses the sufficiency of the policies, procedures, information systems, technology, and other arrangements that the CA has in place to counter such threats.
 
 ## 5.5 Records archival
-[EDITOR: Imported the TLS BRs section 5.5]
 
 ### 5.5.1 Types of records archived
 
