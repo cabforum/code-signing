@@ -510,7 +510,8 @@ The CA SHOULD revoke a certificate within 24 hours and SHALL revoke a Certificat
 13. The CA's right to issue Certificates under these Requirements expires or is revoked or terminated, unless the CA has made arrangements to continue maintaining the CRL/OCSP Repository.
 14. Revocation is required by the CA's Certificate Policy and/or Certification Practice Statement.
  
-The CA MAY delay revocation based on a request from Application Software Suppliers where immediate revocation has a potentially large negative impacts to the ecosystem.
+The CA MAY delay revocation based on a request from Application Software Suppliers where immediate revocation has a potentially large negative impact to the ecosystem.
+
  
 **Note:** Nothing herein prohibits a CA from revoking a Code Signing Certificate prior to these time frames.
  
