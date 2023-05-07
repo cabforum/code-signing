@@ -5,13 +5,12 @@ author:
   - CA/Browser Forum
 date: October 28, 2022  
 copyright: |
-  Copyright 2022 CA/Browser Forum
+  Copyright 2023 CA/Browser Forum
 
   This work is licensed under the Creative Commons Attribution 4.0 International license.
 ---
 
 # 1.  INTRODUCTION
-[EDITOR: Following the decision of the Code Signing Working Group, we will attempt to import the references of dependent documents (TLS Baseline Requirements, NetSec, EV Guidelines) into the CSBRs. Editorial comments that need to be addressed will be denoted with a "EDITOR:" label. We will first aim to import the TLS BRs]
 
 ## 1.1 Overview
 
