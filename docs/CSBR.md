@@ -1024,8 +1024,6 @@ The CA Private Key SHALL be backed up, stored, and recovered only by personnel i
 
 ## 5.3 Personnel controls
 
-[EDITOR: Imported EV Guidelines section 14.1 requirements. EV sections 14.1.1, 14.1.2 have been imported in this section 5.3, and section 14.1.3 has been imported in section 5.2.4.]
-
 ### 5.3.1 Qualifications, experience, and clearance requirements
 
 Prior to the engagement of any person in the Certificate Management Process, whether as an employee, agent, or an independent contractor of the CA, the CA SHALL verify the identity and trustworthiness of such person.
