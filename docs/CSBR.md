@@ -130,8 +130,7 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 
 ### 1.6.1 Definitions
 
-[EDITOR: Need to import capitalized terms used in this document. This means search the entire document for capitalized terms and check whether that term is listed in 1.6.1, and the decide whether to remove the capital letter or create a definition for that term. Assistance needed!]
-[EDITOR: Need to import EV Guidelines definitions but after completing the import of the TLS BRs]
+[EDITOR: Need to import capitalized terms used in this document. This means search the entire document for capitalized terms and check whether that term is listed in 1.6.1, and the decide whether to remove the capital letter or create a definition for that term.]
 
 Capitalized Terms are as defined in the Baseline Requirements or the EV SSL Guidelines except where defined below:
 
@@ -388,7 +387,7 @@ RFC6960, Request for Comments: 6960, X.509 Internet Public Key Infrastructure On
 
 WebTrust Principles and Criteria for Certification Authorities – Code Signing Baseline Requirements, available at <https://www.cpacanada.ca/en/business-and-accounting-resources/audit-and-assurance/overview-of-webtrust-services/principles-and-criteria>.
 
-X.509, Recommendation ITU-T X.509 (10/2012) \| ISO/IEC 9594-8:2014 (E), Information technology – Open Systems Interconnection – The Directory: Public-key and attribute certificate frameworks.
+X.509, Recommendation ITU-T X.509 (08/2005) | ISO/IEC 9594-8:2005, Information technology – Open Systems Interconnection – The Directory: Public-key and attribute certificate frameworks..
 
 ### 1.6.4 Conventions
 
