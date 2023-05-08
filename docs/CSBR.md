@@ -167,6 +167,8 @@ Capitalized Terms are as defined in the Baseline Requirements or the EV SSL Guid
 
 **Certificate Policy**: A set of rules that indicates the applicability of a named Certificate to a particular community and/or PKI implementation with common security requirements.
 
+**Certificate Policy Identifier:** As described in [Section 7.1.6](#716-certificate-policy-object-identifier)
+
 **Certificate Problem Report**: Complaint of suspected Key Compromise, Certificate misuse, or other types of fraud, compromise, misuse, or inappropriate conduct related to Certificates.
 
 **Certificate Profile**: A set of documents or files that defines requirements for Certificate content and Certificate extensions in accordance with [Section 7](#7-certificate-crl-and-ocsp-profiles). e.g. a Section in a CA’s CPS or a certificate template file used by CA software.
