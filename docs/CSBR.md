@@ -299,12 +299,6 @@ Capitalized Terms are as defined in the Baseline Requirements or the EV SSL Guid
 
 **Trusted Platform Module**: A microcontroller that stores keys, passwords and digital certificates, usually affixed to the motherboard of a computer, which due to its physical nature makes the information stored there more secure against external software attack or physical theft.
 
-**Trustworthy System**: Computer hardware, software, and procedures that are: 
-  - reasonably secure from intrusion and misuse; 
-  - provide a reasonable level of availability, reliability, and correct operation; 
-  - are reasonably suited to performing their intended functions; and 
-  - enforce the applicable security policy.
-
 **Valid Certificate**: A Certificate that passes the validation procedure specified in RFC 5280.
 
 **Validation Specialists**: Someone who performs the information verification duties specified by these Requirements.
