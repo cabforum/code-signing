@@ -251,8 +251,6 @@ Capitalized Terms are as defined in the Baseline Requirements or the EV SSL Guid
 
 **Qualified Auditor**: A natural person or Legal Entity that meets the requirements of [Section 8.2](#82-identityqualifications-of-assessor).
 
-**Random Value**: A value specified by a CA to the Applicant that exhibits at least 112 bits of entropy.
-
 **Registration Authority (RA)**: Any Legal Entity that is responsible for identification and authentication of subjects of Certificates, but is not a CA, and hence does not sign or issue Certificates. An RA may assist in the certificate application process or revocation process or both. When "RA" is used as an adjective to describe a role or function, it does not necessarily imply a separate body, but can be part of the CA.
 
 **Registration Identifier:** The unique code assigned to an Applicant by the Incorporating or Registration Agency in such entity's Jurisdiction of Incorporation or Registration.
