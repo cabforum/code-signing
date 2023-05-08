@@ -203,8 +203,6 @@ Capitalized Terms are as defined in the Baseline Requirements or the EV SSL Guid
   4.  the date of the verification, and
   5.  a signature of the Verifying Person.
 
-**Expiry Date**: The "Not After" date in a Certificate that defines the end of a Certificate's validity period.
-
 **EV Code Signing Certificate:** A Code Signing Certificate validated and issued in accordance the EV Code Signing requirements.
 
 **EV Guidelines:** The CA/Browser Forum Guidelines for the Issuance and Management of Extended Validation Certificates.
