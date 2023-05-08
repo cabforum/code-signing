@@ -973,13 +973,13 @@ The Certificate Management Process MUST include:
 4. user management, separate trusted-role assignments, education, awareness, and training; and
 5. logical access controls, activity logging, and inactivity time-outs to provide individual accountability.
 
-The CA's security program MUST include an annual Risk Assessment that:
+The CA's security program MUST include an annual risk assessment that:
 
 1. Identifies foreseeable internal and external threats that could result in unauthorized access, disclosure, misuse, alteration, or destruction of any Certificate Data or Certificate Management Processes;
 2. Assesses the likelihood and potential damage of these threats, taking into consideration the sensitivity of the Certificate Data and Certificate Management Processes; and
 3. Assesses the sufficiency of the policies, procedures, information systems, technology, and other arrangements that the CA has in place to counter such threats.
 
-Based on the Risk Assessment, the CA SHALL develop, implement, and maintain a security plan consisting of security procedures, measures, and products designed to achieve the objectives set forth above and to manage and control the risks identified during the Risk Assessment, commensurate with the sensitivity of the Certificate Data and Certificate Management Processes. The security plan MUST include administrative, organizational, technical, and physical safeguards appropriate to the sensitivity of the Certificate Data and Certificate Management Processes. The security plan MUST also take into account then-available technology and the cost of implementing the specific measures, and SHALL implement a reasonable level of security appropriate to the harm that might result from a breach of security and the nature of the data to be protected.
+Based on the risk assessment, the CA SHALL develop, implement, and maintain a security plan consisting of security procedures, measures, and products designed to achieve the objectives set forth above and to manage and control the risks identified during the risk assessment, commensurate with the sensitivity of the Certificate Data and Certificate Management Processes. The security plan MUST include administrative, organizational, technical, and physical safeguards appropriate to the sensitivity of the Certificate Data and Certificate Management Processes. The security plan MUST also take into account then-available technology and the cost of implementing the specific measures, and SHALL implement a reasonable level of security appropriate to the harm that might result from a breach of security and the nature of the data to be protected.
 
 ## 5.1 Physical controls
 
@@ -1150,7 +1150,7 @@ The CA, Delegated Third Parties, and Timestamp Authority MUST retain, for at lea
 
 ### 5.4.8 Vulnerability assessments
 
-Additionally, the CA's security program MUST include an annual Risk Assessment that:
+Additionally, the CA's security program MUST include an annual risk assessment that:
 
 1. Identifies foreseeable internal and external threats that could result in unauthorized access, disclosure, misuse, alteration, or destruction of any Certificate Data or Certificate Management Processes;
 2. Assesses the likelihood and potential damage of these threats, taking into consideration the sensitivity of the Certificate Data and Certificate Management Processes; and
@@ -1194,7 +1194,7 @@ Note: While these Requirements set the minimum retention period, the CA MAY choo
 
 ### 5.7.1 Incident and compromise handling procedures
 
-CA organizations shall have an Incident Response Plan and a Disaster Recovery Plan.
+CA organizations shall have an incident response plan and a disaster recovery plan.
 
 The CA SHALL document a business continuity and disaster recovery procedures designed to notify and reasonably protect Application Software Suppliers, Subscribers, and Relying Parties in the event of a disaster, security compromise, or business failure. The CA is not required to publicly disclose its business continuity plans but SHALL make its business continuity plan and security plans available to the CA's auditors upon request. The CA SHALL annually test, review, and update these procedures.
 
