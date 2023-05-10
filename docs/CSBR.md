@@ -1770,7 +1770,7 @@ b. __Certificate Field:__ `subject:businessCategory` (OID 2.5.4.15)
    __Required/Optional:__ Required  
    __Contents:__ As specified in Section 9.2.3 of the EV Guidelines.
 
-c. __Certificate Field:__ sSubject Jurisdiction of Incorporation or Registration Fields  
+c. __Certificate Field:__ Subject Jurisdiction of Incorporation or Registration Fields  
    __Required/Optional:__ Required  
    __Contents:__ As specified in Section 9.2.4 of the EV Guidelines.
 
