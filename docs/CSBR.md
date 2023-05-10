@@ -1032,14 +1032,14 @@ Prior to the engagement of any person in the Certificate Management Process, whe
 
 Prior to the commencement of employment of any person by the CA for engagement in the EV Processes, whether as an employee, agent, or an independent contractor of the CA, the CA MUST:
 
-1. **Verify the Identity of Such Person**: Verification of identity MUST be performed through:
+1. **Verify the identity of such person**: Verification of identity MUST be performed through:
 
    A.  The personal (physical) presence of such person before trusted persons who perform human resource or security functions, and
    B.  The verification of well-recognized forms of government-issued photo identification (e.g., passports and/or drivers licenses);
 
    and
 
-2. **Verify the Trustworthiness of Such Person**: Verification of trustworthiness SHALL include background checks, which address at least the following, or their equivalent:
+2. **Verify the trustworthiness of such person**: Verification of trustworthiness SHALL include background checks, which address at least the following, or their equivalent:
 
    A.  Confirmation of previous employment,
    B.  Check of professional references;
