@@ -1362,7 +1362,7 @@ The CA SHALL protect its Private Key in a system or device that has been validat
 
 #### 6.2.7.2 Private key storage for Timestamp Authorities
 
-A Timestamp Authority MUST protect its signing key using a process that is at least to FIPS 140-2 Level 3, Common Criteria EAL 4+ (ALC\_FLR.2), or higher. The CA MUST protect its signing operations in accordance with the CA/Browser Forum's Network and Certificate System Security Requirements.
+A Timestamp Authority MUST protect its signing key using a process that is at least to FIPS 140-2 level 3, Common Criteria EAL 4+ (ALC\_FLR.2), or higher. The CA MUST protect its signing operations in accordance with the CA/Browser Forum's Network and Certificate System Security Requirements.
 
 #### 6.2.7.3 Private key storage for Signing Services
 
@@ -1525,7 +1525,7 @@ a. `certificatePolicies`
 
    * `certificatePolicies:policyQualifiers:qualifier:cPSuri` (Optional)
 
-     HTTP URL for the Root CA's Certificate Policies, Certification Practice Statement, Relying Party Agreement, or other pointer to online policy information provided by the CA.
+     HTTP URL for the Root CA's Certificate Policies, Certification Practice Statement, Relying Party agreement, or other pointer to online policy information provided by the CA.
 
 b. `cRLDistributionPoints`
 
@@ -1587,7 +1587,7 @@ a. `certificatePolicies`
 
    * `certificatePolicies:policyQualifiers:qualifier:cPSuri` (Optional)
 
-      HTTP URL for the Subordinate CA's Certification Practice Statement, Relying Party Agreement or other pointer to online information provided by the CA.
+      HTTP URL for the Subordinate CA's Certification Practice Statement,Relying Party agreement or other pointer to online information provided by the CA.
 
 b. `cRLDistributionPoints`
 
