@@ -1,11 +1,11 @@
 ---
 title: Baseline Requirements for the Issuance and Management of Publicly-Trusted Code Signing Certificates
-subtitle: Version 3.2.0
+subtitle: Version 3.3.0
 author:
   - CA/Browser Forum
-date: October 28, 2022  
+date: June XX, 2023  
 copyright: |
-  Copyright 2022 CA/Browser Forum
+  Copyright 2023 CA/Browser Forum
 
   This work is licensed under the Creative Commons Attribution 4.0 International license.
 ---
@@ -51,6 +51,7 @@ The following Certificate Policy Identifier is reserved for use by CAs as a requ
 | 3.0 | CSC-14 | Convert Code Signing Baseline Requirements to RFC 3647 Framework | 29 June 2022 |
 | 3.1 | CSC-15 | Summer 2022 Clean-up | 19 September 2022 |
 | 3.2 | CSC-17 | Subscriber Private Key Protection Extension | 28 October 2022 |
+| 3.3 | CSC-18 | Update Revocation Requirements | XX June 2023 |
 
 ### 1.2.2 Relevant Dates
 
@@ -66,7 +67,7 @@ The following Certificate Policy Identifier is reserved for use by CAs as a requ
 | 2023-06-01 | 6.2.7.4.2 | Effective June 1, 2023, for Code Signing Certificates, CAs SHALL ensure that the Subscriber’s Private Key is generated, stored, and used in a suitable Hardware Crypto Module that meets or exceeds the requirements specified in section 6.2.7.4.1 (7-9).|
 | 2023-06-01 | 6.2.7.4.2 | Effective June 1, 2023, for Code Signing Certificates, CAs SHALL ensure that the Subscriber’s Private Key is generated, stored, and used in a suitable Hardware Crypto Module that meets or exceeds the requirements specified in section 6.2.7.4.1 using one of the methods in 6.2.7.4.2.|
 | 2023-06-01 | 6.2.7.4.2 | Any other method the CA uses to satisfy the Subscriber’s compliance with the private key protection requirements. The CA SHALL specify and describe in detail those other methods in its Certificate Policy or Certification Practice Statement, and SHALL propose those methods to the CA/Browser Forum Code Signing Working Group for inclusion into these requirements until June 1, 2023, using the questions@cabforum.org mailing list. After that date, the Code Signing Working Group will discuss the removal of this "any other method" and allow only CA/Browser Forum approved methods.|
-
+| 2024-04-15 | 4.9.1 | This ballot updates the "Circumstances for revocation" in order to align it with the TLS and S/MIME BRs and set stricter requirements for revocation due to Private Key Compromise and use in Suspect Code. |
 
 ## 1.3 PKI participants
 
