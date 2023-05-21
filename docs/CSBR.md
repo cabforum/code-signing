@@ -130,9 +130,7 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 
 ### 1.6.1 Definitions
 
-[EDITOR: Need to import capitalized terms used in this document. This means search the entire document for capitalized terms and check whether that term is listed in 1.6.1, and the decide whether to remove the capital letter or create a definition for that term.]
-
-Capitalized Terms are as defined in the Baseline Requirements or the EV SSL Guidelines except where defined below:
+Capitalized Terms are as defined below and in the EV SSL Guidelines:
 
 **Affiliate**: A corporation, partnership, joint venture or other entity controlling, controlled by, or under common control with another entity, or an agency, department, political subdivision, or any entity operating under the direct control of a Government Entity.
 
