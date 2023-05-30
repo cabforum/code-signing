@@ -1577,7 +1577,8 @@ a. `certificatePolicies`
 
    * `certificatePolicies:policyQualifiers:qualifier:cPSuri` (Optional)
 
-      HTTP URL for the Subordinate CA's Certification Practice Statement,Relying Party agreement or other pointer to online information provided by the CA.
+      HTTP URL for the Subordinate CA's Certification Practice Statement, Relying Party agreement or other pointer to online information provided by the CA.
+
 
 b. `cRLDistributionPoints`
 
