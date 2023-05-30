@@ -895,9 +895,9 @@ For the status of Code Signing Certificates:
 For the status of Timestamp Certificates:
   * If the Subordinate CA provides OCSP responses, the Subordinate CA SHALL update information provided via an OCSP response at least every twelve months and within 24 hours after revoking a Timestamp Certificate.
 
-If the OCSP responder receives a request for the status of a certificate serial number that is not "assigned", then the responder MUST NOT respond with a "good" status.
-
 A certificate serial number within an OCSP request is "assigned" if a Certificate with that serial number has been issued by the Issuing CA, using any current or previous key associated with that CA subject.
+
+If the OCSP responder receives a request for the status of a certificate serial number that is not "assigned", then the responder MUST NOT respond with a "good" status.
 
 ### 4.9.11 Other forms of revocation advertisements available
 
