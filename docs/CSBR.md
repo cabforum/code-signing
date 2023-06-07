@@ -1171,6 +1171,7 @@ Additionally, the CA's security program MUST include an annual risk assessment t
 The CA and each Delegated Third Party SHALL archive all audit logs (as set forth in [Section 5.4.1](#541-types-of-events-recorded)).
 
 Additionally, the CA and each Delegated Third Party SHALL archive:
+
 1. Documentation related to the security of their Certificate Systems, Certificate Management Systems, Root CA Systems, and Delegated Third Party Systems; and
 2. Documentation related to their verification, issuance, and revocation of certificate requests and Certificates.
 
@@ -1179,6 +1180,7 @@ Additionally, the CA and each Delegated Third Party SHALL archive:
 Archived audit logs (as set forth in [Section 5.5.1](#551-types-of-records-archived) SHALL be retained for a period of at least two (2) years from their record creation timestamp, or as long as they are required to be retained per [Section 5.4.3](#543-retention-period-for-audit-log), whichever is longer.
 
 Additionally, the CA and each Delegated Third Party SHALL retain, for at least two (2) years:
+
 1. All archived documentation related to the security of Certificate Systems, Certificate Management Systems, Root CA Systems and Delegated Third Party Systems (as set forth in [Section 5.5.1](#551-types-of-records-archived)); and
 2. All archived documentation relating to the verification, issuance, and revocation of certificate requests and Certificates (as set forth in [Section 5.5.1](#551-types-of-records-archived)) after the later occurrence of:
    
@@ -1552,14 +1554,17 @@ g. `extKeyUsage`
 This extension MUST be present and SHOULD NOT be marked critical.
 
 If the Subordinate CA will be used to issue Code Signing Certificates:
+
 * `id-kp-codeSigning` MUST be present.
 * `id-kp-timeStamping` MUST NOT be present.
 
 If the Subordinate CA will be used to issue Timestamp Certificates:
+
 * `id-kp-timeStamping` MUST be present.
 * `id-kp-codeSigning` MUST NOT be present.
 
 Additionally, the following EKUs MUST NOT be present:
+
 * `anyExtendedKeyUsage`
 * `id-kp-serverAuth`
 * `id-kp-emailProtection`
