@@ -853,12 +853,15 @@ When revoking a Certificate, the CA SHOULD work with the Subscriber to estimate 
 ### 4.9.7 CRL issuance frequency
 
 For the status of Subordinate CA Certificates: 
+
   * The Issuing CA SHALL publish a CRL, then update and reissue a CRL at least once every twelve months and within 24 hours after revoking a Subordinate CA Certificate. The `nextUpdate` field MUST NOT be more than twelve months beyond the value of the `thisUpdate` field.
 
 For the status of Code Signing Certificates:
+
   * The Subordinate CA SHALL publish a CRL, then update and reissue a CRL at least once every seven days, and the value of the `nextUpdate` field MUST NOT be more than ten days beyond the value of the `thisUpdate` field.
 
 For the status of Timestamp Certificates:
+
   * The Subordinate CA SHALL update and reissue CRLs at least once every twelve months and within 24 hours after revoking a Timestamp Certificate, and the value of the `nextUpdate` field MUST NOT be more than twelve months beyond the value of the `thisUpdate` field.
 
 ### 4.9.8 Maximum latency for CRLs
@@ -887,12 +890,15 @@ CAs MAY provide OCSP responses for Code Signing Certificates and Timestamp Certi
 If the CA provides OCSP responses, the CA SHALL support an OCSP capability using the GET method for Certificates issued in accordance with these Requirements.
 
 For the status of Subordinate CA Certificates:
+
   * If the Issuing CA provides OCSP responses, the Issuing CA SHALL update information provided via an OCSP response at least every twelve months and within 24 hours after revoking a Subordinate CA Certificate.
 
 For the status of Code Signing Certificates:
+
   * If the Subordinate CA provides OCSP responses, the CA SHALL update information provided via an OCSP response at least every four days. OCSP responses from this service MUST have a maximum expiration time of ten days.
 
 For the status of Timestamp Certificates:
+
   * If the Subordinate CA provides OCSP responses, the Subordinate CA SHALL update information provided via an OCSP response at least every twelve months and within 24 hours after revoking a Timestamp Certificate.
 
 A certificate serial number within an OCSP request is "assigned" if a Certificate with that serial number has been issued by the Issuing CA, using any current or previous key associated with that CA subject.
@@ -1604,6 +1610,7 @@ e. `keyUsage`
 f. `extKeyUsage`
 
    If the Certificate is a Code Signing Certificate, then `id-kp-codeSigning` MUST be present and the following EKUs MAY be present:
+
    * Lifetime Signing OID (`1.3.6.1.4.1.311.10.3.13`)
    * `id-kp-emailProtection`
    * Document Signing (`1.3.6.1.4.1.311.3.10.3.12`)
@@ -1611,6 +1618,7 @@ f. `extKeyUsage`
    If the Certificate is a Timestamp Certificate, then `id-kp-timeStamping` MUST be present and MUST be marked critical.
 
    Additionally, the following EKUs MUST NOT be present:
+   
    * `anyExtendedKeyUsage`
    * `id-kp-serverAuth`
 
