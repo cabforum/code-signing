@@ -634,6 +634,7 @@ CAs MUST not issue new or replacement Code Signing Certificates to an entity tha
 CAs MAY issue new or replacement Code Signing Certificates to an entity who is the victim of a documented Takeover Attack, resulting in either a loss of control of their code-signing service or loss of the Private Key associated with their Code Signing Certificate.
 
 If the CA is aware that the Applicant was the victim of a Takeover Attack, the CA MUST verify that the Applicant is protecting its Code Signing Private Keys under [Section 6.2.7.4.1](#62741-subscriber-private-key-protection)(1) or [Section 6.2.7.4.1](#62741-subscriber-private-key-protection)(2). The CA MUST verify the Applicant's compliance with [Section 6.2.7.4.1](#62741-subscriber-private-key-protection)(1) or [Section 6.2.7.4.1](#62741-subscriber-private-key-protection)(2) through:
+
   1. Technical means that confirm the Private Keys are protected using the method described in [Section 6.2.7.4.1](#62741-subscriber-private-key-protection)(1) or [Section 6.2.7.4.1](#62741-subscriber-private-key-protection)(2); or
   2. Relying on a report provided by the Applicant that is signed by an auditor who is approved by the CA and who has IT and security training or is a CISA.
 
@@ -1082,6 +1083,7 @@ The CA and each Delegated Third Party SHALL record details of the actions taken 
 
 The CA SHALL record at least the following events:
 1. CA certificate and key lifecycle management events, including:
+   
    1. Key generation, backup, storage, recovery, archival, and destruction;
    2. Certificate requests, renewal, and re-key requests, and revocation;
    3. Approval and rejection of certificate requests ;
@@ -1091,6 +1093,7 @@ The CA SHALL record at least the following events:
    7. Introduction of new Certificate Profiles and retirement of existing Certificate Profiles
 
 2. CA and Subscriber lifecycle management events, including:
+   
    1. Certificate requests, renewals, re-key requests, and revocation;
    2. All verification activities stipulated in these Requirements and the CA’s Certification Practice Statement (CPS);
    3. Acceptance and rejection of certificate requests;
@@ -1099,6 +1102,7 @@ The CA SHALL record at least the following events:
    6. Signing of OCSP Responses (as described in [Section 4.9](#49-certificate-revocation-and-suspension) and [Section 4.10](#410-certificate-status-services)).
 
 3.	Security events, including:
+
    1. Successful and unsuccessful PKI system access attempts;
    2. PKI and security system actions performed;
    3. Security profile changes;
@@ -1177,6 +1181,7 @@ Archived audit logs (as set forth in [Section 5.5.1](#551-types-of-records-archi
 Additionally, the CA and each Delegated Third Party SHALL retain, for at least two (2) years:
 1. All archived documentation related to the security of Certificate Systems, Certificate Management Systems, Root CA Systems and Delegated Third Party Systems (as set forth in [Section 5.5.1](#551-types-of-records-archived)); and
 2. All archived documentation relating to the verification, issuance, and revocation of certificate requests and Certificates (as set forth in [Section 5.5.1](#551-types-of-records-archived)) after the later occurrence of:
+   
     1. such records and documentation were last relied upon in the verification, issuance, or revocation of certificate requests and Certificates; or
     2. the expiration of the Subscriber Certificates relying upon such records and documentation.
 
@@ -1618,7 +1623,7 @@ f. `extKeyUsage`
    If the Certificate is a Timestamp Certificate, then `id-kp-timeStamping` MUST be present and MUST be marked critical.
 
    Additionally, the following EKUs MUST NOT be present:
-   
+
    * `anyExtendedKeyUsage`
    * `id-kp-serverAuth`
 
