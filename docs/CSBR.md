@@ -1,11 +1,11 @@
 ---
 title: Baseline Requirements for the Issuance and Management of Publicly-Trusted Code Signing Certificates
-subtitle: Version 3.2.0
+subtitle: Version 3.3.0
 author:
   - CA/Browser Forum
-date: October 28, 2022  
+date: June XX, 2023  
 copyright: |
-  Copyright 2022 CA/Browser Forum
+  Copyright 2023 CA/Browser Forum
 
   This work is licensed under the Creative Commons Attribution 4.0 International license.
 ---
@@ -51,6 +51,7 @@ The following Certificate Policy Identifier is reserved for use by CAs as a requ
 | 3.0 | CSC-14 | Convert Code Signing Baseline Requirements to RFC 3647 Framework | 29 June 2022 |
 | 3.1 | CSC-15 | Summer 2022 Clean-up | 19 September 2022 |
 | 3.2 | CSC-17 | Subscriber Private Key Protection Extension | 28 October 2022 |
+| 3.3 | CSC-18 | Update Revocation Requirements | XX June 2023 |
 
 ### 1.2.2 Relevant Dates
 
@@ -66,7 +67,7 @@ The following Certificate Policy Identifier is reserved for use by CAs as a requ
 | 2023-06-01 | 6.2.7.4.2 | Effective June 1, 2023, for Code Signing Certificates, CAs SHALL ensure that the Subscriber’s Private Key is generated, stored, and used in a suitable Hardware Crypto Module that meets or exceeds the requirements specified in section 6.2.7.4.1 (7-9).|
 | 2023-06-01 | 6.2.7.4.2 | Effective June 1, 2023, for Code Signing Certificates, CAs SHALL ensure that the Subscriber’s Private Key is generated, stored, and used in a suitable Hardware Crypto Module that meets or exceeds the requirements specified in section 6.2.7.4.1 using one of the methods in 6.2.7.4.2.|
 | 2023-06-01 | 6.2.7.4.2 | Any other method the CA uses to satisfy the Subscriber’s compliance with the private key protection requirements. The CA SHALL specify and describe in detail those other methods in its Certificate Policy or Certification Practice Statement, and SHALL propose those methods to the CA/Browser Forum Code Signing Working Group for inclusion into these requirements until June 1, 2023, using the questions@cabforum.org mailing list. After that date, the Code Signing Working Group will discuss the removal of this "any other method" and allow only CA/Browser Forum approved methods.|
-
+| 2024-04-15 | 4.9.1 | This ballot updates the "Circumstances for revocation" in order to align it with the TLS and S/MIME BRs and set stricter requirements for revocation due to Private Key Compromise and use in Suspect Code. |
 
 ## 1.3 PKI participants
 
@@ -173,7 +174,7 @@ Capitalized Terms are as defined in the Baseline Requirements or the EV SSL Guid
 
 **Subscriber:** A natural person or Legal Entity to whom a Code Signing Certificate is issued and who is legally bound by a Subscriber Agreement or Terms of Use.
 
-**Suspect Code**: Code that contains malicious functionality or serious vulnerabilities, including spyware, malware and other code that installs without the user\'s consent and/or resists its own removal, and code that can be exploited in ways not intended by its designers to compromise the trustworthiness of the Platforms on which it executes.
+**Suspect Code**: Code that contains malicious functionality or serious vulnerabilities, including spyware, malware and other code that installs without the user\'s consent and/or resists its own removal, code that compromises user security and/or code that can be exploited in ways not intended by its designers to compromise the trustworthiness of the Platforms on which it executes.
 
 **Takeover Attack**: An attack where a Signing Service or Private Key associated with a Code Signing Certificate has been compromised by means of fraud, theft, intentional malicious act of the Subject's agent, or other illegal conduct.
 
@@ -487,41 +488,53 @@ Certificate issuance by the Root CA MUST require an individual authorized by the
 
 ## 4.9 Certificate revocation and suspension
 
+Prior to 2024-04-15, the CA SHALL treat revocation of Certificates in accordance with the requirements specified in Section 4.9 of these Requirements or Section 4.9 specified in version 3.2.0 of the Baseline Requirements for the Issuance and Management of Publicly‐Trusted Code Signing Certificates. Effective 2024-04-15, the CA SHALL treat revocation of Certificates in accordance with Section 4.9 specified in these Requirements.
+
 ### 4.9.1 Circumstances for revocation
 
-A CA MUST revoke a Code Signing Certificate in any of the four circumstances: (1) the Application Software Supplier requests revocation, (2) the subscriber requests revocation, (3) a third party provides information that leads the CA to believe that the certificate is compromised or is being used for Suspect Code, or (4) the CA otherwise decides that the certificate should be revoked. This section describes the CA's obligations for each scenario.
+When revocation of a Subscriber Certificate is done due to a Key Compromise or use in Suspect Code the CA SHALL determine an appropriate value for the revocationDate based on its own investigation. The CA SHALL set a historic date as revocationDate if deemed appropriate.
 
-#### 4.9.1.1 Revocation Based on an Application Software Supplier's Request
+#### 4.9.1.1 Reasons for Revoking a Subscriber Certificate
+ 
+The CA SHALL revoke a Certificate within 24 hours if one or more of the following occurs:
+ 
+1. The Subscriber requests in writing that the CA revoke the Certificate;
+2. The Subscriber notifies the CA that the original certificate request was not authorized and does not retroactively grant authorization;
+3. The CA obtains evidence that the Subscriber's Private Key corresponding to the Public Key in the Certificate suffered a Key Compromise;
+4. The CA is made aware of a demonstrated or proven method that can easily compute the Subscriber's Private Key based on the Public Key in the Certificate;
+5. The CA is made aware of a demonstrated or proven method that exposes the Subscriber’s Private Key to compromise or if there is clear evidence that the specific method used to generate the Private Key was flawed; or
+6. The CA has reasonable assurance that a Certificate was used to sign Suspect Code.
+ 
+The CA SHOULD revoke a certificate within 24 hours and SHALL revoke a Certificate within 5 days if one or more of the following occurs:
 
-If the Application Software Supplier requests the CA revoke because the Application Software Supplier believes that a Certificate attribute is deceptive, or that the Certificate is being used for malware, bundle ware, unwanted software, or some other illicit purpose, then the Application Software Supplier may request that the CA revoke the certificate.
+7. The Certificate no longer complies with the requirements of Section 6.1.5 and Section 6.1.6; 
+8. The CA obtains evidence that the Certificate was misused. 
+9. The CA is made aware that a Subscriber has violated one or more of its material obligations under the Subscriber Agreement or Terms of Use. 
+10. The CA is made aware of a material change in the information contained in the Certificate. 
+11. The CA is made aware that the Certificate was not issued in accordance with these Requirements or the CA's Certificate Policy or Certification Practice Statement. 
+12. The CA determines or is made aware that any of the information appearing in the Certificate is inaccurate. 
+13. The CA's right to issue Certificates under these Requirements expires or is revoked or terminated, unless the CA has made arrangements to continue maintaining the CRL/OCSP Repository. 
+14. Revocation is required by the CA's Certificate Policy and/or Certification Practice Statement. 
+ 
+The CA MAY delay revocation based on a request from Application Software Suppliers where immediate revocation has a potentially large negative impact to the ecosystem.
 
-Within two (2) business days of receipt of the request, the CA MUST either revoke the certificate or inform the Application Software Supplier that it is conducting an investigation.
-
-If the CA decides to conduct an investigation, it MUST inform the Application Software Supplier whether or not it will revoke the Certificate, within two (2) business days.
-
-If the CA decides that the revocation will have an unreasonable impact on its customer, then the CA MUST propose an alternative course of action to the Application Software Supplier based on its investigation.
-
-#### 4.9.1.2 Revocation Based on the Subscriber's Request
-
-The CA MUST revoke a Code Signing Certificate within one (1) business day if the Subscriber requests in writing that the CA revoke the Certificate or notifies the CA that the original certificate request was not authorized and does not retroactively grant authorization.
-
-#### 4.9.1.3 Revocation Based on Reported or Detected Compromise or Use in Malware
-
-For all incidents involving malware, CAs SHALL revoke the Code Signing Certificate in accordance with and within the following maximum timeframes. Nothing herein prohibits a CA from revoking a Code Signing Certificate prior to these timeframes.
-
-1.  The CA MUST contact the software publisher within one (1) business day after the CA is made aware of the incident.
-2.  The CA MUST determine the volume of relying parties that are impacted (e.g., based on OCSP logs) within 72 hours after being made aware of the incident.
-3.  The CA MUST request the software publisher send an acknowledgement to the CA within 72 hours of receipt of the request.
-  a.  If the publisher responds within 72 hours, the CA and publisher MUST determine a "reasonable date" to revoke the certificate based on discussions with the CA.
-  b.  If CA does not receive a response, the CA must notify the publisher that the CA will revoke in 7 days if no further response is received.
-    i.  If the publisher responds within 7 days, the CA and the publisher will determine a "reasonable date" to revoke the certificate based on discussion with the CA.
-    ii.  If no response is received after 7 days, the CA must revoke the certificate except if the CA has documented proof (e.g., OCSP logs) that the revocation will cause significant impact to the general public.
-
-A CA revoking a Certificate because the Certificate was associated with signed Suspect Code or other fraudulent or illegal conduct SHOULD provide all relevant information and risk indicators to other CAs or industry groups. The CA SHOULD indicate whether its investigation found that the Suspect Code was a false positive or an inadvertent signing.
-
-#### 4.9.1.4 Revocation of a Subordinate CA Certificate
-
-As specified in BR Section 4.9.1.2.
+ 
+**Note:** Nothing herein prohibits a CA from revoking a Code Signing Certificate prior to these time frames.
+ 
+#### 4.9.1.2 Reasons for Revoking a Subordinate CA Certificate
+ 
+The Issuing CA SHALL revoke a Subordinate CA Certificate within seven (7) days if one or more of the following occurs:
+ 
+1. The Subordinate CA requests revocation in writing;
+2. The Subordinate CA notifies the Issuing CA that the original certificate request was not authorized and does not retroactively grant authorization;
+3. The Issuing CA obtains evidence that the Subordinate CA's Private Key corresponding to the Public Key in the Certificate suffered a Key Compromise or no longer complies with the requirements of [Section 6.1.5](#615-key-sizes) and [Section 6.1.6](#616-public-key-parameters-generation-and-quality-checking);
+4. The Issuing CA obtains evidence that the Certificate was misused;
+5. The Issuing CA is made aware that the Certificate was not issued in accordance with or that Subordinate CA has not complied with this document or the applicable Certificate Policy or Certification Practice Statement;
+6. The Issuing CA determines that any of the information appearing in the Certificate is inaccurate or misleading;
+7. The Issuing CA or Subordinate CA ceases operations for any reason and has not made arrangements for another CA to provide revocation support for the Certificate;
+8. The Issuing CA's or Subordinate CA's right to issue Certificates under these Requirements expires or is revoked or terminated, unless the Issuing CA has made arrangements to continue maintaining the CRL/OCSP Repository; or
+9. Revocation is required by the Issuing CA's Certificate Policy and/or Certification Practice Statement.
+ 
 
 ### 4.9.2 Who can request revocation
 
