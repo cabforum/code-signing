@@ -3,7 +3,7 @@ title: Baseline Requirements for the Issuance and Management of Publicly-Trusted
 subtitle: Version 3.3.0
 author:
   - CA/Browser Forum
-date: June XX, 2023  
+date: June 29, 2023  
 copyright: |
   Copyright 2023 CA/Browser Forum
 
@@ -51,7 +51,7 @@ The following Certificate Policy Identifier is reserved for use by CAs as a requ
 | 3.0 | CSC-14 | Convert Code Signing Baseline Requirements to RFC 3647 Framework | 29 June 2022 |
 | 3.1 | CSC-15 | Summer 2022 Clean-up | 19 September 2022 |
 | 3.2 | CSC-17 | Subscriber Private Key Protection Extension | 28 October 2022 |
-| 3.3 | CSC-18 | Update Revocation Requirements | XX June 2023 |
+| 3.3 | CSC-18 | Update Revocation Requirements | 29 June 2023 |
 
 ### 1.2.2 Relevant Dates
 
