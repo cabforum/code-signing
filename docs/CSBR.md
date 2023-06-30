@@ -634,6 +634,7 @@ CAs MUST not issue new or replacement Code Signing Certificates to an entity tha
 CAs MAY issue new or replacement Code Signing Certificates to an entity who is the victim of a documented Takeover Attack, resulting in either a loss of control of their code-signing service or loss of the Private Key associated with their Code Signing Certificate.
 
 If the CA is aware that the Applicant was the victim of a Takeover Attack, the CA MUST verify that the Applicant is protecting its Code Signing Private Keys under [Section 6.2.7.4.1](#62741-subscriber-private-key-protection)(1) or [Section 6.2.7.4.1](#62741-subscriber-private-key-protection)(2). The CA MUST verify the Applicant's compliance with [Section 6.2.7.4.1](#62741-subscriber-private-key-protection)(1) or [Section 6.2.7.4.1](#62741-subscriber-private-key-protection)(2) through:
+
   1. Technical means that confirm the Private Keys are protected using the method described in [Section 6.2.7.4.1](#62741-subscriber-private-key-protection)(1) or [Section 6.2.7.4.1](#62741-subscriber-private-key-protection)(2); or
   2. Relying on a report provided by the Applicant that is signed by an auditor who is approved by the CA and who has IT and security training or is a CISA.
 
@@ -853,12 +854,15 @@ When revoking a Certificate, the CA SHOULD work with the Subscriber to estimate 
 ### 4.9.7 CRL issuance frequency
 
 For the status of Subordinate CA Certificates: 
+
   * The Issuing CA SHALL publish a CRL, then update and reissue a CRL at least once every twelve months and within 24 hours after revoking a Subordinate CA Certificate. The `nextUpdate` field MUST NOT be more than twelve months beyond the value of the `thisUpdate` field.
 
 For the status of Code Signing Certificates:
+
   * The Subordinate CA SHALL publish a CRL, then update and reissue a CRL at least once every seven days, and the value of the `nextUpdate` field MUST NOT be more than ten days beyond the value of the `thisUpdate` field.
 
 For the status of Timestamp Certificates:
+
   * The Subordinate CA SHALL update and reissue CRLs at least once every twelve months and within 24 hours after revoking a Timestamp Certificate, and the value of the `nextUpdate` field MUST NOT be more than twelve months beyond the value of the `thisUpdate` field.
 
 ### 4.9.8 Maximum latency for CRLs
@@ -887,12 +891,15 @@ CAs MAY provide OCSP responses for Code Signing Certificates and Timestamp Certi
 If the CA provides OCSP responses, the CA SHALL support an OCSP capability using the GET method for Certificates issued in accordance with these Requirements.
 
 For the status of Subordinate CA Certificates:
+
   * If the Issuing CA provides OCSP responses, the Issuing CA SHALL update information provided via an OCSP response at least every twelve months and within 24 hours after revoking a Subordinate CA Certificate.
 
 For the status of Code Signing Certificates:
+
   * If the Subordinate CA provides OCSP responses, the CA SHALL update information provided via an OCSP response at least every four days. OCSP responses from this service MUST have a maximum expiration time of ten days.
 
 For the status of Timestamp Certificates:
+
   * If the Subordinate CA provides OCSP responses, the Subordinate CA SHALL update information provided via an OCSP response at least every twelve months and within 24 hours after revoking a Timestamp Certificate.
 
 A certificate serial number within an OCSP request is "assigned" if a Certificate with that serial number has been issued by the Issuing CA, using any current or previous key associated with that CA subject.
@@ -1076,6 +1083,7 @@ The CA and each Delegated Third Party SHALL record details of the actions taken 
 
 The CA SHALL record at least the following events:
 1. CA certificate and key lifecycle management events, including:
+   
    1. Key generation, backup, storage, recovery, archival, and destruction;
    2. Certificate requests, renewal, and re-key requests, and revocation;
    3. Approval and rejection of certificate requests ;
@@ -1085,6 +1093,7 @@ The CA SHALL record at least the following events:
    7. Introduction of new Certificate Profiles and retirement of existing Certificate Profiles
 
 2. CA and Subscriber lifecycle management events, including:
+   
    1. Certificate requests, renewals, re-key requests, and revocation;
    2. All verification activities stipulated in these Requirements and the CA’s Certification Practice Statement (CPS);
    3. Acceptance and rejection of certificate requests;
@@ -1093,6 +1102,7 @@ The CA SHALL record at least the following events:
    6. Signing of OCSP Responses (as described in [Section 4.9](#49-certificate-revocation-and-suspension) and [Section 4.10](#410-certificate-status-services)).
 
 3.	Security events, including:
+
    1. Successful and unsuccessful PKI system access attempts;
    2. PKI and security system actions performed;
    3. Security profile changes;
@@ -1161,6 +1171,7 @@ Additionally, the CA's security program MUST include an annual risk assessment t
 The CA and each Delegated Third Party SHALL archive all audit logs (as set forth in [Section 5.4.1](#541-types-of-events-recorded)).
 
 Additionally, the CA and each Delegated Third Party SHALL archive:
+
 1. Documentation related to the security of their Certificate Systems, Certificate Management Systems, Root CA Systems, and Delegated Third Party Systems; and
 2. Documentation related to their verification, issuance, and revocation of certificate requests and Certificates.
 
@@ -1169,8 +1180,10 @@ Additionally, the CA and each Delegated Third Party SHALL archive:
 Archived audit logs (as set forth in [Section 5.5.1](#551-types-of-records-archived) SHALL be retained for a period of at least two (2) years from their record creation timestamp, or as long as they are required to be retained per [Section 5.4.3](#543-retention-period-for-audit-log), whichever is longer.
 
 Additionally, the CA and each Delegated Third Party SHALL retain, for at least two (2) years:
+
 1. All archived documentation related to the security of Certificate Systems, Certificate Management Systems, Root CA Systems and Delegated Third Party Systems (as set forth in [Section 5.5.1](#551-types-of-records-archived)); and
 2. All archived documentation relating to the verification, issuance, and revocation of certificate requests and Certificates (as set forth in [Section 5.5.1](#551-types-of-records-archived)) after the later occurrence of:
+   
     1. such records and documentation were last relied upon in the verification, issuance, or revocation of certificate requests and Certificates; or
     2. the expiration of the Subscriber Certificates relying upon such records and documentation.
 
@@ -1541,14 +1554,17 @@ g. `extKeyUsage`
 This extension MUST be present and SHOULD NOT be marked critical.
 
 If the Subordinate CA will be used to issue Code Signing Certificates:
+
 * `id-kp-codeSigning` MUST be present.
 * `id-kp-timeStamping` MUST NOT be present.
 
 If the Subordinate CA will be used to issue Timestamp Certificates:
+
 * `id-kp-timeStamping` MUST be present.
 * `id-kp-codeSigning` MUST NOT be present.
 
 Additionally, the following EKUs MUST NOT be present:
+
 * `anyExtendedKeyUsage`
 * `id-kp-serverAuth`
 * `id-kp-emailProtection`
@@ -1604,6 +1620,7 @@ e. `keyUsage`
 f. `extKeyUsage`
 
    If the Certificate is a Code Signing Certificate, then `id-kp-codeSigning` MUST be present and the following EKUs MAY be present:
+
    * Lifetime Signing OID (`1.3.6.1.4.1.311.10.3.13`)
    * `id-kp-emailProtection`
    * Document Signing (`1.3.6.1.4.1.311.3.10.3.12`)
@@ -1611,6 +1628,7 @@ f. `extKeyUsage`
    If the Certificate is a Timestamp Certificate, then `id-kp-timeStamping` MUST be present and MUST be marked critical.
 
    Additionally, the following EKUs MUST NOT be present:
+
    * `anyExtendedKeyUsage`
    * `id-kp-serverAuth`
 
