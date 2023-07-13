@@ -115,7 +115,7 @@ No stipulation.
 
 ### 1.5.2 Contact person
 
-Contact information for the CA/Browser Forum is available here: <https://cabforum.org/leadership/>. In this section of a CA's CPS, the CA shall provide a link to a web page or an email address for contacting the person or persons responsible for operation of the CA.
+Contact information for the CA/Browser Forum is available here: <https://cabforum.org/leadership/>. In this section of a CA's CPS, the CA SHALL provide a link to a web page or an email address for contacting the person or persons responsible for operation of the CA.
 
 ### 1.5.3 Person determining CPS suitability for the policy
 
