@@ -39,7 +39,7 @@ The following Certificate Policy Identifier is reserved for use by CAs as a requ
 ### 1.2.1 Revisions
 
 | **Ver.** | **Ballot** | **Description**                                                                                                   | **Effective**     |
-|-|-|-------------------------------------------------------------------------------------------------------------------|-------------------|
+|-|-|---|--|
 | 1.2 | CSC-1 | Adopt Baseline Requirements version 1.2                                                                           | 13 Aug 2019       |
 | 2.0 | CSC-2 | Adopt combined EV and BR Code Signing Document                                                                    | 2 Sept 2020       |
 | 2.1 | CSC-4 | Move deadline for transition to RSA-3072 and SHA-2 timestamp tokens                                               | 7 Nov 2020        |
