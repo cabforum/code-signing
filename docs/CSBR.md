@@ -54,7 +54,8 @@ The following Certificate Policy Identifier is reserved for use by CAs as a requ
 | 3.1 | CSC-15 | Summer 2022 Clean-up                                                                                              | 19 September 2022 |
 | 3.2 | CSC-17 | Subscriber Private Key Protection Extension                                                                       | 28 October 2022   |
 | 3.3 | CSC-18 | Update Revocation Requirements                                                                                    | 29 June 2023 |
-| 3.X | CSC-XX | Remove SSL BR References                                                                                          | XX August 2023    |
+| 3.4 | CSC-19 | Remove SSL BR References                                                                                          | 5 September 2023    |
+
 
 ### 1.2.2 Relevant Dates
 
