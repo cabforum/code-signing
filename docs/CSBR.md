@@ -4,7 +4,8 @@ subtitle: Version 3.4.0
 
 author:
   - CA/Browser Forum
-date: August XX, 2023  
+date: September 5, 2023  
+
 copyright: |
   Copyright 2023 CA/Browser Forum
 
