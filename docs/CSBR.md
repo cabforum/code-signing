@@ -281,7 +281,7 @@ Capitalized Terms are as defined below and in the EV SSL Guidelines:
 
 **Signature**: An encrypted electronic data file which is attached to or logically associated with other electronic data and which (i) identifies and is uniquely linked to the signatory of the electronic data, (ii) is created using means that the signatory can maintain under its sole control, and (iii) is linked in a way so as to make any subsequent changes that have been made to the electronic data detectable.
 
-**Signing Service**: An organization that signs Code on behalf of a Subscriber using a Private Key associated with a Code Signing Certificate.
+**Signing Service**: An organization that generates the Key Pair and securely manages the Private Key associated with a Subscriber's Code Signing Certificate.
 
 **Sovereign State**: A state or country that administers its own government, and is not dependent upon, or subject to, another power.
 
@@ -299,7 +299,7 @@ Capitalized Terms are as defined below and in the EV SSL Guidelines:
 
 **Suspect Code**: Code that contains malicious functionality or serious vulnerabilities, including spyware, malware and other code that installs without the user\'s consent and/or resists its own removal, code that compromises user security and/or code that can be exploited in ways not intended by its designers to compromise the trustworthiness of the Platforms on which it executes.
 
-**Takeover Attack**: An attack where a Signing Service or Private Key associated with a Code Signing Certificate has been compromised by means of fraud, theft, intentional malicious act of the Subject's agent, or other illegal conduct.
+**Takeover Attack**: An attack where a Private Key associated with a Code Signing Certificate has been compromised by means of fraud, theft, intentional malicious act of the Subject's agent, or other illegal conduct.
 
 **Terms of Use**: Provisions regarding the safekeeping and acceptable uses of a Certificate issued in accordance with these Requirements when the Applicant/Subscriber is an Affiliate of the CA or is the CA.
 
@@ -1289,11 +1289,11 @@ The CA SHALL reject a certificate request if one or more of the following condit
 
 ### 6.1.2 Private key delivery to subscriber
 
-If the CA or any Delegated Third Party is generating the Private Key on behalf of the Subscriber where the Private Keys will be transported to the Subscriber outside of the Signing Service's secure infrastructure, then the entity generating the Private Key MUST either transport the Private Key in hardware with an activation method that is equivalent to 128 bits of encryption or encrypt the Private Key with at least 128 bits of encryption strength. Allowed methods include using a 128-bit AES key to wrap the private key or storing the key in a PKCS 12 file encrypted with a randomly generated password of more than 16 characters containing uppercase letters, lowercase letters, numbers, and symbols for transport.
+If the CA or any Delegated Third Party is generating the Private Key on behalf of the Subscriber where the Private Keys will be transported to the Subscriber outside of the Signing Service's secure infrastructure, then the entity generating the Private Key MUST transport the Private Key in hardware with an activation method that is equivalent to 128 bits of encryption. 
 
 Parties other than the Subscriber SHALL NOT archive the Subscriber Private Key without authorization by the Subscriber.
 
-If the CA or any of its designated RAs become aware that a Subscriber's Private Key has been communicated to an unauthorized person or an organization not affiliated with the Subscriber, then the CA SHALL revoke all certificates that include the Public Key corresponding to the communicated Private Key.
+If the CA or any of its designated RAs become aware that a Subscriber's Private Key has been communicated to an unauthorized person or an organization not affiliated with the Subscriber, then the CA SHALL revoke all certificates that include the Public Key corresponding to the communicated Private Key. If a Signing Service is generating a Private Key on behalf of the Subscriber, that Private Key SHALL NOT be transported to the Subscriber.
 
 ### 6.1.3 Public key delivery to certificate issuer
 
@@ -1361,7 +1361,7 @@ Parties other than the Subordinate CA SHALL NOT archive the Subordinate CA Priva
 
 If the Issuing CA generated the Private Key on behalf of the Subordinate CA, then the Issuing CA SHALL encrypt the Private Key for transport to the Subordinate CA. If the Issuing CA becomes aware that a Subordinate CA's Private Key has been communicated to an unauthorized person or an organization not affiliated with the Subordinate CA, then the Issuing CA SHALL revoke all certificates that include the Public Key corresponding to the communicated Private Key.
 
-For Certificates transported outside of a Signing Service's secure infrastructure, the CA or Signing Service MUST require, by contract, each Subscriber to generate their own Private Key and protect the Private Key in accordance with [Section 6.2.7.4](#6274-subscriber-private-key-protection-and-verification).
+The CA or Signing Service SHALL NOT transfer Private Keys from a cryptographic module to a Subscriber.
 
 ### 6.2.7 Private key storage on cryptographic module
 
@@ -1371,22 +1371,20 @@ The CA SHALL protect its Private Key in a system or device that has been validat
 
 #### 6.2.7.2 Private key storage for Timestamp Authorities
 
-A Timestamp Authority MUST protect its signing key using a process that is at least to FIPS 140-2 level 3, Common Criteria EAL 4+ (ALC\_FLR.2), or higher. The CA MUST protect its signing operations in accordance with the CA/Browser Forum's Network and Certificate System Security Requirements.
+A Timestamp Authority MUST protect its signing key using a process that is at least to FIPS 140-2 level 3, Common Criteria EAL 4+ (ALC\_FLR.2), or higher.
 
 #### 6.2.7.3 Private key storage for Signing Services
 
-The Signing Service MUST ensure that a Subscriber's Private Key is generated, stored, and used in a secure environment that has controls to prevent theft or misuse. A Signing Service MUST enforce multi-factor authentication to access and authorize Code Signing and obtain a representation from the Subscriber that they will securely store the tokens required for multi-factor access. A system used to host a Signing Service MUST NOT be used for web browsing. The Signing Service MUST run a regularly updated antivirus solution to scan the service for possible virus infection. The Signing Service MUST comply with the Network and Certificate System Security Requirements as a "Delegated Third Party".
+The Signing Service MUST ensure that a Subscriber's Private Key is generated, stored, and used in a secure environment that has controls to prevent theft or misuse. A Signing Service MUST enforce multi-factor authentication or server-to-server authentication to access and authorize Code Signing.
 
-For Code Signing Certificates, Signing Services SHALL protect Private Keys in a Hardware Crypto Module conforming to at least FIPS 140-2 level 3 or Common Criteria EAL 4+.
+For Code Signing Certificates, Signing Services SHALL protect Subscriber Private Keys in a Hardware Crypto Module conforming to at least FIPS 140-2 level 3 or Common Criteria EAL 4+.
 
 Techniques that MUST be used to satisfy this requirement include:
 
-1.  Use of an HSM, verified by means of the FIPS or Common Criteria certificate; or
+1.  Use of an Hardware Crypto Module, verified by means of a FIPS or Common Criteria certificate; or
 2.  A cloud-based key generation and protection solution with the following requirements:
     a.  Key creation, storage, and usage of Private Key must remain within the security boundaries of the cloud solution’s Hardware Crypto Module that conforms to the specified requirements;
     b.  Subscription at the level that manages the Private Key must be configured to log all access, operations, and configuration changes on the resources securing the Private Key.
-3.	 A Hardware Crypto Module provided by the CA;
-4.	 Contractual terms in the Subscriber Agreement requiring the Subscriber to protect the Private Key to a standard of at least FIPS 140-2 level 2 or Common Criteria EAL 4+ and with compliance being confirmed by means of an audit.
 
 #### 6.2.7.4 Subscriber Private Key protection and verification 
 
@@ -1472,7 +1470,7 @@ The CA SHALL enforce multi-factor authentication for all accounts capable of dir
 
 ## 6.7 Network security controls
 
-The CA/Browser Forum’s Network and Certificate System Security Requirements are incorporated by reference as if fully set forth herein.
+The CA/Browser Forum’s Network and Certificate System Security Requirements are incorporated by reference as if fully set forth herein for the CA, Signing Service and Timestamp Authority.
 
 ## 6.8 Time-stamping
 
@@ -1915,11 +1913,9 @@ The CA's audit SHALL be performed by a Qualified Auditor. A Qualified Auditor me
 
 The CA MUST undergo a conformity assessment audit for compliance with these Requirements performed in accordance with one of the following schemes:
 
-1.  For Audit Periods starting before November 1st, 2020: "WebTrust for CAs v2.0 or newer" AND "WebTrust for Certification Authorities -- Publicly Trusted Code Signing Certificates v1.0.1 or newer"; or
-2.  For Audit Periods starting before November 1st, 2020: "WebTrust for CAs v2.0 or newer" AND "WebTrust for Certification Authorities -- Extended Validation Code Signing v1.4.1 or newer"; or
-3.  “WebTrust for CAs v2.0 or newer” AND “WebTrust for Certification Authorities – Code Signing Baseline Requirements v2.0 or newer”; or 
-4.  ETSI EN 319 411-1, which includes normative references to ETSI EN 319 401 (the latest version of the referenced ETSI documents should be applied); or
-5.  If a government CA is required by its Certificate Policy to use a different internal audit scheme, it MAY use such scheme provided that the audit either (a) encompasses all requirements of one of the above schemes or (b) consists of comparable criteria that are available for public review.
+1.  “WebTrust for CAs v2.0 or newer” AND “WebTrust for Certification Authorities – Code Signing Baseline Requirements v2.0 or newer” AND “WebTrust for Certification Authorities – Network Security – Version 1.0 or newer”; or 
+2.  ETSI EN 319 411-1, which includes normative references to ETSI EN 319 401 (the latest version of the referenced ETSI documents should be applied); or
+3.  If a government CA is required by its Certificate Policy to use a different internal audit scheme, it MAY use such scheme provided that the audit either (a) encompasses all requirements of one of the above schemes or (b) consists of comparable criteria that are available for public review.
 
 Whichever scheme is chosen, it MUST incorporate periodic monitoring and/or accountability procedures to ensure that its audits continue to be conducted in accordance with the requirements of the scheme.
 
@@ -1931,7 +1927,7 @@ The audit MUST cover all CA obligations under these Guidelines regardless of whe
 
 The Signing Service MUST undergo a conformity assessment audit for compliance with these Requirements performed in accordance with one of the following schemes:
 
-1.  “WebTrust for CAs v2.0 or newer” AND “WebTrust for Certification Authorities – Code Signing Baseline Requirements v2.0 or newer” AND “WebTrust for CAs SSL Baseline with Network Security v2.3 or newer” only as it applies to Network Security Requirements; or 
+1.  “WebTrust for Certification Authorities – Code Signing Baseline Requirements v2.0 or newer” AND “WebTrust for Certification Authorities – Network Security – Version 1.0 or newer”; or 
 2.  ETSI EN 319 411-1, which includes normative references to ETSI EN 319 401 (the latest version of the referenced ETSI documents should be applied).
 
 Whichever scheme is chosen, it MUST incorporate periodic monitoring and/or accountability procedures to ensure that its audits continue to be conducted in accordance with the requirements of the scheme.
@@ -1942,7 +1938,7 @@ The audit MUST be conducted by a Qualified Auditor, as specified in BR Section 8
 
 The Timestamp Authority MUST undergo a conformity assessment audit for compliance with these Requirements performed in accordance with one of the following schemes:
 
-1.  “WebTrust for CAs v2.0 or newer” AND “WebTrust for Certification Authorities – Code Signing Baseline Requirements v2.0 or newer” AND “WebTrust for CAs SSL Baseline with Network Security v2.3 or newer” only as it applies to Network Security Requirements; or 
+1.  “WebTrust for Certification Authorities – Code Signing Baseline Requirements v2.0 or newer” AND “WebTrust for Certification Authorities – Network Security – Version 1.0 or newer”; or 
 2.  ETSI EN 319 411-1, which includes normative references to ETSI EN 319 401 (the latest version of the referenced ETSI documents should be applied).
 
 Whichever scheme is chosen, it MUST incorporate periodic monitoring and/or accountability procedures to ensure that its audits continue to be conducted in accordance with the requirements of the scheme.
@@ -1956,6 +1952,8 @@ The audit MUST be conducted by a Qualified Auditor, as specified in BR Section 8
 The Audit Report SHALL state explicitly that it covers the relevant systems and processes used in the issuance of all Certificates that assert one or more of the policy identifiers listed in [Section 7.1.6.1](#7161-reserved-certificate-policy-identifiers). The CA SHALL make the Audit Report publicly available.
 
 The CA MUST make its Audit Report publicly available no later than three months after the end of the audit period. In the event of a delay greater than three months, the CA SHALL provide an explanatory letter signed by the Qualified Auditor.
+
+The Audit Report MAY combine the results of the assessments defined in [Section 8.4](#84-topics-covered-by-assessment), if the assessments were performed by the same Qualified Auditor.
 
 The Audit Report MUST contain at least the following clearly-labelled information:
 
@@ -2074,7 +2072,7 @@ The CA SHALL implement a process to ensure that each Subscriber Agreement or Ter
 
 ### 9.6.5 Representations and warranties of other participants
 
-The CA MUST contractually obligate each Signing Service to inform the CA if the Signing Service becomes aware (by whatever means) that the Signing Service has signed Suspect Code. The CA MUST require the Signing Service to request revocation of the affected Certificate and provide immediate notice to the CA if a Subscriber's Private Key, or Private Key activation data, is compromised or believed to be compromised. The CA MUST revoke the affected Certificate upon request by the Signing Service or if the CA determines the Signing Service failed to notify the CA within 24 hours after identifying a Private Key compromise.
+The CA MUST contractually obligate each Signing Service to inform the CA if the Signing Service becomes aware (by whatever means) that the Signing Service has signed Suspect Code. The CA MUST require the Signing Service to request revocation of the affected Certificate and provide immediate notice to the CA if a Subscriber's Private Key, or Private Key activation data, is compromised or believed to be compromised. The CA MUST revoke the affected Certificate upon request by the Signing Service or if the CA determines the Signing Service failed to notify the CA within 24 hours after identifying a Key compromise.
 
 Signing Services MUST obtain the Subscriber's commitment to:
 
