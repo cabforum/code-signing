@@ -98,7 +98,7 @@ If a Delegated Third Party fulfills any of the CA's obligations under [Section 4
 
 ### 1.3.5 Other participants
 
-Signing Services MAY support generation of Subscriber Key Pair and maintain security of the Subscriber Private Key.
+Signing Services MUST support generation of Subscriber Key Pair and maintain security of the Subscriber Private Key.
 
 Timestamp Authorities may be used by the Subscriber to provide timestamp records to indicate data existed at a specific time.
 
