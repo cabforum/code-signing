@@ -1,6 +1,6 @@
 ---
 title: Baseline Requirements for the Issuance and Management of Publicly-Trusted Code Signing Certificates
-subtitle: Version 3.6.0
+subtitle: Version 3.X.0
 
 author:
   - CA/Browser Forum
@@ -55,7 +55,7 @@ The following Certificate Policy Identifier is reserved for use by CAs as a requ
 | 3.2 | CSC-17 | Subscriber Private Key Protection Extension                                                                       | 28 October 2022   |
 | 3.3 | CSC-18 | Update Revocation Requirements                                                                                    | 29 June 2023 |
 | 3.4 | CSC-19 | Remove SSL BR References                                                                                          | 5 September 2023    |
-| 3.6 | CSC-21 | Signing Services Update                                                                                           | XX November 2023    |
+| 3.X | CSC-21 | Signing Services Update                                                                                           | XX November 2023    |
 
 
 ### 1.2.2 Relevant Dates
