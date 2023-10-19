@@ -1,10 +1,10 @@
 ---
 title: Baseline Requirements for the Issuance and Management of Publicly-Trusted Code Signing Certificates
-subtitle: Version 3.5.0
+subtitle: Version 3.6.0
 
 author:
   - CA/Browser Forum
-date: October XX, 2023  
+date: November XX, 2023  
 
 copyright: |
   Copyright 2023 CA/Browser Forum
@@ -56,6 +56,7 @@ The following Certificate Policy Identifier is reserved for use by CAs as a requ
 | 3.3 | CSC-18 | Update Revocation Requirements                                                                                    | 29 June 2023 |
 | 3.4 | CSC-19 | Remove SSL BR References                                                                                          | 5 September 2023    |
 | 3.5 | CSC-20 | Restore Version Reference to EV Guidelines                                                                        | XX October 2023    |
+| 3.6 | CSC-21 | Signing Service Update                                                                                            | XX November 2023   |
 
 
 ### 1.2.2 Relevant Dates
@@ -73,6 +74,7 @@ The following Certificate Policy Identifier is reserved for use by CAs as a requ
 | 2023-06-01 | 6.2.7.4.2 | Effective June 1, 2023, for Code Signing Certificates, CAs SHALL ensure that the Subscriber’s Private Key is generated, stored, and used in a suitable Hardware Crypto Module that meets or exceeds the requirements specified in section 6.2.7.4.1 using one of the methods in 6.2.7.4.2.|
 | 2023-06-01 | 6.2.7.4.2 | Any other method the CA uses to satisfy the Subscriber’s compliance with the private key protection requirements. The CA SHALL specify and describe in detail those other methods in its Certificate Policy or Certification Practice Statement, and SHALL propose those methods to the CA/Browser Forum Code Signing Working Group for inclusion into these requirements until June 1, 2023, using the questions@cabforum.org mailing list. After that date, the Code Signing Working Group will discuss the removal of this "any other method" and allow only CA/Browser Forum approved methods.|
 | 2024-04-15 | 4.9.1 | This ballot updates the "Circumstances for revocation" in order to align it with the TLS and S/MIME BRs and set stricter requirements for revocation due to Private Key Compromise and use in Suspect Code. |
+| 2024-06-15 | 8.4.2 | For Audit Periods starting after June 30, 2024, the Signing Service MUST undergo a conformity assessment audit for compliance with these Requirements performed in accordance with one of the schemes specified in Section 8.4.2. |
 
 ## 1.3 PKI participants
 
@@ -282,7 +284,7 @@ Capitalized Terms are as defined below and in the EV SSL Guidelines:
 
 **Signature**: An encrypted electronic data file which is attached to or logically associated with other electronic data and which (i) identifies and is uniquely linked to the signatory of the electronic data, (ii) is created using means that the signatory can maintain under its sole control, and (iii) is linked in a way so as to make any subsequent changes that have been made to the electronic data detectable.
 
-**Signing Service**: An organization that generates the Key Pair and securely manages the Private Key associated with a Subscriber's Code Signing Certificate.
+**Signing Service**: An organization that generates the Key Pair and securely manages the Private Key associated with a Code Signing Certificate, on behalf of a Subscriber.
 
 **Sovereign State**: A state or country that administers its own government, and is not dependent upon, or subject to, another power.
 
@@ -1928,7 +1930,7 @@ The audit MUST cover all CA obligations under these Guidelines regardless of whe
 
 ### 8.4.2 Signing Service assessment
 
-The Signing Service MUST undergo a conformity assessment audit for compliance with these Requirements performed in accordance with one of the following schemes:
+For Audit Periods starting after June 30, 2024, the Signing Service MUST undergo a conformity assessment audit for compliance with these Requirements performed in accordance with one of the following schemes:
 
 1.  “WebTrust for Certification Authorities – Code Signing Baseline Requirements v2.0 or newer” AND “WebTrust for Certification Authorities – Network Security – Version 1.0 or newer”; or 
 2.  ETSI EN 319 411-1, which includes normative references to ETSI EN 319 401 (the latest version of the referenced ETSI documents should be applied).
