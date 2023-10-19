@@ -55,8 +55,7 @@ The following Certificate Policy Identifier is reserved for use by CAs as a requ
 | 3.2 | CSC-17 | Subscriber Private Key Protection Extension                                                                       | 28 October 2022   |
 | 3.3 | CSC-18 | Update Revocation Requirements                                                                                    | 29 June 2023 |
 | 3.4 | CSC-19 | Remove SSL BR References                                                                                          | 5 September 2023    |
-| 3.5 | CSC-20 | Restore Version Reference to EV Guidelines                                                                        | XX October 2023    |
-| 3.6 | CSC-21 | Signing Service Update                                                                                            | XX November 2023   |
+| 3.6 | CSC-21 | Signing Services Update                                                                                           | XX November 2023    |
 
 
 ### 1.2.2 Relevant Dates
@@ -365,8 +364,6 @@ FIPS 140-2, Federal Information Processing Standards Publication - Security Requ
 FIPS 140-3, Federal Information Processing Standards Publication - Security Requirements For Cryptographic Modules, Information Technology Laboratory, National Institute of Standards and Technology, March 22, 2019.
 
 FIPS 186-4, Federal Information Processing Standards Publication - Digital Signature Standard (DSS), Information Technology Laboratory, National Institute of Standards and Technology, July 2013.
-
-Guidelines for the Issuance and Management of Extended Validation Certificates, Version 1.7.2, available at https://cabforum.org/wp-content/uploads/CA-Browser-Forum-EV-Guidelines-v1.7.2.pdf.
 
 ISO 21188:2006, Public key infrastructure for financial services -- Practices and policy framework.
 
