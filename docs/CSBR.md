@@ -1418,7 +1418,7 @@ The CA MUST obtain a contractual representation from the Subscriber that the Sub
     b.	Subscription at the level that manages the Private Key must be configured to log all access, operations, and configuration changes on the resources securing the Private Key.   
 9.	 Subscriber uses a Signing Service which meets the requirements of [Section 6.2.7.3](#6273-private-key-storage-for-signing-services).
 
-###### 6.2.7.4.2 Subscriber Private Key verification
+##### 6.2.7.4.2 Subscriber Private Key verification
 
 Effective June 1, 2023, for Code Signing Certificates, CAs SHALL ensure that the Subscriber’s Private Key is generated, stored, and used in a suitable Hardware Crypto Module that meets or exceeds the requirements specified in [Section 6.2.7.4.1](#62741-subscriber-private-key-protection). One of the following methods MUST be employed to satisfy this requirement:
 
