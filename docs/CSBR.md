@@ -1836,7 +1836,7 @@ A Certificate issued to a Subordinate CA that issues Code Signing Certificates a
 A Certificate issued after 31 March 2022 to a Subordinate CA that issues Timestamp Certificates and is an Affiliate of the Issuing CA MUST include one of the following:
 
 1. The CA/Browser Forum reserved identifier specified in [Section 7.1.6.1](#7161-reserved-certificate-policy-identifiers), or
-2. The “anyPolicy” identifier (`2.5.29.32.0`) in place of an explicit policy identifier. 
+2. The “anyPolicy” identifier (`2.5.29.32.0`). 
 
 A Subordinate CA MUST represent, in its Certificate Policy and/or Certification Practice Statement, that all Certificates containing a policy identifier indicating compliance with these Requirements are issued and managed in accordance with these Requirements.
 
