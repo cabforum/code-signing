@@ -142,6 +142,8 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 
 Capitalized Terms are as defined below and in the EV SSL Guidelines:
 
+**Accounting Practitioner**: A certified public accountant, chartered accountant, or a person with an equivalent license within the country of the Applicant's Jurisdiction of Incorporation or Registration or any jurisdiction where the Applicant maintains an office or physical facility; provided that an accounting standards body in the jurisdiction maintains full (not "suspended" or "associate") membership status with the International Federation of Accountants.
+
 **Affiliate**: A corporation, partnership, joint venture or other entity controlling, controlled by, or under common control with another entity, or an agency, department, political subdivision, or any entity operating under the direct control of a Government Entity.
 
 **Applicant**: The natural person or Legal Entity that applies for (or seeks renewal of) a Certificate. Once the Certificate issues, the Applicant is referred to as the Subscriber. For Certificates issued to devices, the Applicant is the entity that controls or operates the device named in the Certificate, even if the device is sending the actual certificate request.
@@ -162,6 +164,21 @@ Capitalized Terms are as defined below and in the EV SSL Guidelines:
 **Audit Report**: A report from a Qualified Auditor stating the Qualified Auditor's opinion on whether an entity's processes and controls comply with the mandatory provisions of these Requirements.
 
 **Baseline Requirements:** The Baseline Requirements for the Issuance and Management of Publicly-Trusted Code Signing Certificates as published by the CA/Browser Forum.
+
+**Business Entity**: Any entity that is not a Private Organization, Government Entity, or Non-Commercial Entity as defined herein. Examples include, but are not limited to, general partnerships, unincorporated associations, sole proprietorships, etc.
+
+**Certificate Approver**: A natural person who is either the Applicant, employed by the Applicant, or an authorized agent who has express authority to represent the Applicant to
+
+  1. act as a Certificate Requester and to authorize other employees or third parties to act as a Certificate Requester, and
+  2. to approve EV Certificate Requests submitted by other Certificate Requesters.
+
+**Certificate Requester**: A natural person who is either the Applicant, employed by the Applicant, an authorized agent who has express authority to represent the Applicant, or a third party (such as an ISP or hosting company) that completes and submits an EV Certificate Request on behalf of the Applicant.
+
+**Confirmation Request**: An appropriate out-of-band communication requesting verification or confirmation of the particular fact at issue.
+
+**Confirming Person**: A position within an Applicant's organization that confirms the particular fact at issue.
+
+**Contract Signer**: A natural person who is either the Applicant, employed by the Applicant, or an authorized agent who has express authority to represent the Applicant, and who has authority on behalf of the Applicant to sign Subscriber Agreements.
 
 **CA Key Pair**: A Key Pair where the Public Key appears as the Subject Public Key Info in one or more Root CA Certificate(s) and/or Subordinate CA Certificate(s).
 
@@ -213,17 +230,43 @@ Capitalized Terms are as defined below and in the EV SSL Guidelines:
   4.  the date of the verification, and
   5.  a signature of the Verifying Person.
 
-**EV Code Signing Certificate:** A Code Signing Certificate validated and issued in accordance the EV Code Signing requirements.
+**Demand Deposit Account**: A deposit account held at a bank or other financial institution, the funds deposited in which are payable on demand. The primary purpose of demand accounts is to facilitate cashless payments by means of check, bank draft, direct debit, electronic funds transfer, etc. Usage varies among countries, but a demand deposit account is commonly known as a share draft account, a current account, or a checking account.
 
-**EV Guidelines:** The CA/Browser Forum Guidelines for the Issuance and Management of Extended Validation Certificates.
+**EV Authority**: A source other than the Certificate Approver, through which verification occurs that the Certificate Approver is expressly authorized by the Applicant, as of the date of the EV Certificate Request, to take the Request actions described in these Guidelines.
+
+**EV Certificate Request**: A request from an Applicant to the CA requesting that the CA issue an EV Code Signing Certificate to the Applicant, which request is validly authorized by the Applicant and signed by the Applicant Representative.
+
+**EV Code Signing Certificate:** A Code Signing Certificate that contains subject information specified in these Guidelines for Extended Validation and that has been validated in accordance with these Guidelines for Extended Validation.
+
+**EV Processes**: The keys, software, processes, and procedures by which the CA verifies Certificate Data under the EV Code Signing Certificate policy, issues EV Code Signing Certificates, maintains a Repository, and revokes EV Code Signing Certificates.
+
+**Government Agency**: In the context of a Private Organization, the government agency in the Jurisdiction of Incorporation under whose authority the legal existence of Private Organizations is established (e.g., the government agency that issued the Certificate of Incorporation).  In the context of Business Entities, the government agency in the jurisdiction of operation that registers business entities.  In the case of a Government Entity, the entity that enacts law, regulations, or decrees establishing the legal existence of Government Entities.
 
 **Government Entity**: A government-operated legal entity, agency, department, ministry, branch, or similar element of the government of a country, or political subdivision within such country (such as a state, province, city, county, etc.).
 
+**Guidelines**: This document.
+
 **Hardware Crypto Module:** A tamper-resistant device, with a cryptography processor, used for the specific purpose of protecting the lifecycle of cryptographic keys (generating, managing, processing, and storing).
+
+**High Risk Certificate Request:** A Request that the CA flags for additional scrutiny by reference to internal criteria and databases maintained by the CA, which may include names at higher risk for phishing or other fraudulent usage, names contained in previously rejected certificate requests or revoked Certificates, names listed on the Miller Smiles phishing list or the Google Safe Browsing list, or names that the CA identifies using its own risk-mitigation criteria.
+
+**High Risk Region of Concern (HRRC):** As set forth in Appendix A, a geographic location where the detected number of Code Signing Certificates associated with signed Suspect Code exceeds 5% of the total number of detected Code Signing Certificates originating or associated with the same geographic area.
+
+**Incorporating Agency**: In the context of a Private Organization, the government agency in the Jurisdiction of Incorporation under whose authority the legal existence of the entity is registered (e.g., the government agency that issues certificates of formation or incorporation). In the context of a Government Entity, the entity that enacts law, regulations, or decrees establishing the legal existence of Government Entities.
+
+**Independent Confirmation From Applicant**: Confirmation of a particular fact received by the CA pursuant to the provisions of the Guidelines or binding upon the Applicant.
+
+**Individual**: A natural person.
 
 **Individual Applicant**: An Applicant who is a natural person and requests a Certificate that will list the Applicant's legal name as the Certificate's Subject.
 
+**International Organization**: An organization founded by a constituent document, e.g., a charter, treaty, convention or similar document, signed by, or on behalf of, a minimum of two Sovereign State governments.
+
 **Issuing CA**: In relation to a particular Certificate, the CA that issued the Certificate. This could be either a Root CA or a Subordinate CA.
+
+**Jurisdiction of Incorporation**: In the context of a Private Organization, the country and (where applicable) the state or province or locality where the organization's legal existence was established by a filing with (or an act of) an appropriate government agency or entity (e.g., where it was incorporated).  In the context of a Government Entity, the country and (where applicable) the state or province where the Entity's legal existence was created by law.
+
+**Jurisdiction of Registration**: In the case of a Business Entity, the state, province, or locality where the organization has registered its business presence by means of filings by a Principal Individual involved in the business.
 
 **Key Compromise**: A Private Key is said to be compromised if its value has been disclosed to an unauthorized person, or an unauthorized person has had access to it.
 
@@ -231,9 +274,19 @@ Capitalized Terms are as defined below and in the EV SSL Guidelines:
 
 **Key Pair**: The Private Key and its associated Public Key.
 
-**Legal Entity**: An association, corporation, partnership, proprietorship, trust, government entity or other entity with legal standing in a country's legal system.
+**Latin Notary**: A person with legal training whose commission under applicable law not only includes authority to authenticate the execution of a signature on a document but also responsibility for the correctness and content of the document. A Latin Notary is sometimes referred to as a Civil Law Notary.
+
+**Legal Entity**: An association, corporation, partnership, proprietorship, trust, government entity or other entity with legal standing in a country's legal system. In the EV context, it is a Private Organization, Government Entity, Business Entity, or Non-Commercial Entity.
+
+**Legal Existence**: A Private Organization, Government Entity, or Business Entity has Legal Existence if it has been validly formed and not otherwise terminated, dissolved, or abandoned.
+
+**Legal Practitioner**: A person who is either a lawyer or a Latin Notary as described in these Guidelines and competent to render an opinion on factual claims of the Applicant.
 
 **Lifetime Signing OID:** An optional extended key usage OID (`1.3.6.1.4.1.311.10.3.13`) used by Microsoft Authenticode to limit the lifetime of the code signature to the expiration of the code signing certificate.
+
+**Non-EV Code Signing Certificate:** Term used to signify requirements that are applicable to Code Signing Certificates which do not have to meet the EV requirements.
+
+**Notary**: A person whose commission under applicable law includes authority to authenticate the execution of a signature on a document.
 
 **Object Identifier**: A unique alphanumeric or numeric identifier registered under the International Organization for Standardization's applicable standard for a specific object or object class.
 
@@ -243,13 +296,17 @@ Capitalized Terms are as defined below and in the EV SSL Guidelines:
 
 **Organizational Applicant:** An Applicant that requests a Certificate with a name in the Subject field that is for an organization and not the name of an individual. Organizational Applicants include private and public corporations, LLCs, partnerships, government entities, non-profit organizations, trade associations, and other legal entities.
 
-**Non-EV Code Signing Certificate:** Term used to signify requirements that are applicable to Code Signing Certificates which do not have to meet the EV requirements.
-
 **Parent Company**: A company that Controls a Subsidiary Company.
+
+**Place of Business**: The location of any facility (such as a factory, retail store, warehouse, etc) where the Applicant's business is conducted.
 
 **Platform:** The computing environment in which an Application Software Supplier uses Code Signing Certificates, incorporates Root Certificates, and adopts these Requirements.
 
+**Principal Individual**: An individual of a Private Organization, Government Entity, or Business Entity that is either an owner, partner, managing member, director, or officer, as identified by their title of employment, or an employee, contractor or agent authorized by such entity or organization to conduct business related to the request, issuance, and use of EV Code Signing Certificates.
+
 **Private Key**: The key of a Key Pair that is kept secret by the holder of the Key Pair, and that is used to create Digital Signatures and/or to decrypt electronic records or files that were encrypted with the corresponding Public Key.
+
+**Private Organization**: A non-governmental legal entity (whether ownership interests are privately held or publicly traded) whose existence was created by a filing with (or an act of) the Incorporating Agency or equivalent in its Jurisdiction of Incorporation.
 
 **Public Key**: The key of a Key Pair that may be publicly disclosed by the holder of the corresponding Private Key and that is used by a Relying Party to verify Digital Signatures created with the holder's corresponding Private Key and/or to encrypt messages so that they can be decrypted only with the holder's corresponding Private Key.
 
@@ -259,9 +316,28 @@ Capitalized Terms are as defined below and in the EV SSL Guidelines:
 
 **Qualified Auditor**: A natural person or Legal Entity that meets the requirements of [Section 8.2](#82-identityqualifications-of-assessor).
 
+**Qualified Government Information Source**: A database maintained by a Government Entity (e.g. SEC filings) that meets the requirements of [Section 3.2.2.2.10.6](#3222106-qualified-government-information-source).
+
+**Qualified Government Tax Information Source**: A Qualified Governmental Information Source that specifically contains tax information relating to Private Organizations, Business Entities, or Individuals.
+
+**Qualified Independent Information Source**: A regularly-updated and current, publicly available, database designed for the purpose of accurately providing the information for which it is consulted, and which is generally recognized as a dependable source of such information.
+
+**Registration Agency**: A Governmental Agency that registers business information in connection with an entity's business formation or authorization to conduct business under a license, charter or other certification. A Registration Agency MAY include, but is not limited to
+
+  1. a State Department of Corporations or a Secretary of State;
+  2. a licensing agency, such as a State Department of Insurance; or
+  3. a chartering agency, such as a state office or department of financial regulation, banking or finance, or a federal agency such as the Office of the Comptroller of the Currency or Office of Thrift Supervision.
+
 **Registration Authority (RA)**: Any Legal Entity that is responsible for identification and authentication of subjects of Certificates, but is not a CA, and hence does not sign or issue Certificates. An RA may assist in the certificate application process or revocation process or both. When "RA" is used as an adjective to describe a role or function, it does not necessarily imply a separate body, but can be part of the CA.
 
 **Registration Identifier:** The unique code assigned to an Applicant by the Incorporating or Registration Agency in such entity's Jurisdiction of Incorporation or Registration.
+
+**Registration Scheme**: A scheme for assigning a Registration Reference meeting the requirements identified in [Appendix H](#appendix-h--registration-schemes).
+
+**Registered Agent**: An individual or entity that is:
+
+  1. authorized by the Applicant to receive service of process and business communications on behalf of the Applicant; and
+  2. listed in the official records of the Applicant's Jurisdiction of Incorporation as acting in the role specified in (i) above.
 
 **Reliable Data Source**: An identification document or source of data used to verify Subject Identity Information that is generally recognized among commercial enterprises and governments as reliable, and which was created by a third party for a purpose other than the Applicant obtaining a Certificate.
 
@@ -2261,6 +2337,37 @@ e. __Certificate Field:__ Subject Physical Address of Place of Business Fields
    __Required/Optional:__ As stated in [Section 7.1.4.2](#71423-subject-distinguished-name-field---non-ev-code-signing-certificates) b, c, d, e and f.  
    __Contents__: This field MUST contain the address of the physical location of the Subject's Place of Business.
 
+f. __Certificate Field__: `subject:organizationIdentifier` (OID: 2.5.4.97)  
+   __Required/Optional__: Optional  
+   __Contents__: If present, this field MUST contain a Registration Reference for a Legal Entity assigned in accordance to the identified Registration Scheme.
+
+* The organizationIdentifier MUST be encoded as a PrintableString or UTF8String.
+* The Registration Scheme MUST be identified using the using the following structure in the presented order:
+   * 3 character Registration Scheme identifier;
+   * 2 character ISO 3166 country code for the nation in which the Registration Scheme is operated, or if the scheme is operated globally ISO 3166 code "XG" shall be used;
+   * For the NTR Registration Scheme identifier, if required under [Section 9.2.4](#924-subject-jurisdiction-of-incorporation-or-registration-field), a 2 character ISO 3166-2 identifier for the subdivision (state or province) of the nation in which the Registration Scheme is operated, preceded by plus "+" (0x2B (ASCII), U+002B (UTF-8));
+   * a hyphen-minus "-" (0x2D (ASCII), U+002D (UTF-8));
+   * Registration Reference allocated in accordance with the identified Registration Scheme
+
+   Note: Registration References MAY contain hyphens, but Registration Schemes, ISO 3166 country codes, and ISO 3166-2 identifiers do not.  Therefore if more than one hyphen appears in the structure, the leftmost hyphen is a separator, and the remaining hyphens are part of the Registration Reference.
+
+   * As in Section 7.1.4.2.4 (c), the specified location information MUST match the scope of the registration being referenced.
+
+   * Examples:
+      * `NTRGB-12345678` (NTR scheme, Great Britain, Unique Identifier at Country level is 12345678)
+      * `NTRUS+CA-12345678` (NTR Scheme, United States - California, Unique identifier at State level is 12345678)
+      * `VATDE-123456789` (VAT Scheme, Germany, Unique Identifier at Country Level is 12345678)
+      * `PSDBE-NBB-1234.567.890` (PSD Scheme, Belgium, NCA's identifier is NBB, Subject Unique Identifier assigned by the NCA is 1234.567.890)
+
+   * Registration Schemes listed in [Appendix H](#appendix-h--registration-schemes) are currently recognized as valid under these guidelines.
+
+  * The CA SHALL:
+
+     1. confirm that the organization represented by the Registration Reference is the same as the organization named in the `organizationName` field as specified in 7.1.4.2.4 (a) within the context of the subject’s jurisdiction as specified in 7.1.4.2.4 (c);
+     2. further verify the Registration Reference matches other information verified in accordance with [Section 3.2.2.2](#3222-authentication-of-organization-identity-for-ev-code-signing-certificates);
+     3. take appropriate measures to disambiguate between different organizations as described in [Appendix H](#appendix-h--registration-schemes) for each Registration Scheme;
+     4. Apply the validation rules relevant to the Registration Scheme as specified in [Appendix H](#appendix-h--registration-schemes).
+
 ### 7.1.5 Name constraints
 
 ### 7.1.6 Certificate policy object identifier
@@ -2826,3 +2933,52 @@ A CA may rely on the Contract Signer's authority to enter into the Subscriber Ag
 i. is acting as an authorized representative of [Applicant name],
 ii. is expressly authorized by [Applicant name] to sign Subscriber Agreements and approve EV Certificate requests on Applicant's behalf, and
 iii. has confirmed Applicant's right to use the domain(s) to be included in EV Certificates.
+
+# Appendix H – Registration Schemes
+
+The following Registration Schemes are currently recognized as valid under these
+guidelines:
+
+* **NTR**:
+
+  The information carried in this field shall be the same as held in
+  Subject Registration Number Field as specified in
+  [Section 7.2.4.2.4](#71424-subject-distinguished-name-fields---ev-code-signing-certificates) (d) and the country code
+  used in the Registration Scheme identifier shall match that of the
+  subject’s jurisdiction as specified in
+  [Section 7.2.4.2.4](#71424-subject-distinguished-name-fields---ev-code-signing-certificates) (c).
+
+  Where the Subject Jurisdiction of Incorporation or Registration Field in Section 7.2.4.2.4 (c)
+  includes more than the country code, the additional locality information shall
+  be included as specified in [Section 7.2.4.2.4](#71424-subject-distinguished-name-fields---ev-code-signing-certificates) (f)
+  and/or [Section 9.8.2](#982-cabrowser-forum-organization-identifier-extension).
+
+* **VAT**:
+
+  Reference allocated by the national tax authorities to a Legal Entity. This
+  information shall be validated using information provided by the national tax
+  authority against the organization as identified by the Subject Organization
+  Name Field (see [Section 7.2.4.2.4](#71424-subject-distinguished-name-fields---ev-code-signing-certificates) (a) ) and
+  Subject Registration Number Field (see
+  [Section 7.2.4.2.4](#71424-subject-distinguished-name-fields---ev-code-signing-certificates) (d) ) within the context of
+  the subject’s jurisdiction as specified in
+  [Section 7.2.4.2.4](#71424-subject-distinguished-name-fields---ev-code-signing-certificates) (c).
+
+* **PSD**:
+
+  Authorization number as specified in ETSI TS 119 495 clause 4.4
+  allocated to a payment service provider and containing the information as
+  specified in ETSI TS 119 495 clause 5.2.1. This information SHALL be
+  obtained directly from the national competent authority register for
+  payment services or from an information source approved by a government
+  agency, regulatory body, or legislation for this purpose.  This information
+  SHALL be validated by being matched directly or indirectly (for example, by
+  matching a globally unique registration number) against the organization as
+  identified by the Subject Organization Name Field (see
+  [Section 7.2.4.2.4](#71424-subject-distinguished-name-fields---ev-code-signing-certificates) (a) ) and
+  Subject Registration Number Field (see
+  [Section 7.2.4.2.4](#71424-subject-distinguished-name-fields---ev-code-signing-certificates) (d) ) within the context of
+  the subject’s jurisdiction as specified in
+  [Section 7.2.4.2.4](#71424-subject-distinguished-name-fields---ev-code-signing-certificates) (c).
+  The stated address of the organization combined with the organization name
+  SHALL NOT be the only information used to disambiguate the organization.
