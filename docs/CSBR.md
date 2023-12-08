@@ -1,10 +1,10 @@
 ---
 title: Baseline Requirements for the Issuance and Management of Publicly-Trusted Code Signing Certificates
-subtitle: Version 3.5.0
+subtitle: Version 3.6.0
 
 author:
   - CA/Browser Forum
-date: December 7, 2023  
+date: January XX, 2024
 
 copyright: |
   Copyright 2024 CA/Browser Forum
