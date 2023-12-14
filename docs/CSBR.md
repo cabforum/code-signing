@@ -1,10 +1,10 @@
 ---
 title: Baseline Requirements for the Issuance and Management of Publicly-Trusted Code Signing Certificates
-subtitle: Version 3.X.0
+subtitle: Version 3.5.0
 
 author:
   - CA/Browser Forum
-date: November XX, 2023  
+date: December 7, 2023  
 
 copyright: |
   Copyright 2023 CA/Browser Forum
@@ -55,7 +55,6 @@ The following Certificate Policy Identifier is reserved for use by CAs as a requ
 | 3.2 | CSC-17 | Subscriber Private Key Protection Extension                                                                       | 28 October 2022   |
 | 3.3 | CSC-18 | Update Revocation Requirements                                                                                    | 29 June 2023 |
 | 3.4 | CSC-19 | Remove SSL BR References                                                                                          | 5 September 2023    |
-| 3.X | CSC-21 | Signing Services Update                                                                                           | XX November 2023    |
 | 3.5 | CSC-20 | Restore Version Reference to EV Guidelines                                                                        | 7 December 2023    |
 
 
@@ -366,6 +365,8 @@ FIPS 140-3, Federal Information Processing Standards Publication - Security Requ
 
 FIPS 186-4, Federal Information Processing Standards Publication - Digital Signature Standard (DSS), Information Technology Laboratory, National Institute of Standards and Technology, July 2013.
 
+Guidelines for the Issuance and Management of Extended Validation Certificates, Version 1.7.2, available at https://cabforum.org/wp-content/uploads/CA-Browser-Forum-EV-Guidelines-v1.7.2.pdf.
+
 ISO 21188:2006, Public key infrastructure for financial services -- Practices and policy framework.
 
 Network and Certificate System Security Requirements, Version 1.7, available at https://cabforum.org/wp-content/uploads/CA-Browser-Forum-Network-Security-Guidelines-v1.7.pdf.
@@ -636,7 +637,7 @@ For EV Code Signing Certificates, use of documents, data, and previous validatio
 
 ### 4.2.2 Approval or rejection of certificate applications
 
-CAs MUST not issue new or replacement Code Signing Certificates to an entity that the CA determined intentionally signed Suspect Code. The CA MUST keep meta-data about the reason for revoking a Code Signing Certificate as proof that the Code Signing Certificate was not revoked because the Applicant was intentionally signing Suspect Code.
+CAs MUST NOT issue new or replacement Code Signing Certificates to an entity that the CA determined intentionally signed Suspect Code. The CA MUST keep meta-data about the reason for revoking a Code Signing Certificate as proof that the Code Signing Certificate was not revoked because the Applicant was intentionally signing Suspect Code.
 
 CAs MAY issue new or replacement Code Signing Certificates to an entity who is the victim of a documented Takeover Attack, resulting in a loss of control of the Private Key associated with their Code Signing Certificate.
 
