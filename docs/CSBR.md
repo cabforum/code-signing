@@ -56,6 +56,7 @@ The following Certificate Policy Identifier is reserved for use by CAs as a requ
 | 3.3 | CSC-18 | Update Revocation Requirements                                                                                    | 29 June 2023 |
 | 3.4 | CSC-19 | Remove SSL BR References                                                                                          | 5 September 2023    |
 | 3.X | CSC-21 | Signing Services Update                                                                                           | XX November 2023    |
+| 3.5 | CSC-20 | Restore Version Reference to EV Guidelines                                                                        | 7 December 2023    |
 
 
 ### 1.2.2 Relevant Dates
