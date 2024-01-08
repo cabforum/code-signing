@@ -835,7 +835,7 @@ Both the Subscriber Agreement and each non-pre-authorized EV Certificate Request
    2. Notifying the Certificate Approver that one or more new EV Certificate Requests are available for review and approval at a designated access-controlled and secure Web site, followed by a login by, and an indication of approval from, the Certificate Approver in the manner required by the Web site; or
    3. Verifying the signature of the Certificate Approver on the EV Certificate Request in accordance with [Section 3.2.2.2.8](#32228-verification-of-signature-on-subscriber-agreement-and-ev-code-signing-certificate-requests).
 
-##### 3.2.2.2.10 Verification of Certain Information Sources 
+##### 3.2.2.2.10 Verification of Certain Information Sources
 
 ###### 3.2.2.2.10.1 Verified Legal Opinion
 
@@ -941,13 +941,50 @@ A Qualified Government Tax Information Source is a Qualified Government Informat
 A CA verifying an Applicant using information of the Applicant's Parent, Subsidiary, or Affiliate, when allowed under [Section 3.2.2.2.3](#32223-verification-of-applicants-physical-existence), [Section 3.2.2.2.4](#32224-verified-method-of-communication), or [Section 3.2.2.2.5](#32225-verification-of-applicants-operational-existence), MUST verify the Applicant's relationship to the Parent, Subsidiary, or Affiliate. Acceptable methods of verifying the Applicant's relationship to the Parent, Subsidiary, or Affiliate include the following:
 
 1. QIIS or QGIS: The relationship between the Applicant and the Parent, Subsidiary, or Affiliate is identified in a QIIS or QGIS;
-2. Independent Confirmation from the Parent, Subsidiary, or Affiliate: A CA MAY verify the relationship between an Applicant and a Parent, Subsidiary, or Affiliate by obtaining an Independent Confirmation from the appropriate Parent, Subsidiary, or Affiliate (as described in [Section 11.11.4](#11114-independent-confirmation-from-applicant));
+2. Independent Confirmation from the Parent, Subsidiary, or Affiliate: A CA MAY verify the relationship between an Applicant and a Parent, Subsidiary, or Affiliate by obtaining an Independent Confirmation from the appropriate Parent, Subsidiary, or Affiliate (as described in [Section 3.2.2.2.12](#322212-independent-confirmation-from-applicant));
 3. Contract between CA and Parent, Subsidiary, or Affiliate: A CA MAY verify the relationship between an Applicant and a Parent, Subsidiary, or Affiliate by relying on a contract between the CA and the Parent, Subsidiary, or Affiliate that designates the Certificate Approver with such EV Authority, provided that the contract is signed by the Contract Signer and provided that the agency and Signing Authority of the Contract Signer have been verified;
 4. Verified Professional Letter: A CA MAY verify the relationship between an Applicant and a Parent, Subsidiary, or Affiliate by relying on a Verified Professional Letter; or
 5. Corporate Resolution: A CA MAY verify the relationship between an Applicant and a Subsidiary by relying on a properly authenticated corporate resolution that approves creation of the Subsidiary or the Applicant, provided that such resolution is:
 
    1. certified by the appropriate corporate officer (e.g., secretary), and
    2. the CA can reliably verify that the certification was validly signed by such person, and that such person does have the requisite authority to provide such certification.
+
+##### 3.2.2.2.12 Independent Confirmation From Applicant
+
+An Independent Confirmation from the Applicant is a confirmation of a particular fact (e.g., confirmation of the employee or agency status of a Contract Signer or Certificate Approver, confirmation of the EV Authority of a Certificate Approver, etc.) that is:
+
+1. Received by the CA from a Confirming Person (someone other than the person who is the subject of the inquiry) that has the appropriate authority to confirm such a fact, and who represents that he/she has confirmed such fact;
+2. Received by the CA in a manner that authenticates and verifies the source of the confirmation; and
+3. Binding on the Applicant.
+
+An Independent Confirmation from the Applicant MAY be obtained via the following procedure:
+
+1. **Confirmation Request**: The CA MUST initiate a Confirmation Request via an appropriate out-of-band communication, requesting verification or confirmation of the particular fact at issue as follows:
+
+   1. **Addressee**: The Confirmation Request MUST be directed to:
+
+       1. A position within the Applicant's organization that qualifies as a Confirming Person (e.g., Secretary, President, CEO, CFO, COO, CIO, CSO, Director, etc.) and is identified by name and title in a current QGIS, QIIS, QTIS, Verified Legal Opinion, Verified Accountant Letter, or by contacting the Applicant using a Verified Method of Communication; or
+       2. The Applicant's Registered Agent or Registered Office in the Jurisdiction of Incorporation as listed in the official records of the Incorporating Agency, with instructions that it be forwarded to an appropriate Confirming Person; or
+       3. A named individual verified to be in the direct line of management above the Contract Signer or Certificate Approver by contacting the Applicant's Human Resources Department by phone or mail (at the phone number or address for the Applicant's Place of Business, verified in accordance with these Guidelines).
+
+   2.  **Means of Communication**: The Confirmation Request MUST be directed to the Confirming Person in a manner reasonably likely to reach such person. The following options are acceptable:
+
+       1. By paper mail addressed to the Confirming Person at:
+
+          1. The address of the Applicant's Place of Business as verified by the CA in accordance with these Guidelines, or
+          2. The business address for such Confirming Person specified in a current QGIS, QTIS, QIIS, Verified Professional Letter, or
+          3. The address of the Applicant's Registered Agent or Registered Office listed in the official records of the Jurisdiction of Incorporation, or
+
+       2. By e-mail addressed to the Confirming Person at the business e-mail address for such person listed in a current QGIS, QTIS, QIIS, Verified Legal Opinion, or Verified Accountant Letter; or
+       3. By telephone call to the Confirming Person, where such person is contacted by calling the main phone number of the Applicant's Place of Business (verified in accordance with these Guidelines) and asking to speak to such person, and a person taking the call identifies him- or herself as such person; or
+       4. By facsimile to the Confirming Person at the Place of Business. The facsimile number must be listed in a current QGIS, QTIS, QIIS, Verified Legal Opinion, or Verified Accountant Letter.  The cover page must be clearly addressed to the Confirming Person.
+
+2. **Confirmation Response**: The CA MUST receive a response to the Confirmation Request from a Confirming Person that confirms the particular fact at issue. Such response MAY be provided to the CA by telephone, by e-mail, or by paper mail, so long as the CA can reliably verify that it was provided by a Confirming Person in response to the Confirmation Request.
+
+3. The CA MAY rely on a verified Confirming Person to confirm their own contact information: email address, telephone number, and facsimile number. The CA MAY rely on this verified contact information for future correspondence with the Confirming Person if:
+
+   1. The domain of the e-mail address is owned by the Applicant and is the Confirming Person's own e-mail address and not a group e-mail alias;
+   2. The Confirming Person's telephone/fax number is verified by the CA to be a telephone number that is part of the organization's telephone system, and is not the personal phone number for the person.
 
 ### 3.2.3 Authentication of individual identity
 
@@ -957,7 +994,10 @@ Prior to issuing a Code Signing Certificate to an Individual Applicant, the CA M
 
 The CA MUST verify the Applicant's identity using one of the following processes:
 
-1. The CA MUST obtain a legible copy, which discernibly shows the Certificate Requester's face, of at least one currently valid government-issued photo ID (passport, driver's license, military ID, national ID, or equivalent document type). The CA MUST inspect the copy for any indication of alteration or falsification. The CA MUST also verify the address of the Certificate Requester using (i) a government-issued photo ID, (ii) a QIIS or QGIS, or (iii) an access code to activate the Certificate where the access code was physically mailed to the Certificate Requester; OR
+1. The CA MUST obtain a legible copy, which discernibly shows the Certificate Requester's face, of at least one currently valid government-issued photo ID (passport, driver's license, military ID, national ID, or equivalent document type). The CA MUST inspect the copy for any indication of alteration or falsification. The CA MUST also verify the address of the Certificate Requester using 
+   1. a government-issued photo ID, 
+   2. a QIIS or QGIS, or 
+   3. an access code to activate the Certificate where the access code was physically mailed to the Certificate Requester; OR
 2. The CA MUST have the Certificate Requester digitally sign the Certificate Request using a valid personal Certificate that was issued under one of the following adopted standards: Qualified Certificates issued pursuant to ETSI TS 101 862, IGTF, Adobe Signing Certificate issued under the AATL or CDS program, the Kantara identity assurance framework at level 2, NIST SP 800-63 at level 2, or the FBCA CP at Basic or higher assurance.
 
 ### 3.2.3.2 Authenticity of Certificate requests for Individual Applicants
@@ -2315,7 +2355,7 @@ __Certificate Fields__:
 
 __Contents__: These fields MUST NOT contain information that is not relevant to the level of the Incorporating Agency or Registration Agency. For example, the Jurisdiction of Incorporation for an Incorporating Agency or Jurisdiction of Registration for a Registration Agency that operates at the country level MUST include the country information but MUST NOT include the state or province or locality information. Similarly, the jurisdiction for the applicable Incorporating Agency or Registration Agency at the state or province level MUST include both country and state or province information, but MUST NOT include locality information. And, the jurisdiction for the applicable Incorporating Agency or Registration Agency at the locality level MUST include the country and state or province information, where the state or province regulates the registration of the entities at the locality level, as well as the locality information. Country information MUST be specified using the applicable ISO country code. State or province or locality information (where applicable) for the Subject's Jurisdiction of Incorporation or Registration MUST be specified using the full name of the applicable jurisdiction.
 
-Effective as of 15 September 2024, the CA SHALL ensure that, at time of issuance, the values within these fields have been disclosed within the latest publicly-available disclosure, as described in [Section 3.2.10](#3210-disclosure-of-verification-sources), as acceptable values for the applicable Incorporating Agency or Registration Agency.
+Effective as of 15 October 2024, the CA SHALL ensure that, at time of issuance, the values within these fields have been disclosed within the latest publicly-available disclosure, as described in [Section 3.2.10](#3210-disclosure-of-verification-sources), as acceptable values for the applicable Incorporating Agency or Registration Agency.
 
 d. __Certificate Field:__ `subject:serialNumber` (2.5.4.5)  
    __Required/Optional:__ Required  
@@ -2339,7 +2379,7 @@ f. __Certificate Field__: `subject:organizationIdentifier` (OID: 2.5.4.97)
 * The Registration Scheme MUST be identified using the using the following structure in the presented order:
    * 3 character Registration Scheme identifier;
    * 2 character ISO 3166 country code for the nation in which the Registration Scheme is operated, or if the scheme is operated globally ISO 3166 code "XG" shall be used;
-   * For the NTR Registration Scheme identifier, if required under [Section 9.2.4](#924-subject-jurisdiction-of-incorporation-or-registration-field), a 2 character ISO 3166-2 identifier for the subdivision (state or province) of the nation in which the Registration Scheme is operated, preceded by plus "+" (0x2B (ASCII), U+002B (UTF-8));
+   * For the NTR Registration Scheme identifier, if required under [Section 7.1.4.2.4 (c)](#71424-subject-distinguished-name-fields---ev-code-signing-certificates), a 2 character ISO 3166-2 identifier for the subdivision (state or province) of the nation in which the Registration Scheme is operated, preceded by plus "+" (0x2B (ASCII), U+002B (UTF-8));
    * a hyphen-minus "-" (0x2D (ASCII), U+002D (UTF-8));
    * Registration Reference allocated in accordance with the identified Registration Scheme
 
