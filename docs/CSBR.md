@@ -531,10 +531,10 @@ The CA SHALL verify the identity of the Applicant, and the authenticity of the A
 
 Prior to issuing a Code Signing Certificate to an Organizational Applicant, the CA MUST:
 
-1.  Verify the Subject's legal identity, including any DBA proposed for inclusion in a Certificate, in accordance with [Section 3.2.2.1.1](#32211-identity) and [Section 3.2.2.1.2](#32212-dbatradename). The CA MUST also obtain, whenever available, a specific Registration Identifier assigned to the Applicant by a government agency in the jurisdiction of the Applicant's legal creation, existence, or recognition,
-3.  Verify the Subject's address in accordance with [Section 3.2.2.1.1](#32211-identity),
-4.  Verify the Certificate Requester's authority to request a Code Signing Certificate and the authenticity of the Certificate Request using a Reliable Method of Communication in accordance with [Section 3.2.5](#325-validation-of-authority), and
-5.  If the Subject's or Subject's Affiliate's, Parent Company's, or Subsidiary Company's date of formation, as indicated by either a QIIS or QGIS, was less than three years prior to the date of the Certificate Request, verify the identity of the Certificate Requester. Effective 1 November 2021, the method used to verify the identity of the Certificate Requester SHALL be per [Section 3.2.3.1](#3231-individual-identity-verification).
+1. Verify the Subject's legal identity, including any DBA proposed for inclusion in a Certificate, in accordance with [Section 3.2.2.1.1](#32211-identity) and [Section 3.2.2.1.2](#32212-dbatradename). The CA MUST also obtain, whenever available, a specific Registration Identifier assigned to the Applicant by a government agency in the jurisdiction of the Applicant's legal creation, existence, or recognition,
+3. Verify the Subject's address in accordance with [Section 3.2.2.1.1](#32211-identity),
+4. Verify the Certificate Requester's authority to request a Code Signing Certificate and the authenticity of the Certificate Request using a Reliable Method of Communication in accordance with [Section 3.2.5](#325-validation-of-authority), and
+5. If the Subject's or Subject's Affiliate's, Parent Company's, or Subsidiary Company's date of formation, as indicated by either a QIIS or QGIS, was less than three years prior to the date of the Certificate Request, verify the identity of the Certificate Requester. Effective 1 November 2021, the method used to verify the identity of the Certificate Requester SHALL be per [Section 3.2.3.1](#3231-individual-identity-verification).
 
 ##### 3.2.2.1.1 Identity
 
@@ -564,29 +564,29 @@ If the Subject Identity Information is to include a DBA or tradename, the CA SHA
 
 Before issuing a EV Code Signing Certificate, the CA MUST ensure that all Subject organization information to be included in the EV Code Signing Certificate conforms to the requirements of, and is verified in accordance with this section and matches the information confirmed and documented by the CA pursuant to its verification processes. Such verification processes are intended to accomplish the following:
 
-1.  Verify Applicant's existence and identity, including;
-  a.  Verify the Applicant's legal existence and identity (as more fully set forth in [Section 3.2.2.2.1](#32221-verification-of-applicants-legal-existence-and-identity) herein),
-  b.  Verify the Applicant's physical existence (business presence at a physical address), and
-  c.  Verify the Applicant's operational existence (business activity).
-2.  Verify the Applicant's authorization for the EV Code Signing Certificate, including;
-  a.  Verify the name, title, and authority of the Contract Signer, Certificate Approver, and Certificate Requester,
-  b.  Verify that a Contract Signer signed the Subscriber Agreement or that a duly authorized Applicant Representative acknowledged and agreed to the Terms of Use; and
-  c.  Verify that a Certificate Approver has signed or otherwise approved the EV Code Signing Certificate Request.
+1. Verify Applicant's existence and identity, including;
+   1. Verify the Applicant's legal existence and identity (as more fully set forth in [Section 3.2.2.2.1](#32221-verification-of-applicants-legal-existence-and-identity) herein),
+   2. Verify the Applicant's physical existence (business presence at a physical address), and
+   3. Verify the Applicant's operational existence (business activity).
+2. Verify the Applicant's authorization for the EV Code Signing Certificate, including;
+   1. Verify the name, title, and authority of the Contract Signer, Certificate Approver, and Certificate Requester,
+   2. Verify that a Contract Signer signed the Subscriber Agreement or that a duly authorized Applicant Representative acknowledged and agreed to the Terms of Use; and
+   3. Verify that a Certificate Approver has signed or otherwise approved the EV Code Signing Certificate Request.
 
 As a general rule, the CA is responsible for taking all verification steps reasonably necessary to satisfy each of the Verification Requirements set forth in the subsections below. The Acceptable Methods of Verification are set forth below. In all cases, however, the CA is responsible for taking any additional verification steps that may be reasonably necessary under the circumstances to satisfy the applicable Verification Requirement.
 
 The following Applicant roles are required for the issuance of an EV Code Signing Certificate.
 
-1. **Certificate Requester**: The EV Certificate Request MUST be submitted by an authorized Certificate Requester.  A Certificate Requester is a natural person who is either the Applicant, employed by the Applicant, an authorized agent who has express authority to represent the Applicant, or a third party (such as an ISP or hosting company) that completes and submits an EV Certificate Request on behalf of the Applicant.
+1. **Certificate Requester**: The EV Certificate Request MUST be submitted by an authorized Certificate Requester. A Certificate Requester is a natural person who is either the Applicant, employed by the Applicant, an authorized agent who has express authority to represent the Applicant, or a third party (such as an ISP or hosting company) that completes and submits an EV Certificate Request on behalf of the Applicant.
 
-2. **Certificate Approver**: The EV Certificate Request MUST be approved by an authorized Certificate Approver.  A Certificate Approver is a natural person who is either the Applicant, employed by the Applicant, or an authorized agent who has express authority to represent the Applicant to
+2. **Certificate Approver**: The EV Certificate Request MUST be approved by an authorized Certificate Approver. A Certificate Approver is a natural person who is either the Applicant, employed by the Applicant, or an authorized agent who has express authority to represent the Applicant to
 
-   i. act as a Certificate Requester and to authorize other employees or third parties to act as a Certificate Requester, and
-   ii. to approve EV Certificate Requests submitted by other Certificate Requesters.
+   1. act as a Certificate Requester and to authorize other employees or third parties to act as a Certificate Requester, and
+   2. to approve EV Certificate Requests submitted by other Certificate Requesters.
 
-3. **Contract Signer**: A Subscriber Agreement applicable to the requested EV Certificate MUST be signed by an authorized Contract Signer.  A Contract Signer is a natural person who is either the Applicant, employed by the Applicant, or an authorized agent who has express authority to represent the Applicant, and who has authority on behalf of the Applicant to sign Subscriber Agreements.
+3. **Contract Signer**: A Subscriber Agreement applicable to the requested EV Certificate MUST be signed by an authorized Contract Signer. A Contract Signer is a natural person who is either the Applicant, employed by the Applicant, or an authorized agent who has express authority to represent the Applicant, and who has authority on behalf of the Applicant to sign Subscriber Agreements.
 
-4. **Applicant Representative**: In the case where the CA and the Subscriber are affiliated, Terms of Use applicable to the requested EV Certificate MUST be acknowledged and agreed to by an authorized Applicant Representative.  An Applicant Representative is a natural person who is either the Applicant, employed by the Applicant, or an authorized agent who has express authority to represent the Applicant, and who has authority on behalf of the Applicant to acknowledge and agree to the Terms of Use.
+4. **Applicant Representative**: In the case where the CA and the Subscriber are affiliated, Terms of Use applicable to the requested EV Certificate MUST be acknowledged and agreed to by an authorized Applicant Representative. An Applicant Representative is a natural person who is either the Applicant, employed by the Applicant, or an authorized agent who has express authority to represent the Applicant, and who has authority on behalf of the Applicant to acknowledge and agree to the Terms of Use.
 
 The Applicant MAY authorize one individual to occupy two or more of these roles. The Applicant MAY authorize more than one individual to occupy any of these roles.
 
@@ -628,15 +628,15 @@ To verify the Applicant's legal existence and identity, the CA MUST do the follo
 1. **Private Organization Subjects**: Unless verified under subsection (6), all items listed in [Section 3.2.2.2.1.1](#322211-verification-requirements) (1) MUST be verified directly with, or obtained directly from, the Incorporating or Registration Agency in the Applicant's Jurisdiction of Incorporation or Registration. Such verification MAY be through use of a Qualified Government Information Source operated by, or on behalf of, the Incorporating or Registration Agency, or by direct contact with the Incorporating or Registration Agency in person or via mail, e-mail, Web address, or telephone, using an address or phone number obtained directly from the Qualified Government Information Source, Incorporating or Registration Agency, or from a Qualified Independent Information Source.
 
 2. **Government Entity Subjects**: Unless verified under subsection (6), all items listed in [Section 3.2.2.2.1.1](#322211-verification-requirements) (2) MUST either be verified directly with, or obtained directly from, one of the following:
-   i. a Qualified Government Information Source in the political subdivision in which such Government Entity operates;
-   ii. a superior governing Government Entity in the same political subdivision as the Applicant (e.g. a Secretary of State may verify the legal existence of a specific State Department), or
-   iii. from a judge that is an active member of the federal, state or local judiciary within that political subdivision.
+   1. a Qualified Government Information Source in the political subdivision in which such Government Entity operates;
+   2. a superior governing Government Entity in the same political subdivision as the Applicant (e.g. a Secretary of State may verify the legal existence of a specific State Department), or
+   3. from a judge that is an active member of the federal, state or local judiciary within that political subdivision.
 
    Any communication from a judge SHALL be verified in the same manner as is used for verifying factual assertions that are asserted by an Attorney as set forth in [Section 11.11.1](#11111-verified-legal-opinion).
 
    Such verification MAY be by direct contact with the appropriate Government Entity in person or via mail, e-mail, Web address, or telephone, using an address or phone number obtained from a Qualified Independent Information Source.
 
-3. **Business Entity Subjects**: Unless verified under subsection (6), Items listed in [Section 3.2.2.2.1.1](#322211-verification-requirements) (3) (i) through (iii) above, MUST be verified directly with, or obtained directly from, the Registration Agency in the Applicant's Jurisdiction of Registration. Such verification MAY be performed by means of a Qualified Government Information Source, a Qualified Governmental Tax Information Source, or by direct contact with the Registration Agency in person or via mail, e-mail, Web address, or telephone, using an address or phone number obtained directly from the Qualified Government Information Source, Qualified Governmental Tax Information Source or Registration Agency, or from a Qualified Independent Information Source. In addition, the CA MUST validate a Principal Individual associated with the Business Entity pursuant to the requirements in subsection (4), below.
+3. **Business Entity Subjects**: Unless verified under subsection (6), items listed in [Section 3.2.2.2.1.1](#322211-verification-requirements) (3) (i) through (iii) above, MUST be verified directly with, or obtained directly from, the Registration Agency in the Applicant's Jurisdiction of Registration. Such verification MAY be performed by means of a Qualified Government Information Source, a Qualified Governmental Tax Information Source, or by direct contact with the Registration Agency in person or via mail, e-mail, Web address, or telephone, using an address or phone number obtained directly from the Qualified Government Information Source, Qualified Governmental Tax Information Source or Registration Agency, or from a Qualified Independent Information Source. In addition, the CA MUST validate a Principal Individual associated with the Business Entity pursuant to the requirements in subsection (4), below.
 
 4. **Principal Individual**: A Principal Individual associated with the Business Entity MUST be validated in a face-to-face setting. The CA MAY rely upon a face-to-face validation of the Principal Individual performed by the Registration Agency, provided that the CA has evaluated the validation procedure and concluded that it satisfies the requirements of the Guidelines for face-to-face validation procedures. Where no face-to-face validation was conducted by the Registration Agency, or the Registration Agency's face-to-face validation procedure does not satisfy the requirements of the Guidelines, the CA SHALL perform face-to-face validation.
 
@@ -661,18 +661,18 @@ To verify the Applicant's legal existence and identity, the CA MUST do the follo
 
             1. Acceptable financial institution documents include:
 
-               a. A major credit card, provided that it contains an expiration date and it has not expired'
-               b. A debit card from a regulated financial institution, provided that it contains an expiration date and it has not expired,
-               c. A mortgage statement from a recognizable lender that is less than six months old,
-               d. A bank statement from a regulated financial institution that is less than six months old.
+               1. A major credit card, provided that it contains an expiration date and it has not expired'
+               2. A debit card from a regulated financial institution, provided that it contains an expiration date and it has not expired,
+               3. A mortgage statement from a recognizable lender that is less than six months old,
+               4. A bank statement from a regulated financial institution that is less than six months old.
 
             2. Acceptable non-financial documents include:
 
-               a. Recent original utility bills or certificates from a utility company confirming the arrangement to pay for the services at a fixed address (not a mobile/cellular telephone bill),
-               b. A copy of a statement for payment of a lease, provided that the statement is dated within the past six months,
-               c. A certified copy of a birth certificate,
-               d. A local authority tax bill for the current year,
-               e. A certified copy of a court order, such as a divorce certificate, annulment papers, or adoption papers.
+               1. Recent original utility bills or certificates from a utility company confirming the arrangement to pay for the services at a fixed address (not a mobile/cellular telephone bill),
+               2. A copy of a statement for payment of a lease, provided that the statement is dated within the past six months,
+               3. A certified copy of a birth certificate,
+               4. A local authority tax bill for the current year,
+               5. A certified copy of a court order, such as a divorce certificate, annulment papers, or adoption papers.
 
        The Third-Party Validator performing the face-to-face validation MUST:
 
@@ -703,16 +703,12 @@ To verify the Applicant's legal existence and identity, the CA MUST do the follo
 1. **Verification Requirements**: If, in addition to the Applicant's formal legal name, as recorded with the applicable Incorporating Agency or Registration Agency in the Applicant's Jurisdiction of Incorporation or Registration, the Applicant's identity, as asserted in the EV Code Signing Certificate, is to contain any assumed name (also known as "doing business as", "DBA", or "d/b/a" in the US, and "trading as" in the UK) under which the Applicant conducts business, the CA MUST verify that:
 
    1. the Applicant has registered its use of the assumed name with the appropriate government agency for such filings in the jurisdiction of its Place of Business (as verified in accordance with these Guidelines), and
-   
    2. that such filing continues to be valid.
-
 
 2. **Acceptable Method of Verification**: To verify any assumed name under which the Applicant conducts business:
 
    1. The CA MAY verify the assumed name through use of a Qualified Government Information Source operated by, or on behalf of, an appropriate government agency in the jurisdiction of the Applicant's Place of Business, or by direct contact with such government agency in person or via mail, e-mail, Web address, or telephone; or
-
    2. The CA MAY verify the assumed name through use of a Qualified Independent Information Source provided that the QIIS has verified the assumed name with the appropriate government agency.
-
    3. The CA MAY rely on a Verified Professional Letter  that indicates the assumed name under which the Applicant conducts business, the government agency with which the assumed name is registered, and that such filing continues to be valid.
 
 ##### 3.2.2.2.3 Verification of Applicant's Physical Existence
@@ -961,17 +957,17 @@ Prior to issuing a Code Signing Certificate to an Individual Applicant, the CA M
 
 The CA MUST verify the Applicant's identity using one of the following processes:
 
-1.  The CA MUST obtain a legible copy, which discernibly shows the Certificate Requester's face, of at least one currently valid government-issued photo ID (passport, driver's license, military ID, national ID, or equivalent document type). The CA MUST inspect the copy for any indication of alteration or falsification. The CA MUST also verify the address of the Certificate Requester using (i) a government-issued photo ID, (ii) a QIIS or QGIS, or (iii) an access code to activate the Certificate where the access code was physically mailed to the Certificate Requester; OR
-2.  The CA MUST have the Certificate Requester digitally sign the Certificate Request using a valid personal Certificate that was issued under one of the following adopted standards: Qualified Certificates issued pursuant to ETSI TS 101 862, IGTF, Adobe Signing Certificate issued under the AATL or CDS program, the Kantara identity assurance framework at level 2, NIST SP 800-63 at level 2, or the FBCA CP at Basic or higher assurance.
+1. The CA MUST obtain a legible copy, which discernibly shows the Certificate Requester's face, of at least one currently valid government-issued photo ID (passport, driver's license, military ID, national ID, or equivalent document type). The CA MUST inspect the copy for any indication of alteration or falsification. The CA MUST also verify the address of the Certificate Requester using (i) a government-issued photo ID, (ii) a QIIS or QGIS, or (iii) an access code to activate the Certificate where the access code was physically mailed to the Certificate Requester; OR
+2. The CA MUST have the Certificate Requester digitally sign the Certificate Request using a valid personal Certificate that was issued under one of the following adopted standards: Qualified Certificates issued pursuant to ETSI TS 101 862, IGTF, Adobe Signing Certificate issued under the AATL or CDS program, the Kantara identity assurance framework at level 2, NIST SP 800-63 at level 2, or the FBCA CP at Basic or higher assurance.
 
 ### 3.2.3.2 Authenticity of Certificate requests for Individual Applicants
 
 The CA MUST verify the authenticity of the Certificate Request using one of the following:
 
-1.  Having the Certificate Requester provide a photo of the Certificate Requester holding the submitted government-issued photo ID where the photo is of sufficient quality to read both the name listed on the photo ID and the issuing authority; OR
-2.  Having the CA perform an in-person or web camera-based verification of the Certificate Requester where an employee or contractor of the CA can see the Certificate Requester, review the Certificate Requester's photo ID, and confirm that the Certificate Requester is the individual identified in the submitted photo ID; OR
-3.  Having the CA obtain an executed Declaration of Identity of the Certificate Requester that includes at least one unique biometric identifier (such as a fingerprint or handwritten signature). The CA MUST confirm the document's authenticity directly with the Verifying Person using contact information confirmed with a QIIS or QGIS; OR
-4.  Verifying that the digital signature used to sign the Request under item (2) of [Section 3.2.3.1](#3231-individual-identity-verification) is a valid signature and originated from a Certificate issued at the appropriate level of assurance as evidenced by the certificate chain. Acceptable verification under this section includes validation that the Certificate was issued by a CA qualified by the entity responsible for adopting, enforcing, or maintaining the adopted standard and chains to an intermediate certificate or root certificate designated as complying with such standard.
+1. Having the Certificate Requester provide a photo of the Certificate Requester holding the submitted government-issued photo ID where the photo is of sufficient quality to read both the name listed on the photo ID and the issuing authority; OR
+2. Having the CA perform an in-person or web camera-based verification of the Certificate Requester where an employee or contractor of the CA can see the Certificate Requester, review the Certificate Requester's photo ID, and confirm that the Certificate Requester is the individual identified in the submitted photo ID; OR
+3. Having the CA obtain an executed Declaration of Identity of the Certificate Requester that includes at least one unique biometric identifier (such as a fingerprint or handwritten signature). The CA MUST confirm the document's authenticity directly with the Verifying Person using contact information confirmed with a QIIS or QGIS; OR
+4. Verifying that the digital signature used to sign the Request under item (2) of [Section 3.2.3.1](#3231-individual-identity-verification) is a valid signature and originated from a Certificate issued at the appropriate level of assurance as evidenced by the certificate chain. Acceptable verification under this section includes validation that the Certificate was issued by a CA qualified by the entity responsible for adopting, enforcing, or maintaining the adopted standard and chains to an intermediate certificate or root certificate designated as complying with such standard.
 
 ### 3.2.4 Non-verified subscriber information
 
@@ -1053,7 +1049,7 @@ This Agency Information SHALL include at least the following:
 
 ## 3.4 Identification and authentication for revocation request
 
-# 4.  CERTIFICATE LIFE-CYCLE OPERATIONAL REQUIREMENTS
+# 4. CERTIFICATE LIFE-CYCLE OPERATIONAL REQUIREMENTS
 
 ## 4.1 Certificate Application
 
@@ -1068,15 +1064,10 @@ The CA SHALL implement procedures to identify suspicious certificate requests as
 An Applicant qualifies as a Private Organization if:
 
 1. The entity's legal existence is created or recognized by a by a filing with (or an act of) the Incorporating or Registration Agency in its Jurisdiction of Incorporation or Registration (e.g., by issuance of a certificate of incorporation, registration number, etc.) or created or recognized by a Government Agency (e.g. under a charter, treaty, convention, or equivalent recognition instrument);
-
 2. The entity designated with the Incorporating or Registration Agency a Registered Agent, a Registered Office (as required under the laws of the Jurisdiction of Incorporation or Registration), or an equivalent facility;
-
 3. The entity is not designated on the records of the Incorporating or Registration Agency by labels such as "inactive," "invalid," "not current," or the equivalent;
-
 4. The entity has a verifiable physical existence and business presence;
-
 5. The entity's Jurisdiction of Incorporation, Registration, Charter, or License, and/or its Place of Business is not in any country where the CA is prohibited from doing business or issuing a certificate by the laws of the CA's jurisdiction; and
-
 6. The entity is not listed on any government denial list or prohibited list (e.g., trade embargo) under the laws of the CA's jurisdiction.
 
 #### 4.1.1.2 Government Entity Subjects
@@ -1084,9 +1075,7 @@ An Applicant qualifies as a Private Organization if:
 An Applicant qualifies as a Government Entity if:
 
 1. The entity's legal existence was established by the political subdivision in which the entity operates;
-
 2. The entity is not in any country where the CA is prohibited from doing business or issuing a certificate by the laws of the CA's jurisdiction; and
-
 3. The entity is not listed on any government denial list or prohibited list (e.g., trade embargo) under the laws of the CA's jurisdiction.
 
 #### 4.1.1.3 Business Entity Subjects
@@ -1094,17 +1083,11 @@ An Applicant qualifies as a Government Entity if:
 An Applicant qualifies as a Business Entity if:
 
 1. The entity is a legally recognized entity that filed certain forms with a Registration Agency in its jurisdiction, the Registration Agency issued or approved the entity's charter, certificate, or license, and the entity's existence can be verified with that Registration Agency;
-
 2. The entity has a verifiable physical existence and business presence;
-
 3. At least one Principal Individual associated with the entity is identified and validated by the CA;
-
 4. The identified Principal Individual attests to the representations made in the Subscriber Agreement;
-
 5. The CA verifies the entity's use of any assumed name used to represent the entity pursuant to the requirements of [Section 11.3](#113-verification-of-applicants-legal-existence-and-identity--assumed-name);
-
 6. The entity and the identified Principal Individual associated with the entity are not located or residing in any country where the CA is prohibited from doing business or issuing a certificate by the laws of the CA's jurisdiction; and
-
 7. The entity and the identified Principal Individual associated with the entity are not listed on any government denial list or prohibited list (e.g., trade embargo) under the laws of the CA's jurisdiction.
 
 #### 4.1.1.4 Non-Commercial Entity Subjects
@@ -1112,9 +1095,7 @@ An Applicant qualifies as a Business Entity if:
 An Applicant qualifies as a Non-Commercial Entity if:
 
 1. The Applicant is an International Organization Entity, created under a charter, treaty, convention or equivalent instrument that was signed by, or on behalf of, more than one country's government.  The CA/Browser Forum may publish a listing of Applicants who qualify as an International Organization for EV eligibility; and
-
 2. The Applicant is not headquartered in any country where the CA is prohibited from doing business or issuing a certificate by the laws of the CA's jurisdiction; and
-
 3. The Applicant is not listed on any government denial list or prohibited list (e.g., trade embargo) under the laws of the CA's jurisdiction.
 
 Subsidiary organizations or agencies of an entity that qualifies as a Non-Commercial Entity also qualifies for EV Certificates as a Non-Commercial Entity.
@@ -1164,12 +1145,12 @@ A CA may rely on a previously verified EV Code Signing Certificate request to is
 
 1. Except for reissuance of an EV Code Signing Certificate under [Section 4.2.1.1.2](#42112-re-issuance-requests) and except when permitted otherwise in [Section 4.2.1.1.1](#42111-validation-for-existing-ev-subscribers), the age of all data used to support issuance of an EV Code Signing Certificate (before revalidation is required) SHALL NOT exceed the following limits:
 
-   1.  Legal existence and identity – 398 days;
-   2.  Assumed name – 398 days;
-   3.  Address of Place of Business – 398 days;
-   4.  Verified Method of Communication – 398 days;
-   5.  Operational existence – 398 days;
-   6.  Name, Title, Agency, and Authority – 398 days, unless a contract between the CA and the Applicant specifies a different term, in which case, the term specified in such contract controls.  For example, the contract MAY include the perpetual assignment of EV roles until revoked by the Applicant or CA, or until the contract expires or is terminated.
+   1. Legal existence and identity – 398 days;
+   2. Assumed name – 398 days;
+   3. Address of Place of Business – 398 days;
+   4. Verified Method of Communication – 398 days;
+   5. Operational existence – 398 days;
+   6. Name, Title, Agency, and Authority – 398 days, unless a contract between the CA and the Applicant specifies a different term, in which case, the term specified in such contract controls.  For example, the contract MAY include the perpetual assignment of EV roles until revoked by the Applicant or CA, or until the contract expires or is terminated.
 
 2. The 398-day period set forth above SHALL begin to run on the date the information was collected by the CA.
 3. The CA MAY reuse a previously submitted EV Certificate Request, Subscriber Agreement, or Terms of Use, including use of a single EV Certificate Request in support of multiple EV Code Signing Certificates containing the same Subject to the extent permitted under [Section 3.2.2.2.8](#32228-verification-of-signature-on-subscriber-agreement-and-ev-code-signing-certificate-requests) and [Section 3.2.2.2.9](#32229-verification-of-approval-of-ev-code-signing-certificate-request-).
@@ -1381,16 +1362,16 @@ The CA MUST acknowledge receipt of plausible notices about Suspect Code signed w
 
 The CA MUST begin investigating Certificate Problem Reports within twenty-four hours of receipt, and decide whether revocation or other appropriate action is warranted based on at least the following criteria:
 
-1.  The nature of the alleged problem (adware, spyware, malware, software bug, etc.),
-2.  The number of Certificate Problem Reports received about a particular Certificate or Subscriber,
-3.  The entity making the report (for example, a notification from an Anti-Malware Organization or law enforcement agency carries more weight than an anonymous complaint), and
-4.  Relevant legislation.
+1. The nature of the alleged problem (adware, spyware, malware, software bug, etc.),
+2. The number of Certificate Problem Reports received about a particular Certificate or Subscriber,
+3. The entity making the report (for example, a notification from an Anti-Malware Organization or law enforcement agency carries more weight than an anonymous complaint), and
+4. Relevant legislation.
 
 When revoking a Certificate, the CA SHOULD work with the Subscriber to estimate a date of when the revocation should occur in order to mitigate the impact of revocation on validly signed Code. For key compromise events, this date SHOULD be the earliest date of suspected compromise.
 
 ### 4.9.6 Revocation checking requirement for relying parties
 
- A Certificate MAY have a one-to-one relationship or one-to-many relationship with the signed Code. Regardless, revocation of a Certificate may invalidate the Code Signatures on all signed Code, some of which could be perfectly sound. Because of this, the CA MAY specify the time at which the Certificate is first considered to be invalid in the `revocationDate` field of a CRL entry or the `revocationTime` field of an OCSP response to time-bind the set of software affected by the revocation[^*], and software should continue to treat objects containing a timestamp dated before the revocation date as valid.
+A Certificate MAY have a one-to-one relationship or one-to-many relationship with the signed Code. Regardless, revocation of a Certificate may invalidate the Code Signatures on all signed Code, some of which could be perfectly sound. Because of this, the CA MAY specify the time at which the Certificate is first considered to be invalid in the `revocationDate` field of a CRL entry or the `revocationTime` field of an OCSP response to time-bind the set of software affected by the revocation[^*], and software should continue to treat objects containing a timestamp dated before the revocation date as valid.
 
 [^*]: Backdating the `revocationDate` field is an exception to best practice described in RFC 5280 (section 5.3.2); however, these Requirements specify the use of the `revocationDate` field to convey the “invalidity date” to support Application Software Supplier software implementations that process the `revocationDate` field as the date when the Certificate is first considered to be invalid.
 
@@ -1398,15 +1379,15 @@ When revoking a Certificate, the CA SHOULD work with the Subscriber to estimate 
 
 For the status of Subordinate CA Certificates: 
 
-  * The Issuing CA SHALL publish a CRL, then update and reissue a CRL at least once every twelve months and within 24 hours after revoking a Subordinate CA Certificate. The `nextUpdate` field MUST NOT be more than twelve months beyond the value of the `thisUpdate` field.
+* The Issuing CA SHALL publish a CRL, then update and reissue a CRL at least once every twelve months and within 24 hours after revoking a Subordinate CA Certificate. The `nextUpdate` field MUST NOT be more than twelve months beyond the value of the `thisUpdate` field.
 
 For the status of Code Signing Certificates:
 
-  * The Subordinate CA SHALL publish a CRL, then update and reissue a CRL at least once every seven days, and the value of the `nextUpdate` field MUST NOT be more than ten days beyond the value of the `thisUpdate` field.
+* The Subordinate CA SHALL publish a CRL, then update and reissue a CRL at least once every seven days, and the value of the `nextUpdate` field MUST NOT be more than ten days beyond the value of the `thisUpdate` field.
 
 For the status of Timestamp Certificates:
 
-  * The Subordinate CA SHALL update and reissue CRLs at least once every twelve months and within 24 hours after revoking a Timestamp Certificate, and the value of the `nextUpdate` field MUST NOT be more than twelve months beyond the value of the `thisUpdate` field.
+* The Subordinate CA SHALL update and reissue CRLs at least once every twelve months and within 24 hours after revoking a Timestamp Certificate, and the value of the `nextUpdate` field MUST NOT be more than twelve months beyond the value of the `thisUpdate` field.
 
 ### 4.9.8 Maximum latency for CRLs
 
@@ -1435,15 +1416,15 @@ If the CA provides OCSP responses, the CA SHALL support an OCSP capability using
 
 For the status of Subordinate CA Certificates:
 
-  * If the Issuing CA provides OCSP responses, the Issuing CA SHALL update information provided via an OCSP response at least every twelve months and within 24 hours after revoking a Subordinate CA Certificate.
+* If the Issuing CA provides OCSP responses, the Issuing CA SHALL update information provided via an OCSP response at least every twelve months and within 24 hours after revoking a Subordinate CA Certificate.
 
 For the status of Code Signing Certificates:
 
-  * If the Subordinate CA provides OCSP responses, the CA SHALL update information provided via an OCSP response at least every four days. OCSP responses from this service MUST have a maximum expiration time of ten days.
+* If the Subordinate CA provides OCSP responses, the CA SHALL update information provided via an OCSP response at least every four days. OCSP responses from this service MUST have a maximum expiration time of ten days.
 
 For the status of Timestamp Certificates:
 
-  * If the Subordinate CA provides OCSP responses, the Subordinate CA SHALL update information provided via an OCSP response at least every twelve months and within 24 hours after revoking a Timestamp Certificate.
+* If the Subordinate CA provides OCSP responses, the Subordinate CA SHALL update information provided via an OCSP response at least every twelve months and within 24 hours after revoking a Timestamp Certificate.
 
 A certificate serial number within an OCSP request is "assigned" if a Certificate with that serial number has been issued by the Issuing CA, using any current or previous key associated with that CA subject.
 
@@ -1574,17 +1555,16 @@ Prior to the commencement of employment of any person by the CA for engagement i
 
 1. **Verify the identity of such person**: Verification of identity MUST be performed through:
 
-   A.  The personal (physical) presence of such person before trusted persons who perform human resource or security functions, and
-   B.  The verification of well-recognized forms of government-issued photo identification (e.g., passports and/or drivers licenses);
+   1. The personal (physical) presence of such person before trusted persons who perform human resource or security functions, and
+   2. The verification of well-recognized forms of government-issued photo identification (e.g., passports and/or drivers licenses); 
 
    and
 
 2. **Verify the trustworthiness of such person**: Verification of trustworthiness SHALL include background checks, which address at least the following, or their equivalent:
-
-   A.  Confirmation of previous employment,
-   B.  Check of professional references;
-   C.  Confirmation of the highest or most-relevant educational qualification obtained;
-   D.  Search of criminal records (local, state or provincial, and national) where allowed by the jurisdiction in which the person will be employed;
+   1. Confirmation of previous employment,
+   2. Check of professional references;
+   3. Confirmation of the highest or most-relevant educational qualification obtained;
+   4. Search of criminal records (local, state or provincial, and national) where allowed by the jurisdiction in which the person will be employed;
 
    and
 
@@ -1663,18 +1643,18 @@ Log records MUST include the following elements:
 
 The Timestamp Authority MUST log the following information and make these records available to its Qualified Auditor as proof of the Timestamp Authority’s compliance with these Requirements:
 
-   1.	Physical or remote access to a timestamp server, including the time of the access and the identity of the individual accessing the server,
-   2.	History of the timestamp server configuration,
-   3.	Any attempt to delete or modify timestamp logs,
-   4.	Security events, including:
-      a. Successful and unsuccessful Timestamp Authority access attempts;
-      b. Timestamp Authority server actions performed;
-      c. Security profile changes;
-      d. System crashes and other anomalies; and
-      e. Firewall and router activities;
-   5.	Revocation of a timestamp certificate,
-   6.	Major changes to the timestamp server's time, and
-   7.	System startup and shutdown.
+   1. Physical or remote access to a timestamp server, including the time of the access and the identity of the individual accessing the server,
+   2. History of the timestamp server configuration,
+   3. Any attempt to delete or modify timestamp logs,
+   4. Security events, including:
+      1. Successful and unsuccessful Timestamp Authority access attempts;
+      2. Timestamp Authority server actions performed;
+      3. Security profile changes;
+      4. System crashes and other anomalies; and
+      5. Firewall and router activities;
+   5. Revocation of a timestamp certificate,
+   6. Major changes to the timestamp server's time, and
+   7. System startup and shutdown.
 
 ### 5.4.2 Frequency of processing log
 
@@ -1682,12 +1662,12 @@ The Timestamp Authority MUST log the following information and make these record
 
 The CA, Delegated Third Parties, and Timestamp Authority MUST retain, for at least two (2) years:
 
-1.	CA certificate and key lifecycle management event records (as set forth in [Section 5.4.1.1](#5411-types-of-events-recorded-for-cas))(1) after the later occurrence of:
-   a.	the destruction of the CA Private Key; or
-   b.	the revocation or expiration of the final CA Certificate in that set of Certificates that have an X.509v3 basicConstraints extension with the cA field set to true and which share a common Public Key corresponding to the CA Private Key;
-2.	Subscriber Certificate lifecycle management event records (as set forth in [Section 5.4.1.2](#5412-types-of-events-recorded-for-timestamp-authorities))(2) after the revocation or expiration of the Subscriber Certificate;
-3.	Timestamp Authority data records (as set forth in [Section 5.4.1.2](#5412-types-of-events-recorded-for-timestamp-authorities)) after the revocation or renewal of the Timestamp Certificate Private Key (as set forth in [Section 6.3.2](#632-certificate-operational-periods-and-key-pair-usage-periods));
-4.	Any security event records (as set forth in [Section 5.4.1.1](#5412-types-of-events-recorded-for-timestamp-authorities)(3) and for Timestamp Authority security event records set forth in [Section 5.4.1.2](#5412-types-of-events-recorded-for-timestamp-authorities)(3)) after the event occurred
+1. CA certificate and key lifecycle management event records (as set forth in [Section 5.4.1.1](#5411-types-of-events-recorded-for-cas))(1) after the later occurrence of:
+   1. the destruction of the CA Private Key; or
+   2. the revocation or expiration of the final CA Certificate in that set of Certificates that have an X.509v3 basicConstraints extension with the cA field set to true and which share a common Public Key corresponding to the CA Private Key;
+2. Subscriber Certificate lifecycle management event records (as set forth in [Section 5.4.1.2](#5412-types-of-events-recorded-for-timestamp-authorities))(2) after the revocation or expiration of the Subscriber Certificate;
+3. Timestamp Authority data records (as set forth in [Section 5.4.1.2](#5412-types-of-events-recorded-for-timestamp-authorities)) after the revocation or renewal of the Timestamp Certificate private key (as set forth in [Section 6.3.2](#632-certificate-operational-periods-and-key-pair-usage-periods));
+4. Any security event records (as set forth in [Section 5.4.1.1](#5412-types-of-events-recorded-for-timestamp-authorities)(3) and for Timestamp Authority security event records set forth in [Section 5.4.1.2](#5412-types-of-events-recorded-for-timestamp-authorities)(3)) after the event occurred
 
 **Note**: While these Requirements set the minimum retention period, the CA, Delegated Third Parties, and Timestamp Authority may choose a greater value as more appropriate in order to be able to investigate possible security or other types of incidents that will require retrospection and examination of past events.
 
@@ -1790,8 +1770,8 @@ If the CA wishes to stop supporting validation of Code Signing Certificates or T
 
 For CA Key Pairs that are either
 
-i. used as a CA Key Pair for a Root Certificate or
-ii. used as a CA Key Pair for a Subordinate CA Certificate, where the Subordinate CA is not the operator of the Root CA or an Affiliate of the Root CA,
+1. used as a CA Key Pair for a Root Certificate or
+2. used as a CA Key Pair for a Subordinate CA Certificate, where the Subordinate CA is not the operator of the Root CA or an Affiliate of the Root CA,
 
 the CA SHALL:
 
@@ -1870,11 +1850,11 @@ ECDSA: The CA SHOULD confirm the validity of all keys using either the ECC Full 
 
 Private Keys corresponding to Root Certificates MUST NOT be used to sign Certificates or create other Signatures except in the following cases:
 
-1.  Self-signed Certificates to represent the Root CA itself;
-2.  Certificates for Subordinate CAs and Cross Certificates;
-3.  Certificates for infrastructure purposes (administrative role certificates, internal CA operational device certificates);
-4.  Certificates for OCSP Response verification; and
-5.  Signatures for OCSP Responses.
+1. Self-signed Certificates to represent the Root CA itself;
+2. Certificates for Subordinate CAs and Cross Certificates;
+3. Certificates for infrastructure purposes (administrative role certificates, internal CA operational device certificates);
+4. Certificates for OCSP Response verification; and
+5. Signatures for OCSP Responses.
 
 ## 6.2 Private Key Protection and Cryptographic Module Engineering Controls
 
@@ -1918,35 +1898,49 @@ For Code Signing Certificates, Signing Services SHALL protect Subscriber Private
 
 Techniques that MUST be used to satisfy this requirement include:
 
-1.  Use of an Hardware Crypto Module, verified by means of a FIPS or Common Criteria certificate; or
-2.  A cloud-based key generation and protection solution with the following requirements:
-    a.  Key creation, storage, and usage of Private Key must remain within the security boundaries of the cloud solution’s Hardware Crypto Module that conforms to the specified requirements;
-    b.  Subscription at the level that manages the Private Key must be configured to log all access, operations, and configuration changes on the resources securing the Private Key.
+1. Use of an Hardware Crypto Module, verified by means of a FIPS or Common Criteria certificate; or
+2. A cloud-based key generation and protection solution with the following requirements:
+   1. Key creation, storage, and usage of Private Key must remain within the security boundaries of the cloud solution’s Hardware Crypto Module that conforms to the specified requirements;
+   2. Subscription at the level that manages the Private Key must be configured to log all access, operations, and configuration changes on the resources securing the Private Key.
 
 #### 6.2.7.4 Subscriber Private Key protection and verification 
 
 ##### 6.2.7.4.1 Subscriber Private Key protection
 
-Subscriber Private Keys for Code Signing Certificates SHALL be protected per the following requirements.
+For Non-EV Code Signing Certificates issued prior to June 1, 2023, the CA MUST obtain a representation from the Subscriber that the Subscriber will use one of the following options to generate and protect their Code Signing Certificate Private Keys:
+
+1. A Trusted Platform Module (TPM) that generates and secures a Key Pair and that can document the Subscriber’s Private Key protection through a TPM key attestation. 
+2. A suitable Hardware Crypto Module with a unit design form factor certified as conforming to at least FIPS 140-2 Level 2, Common Criteria EAL 4+, or equivalent. 
+3. Another type of hardware storage token with a unit design form factor of SD Card or USB token (not necessarily certified as conformant with FIPS 140-2 Level 2 or Common Criteria EAL 4+). The Subscriber MUST also warrant that it will keep the token physically separate from the device that hosts the code signing function until a signing session is begun. 
+
+For Non-EV Code Signing Certificates issued prior to June 1, 2023, a CA MUST recommend that the Subscriber protect Private Keys using the method described in Section 6.2.7.4.1(1) or 6.2.7.4.1(2) over the method described in Section 6.2.7.4.1(3) and obligate the Subscriber to protect Private Keys in accordance with [Section 9.6.3](#963-subscriber-representations-and-warranties) (2).
+
+For EV Code Signing Certificates issued prior to June 1, 2023, CAs SHALL ensure that the Subscriber’s Private Key is generated, stored and used in a Hardware Crypto Module that meets or exceeds the requirements of FIPS 140-2 level 2 or Common Criteria EAL 4+. Acceptable methods of satisfying this requirement include (but are not limited to) the following:
+
+4. The CA ships a suitable Hardware Crypto Module, with a preinstalled Private Key, in the form of a smartcard or USB device or similar;
+5. The Subscriber counter-signs certificate requests that can be verified by using a manufacturer’s certificate indicating that the Private Key is managed in a suitable Hardware Crypto Module;
+6. The Subscriber provides a suitable IT audit indicating that its operating environment achieves a level of security at least equivalent to that of FIPS 140-2 level 2.
+
+Effective June 1, 2023, Subscriber Private Keys for Code Signing Certificates SHALL be protected per the following requirements.
 The CA MUST obtain a contractual representation from the Subscriber that the Subscriber will use one of the following options to generate and protect their Code Signing Certificate Private Keys in a Hardware Crypto Module with a unit design form factor certified as conforming to at least FIPS 140-2 Level 2 or Common Criteria EAL 4+:
 
-7.	 Subscriber uses a Hardware Crypto Module meeting the specified requirement;  
-8.	 Subscriber uses a cloud-base key generation and protection solution with the following requirements:
-    a.	Key creation, storage, and usage of Private Key must remain within the security boundaries of the cloud solution’s Hardware Crypto Module that conforms to the specified requirements;
-    b.	Subscription at the level that manages the Private Key must be configured to log all access, operations, and configuration changes on the resources securing the Private Key.   
-9.	 Subscriber uses a Signing Service which meets the requirements of [Section 6.2.7.3](#6273-private-key-storage-for-signing-services).
+7. Subscriber uses a Hardware Crypto Module meeting the specified requirement;  
+8. Subscriber uses a cloud-base key generation and protection solution with the following requirements:
+   1. Key creation, storage, and usage of Private Key must remain within the security boundaries of the cloud solution’s Hardware Crypto Module that conforms to the specified requirements;
+   2. Subscription at the level that manages the Private Key must be configured to log all access, operations, and configuration changes on the resources securing the Private Key.   
+9. Subscriber uses a Signing Service which meets the requirements of [Section 6.2.7.3](#6273-private-key-storage-for-signing-services).
 
 ##### 6.2.7.4.2 Subscriber Private Key verification
 
 CAs SHALL ensure that the Subscriber’s Private Key is generated, stored, and used in a suitable Hardware Crypto Module that meets or exceeds the requirements specified in [Section 6.2.7.4.1](#62741-subscriber-private-key-protection). One of the following methods MUST be employed to satisfy this requirement:
 
-1.	 The CA ships a suitable Hardware Crypto Module, with one or more pre-generated Key Pairs that the CA has generated using the Hardware Crypto Module; 
-2.	 The Subscriber counter-signs certificate requests that can be verified by using a manufacturer’s certificate, commonly known as key attestation, indicating that the Private Key was generated in a non-exportable way using a suitable Hardware Crypto Module; 
-3.	 The Subscriber uses a CA prescribed crypto library and a suitable Hardware Crypto Module combination for the Key Pair generation and storage;
-4.	 The Subscriber provides an internal or external IT audit indicating that it is only using a suitable Hardware Crypto Module to generate Key Pairs to be associated with Code Signing Certificates;
-5.	 The Subscriber provides a suitable report from the cloud-based key protection solution subscription and resources configuration protecting the Private Key in a suitable Hardware Crypto Module;
-6.	 The CA relies on a report provided by the Applicant that is signed by an auditor who is approved by the CA and who has IT and security training or is a CISA witnesses the Key Pair creation in a suitable Hardware Crypto Module solution including a cloud-based key generation and protection solution; or
-7.	 The Subscriber provides an agreement that they use a Signing Service meeting the requirements of [Section 6.2.7.3](#6273-private-key-storage-for-signing-services).
+1. The CA ships a suitable Hardware Crypto Module, with one or more pre-generated Key Pairs that the CA has generated using the Hardware Crypto Module; 
+2. The Subscriber counter-signs certificate requests that can be verified by using a manufacturer’s certificate, commonly known as key attestation, indicating that the Private Key was generated in a non-exportable way using a suitable Hardware Crypto Module; 
+3. The Subscriber uses a CA prescribed crypto library and a suitable Hardware Crypto Module combination for the Key Pair generation and storage;
+4. The Subscriber provides an internal or external IT audit indicating that it is only using a suitable Hardware Crypto Module to generate Key Pairs to be associated with Code Signing Certificates;
+5. The Subscriber provides a suitable report from the cloud-based key protection solution subscription and resources configuration protecting the Private Key in a suitable Hardware Crypto Module;
+6. The CA relies on a report provided by the Applicant that is signed by an auditor who is approved by the CA and who has IT and security training or is a CISA witnesses the Key Pair creation in a suitable Hardware Crypto Module solution including a cloud-based key generation and protection solution;
+7. The Subscriber provides an agreement that they use a Signing Service meeting the requirements of [Section 6.2.7.3](#6273-private-key-storage-for-signing-services);
 
 ### 6.2.8 Method of activating private key
 
@@ -2941,44 +2935,14 @@ guidelines:
 
 * **NTR**:
 
-  The information carried in this field shall be the same as held in
-  Subject Registration Number Field as specified in
-  [Section 7.2.4.2.4](#71424-subject-distinguished-name-fields---ev-code-signing-certificates) (d) and the country code
-  used in the Registration Scheme identifier shall match that of the
-  subject’s jurisdiction as specified in
-  [Section 7.2.4.2.4](#71424-subject-distinguished-name-fields---ev-code-signing-certificates) (c).
+  The information carried in this field shall be the same as held in Subject Registration Number Field as specified in [Section 7.2.4.2.4](#71424-subject-distinguished-name-fields---ev-code-signing-certificates) (d) and the country code used in the Registration Scheme identifier shall match that of the subject’s jurisdiction as specified in [Section 7.2.4.2.4](#71424-subject-distinguished-name-fields---ev-code-signing-certificates) (c).
 
-  Where the Subject Jurisdiction of Incorporation or Registration Field in Section 7.2.4.2.4 (c)
-  includes more than the country code, the additional locality information shall
-  be included as specified in [Section 7.2.4.2.4](#71424-subject-distinguished-name-fields---ev-code-signing-certificates) (f)
-  and/or [Section 9.8.2](#982-cabrowser-forum-organization-identifier-extension).
+  Where the Subject Jurisdiction of Incorporation or Registration Field in Section 7.2.4.2.4 (c) includes more than the country code, the additional locality information shall be included as specified in [Section 7.2.4.2.4](#71424-subject-distinguished-name-fields---ev-code-signing-certificates) (f) and/or [Section 9.8.2](#982-cabrowser-forum-organization-identifier-extension).
 
 * **VAT**:
 
-  Reference allocated by the national tax authorities to a Legal Entity. This
-  information shall be validated using information provided by the national tax
-  authority against the organization as identified by the Subject Organization
-  Name Field (see [Section 7.2.4.2.4](#71424-subject-distinguished-name-fields---ev-code-signing-certificates) (a) ) and
-  Subject Registration Number Field (see
-  [Section 7.2.4.2.4](#71424-subject-distinguished-name-fields---ev-code-signing-certificates) (d) ) within the context of
-  the subject’s jurisdiction as specified in
-  [Section 7.2.4.2.4](#71424-subject-distinguished-name-fields---ev-code-signing-certificates) (c).
+  Reference allocated by the national tax authorities to a Legal Entity. This information shall be validated using information provided by the national tax authority against the organization as identified by the Subject Organization Name Field (see [Section 7.2.4.2.4](#71424-subject-distinguished-name-fields---ev-code-signing-certificates) (a) ) and Subject Registration Number Field (see [Section 7.2.4.2.4](#71424-subject-distinguished-name-fields---ev-code-signing-certificates) (d) ) within the context of the subject’s jurisdiction as specified in [Section 7.2.4.2.4](#71424-subject-distinguished-name-fields---ev-code-signing-certificates) (c).
 
 * **PSD**:
 
-  Authorization number as specified in ETSI TS 119 495 clause 4.4
-  allocated to a payment service provider and containing the information as
-  specified in ETSI TS 119 495 clause 5.2.1. This information SHALL be
-  obtained directly from the national competent authority register for
-  payment services or from an information source approved by a government
-  agency, regulatory body, or legislation for this purpose.  This information
-  SHALL be validated by being matched directly or indirectly (for example, by
-  matching a globally unique registration number) against the organization as
-  identified by the Subject Organization Name Field (see
-  [Section 7.2.4.2.4](#71424-subject-distinguished-name-fields---ev-code-signing-certificates) (a) ) and
-  Subject Registration Number Field (see
-  [Section 7.2.4.2.4](#71424-subject-distinguished-name-fields---ev-code-signing-certificates) (d) ) within the context of
-  the subject’s jurisdiction as specified in
-  [Section 7.2.4.2.4](#71424-subject-distinguished-name-fields---ev-code-signing-certificates) (c).
-  The stated address of the organization combined with the organization name
-  SHALL NOT be the only information used to disambiguate the organization.
+  Authorization number as specified in ETSI TS 119 495 clause 4.4 allocated to a payment service provider and containing the information as specified in ETSI TS 119 495 clause 5.2.1. This information SHALL be obtained directly from the national competent authority register for payment services or from an information source approved by a government agency, regulatory body, or legislation for this purpose. This information SHALL be validated by being matched directly or indirectly (for example, by matching a globally unique registration number) against the organization as identified by the Subject Organization Name Field (see [Section 7.2.4.2.4](#71424-subject-distinguished-name-fields---ev-code-signing-certificates) (a) ) and Subject Registration Number Field (see [Section 7.2.4.2.4](#71424-subject-distinguished-name-fields---ev-code-signing-certificates) (d) ) within the context of the subject’s jurisdiction as specified in [Section 7.2.4.2.4](#71424-subject-distinguished-name-fields---ev-code-signing-certificates) (c). The stated address of the organization combined with the organization name SHALL NOT be the only information used to disambiguate the organization.
