@@ -1095,7 +1095,7 @@ This section is applicable for EV Certificate Requests.
    2. When the CA has utilized the services of an RA, the CA MAY rely on the language skills of the RA to perform the Final Cross-Correlation and Due Diligence, provided that the RA complies with [Section 3.2.9](#329-final-cross-correlation-and-due-diligence), Subsections (1), (2) and (3). Notwithstanding the foregoing, prior to issuing the EV Certificate, the CA MUST review the work completed by the RA and determine that all requirements have been met; or
    3. When the CA has utilized the services of an RA, the CA MAY rely on the RA to perform the Final Cross-Correlation and Due Diligence, provided that the RA complies with this section and is subjected to the Audit Requirements of [Section 17.5](#175-regular-self-audits) and [Section 17.6](#176-auditor-qualification).
 
-In the case of EV Code Signing Certificates to be issued in compliance with the requirements of [Section 14.2](#142-delegation-of-functions-to-registration-authorities-and-subcontractors), the Enterprise RA MAY perform the requirements of this Final Cross-Correlation and Due Diligence section.
+In the case of EV Code Signing Certificates to be issued in compliance with the requirements of [Section 1.3.2.1](#1321-delegation-of-functions-to-registration-authorities-and-subcontractors), the Enterprise RA MAY perform the requirements of this Final Cross-Correlation and Due Diligence section.
 
 ### 3.2.10 Disclosure of Verification Sources
 
@@ -1153,7 +1153,7 @@ An Applicant qualifies as a Business Entity if:
 2. The entity has a verifiable physical existence and business presence;
 3. At least one Principal Individual associated with the entity is identified and validated by the CA;
 4. The identified Principal Individual attests to the representations made in the Subscriber Agreement;
-5. The CA verifies the entity's use of any assumed name used to represent the entity pursuant to the requirements of [Section 11.3](#113-verification-of-applicants-legal-existence-and-identity--assumed-name);
+5. The CA verifies the entity's use of any assumed name used to represent the entity pursuant to the requirements of [Section 3.2.2.2.2](#32222-verification-of-applicants-legal-existence-and-identity----assumed-name-);
 6. The entity and the identified Principal Individual associated with the entity are not located or residing in any country where the CA is prohibited from doing business or issuing a certificate by the laws of the CA's jurisdiction; and
 7. The entity and the identified Principal Individual associated with the entity are not listed on any government denial list or prohibited list (e.g., trade embargo) under the laws of the CA's jurisdiction.
 
@@ -2995,6 +2995,64 @@ A CA may rely on the Contract Signer's authority to enter into the Subscriber Ag
 2. is expressly authorized by [Applicant name] to sign Subscriber Agreements and approve EV Certificate requests on Applicant's behalf, and
 3. has confirmed Applicant's right to use the domain(s) to be included in EV Certificates.
 
+# Appendix F – Unused
+
+This appendix is intentionally left blank.
+
+# Appendix G – Abstract Syntax Notation One module for EV certificates
+
+```ASN.1
+CABFSelectedAttributeTypes {
+    joint‐iso‐itu‐t(2) international‐organizations(23)
+    ca‐browser‐forum(140) module(4)
+    cabfSelectedAttributeTypes(1) 1 }
+DEFINITIONS ::=
+BEGIN
+-- EXPORTS All
+IMPORTS
+  -- from Rec. ITU-T X.501 | ISO/IEC 9594-2
+  selectedAttributeTypes, ID, ldap-enterprise
+    FROM UsefulDefinitions {joint-iso-itu-t ds(5) module(1)
+    usefulDefinitions(0) 7}
+
+  -- from the X.500 series
+  ub-locality-name, ub-state-name
+    FROM UpperBounds {joint-iso-itu-t ds(5) module(1) upperBounds(10) 7}
+
+  -- from Rec. ITU-T X.520 | ISO/IEC 9594-6
+  DirectoryString{}, CountryName
+    FROM SelectedAttributeTypes selectedAttributeTypes;
+
+id-evat-jurisdiction ID ::= {ldap-enterprise 311 ev(60) 2 1}
+id-evat-jurisdiction-localityName ID ::= {id-evat-jurisdiction 1}
+id-evat-jurisdiction-stateOrProvinceName ID ::= {id-evat-jurisdiction 2}
+id-evat-jurisdiction-countryName ID ::= {id-evat-jurisdiction 3}
+
+jurisdictionLocalityName ATTRIBUTE ::= {
+  SUBTYPE OF    name
+  WITH SYNTAX   DirectoryString{ub-locality-name}
+  LDAP-SYNTAX   directoryString.&id
+  LDAP-NAME     {"jurisdictionL"}
+  ID            id-evat-jurisdiction-localityName }
+
+jurisdictionStateOrProvinceName ATTRIBUTE ::= {
+  SUBTYPE OF    name
+  WITH SYNTAX   DirectoryString{ub-state-name}
+  LDAP-SYNTAX   directoryString.&id
+  LDAP-NAME     {"jurisdictionST"}
+  ID            id-evat-jurisdiction-stateOrProvinceName }
+
+jurisdictionCountryName ATTRIBUTE ::= {
+  SUBTYPE OF    name
+  WITH SYNTAX   CountryName
+  SINGLE VALUE  TRUE
+  LDAP-SYNTAX   countryString.&id
+  LDAP-NAME     {"jurisdictionC"}
+  ID            id-evat-jurisdiction-countryName }
+
+END
+```
+
 # Appendix H – Registration Schemes
 
 The following Registration Schemes are currently recognized as valid under these
@@ -3004,7 +3062,7 @@ guidelines:
 
   The information carried in this field shall be the same as held in Subject Registration Number Field as specified in [Section 7.2.4.2.4](#71424-subject-distinguished-name-fields---ev-code-signing-certificates) (d) and the country code used in the Registration Scheme identifier shall match that of the subject’s jurisdiction as specified in [Section 7.2.4.2.4](#71424-subject-distinguished-name-fields---ev-code-signing-certificates) (c).
 
-  Where the Subject Jurisdiction of Incorporation or Registration Field in Section 7.2.4.2.4 (c) includes more than the country code, the additional locality information shall be included as specified in [Section 7.2.4.2.4](#71424-subject-distinguished-name-fields---ev-code-signing-certificates) (f) and/or [Section 9.8.2](#982-cabrowser-forum-organization-identifier-extension).
+  Where the Subject Jurisdiction of Incorporation or Registration Field in Section 7.2.4.2.4 (c) includes more than the country code, the additional locality information shall be included as specified in [Section 7.2.4.2.4](#71424-subject-distinguished-name-fields---ev-code-signing-certificates) (f).
 
 * **VAT**:
 
