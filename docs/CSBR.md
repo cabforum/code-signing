@@ -1451,7 +1451,7 @@ Subscribers and Signing Services MAY sign Code at any point in the development o
 
 The validity period for a Code Signing Certificate issued to a Subscriber or Signing Service MUST NOT exceed 39 months.
 
-The Timestamp Certificate validity period MUST NOT exceed 135 months. The Timestamp Certificate Key Pair MUST meet the requirements in [Section 6.1.5](#615-key-sizes). The Timestamp Certificate Private Key usage period is no greater than 15 months from the date of Timestamp Certificate issuance. Private Keys associated with Timestamp Certificates issued for greater than 15 months MUST be removed from online Hardware Crypto Module with 18 months from date of Timestamp Certificate issuance. The CA SHALL log the removal of the Private Key from the Hardware Crypto Module.
+The Timestamp Certificate validity period MUST NOT exceed 135 months. The Timestamp Certificate Key Pair MUST meet the requirements in [Section 6.1.5](#615-key-sizes). The Timestamp Certificate Private Key usage period is no greater than 15 months from the date of Timestamp Certificate issuance. Private Keys associated with Timestamp Certificates issued for greater than 15 months MUST be removed from online Hardware Crypto Module with 18 months from date of Timestamp Certificate issuance. The CA SHALL log the removal of the Private Key from the Hardware Crypto Module through means of a key destruction ceremony performed by the CA and witnessed and signed-off by at least two Trusted Roles. 
 
 The CA MAY keep existing backup sets containing the Private Key. In case of a Key Recovery event, the CA SHALL NOT restore Private Keys associated with Timestamp Certificates, if the Timestamp Certificate was issued more than 15 months ago.
 
