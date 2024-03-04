@@ -1,13 +1,13 @@
 ---
 title: Baseline Requirements for the Issuance and Management of Publicly-Trusted Code Signing Certificates
-subtitle: Version 3.5.0
+subtitle: Version 3.6.0
 
 author:
   - CA/Browser Forum
-date: December 7, 2023  
+date: February 28, 2024  
 
 copyright: |
-  Copyright 2023 CA/Browser Forum
+  Copyright 2024 CA/Browser Forum
 
   This work is licensed under the Creative Commons Attribution 4.0 International license.
 ---
@@ -56,6 +56,7 @@ The following Certificate Policy Identifier is reserved for use by CAs as a requ
 | 3.3 | CSC-18 | Update Revocation Requirements                                                                                    | 29 June 2023 |
 | 3.4 | CSC-19 | Remove SSL BR References                                                                                          | 5 September 2023    |
 | 3.5 | CSC-20 | Restore Version Reference to EV Guidelines                                                                        | 7 December 2023    |
+| 3.6 | CSC-21 | Improved signing services requirements                                                                            | 28 February 2024    |
 
 
 ### 1.2.2 Relevant Dates
