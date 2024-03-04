@@ -4,7 +4,6 @@ subtitle: Version 3.7.0
 
 author:
   - CA/Browser Forum
-
 date: February 28, 2024
 
 copyright: |
