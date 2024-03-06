@@ -1456,7 +1456,7 @@ The Timestamp Certificate validity period MUST NOT exceed 135 months. The Timest
 Effective April 15, 2025, Private Keys associated with Timestamp Certificates issued for greater than 15 months MUST be removed from the Hardware Crypto Module protecting the Private Key within 18 months after issuance of the Timestamp Certificate. For Timestamp Certificates issued on or after June 1, 2024, the CA SHALL log the removal of the Private Key from the Hardware Crypto Module through means of a key destruction ceremony performed by the CA and witnessed and signed-off by at least two Trusted Roles. 
 
 
-The CA MAY keep existing backup sets containing the Private Key. In case of a Key Recovery event, the CA SHALL NOT restore Private Keys associated with Timestamp Certificates, if the Timestamp Certificate was issued more than 15 months ago.
+The CA MAY maintain existing backup sets containing the Private Key corresponding to a Timestamp Certificate. The CA MUST NOT restore the Private Key corresponding to a Timestamp Certificate contained within the backup if the Timestamp Certificate was issued more than 15 months prior to restoration of the backup.
 
 ## 6.4 Activation data
 
