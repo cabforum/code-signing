@@ -74,7 +74,7 @@ The following Certificate Policy Identifier is reserved for use by CAs as a requ
 | 2023-06-01 | 6.2.7.4.2 | Effective June 1, 2023, for Code Signing Certificates, CAs SHALL ensure that the Subscriber’s Private Key is generated, stored, and used in a suitable Hardware Crypto Module that meets or exceeds the requirements specified in section 6.2.7.4.1 using one of the methods in 6.2.7.4.2.|
 | 2023-06-01 | 6.2.7.4.2 | Any other method the CA uses to satisfy the Subscriber’s compliance with the private key protection requirements. The CA SHALL specify and describe in detail those other methods in its Certificate Policy or Certification Practice Statement, and SHALL propose those methods to the CA/Browser Forum Code Signing Working Group for inclusion into these requirements until June 1, 2023, using the questions@cabforum.org mailing list. After that date, the Code Signing Working Group will discuss the removal of this "any other method" and allow only CA/Browser Forum approved methods.|
 | 2024-04-15 | 4.9.1 | This ballot updates the "Circumstances for revocation" in order to align it with the TLS and S/MIME BRs and set stricter requirements for revocation due to Private Key Compromise and use in Suspect Code. |
-| 2024-xx-15 | x.x.x | XXXX |
+| 2025-04-15 | 6.2.7.2 | Effective April 15, 2025, a Timestamp Authority MUST protect Private Keys associated with its Root CA certificates and Subordinate CA certificates containing the "Time Stamping" EKU in offline Hardware Crypto Module |
 
 ## 1.3 PKI participants
 
@@ -1376,7 +1376,7 @@ The CA SHALL protect its Private Key in a system or device that has been validat
 
 #### 6.2.7.2 Private key storage for Timestamp Authorities
 
-A Timestamp Authority MUST protect Private Keys associated with its Root CA certificates and Subordinate CA certificates containing the "Time Stamping" EKU in offline Hardware Crypto Module conforming to FIPS 140-2 level 3, Common Criteria EAL 4+ (ALC_FLR.2), or higher. The Timestamp Authority MUST protect its signing operations in accordance with the CA/Browser Forum's Network and Certificate System Security Requirements.
+Effective 2025-04-15, a Timestamp Authority MUST protect Private Keys associated with its Root CA certificates and Subordinate CA certificates containing the "Time Stamping" EKU in offline Hardware Crypto Module conforming to FIPS 140-2 level 3, Common Criteria EAL 4+ (ALC_FLR.2), or higher. The Timestamp Authority MUST protect its signing operations in accordance with the CA/Browser Forum's Network and Certificate System Security Requirements.
 
 #### 6.2.7.3 Private key storage for Signing Services
 
@@ -1451,7 +1451,9 @@ Subscribers and Signing Services MAY sign Code at any point in the development o
 
 The validity period for a Code Signing Certificate issued to a Subscriber or Signing Service MUST NOT exceed 39 months.
 
-The Timestamp Certificate validity period MUST NOT exceed 135 months. The Timestamp Certificate Key Pair MUST meet the requirements in [Section 6.1.5](#615-key-sizes). The Timestamp Certificate Private Key usage period is no greater than 15 months from the date of Timestamp Certificate issuance. Private Keys associated with Timestamp Certificates issued for greater than 15 months MUST be removed from online Hardware Crypto Module with 18 months from date of Timestamp Certificate issuance. The CA SHALL log the removal of the Private Key from the Hardware Crypto Module through means of a key destruction ceremony performed by the CA and witnessed and signed-off by at least two Trusted Roles. 
+The Timestamp Certificate validity period MUST NOT exceed 135 months. The Timestamp Certificate Key Pair MUST meet the requirements in [Section 6.1.5](#615-key-sizes). The Timestamp Certificate Private Key usage period is no greater than 15 months from the date of Timestamp Certificate issuance. 
+
+Effective April 15, 2025, Private Keys associated with Timestamp Certificates issued for greater than 15 months MUST be removed from online Hardware Crypto Module with 18 months from date of Timestamp Certificate issuance. For Timestamp Certificates issues on or after June 1, 2024, the CA SHALL log the removal of the Private Key from the Hardware Crypto Module through means of a key destruction ceremony performed by the CA and witnessed and signed-off by at least two Trusted Roles. 
 
 The CA MAY keep existing backup sets containing the Private Key. In case of a Key Recovery event, the CA SHALL NOT restore Private Keys associated with Timestamp Certificates, if the Timestamp Certificate was issued more than 15 months ago.
 
