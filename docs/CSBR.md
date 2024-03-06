@@ -1376,7 +1376,8 @@ The CA SHALL protect its Private Key in a system or device that has been validat
 
 #### 6.2.7.2 Private key storage for Timestamp Authorities
 
-Effective April 15, 2025, a Timestamp Authority MUST protect Private Keys associated with its Root CA certificates and Subordinate CA certificates containing the "Time Stamping" EKU in offline Hardware Crypto Module conforming to FIPS 140-2 level 3, Common Criteria EAL 4+ (ALC_FLR.2), or higher. The Timestamp Authority MUST protect its signing operations in accordance with the CA/Browser Forum's Network and Certificate System Security Requirements.
+Effective April 15, 2025, a Timestamp Authority MUST protect Private Keys associated with its Root CA certificates and Subordinate CA certificates containing the "Time Stamping" EKU in a Hardware Crypto Module conforming to FIPS 140-2 level 3, Common Criteria EAL 4+ (ALC_FLR.2), or higher, maintained in a High Security Zone and in an offline state or air-gapped from all other networks. The Timestamp Authority MUST protect its signing operations in accordance with the CA/Browser Forum's Network and Certificate System Security Requirements.
+
 
 #### 6.2.7.3 Private key storage for Signing Services
 
