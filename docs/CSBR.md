@@ -1456,10 +1456,11 @@ The validity period for a Code Signing Certificate issued to a Subscriber or Sig
 The Timestamp Certificate validity period MUST NOT exceed 135 months. The Timestamp Certificate Key Pair MUST meet the requirements in [Section 6.1.5](#615-key-sizes). The CA or Timestamp Authority SHALL NOT use a Private Key associated with a Timestamp Certificate more than 15 months after the `notBefore` date of a Timestamp Certificate. 
 
 
-Effective April 15, 2025, Private Keys associated with Timestamp Certificates issued for greater than 15 months MUST be removed from the Hardware Crypto Module protecting the Private Key within 18 months after issuance of the Timestamp Certificate. For Timestamp Certificates issued on or after June 1, 2024, the CA SHALL log the removal of the Private Key from the Hardware Crypto Module through means of a key destruction ceremony performed by the CA and witnessed and signed-off by at least two Trusted Roles. 
+Effective April 15, 2025, Private Keys associated with Timestamp Certificates issued for greater than 15 months MUST be removed from the Hardware Crypto Module protecting the Private Key within 18 months after issuance of the Timestamp Certificate. For Timestamp Certificates issued on or after June 1, 2024, the CA SHALL log the removal of the Private Key from the Hardware Crypto Module through means of a key deletion ceremony performed by the CA and witnessed and signed-off by at least two Trusted Role members. The CA MAY also perform a key destruction ceremony, meaning that all copies of that private key are unequivocally/securely destroyed (i.e. without a way to recover the key), including any instance of the key as part of a backup, to satisfy this requirement.
 
 
-The CA MAY maintain existing backup sets containing the Private Key corresponding to a Timestamp Certificate. The CA MUST NOT restore the Private Key corresponding to a Timestamp Certificate contained within the backup if the Timestamp Certificate was issued more than 15 months prior to restoration of the backup.
+The CA MAY maintain existing backup sets containing the Private Key corresponding to a Timestamp Certificate. The CA SHOULD NOT restore the Private Key corresponding to a Timestamp Certificate contained within the backup if the Timestamp Certificate was issued more than 15 months prior to restoration of the backup. If the CA does restore such a Private Key, the CA SHALL only restore the Private Key in a suitable HSM while it’s maintained in a High Security Zone and in an offline state or air-gapped from all other networks and perform a new key destruction ceremony prior to the HSM being brought to an online state.
+ 
 
 ## 6.4 Activation data
 
