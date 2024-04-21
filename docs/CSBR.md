@@ -39,43 +39,43 @@ The following Certificate Policy Identifier is reserved for use by CAs as a requ
 ### 1.2.1 Revisions
 
 | **Ver.** | **Ballot** | **Description**                                                                                                   | **Effective**     |
-|-|-|---|--|
-| 1.2 | CSC-1 | Adopt Baseline Requirements version 1.2                                                                           | 13 Aug 2019       |
-| 2.0 | CSC-2 | Adopt combined EV and BR Code Signing Document                                                                    | 2 Sept 2020       |
-| 2.1 | CSC-4 | Move deadline for transition to RSA-3072 and SHA-2 timestamp tokens                                               | 7 Nov 2020        |
-| 2.2 | CSC-7 | Update to merge EV and non-EV clauses                                                                             | 8 March 2021      |
-| 2.3 | CSC-8 | Update to Revocation response mechanisms. key protection for EV certificates, and clean-up of 11.2.1 & Appendix B | 2 May 2021        |
-| 2.4 | CSC-9 | Spring 2021 Clean-up and Clarification                                                                            | 8 September 2021  |
-| 2.5 | CSC-10 | WebTrust CSBR v2.0 Audit Criteria                                                                                 | 12 September 2021 |
-| 2.6 | CSC-11 | Update to log data retention requirements                                                                         | 3 November 2021   |
-| 2.7 | CSC-12 | CRL Revocation Date Clarification                                                                                 | 3 December 2021   |
-| 2.8 | CSC-13 | Update to Subscriber Key Protection Requirements                                                                  | 6 May 2022        |
-| 3.0 | CSC-14 | Convert Code Signing Baseline Requirements to RFC 3647 Framework                                                  | 29 June 2022      |
-| 3.1 | CSC-15 | Summer 2022 Clean-up                                                                                              | 19 September 2022 |
-| 3.2 | CSC-17 | Subscriber Private Key Protection Extension                                                                       | 28 October 2022   |
-| 3.3 | CSC-18 | Update Revocation Requirements                                                                                    | 29 June 2023 |
-| 3.4 | CSC-19 | Remove SSL BR References                                                                                          | 5 September 2023    |
-| 3.5 | CSC-20 | Restore Version Reference to EV Guidelines                                                                        | 7 December 2023    |
-| 3.6 | CSC-21 | Improved signing services requirements                                                                            | 28 February 2024    |
-| 3.7 | CSC-22 | High risk changes                                                                                                 | 28 February 2024    |
+|----------|------------|-------------------------------------------------------------------------------------------------------------------|-------------------|
+| 1.2      | CSC-1      | Adopt Baseline Requirements version 1.2                                                                           | 13 Aug 2019       |
+| 2.0      | CSC-2      | Adopt combined EV and BR Code Signing Document                                                                    | 2 Sept 2020       |
+| 2.1      | CSC-4      | Move deadline for transition to RSA-3072 and SHA-2 timestamp tokens                                               | 7 Nov 2020        |
+| 2.2      | CSC-7      | Update to merge EV and non-EV clauses                                                                             | 8 March 2021      |
+| 2.3      | CSC-8      | Update to Revocation response mechanisms. key protection for EV certificates, and clean-up of 11.2.1 & Appendix B | 2 May 2021        |
+| 2.4      | CSC-9      | Spring 2021 Clean-up and Clarification                                                                            | 8 September 2021  |
+| 2.5      | CSC-10     | WebTrust CSBR v2.0 Audit Criteria                                                                                 | 12 September 2021 |
+| 2.6      | CSC-11     | Update to log data retention requirements                                                                         | 3 November 2021   |
+| 2.7      | CSC-12     | CRL Revocation Date Clarification                                                                                 | 3 December 2021   |
+| 2.8      | CSC-13     | Update to Subscriber Key Protection Requirements                                                                  | 6 May 2022        |
+| 3.0      | CSC-14     | Convert Code Signing Baseline Requirements to RFC 3647 Framework                                                  | 29 June 2022      |
+| 3.1      | CSC-15     | Summer 2022 Clean-up                                                                                              | 19 September 2022 |
+| 3.2      | CSC-17     | Subscriber Private Key Protection Extension                                                                       | 28 October 2022   |
+| 3.3      | CSC-18     | Update Revocation Requirements                                                                                    | 29 June 2023      |
+| 3.4      | CSC-19     | Remove SSL BR References                                                                                          | 5 September 2023  |
+| 3.5      | CSC-20     | Restore Version Reference to EV Guidelines                                                                        | 7 December 2023   |
+| 3.6      | CSC-21     | Improved signing services requirements                                                                            | 28 February 2024  |
+| 3.7      | CSC-22     | High risk changes                                                                                                 | 28 February 2024  |
 
 
 ### 1.2.2 Relevant Dates
 
-| **Compliance** | **Section(s)** | **Summary Description (See Full Text for Details)** |
-|--|--|----------|
-| 2021-06-01 | 6.1.5 | CAs SHALL support minimum RSA-3072 for Code Signing Certificates, Root Certificates and Subordinate CA Certificates. CAs SHALL NOT support SHA-1 digest algorithm for Code Signing Certificates.|
-| 2021-06-01 | 5.3 | After 2021-06-01, the CA shall meet the requirements of EV Guidelines Section 14.1 for Non-EV and EV Code Signing Certificates.|
-| 2021-06-01 | 6.2.7.4 | For EV Code Signing Certificates, Signing Services shall protect Private Keys in a FIPS 140-2 level 2 (or equivalent) crypto module. After 2021-06-01, the same protection requirements SHALL apply to Non EV Code Signing Certificates.|
-| 2021-11-01 | 3.2.2.1 (5) | The method used to verify the identity of the Certificate Requester SHALL be per section 3.2.3.|
-| 2022-03-31 | 7.1.6.3 | Subordinate CA Certificates issued for Subordinate CA that issues Timestamp Certificates and is an Affiliate of the Issuing CA must include the reserved identifier specified in Section 7.1.6.1.|
-| 2022-04-30 | 7.1.3.2.1 | CAs SHALL NOT support SHA-1 digest algorithm for Timestamp tokens.|
-| 2022-07-01 | 7.2.2 | For Code Signing Certificates, the time encoded in the Invalidity Date CRL entry extension MUST be equal to the time encoded in the revocationDate field of the CRL entry. |
-| 2023-06-01 | 6.2.7.4.2 | Effective June 1, 2023, for Code Signing Certificates, CAs SHALL ensure that the Subscriber’s Private Key is generated, stored, and used in a suitable Hardware Crypto Module that meets or exceeds the requirements specified in section 6.2.7.4.1 (7-9).|
-| 2023-06-01 | 6.2.7.4.2 | Effective June 1, 2023, for Code Signing Certificates, CAs SHALL ensure that the Subscriber’s Private Key is generated, stored, and used in a suitable Hardware Crypto Module that meets or exceeds the requirements specified in section 6.2.7.4.1 using one of the methods in 6.2.7.4.2.|
-| 2023-06-01 | 6.2.7.4.2 | Any other method the CA uses to satisfy the Subscriber’s compliance with the private key protection requirements. The CA SHALL specify and describe in detail those other methods in its Certificate Policy or Certification Practice Statement, and SHALL propose those methods to the CA/Browser Forum Code Signing Working Group for inclusion into these requirements until June 1, 2023, using the questions@cabforum.org mailing list. After that date, the Code Signing Working Group will discuss the removal of this "any other method" and allow only CA/Browser Forum approved methods.|
-| 2024-04-15 | 4.9.1 | This ballot updates the "Circumstances for revocation" in order to align it with the TLS and S/MIME BRs and set stricter requirements for revocation due to Private Key Compromise and use in Suspect Code. |
-| 2024-06-15 | 8.4.2 | For Audit Periods starting after June 30, 2024, the Signing Service MUST undergo a conformity assessment audit for compliance with these Requirements performed in accordance with one of the schemes specified in Section 8.4.2. |
+| **Compliance** | **Section(s)** | **Summary Description (See Full Text for Details)**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+|----------------|----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 2021-06-01     | 6.1.5          | CAs SHALL support minimum RSA-3072 for Code Signing Certificates, Root Certificates and Subordinate CA Certificates. CAs SHALL NOT support SHA-1 digest algorithm for Code Signing Certificates.                                                                                                                                                                                                                                                                                                                                                                                                   |
+| 2021-06-01     | 5.3            | After 2021-06-01, the CA shall meet the requirements of EV Guidelines Section 14.1 for Non-EV and EV Code Signing Certificates.                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| 2021-06-01     | 6.2.7.4        | For EV Code Signing Certificates, Signing Services shall protect Private Keys in a FIPS 140-2 level 2 (or equivalent) crypto module. After 2021-06-01, the same protection requirements SHALL apply to Non EV Code Signing Certificates.                                                                                                                                                                                                                                                                                                                                                           |
+| 2021-11-01     | 3.2.2.1 (5)    | The method used to verify the identity of the Certificate Requester SHALL be per section 3.2.3.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| 2022-03-31     | 7.1.6.3        | Subordinate CA Certificates issued for Subordinate CA that issues Timestamp Certificates and is an Affiliate of the Issuing CA must include the reserved identifier specified in Section 7.1.6.1.                                                                                                                                                                                                                                                                                                                                                                                                  |
+| 2022-04-30     | 7.1.3.2.1      | CAs SHALL NOT support SHA-1 digest algorithm for Timestamp tokens.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| 2022-07-01     | 7.2.2          | For Code Signing Certificates, the time encoded in the Invalidity Date CRL entry extension MUST be equal to the time encoded in the revocationDate field of the CRL entry.                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| 2023-06-01     | 6.2.7.4.2      | Effective June 1, 2023, for Code Signing Certificates, CAs SHALL ensure that the Subscriber’s Private Key is generated, stored, and used in a suitable Hardware Crypto Module that meets or exceeds the requirements specified in section 6.2.7.4.1 (7-9).                                                                                                                                                                                                                                                                                                                                         |
+| 2023-06-01     | 6.2.7.4.2      | Effective June 1, 2023, for Code Signing Certificates, CAs SHALL ensure that the Subscriber’s Private Key is generated, stored, and used in a suitable Hardware Crypto Module that meets or exceeds the requirements specified in section 6.2.7.4.1 using one of the methods in 6.2.7.4.2.                                                                                                                                                                                                                                                                                                         |
+| 2023-06-01     | 6.2.7.4.2      | Any other method the CA uses to satisfy the Subscriber’s compliance with the private key protection requirements. The CA SHALL specify and describe in detail those other methods in its Certificate Policy or Certification Practice Statement, and SHALL propose those methods to the CA/Browser Forum Code Signing Working Group for inclusion into these requirements until June 1, 2023, using the questions@cabforum.org mailing list. After that date, the Code Signing Working Group will discuss the removal of this "any other method" and allow only CA/Browser Forum approved methods. |
+| 2024-04-15     | 4.9.1          | This ballot updates the "Circumstances for revocation" in order to align it with the TLS and S/MIME BRs and set stricter requirements for revocation due to Private Key Compromise and use in Suspect Code.                                                                                                                                                                                                                                                                                                                                                                                        |
+| 2024-06-15     | 8.4.2          | For Audit Periods starting after June 30, 2024, the Signing Service MUST undergo a conformity assessment audit for compliance with these Requirements performed in accordance with one of the schemes specified in Section 8.4.2.                                                                                                                                                                                                                                                                                                                                                                  |
 
 ## 1.3 PKI participants
 
@@ -420,37 +420,37 @@ Capitalized Terms are as defined below and in the EV SSL Guidelines:
 
 ### 1.6.2 Abbreviations and Acronyms
 
-| **Acronym** | **Meaning** |
-| --- | --- |
-| BIPM | International Bureau of Weights and Measures |
-| BIS | (US Government) Bureau of Industry and Security |
-| CA | Certification Authority |
-| CEO | Chief Executive Officer |
-| CFO | Chief Financial Officer |
-| CIO | Chief Information Officer |
-| CISO | Chief Information Security Officer |
-| COO | Chief Operating Officer |
-| CPA | Chartered Professional Accountant |
-| CP | Certificate Policy |
-| CPS | Certification Practice Statement |
-| CRL | Certificate Revocation List |
-| CSO | Chief Security Officer |
-| DBA | Doing Business As |
-| EV | Extended Validation |
-| FIPS | (US Government) Federal Information Processing Standard |
-| IFAC | International Federation of Accountants |
-| IRS | Internal Revenue Service |
-| ISO | International Organization for Standardization |
-| NIST | (US Government) National Institute of Standards and Technology |
-| OCSP | Online Certificate Status Protocol |
-| OID | Object Identifier |
-| PKI | Public Key Infrastructure |
-| QGIS | Qualified Government Information Source |
-| QTIS | Qualified Government Tax Information Source |
-| QIIS | Qualified Independent Information Source |
-| RA | Registration Authority |
-| SEC | (US Government) Securities and Exchange Commission |
-| UTC(k) | National realization of Coordinated Universal Time |
+| **Acronym** | **Meaning**                                                    |
+|-------------|----------------------------------------------------------------|
+| BIPM        | International Bureau of Weights and Measures                   |
+| BIS         | (US Government) Bureau of Industry and Security                |
+| CA          | Certification Authority                                        |
+| CEO         | Chief Executive Officer                                        |
+| CFO         | Chief Financial Officer                                        |
+| CIO         | Chief Information Officer                                      |
+| CISO        | Chief Information Security Officer                             |
+| COO         | Chief Operating Officer                                        |
+| CPA         | Chartered Professional Accountant                              |
+| CP          | Certificate Policy                                             |
+| CPS         | Certification Practice Statement                               |
+| CRL         | Certificate Revocation List                                    |
+| CSO         | Chief Security Officer                                         |
+| DBA         | Doing Business As                                              |
+| EV          | Extended Validation                                            |
+| FIPS        | (US Government) Federal Information Processing Standard        |
+| IFAC        | International Federation of Accountants                        |
+| IRS         | Internal Revenue Service                                       |
+| ISO         | International Organization for Standardization                 |
+| NIST        | (US Government) National Institute of Standards and Technology |
+| OCSP        | Online Certificate Status Protocol                             |
+| OID         | Object Identifier                                              |
+| PKI         | Public Key Infrastructure                                      |
+| QGIS        | Qualified Government Information Source                        |
+| QTIS        | Qualified Government Tax Information Source                    |
+| QIIS        | Qualified Independent Information Source                       |
+| RA          | Registration Authority                                         |
+| SEC         | (US Government) Securities and Exchange Commission             |
+| UTC(k)      | National realization of Coordinated Universal Time             |
 
 ### 1.6.3 References
 
