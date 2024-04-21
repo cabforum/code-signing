@@ -559,9 +559,9 @@ The CA SHALL verify the identity of the Applicant, and the authenticity of the A
 Prior to issuing a Code Signing Certificate to an Organizational Applicant, the CA MUST:
 
 1. Verify the Subject's legal identity, including any DBA proposed for inclusion in a Certificate, in accordance with [Section 3.2.2.1.1](#32211-identity) and [Section 3.2.2.1.2](#32212-dbatradename). The CA MUST also obtain, whenever available, a specific Registration Identifier assigned to the Applicant by a government agency in the jurisdiction of the Applicant's legal creation, existence, or recognition,
-3. Verify the Subject's address in accordance with [Section 3.2.2.1.1](#32211-identity),
-4. Verify the Certificate Requester's authority to request a Code Signing Certificate and the authenticity of the Certificate Request using a Reliable Method of Communication in accordance with [Section 3.2.5](#325-validation-of-authority), and
-5. If the Subject's or Subject's Affiliate's, Parent Company's, or Subsidiary Company's date of formation, as indicated by either a QIIS or QGIS, was less than three years prior to the date of the Certificate Request, verify the identity of the Certificate Requester. Effective 1 November 2021, the method used to verify the identity of the Certificate Requester SHALL be per [Section 3.2.3.1](#3231-individual-identity-verification).
+2. Verify the Subject's address in accordance with [Section 3.2.2.1.1](#32211-identity),
+3. Verify the Certificate Requester's authority to request a Code Signing Certificate and the authenticity of the Certificate Request using a Reliable Method of Communication in accordance with [Section 3.2.5](#325-validation-of-authority), and
+4. If the Subject's or Subject's Affiliate's, Parent Company's, or Subsidiary Company's date of formation, as indicated by either a QIIS or QGIS, was less than three years prior to the date of the Certificate Request, verify the identity of the Certificate Requester. Effective 1 November 2021, the method used to verify the identity of the Certificate Requester SHALL be per [Section 3.2.3.1](#3231-individual-identity-verification).
 
 ##### 3.2.2.1.1 Identity
 
@@ -822,8 +822,8 @@ Code Signing Certificates SHALL NOT include a Domain Name.
       1. That the Applicant authorizes the Contract Signer to sign the Subscriber Agreement on the Applicant's behalf,
       2. That the Subscriber Agreement is a legally valid and enforceable agreement,
       3. That, upon execution of the Subscriber Agreement, the Applicant will be bound by all of its terms and conditions,
-      3. That serious consequences attach to the misuse of an EV Code Signing Certificate, and
-      4. The contract signer has the authority to obtain the digital equivalent of a corporate seal, stamp or officer's signature to establish the authenticity of the company's Web site.
+      4. That serious consequences attach to the misuse of an EV Code Signing Certificate, and
+      5. The contract signer has the authority to obtain the digital equivalent of a corporate seal, stamp or officer's signature to establish the authenticity of the company's Web site.
 
    Note: An example of an acceptable representation/warranty appears in [Appendix E](#appendix-e---sample-contract-signers-representationwarranty-informative).
 
@@ -924,11 +924,11 @@ An Independent Confirmation from the Applicant is a confirmation of a particular
 An Independent Confirmation from the Applicant MAY be obtained via the following procedure:
 
 1. **Confirmation Request**: The CA MUST initiate a Confirmation Request via an appropriate out-of-band communication, requesting verification or confirmation of the particular fact at issue as follows:
-   1.  **Addressee**: The Confirmation Request MUST be directed to:
-      1. A position within the Applicant's organization that qualifies as a Confirming Person (e.g., Secretary, President, CEO, CFO, COO, CIO, CSO, Director, etc.) and is identified by name and title in a current QGIS, QIIS, QTIS, Verified Legal Opinion, Verified Accountant Letter, or by contacting the Applicant using a Verified Method of Communication; or
-      2. The Applicant's Registered Agent or Registered Office in the Jurisdiction of Incorporation as listed in the official records of the Incorporating Agency, with instructions that it be forwarded to an appropriate Confirming Person; or
-      3. A named individual verified to be in the direct line of management above the Contract Signer or Certificate Approver by contacting the Applicant's Human Resources Department by phone or mail (at the phone number or address for the Applicant's Place of Business, verified in accordance with these Guidelines).
-   2.  **Means of Communication**: The Confirmation Request MUST be directed to the Confirming Person in a manner reasonably likely to reach such person.  The following options are acceptable:
+   1. **Addressee**: The Confirmation Request MUST be directed to:
+       1. A position within the Applicant's organization that qualifies as a Confirming Person (e.g., Secretary, President, CEO, CFO, COO, CIO, CSO, Director, etc.) and is identified by name and title in a current QGIS, QIIS, QTIS, Verified Legal Opinion, Verified Accountant Letter, or by contacting the Applicant using a Verified Method of Communication; or
+       2. The Applicant's Registered Agent or Registered Office in the Jurisdiction of Incorporation as listed in the official records of the Incorporating Agency, with instructions that it be forwarded to an appropriate Confirming Person; or
+       3. A named individual verified to be in the direct line of management above the Contract Signer or Certificate Approver by contacting the Applicant's Human Resources Department by phone or mail (at the phone number or address for the Applicant's Place of Business, verified in accordance with these Guidelines).
+   2. **Means of Communication**: The Confirmation Request MUST be directed to the Confirming Person in a manner reasonably likely to reach such person.  The following options are acceptable:
        1. By paper mail addressed to the Confirming Person at:
           1. The address of the Applicant's Place of Business as verified by the CA in accordance with these Guidelines, or
           2. The business address for such Confirming Person specified in a current QGIS, QTIS, QIIS, Verified Professional Letter, or
@@ -1691,8 +1691,7 @@ The CA SHALL record at least the following events:
    5. Generation of Certificate Revocation Lists and OCSP entries; and
    6. Signing of OCSP Responses (as described in [Section 4.9](#49-certificate-revocation-and-suspension) and [Section 4.10](#410-certificate-status-services)).
 
-3.	Security events, including:
-
+3. Security events, including:
    1. Successful and unsuccessful PKI system access attempts;
    2. PKI and security system actions performed;
    3. Security profile changes;
