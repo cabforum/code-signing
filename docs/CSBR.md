@@ -2410,7 +2410,7 @@ f. __Certificate Field__: `subject:organizationIdentifier` (OID: 2.5.4.97)
    * a hyphen-minus "-" (0x2D (ASCII), U+002D (UTF-8));
    * Registration Reference allocated in accordance with the identified Registration Scheme
 
-   Note: Registration References MAY contain hyphens, but Registration Schemes, ISO 3166 country codes, and ISO 3166-2 identifiers do not.  Therefore if more than one hyphen appears in the structure, the leftmost hyphen is a separator, and the remaining hyphens are part of the Registration Reference.
+   Note: Registration References MAY contain hyphens, but Registration Schemes, ISO 3166 country codes, and ISO 3166-2 identifiers do not. Therefore if more than one hyphen appears in the structure, the leftmost hyphen is a separator, and the remaining hyphens are part of the Registration Reference.
 
    * As in Section 7.1.4.2.4 (c), the specified location information MUST match the scope of the registration being referenced.
 
@@ -3067,6 +3067,8 @@ guidelines:
 * **VAT**:
 
   Reference allocated by the national tax authorities to a Legal Entity. This information shall be validated using information provided by the national tax authority against the organization as identified by the Subject Organization Name Field (see [Section 7.2.4.2.4](#71424-subject-distinguished-name-fields---ev-code-signing-certificates) (a) ) and Subject Registration Number Field (see [Section 7.2.4.2.4](#71424-subject-distinguished-name-fields---ev-code-signing-certificates) (d) ) within the context of the subject’s jurisdiction as specified in [Section 7.2.4.2.4](#71424-subject-distinguished-name-fields---ev-code-signing-certificates) (c).
+
+  For the purpose of identifying tax authorities, the country prefix described in article 215 of EU Council Directive 2006/112/EC, as amended, MAY be used instead of the ISO 3166 2-letter country codes.
 
 * **PSD**:
 
