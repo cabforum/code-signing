@@ -359,8 +359,6 @@ Capitalized Terms are as defined below and in the EV SSL Guidelines:
 
 **Registration Identifier:** The unique code assigned to an Applicant by the Incorporating or Registration Agency in such entity's Jurisdiction of Incorporation or Registration.
 
-**Registration Scheme**: A scheme for assigning a Registration Reference meeting the requirements identified in [Appendix H](#appendix-h--registration-schemes).
-
 **Registered Agent**: An individual or entity that is:
 
   1. authorized by the Applicant to receive service of process and business communications on behalf of the Applicant; and
@@ -2397,37 +2395,6 @@ e. __Certificate Field:__ Subject Physical Address of Place of Business Fields
    __Required/Optional:__ As stated in [Section 7.1.4.2](#71423-subject-distinguished-name-field---non-ev-code-signing-certificates) b, c, d, e and f.  
    __Contents__: This field MUST contain the address of the physical location of the Subject's Place of Business.
 
-f. __Certificate Field__: `subject:organizationIdentifier` (OID: 2.5.4.97)  
-   __Required/Optional__: Optional  
-   __Contents__: If present, this field MUST contain a Registration Reference for a Legal Entity assigned in accordance to the identified Registration Scheme.
-
-* The organizationIdentifier MUST be encoded as a PrintableString or UTF8String.
-* The Registration Scheme MUST be identified using the using the following structure in the presented order:
-   * 3 character Registration Scheme identifier;
-   * 2 character ISO 3166 country code for the nation in which the Registration Scheme is operated, or if the scheme is operated globally ISO 3166 code "XG" shall be used;
-   * For the NTR Registration Scheme identifier, if required under [Section 7.1.4.2.4 (c)](#71424-subject-distinguished-name-fields---ev-code-signing-certificates), a 2 character ISO 3166-2 identifier for the subdivision (state or province) of the nation in which the Registration Scheme is operated, preceded by plus "+" (0x2B (ASCII), U+002B (UTF-8));
-   * a hyphen-minus "-" (0x2D (ASCII), U+002D (UTF-8));
-   * Registration Reference allocated in accordance with the identified Registration Scheme
-
-   Note: Registration References MAY contain hyphens, but Registration Schemes, ISO 3166 country codes, and ISO 3166-2 identifiers do not. Therefore if more than one hyphen appears in the structure, the leftmost hyphen is a separator, and the remaining hyphens are part of the Registration Reference.
-
-   * As in Section 7.1.4.2.4 (c), the specified location information MUST match the scope of the registration being referenced.
-
-   * Examples:
-      * `NTRGB-12345678` (NTR scheme, Great Britain, Unique Identifier at Country level is 12345678)
-      * `NTRUS+CA-12345678` (NTR Scheme, United States - California, Unique identifier at State level is 12345678)
-      * `VATDE-123456789` (VAT Scheme, Germany, Unique Identifier at Country Level is 12345678)
-      * `PSDBE-NBB-1234.567.890` (PSD Scheme, Belgium, NCA's identifier is NBB, Subject Unique Identifier assigned by the NCA is 1234.567.890)
-
-   * Registration Schemes listed in [Appendix H](#appendix-h--registration-schemes) are currently recognized as valid under these guidelines.
-
-  * The CA SHALL:
-
-     1. confirm that the organization represented by the Registration Reference is the same as the organization named in the `organizationName` field as specified in 7.1.4.2.4 (a) within the context of the subject’s jurisdiction as specified in 7.1.4.2.4 (c);
-     2. further verify the Registration Reference matches other information verified in accordance with [Section 3.2.2.2](#3222-authentication-of-organization-identity-for-ev-code-signing-certificates);
-     3. take appropriate measures to disambiguate between different organizations as described in [Appendix H](#appendix-h--registration-schemes) for each Registration Scheme;
-     4. Apply the validation rules relevant to the Registration Scheme as specified in [Appendix H](#appendix-h--registration-schemes).
-
 ### 7.1.5 Name constraints
 
 ### 7.1.6 Certificate policy object identifier
@@ -3051,24 +3018,3 @@ jurisdictionCountryName ATTRIBUTE ::= {
 
 END
 ```
-
-# Appendix H – Registration Schemes
-
-The following Registration Schemes are currently recognized as valid under these
-guidelines:
-
-* **NTR**:
-
-  The information carried in this field shall be the same as held in Subject Registration Number Field as specified in [Section 7.2.4.2.4](#71424-subject-distinguished-name-fields---ev-code-signing-certificates) (d) and the country code used in the Registration Scheme identifier shall match that of the subject’s jurisdiction as specified in [Section 7.2.4.2.4](#71424-subject-distinguished-name-fields---ev-code-signing-certificates) (c).
-
-  Where the Subject Jurisdiction of Incorporation or Registration Field in Section 7.2.4.2.4 (c) includes more than the country code, the additional locality information shall be included as specified in [Section 7.2.4.2.4](#71424-subject-distinguished-name-fields---ev-code-signing-certificates) (f).
-
-* **VAT**:
-
-  Reference allocated by the national tax authorities to a Legal Entity. This information shall be validated using information provided by the national tax authority against the organization as identified by the Subject Organization Name Field (see [Section 7.2.4.2.4](#71424-subject-distinguished-name-fields---ev-code-signing-certificates) (a) ) and Subject Registration Number Field (see [Section 7.2.4.2.4](#71424-subject-distinguished-name-fields---ev-code-signing-certificates) (d) ) within the context of the subject’s jurisdiction as specified in [Section 7.2.4.2.4](#71424-subject-distinguished-name-fields---ev-code-signing-certificates) (c).
-
-  For the purpose of identifying tax authorities, the country prefix described in article 215 of EU Council Directive 2006/112/EC, as amended, MAY be used instead of the ISO 3166 2-letter country codes.
-
-* **PSD**:
-
-  Authorization number as specified in ETSI TS 119 495 clause 4.4 allocated to a payment service provider and containing the information as specified in ETSI TS 119 495 clause 5.2.1. This information SHALL be obtained directly from the national competent authority register for payment services or from an information source approved by a government agency, regulatory body, or legislation for this purpose. This information SHALL be validated by being matched directly or indirectly (for example, by matching a globally unique registration number) against the organization as identified by the Subject Organization Name Field (see [Section 7.2.4.2.4](#71424-subject-distinguished-name-fields---ev-code-signing-certificates) (a) ) and Subject Registration Number Field (see [Section 7.2.4.2.4](#71424-subject-distinguished-name-fields---ev-code-signing-certificates) (d) ) within the context of the subject’s jurisdiction as specified in [Section 7.2.4.2.4](#71424-subject-distinguished-name-fields---ev-code-signing-certificates) (c). The stated address of the organization combined with the organization name SHALL NOT be the only information used to disambiguate the organization.
