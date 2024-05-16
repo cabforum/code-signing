@@ -105,13 +105,13 @@ The CA SHALL verify that the Delegated Third Party's personnel involved in the i
 
 ##### 1.3.2.1.2 Enterprise RAs
 
-The CA MAY contractually authorize a Subscriber to perform the RA function and authorize the CA to issue additional EV Certificates. In such case, the Subscriber SHALL be considered an Enterprise RA, and the following requirements SHALL apply:
+The CA MAY contractually authorize a Subscriber to perform the RA function and authorize the CA to issue additional EV Code Signing Certificates. In such case, the Subscriber SHALL be considered an Enterprise RA, and the following requirements SHALL apply:
 
 1. In all cases, the Subscriber MUST be an organization verified by the CA in accordance with these Requirements;
 2. The CA MUST impose these limitations as a contractual requirement with the Enterprise RA and monitor compliance by the Enterprise RA; and
 3. The Final Cross-Correlation and Due Diligence requirements of [Section 3.2.9](#329-final-cross-correlation-and-due-diligence) MAY be performed by a single person representing the Enterprise RA.
 
-Enterprise RAs that authorize the issuance of EV Certificates solely for its own organization are exempted from the audit requirements of [Section 8.4](#84-topics-covered-by-assessment). In all other cases, the requirements of [Section 8.4](#84-topics-covered-by-assessment) SHALL apply.
+Enterprise RAs that authorize the issuance of EV Code Signing Certificates solely for its own organization are exempted from the audit requirements of [Section 8.4](#84-topics-covered-by-assessment). In all other cases, the requirements of [Section 8.4](#84-topics-covered-by-assessment) SHALL apply.
 
 ##### 1.3.2.1.3 Guidelines Compliance Obligation
 
@@ -197,9 +197,9 @@ Capitalized Terms are as defined below and in the EV SSL Guidelines:
 **Certificate Approver**: A natural person who is either the Applicant, employed by the Applicant, or an authorized agent who has express authority to represent the Applicant to
 
   1. act as a Certificate Requester and to authorize other employees or third parties to act as a Certificate Requester, and
-  2. to approve EV Certificate Requests submitted by other Certificate Requesters.
+  2. to approve EV Code Signing Certificate Requests submitted by other Certificate Requesters.
 
-**Certificate Requester**: A natural person who is either the Applicant, employed by the Applicant, an authorized agent who has express authority to represent the Applicant, or a third party (such as an ISP or hosting company) that completes and submits an EV Certificate Request on behalf of the Applicant.
+**Certificate Requester**: A natural person who is either the Applicant, employed by the Applicant, an authorized agent who has express authority to represent the Applicant, or a third party (such as an ISP or hosting company) that completes and submits an EV Code Signing Certificate Request on behalf of the Applicant.
 
 **Confirmation Request**: An appropriate out-of-band communication requesting verification or confirmation of the particular fact at issue.
 
@@ -259,9 +259,9 @@ Capitalized Terms are as defined below and in the EV SSL Guidelines:
 
 **Demand Deposit Account**: A deposit account held at a bank or other financial institution, the funds deposited in which are payable on demand. The primary purpose of demand accounts is to facilitate cashless payments by means of check, bank draft, direct debit, electronic funds transfer, etc. Usage varies among countries, but a demand deposit account is commonly known as a share draft account, a current account, or a checking account.
 
-**EV Authority**: A source other than the Certificate Approver, through which verification occurs that the Certificate Approver is expressly authorized by the Applicant, as of the date of the EV Certificate Request, to take the Request actions described in these Guidelines.
+**EV Authority**: A source other than the Certificate Approver, through which verification occurs that the Certificate Approver is expressly authorized by the Applicant, as of the date of the EV Code Signing Certificate Request, to take the Request actions described in these Guidelines.
 
-**EV Certificate Request**: A request from an Applicant to the CA requesting that the CA issue an EV Code Signing Certificate to the Applicant, which request is validly authorized by the Applicant and signed by the Applicant Representative.
+**EV Code Signing Certificate Request**: A request from an Applicant to the CA requesting that the CA issue an EV Code Signing Certificate to the Applicant, which request is validly authorized by the Applicant and signed by the Applicant Representative.
 
 **EV Code Signing Certificate:** A Code Signing Certificate that contains subject information specified in these Guidelines for Extended Validation and that has been validated in accordance with these Guidelines for Extended Validation.
 
@@ -602,16 +602,16 @@ As a general rule, the CA is responsible for taking all verification steps reaso
 
 The following Applicant roles are required for the issuance of an EV Code Signing Certificate.
 
-1. **Certificate Requester**: The EV Certificate Request MUST be submitted by an authorized Certificate Requester. A Certificate Requester is a natural person who is either the Applicant, employed by the Applicant, an authorized agent who has express authority to represent the Applicant, or a third party (such as an ISP or hosting company) that completes and submits an EV Certificate Request on behalf of the Applicant.
+1. **Certificate Requester**: The EV Code Signing Certificate Request MUST be submitted by an authorized Certificate Requester. A Certificate Requester is a natural person who is either the Applicant, employed by the Applicant, an authorized agent who has express authority to represent the Applicant, or a third party (such as an ISP or hosting company) that completes and submits an EV Code Signing Certificate Request on behalf of the Applicant.
 
-2. **Certificate Approver**: The EV Certificate Request MUST be approved by an authorized Certificate Approver. A Certificate Approver is a natural person who is either the Applicant, employed by the Applicant, or an authorized agent who has express authority to represent the Applicant to
+2. **Certificate Approver**: The EV Code Signing Certificate Request MUST be approved by an authorized Certificate Approver. A Certificate Approver is a natural person who is either the Applicant, employed by the Applicant, or an authorized agent who has express authority to represent the Applicant to
 
    1. act as a Certificate Requester and to authorize other employees or third parties to act as a Certificate Requester, and
-   2. to approve EV Certificate Requests submitted by other Certificate Requesters.
+   2. to approve EV Code Signing Certificate Requests submitted by other Certificate Requesters.
 
-3. **Contract Signer**: A Subscriber Agreement applicable to the requested EV Certificate MUST be signed by an authorized Contract Signer. A Contract Signer is a natural person who is either the Applicant, employed by the Applicant, or an authorized agent who has express authority to represent the Applicant, and who has authority on behalf of the Applicant to sign Subscriber Agreements.
+3. **Contract Signer**: A Subscriber Agreement applicable to the requested EV Code Signing Certificate MUST be signed by an authorized Contract Signer. A Contract Signer is a natural person who is either the Applicant, employed by the Applicant, or an authorized agent who has express authority to represent the Applicant, and who has authority on behalf of the Applicant to sign Subscriber Agreements.
 
-4. **Applicant Representative**: In the case where the CA and the Subscriber are affiliated, Terms of Use applicable to the requested EV Certificate MUST be acknowledged and agreed to by an authorized Applicant Representative. An Applicant Representative is a natural person who is either the Applicant, employed by the Applicant, or an authorized agent who has express authority to represent the Applicant, and who has authority on behalf of the Applicant to acknowledge and agree to the Terms of Use.
+4. **Applicant Representative**: In the case where the CA and the Subscriber are affiliated, Terms of Use applicable to the requested EV Code Signing Certificate MUST be acknowledged and agreed to by an authorized Applicant Representative. An Applicant Representative is a natural person who is either the Applicant, employed by the Applicant, or an authorized agent who has express authority to represent the Applicant, and who has authority on behalf of the Applicant to acknowledge and agree to the Terms of Use.
 
 The Applicant MAY authorize one individual to occupy two or more of these roles. The Applicant MAY authorize more than one individual to occupy any of these roles.
 
@@ -625,27 +625,27 @@ To verify the Applicant's legal existence and identity, the CA MUST do the follo
 1. **Private Organization Subjects**
 
    1. **Legal Existence**: Verify that the Applicant is a legally recognized entity, in existence and validly formed (e.g., incorporated) with the Incorporating or Registration Agency in the Applicant's Jurisdiction of Incorporation or Registration, and not designated on the records of the Incorporating or Registration Agency by labels such as "inactive", "invalid", "not current", or the equivalent.
-   2. **Organization Name**: Verify that the Applicant's formal legal name as recorded with the Incorporating or Registration Agency in the Applicant's Jurisdiction of Incorporation or Registration matches the Applicant's name in the EV Certificate Request.
+   2. **Organization Name**: Verify that the Applicant's formal legal name as recorded with the Incorporating or Registration Agency in the Applicant's Jurisdiction of Incorporation or Registration matches the Applicant's name in the EV Code Signing Certificate Request.
    3. **Registration Number**: Obtain the specific Registration Number assigned to the Applicant by the Incorporating or Registration Agency in the Applicant's Jurisdiction of Incorporation or Registration. Where the Incorporating or Registration Agency does not assign a Registration Number, the CA SHALL obtain the Applicant's date of Incorporation or Registration.
    4. **Registered Agent**: Obtain the identity and address of the Applicant's Registered Agent or Registered Office (as applicable in the Applicant's Jurisdiction of Incorporation or Registration).
 
 2. **Government Entity Subjects**
 
    1. **Legal Existence**: Verify that the Applicant is a legally recognized Government Entity, in existence in the political subdivision in which such Government Entity operates.
-   2. **Entity Name**: Verify that the Applicant's formal legal name matches the Applicant's name in the EV Certificate Request.
+   2. **Entity Name**: Verify that the Applicant's formal legal name matches the Applicant's name in the EV Code Signing Certificate Request.
    3. **Registration Number**: The CA MUST attempt to obtain the Applicant's date of incorporation, registration, or formation, or the identifier for the legislative act that created the Government Entity. In circumstances where this information is not available, the CA MUST enter appropriate language to indicate that the Subject is a Government Entity.
 
 3. **Business Entity Subjects**
 
    1. **Legal Existence**: Verify that the Applicant is engaged in business under the name submitted by the Applicant in the Application.
-   2. **Organization Name**: Verify that the Applicant's formal legal name as recognized by the Registration Agency in the Applicant's Jurisdiction of Registration matches the Applicant's name in the EV Certificate Request.
+   2. **Organization Name**: Verify that the Applicant's formal legal name as recognized by the Registration Agency in the Applicant's Jurisdiction of Registration matches the Applicant's name in the EV Code Signing Certificate Request.
    3. **Registration Number**: Attempt to obtain the specific unique Registration Number assigned to the Applicant by the Registration Agency in the Applicant's Jurisdiction of Registration.  Where the Registration Agency does not assign a Registration Number, the CA SHALL obtain the Applicant's date of Registration.
    4. **Principal Individual**: Verify the identity of the identified Principal Individual.
 
 4. **Non-Commercial Entity Subjects (International Organizations)**
 
    1. **Legal Existence**: Verify that the Applicant is a legally recognized International Organization Entity.
-   2. **Entity Name**: Verify that the Applicant's formal legal name matches the Applicant's name in the EV Certificate Request.
+   2. **Entity Name**: Verify that the Applicant's formal legal name matches the Applicant's name in the EV Code Signing Certificate Request.
    3. **Registration Number**: The CA MUST attempt to obtain the Applicant's date of formation, or the identifier for the legislative act that created the International Organization Entity. In circumstances where this information is not available, the CA MUST enter appropriate language to indicate that the Subject is an International Organization Entity.
 
 ###### 3.2.2.2.1.2 Acceptable Method of Verification
@@ -716,7 +716,7 @@ To verify the Applicant's legal existence and identity, the CA MUST do the follo
    1. With reference to the constituent document under which the International Organization was formed; or
    2. Directly with a signatory country's government in which the CA is permitted to do business.  Such verification may be obtained from an appropriate government agency or from the laws of that country, or by verifying that the country's government has a mission to represent it at the International Organization; or
    3. Directly against any current list of qualified entities that the CA/Browser Forum may maintain at www.cabforum.org.
-   4. In cases where the International Organization applying for the EV Certificate is an organ or agency - including a non-governmental organization of a verified International Organization, then the CA may verify the International Organization Applicant directly with the verified umbrella International Organization of which the Applicant is an organ or agency.
+   4. In cases where the International Organization applying for the EV Code Signing Certificate is an organ or agency - including a non-governmental organization of a verified International Organization, then the CA may verify the International Organization Applicant directly with the verified umbrella International Organization of which the Applicant is an organ or agency.
 
 6. The CA may rely on a Verified Professional Letter to establish the Applicant's information listed in (1)-(5) above if:
 
@@ -744,9 +744,9 @@ To verify the Applicant's legal existence and identity, the CA MUST do the follo
 2. **Acceptable Methods of Verification**
    1. **Place of Business in the Country of Incorporation or Registration**
        1. For Applicants whose Place of Business is in the same country as the Applicant's Jurisdiction of Incorporation or Registration and whose Place of Business is NOT the same as that indicated in the relevant Qualified Government Information Source used in [Section 3.2.2.2.1](#32221-verification-of-applicants-legal-existence-and-identity-) to verify legal existence:
-          1. For Applicants listed at the same Place of Business address in the current version of either at least one QGIS (other than that used to verify legal existence), QIIS or QTIS, the CA MUST confirm that the Applicant's address, as listed in the EV Certificate Request, is a valid business address for the Applicant or a Parent/Subsidiary Company by reference to such QGIS, QIIS, or QTIS, and MAY rely on the Applicant's representation that such address is its Place of Business;
-          2. For Applicants who are not listed at the same Place of Business address in the current version of either at least one QIIS or QTIS, the CA MUST confirm that the address provided by the Applicant in the EV Certificate Request is the Applicant's or a Parent/Subsidiary Company's business address, by obtaining documentation of a site visit to the business address, which MUST be performed by a reliable individual or firm. The documentation of the site visit MUST:
-             1. Verify that the Applicant's business is located at the exact address stated in the EV Certificate Request (e.g., via permanent signage, employee confirmation, etc.),
+          1. For Applicants listed at the same Place of Business address in the current version of either at least one QGIS (other than that used to verify legal existence), QIIS or QTIS, the CA MUST confirm that the Applicant's address, as listed in the EV Code Signing Certificate Request, is a valid business address for the Applicant or a Parent/Subsidiary Company by reference to such QGIS, QIIS, or QTIS, and MAY rely on the Applicant's representation that such address is its Place of Business;
+          2. For Applicants who are not listed at the same Place of Business address in the current version of either at least one QIIS or QTIS, the CA MUST confirm that the address provided by the Applicant in the EV Code Signing Certificate Request is the Applicant's or a Parent/Subsidiary Company's business address, by obtaining documentation of a site visit to the business address, which MUST be performed by a reliable individual or firm. The documentation of the site visit MUST:
+             1. Verify that the Applicant's business is located at the exact address stated in the EV Code Signing Certificate Request (e.g., via permanent signage, employee confirmation, etc.),
              2. Identify the type of facility (e.g., office in a commercial building, private residence, storefront, etc.) and whether it appears to be a permanent business location,
              3. Indicate whether there is a permanent sign (that cannot be moved) that identifies the Applicant,
              4. Indicate whether there is evidence that the Applicant is conducting ongoing business activities at the site (not that it is just, for example, a mail drop, P.O. box, etc.), and
@@ -755,7 +755,7 @@ To verify the Applicant's legal existence and identity, the CA MUST do the follo
                 2. the interior reception area or workspace.
        2. For all Applicants, the CA MAY alternatively rely on a Verified Professional Letter that indicates the address of the Applicant's or a Parent/Subsidiary Company's Place of Business and that business operations are conducted there.
        3. For Government Entity Applicants, the CA MAY rely on the address contained in the records of the QGIS in the Applicant's jurisdiction.
-       4. For Applicants whose Place of Business is in the same country as the Applicant's Jurisdiction of Incorporation or Registration and where the QGIS used in [Section 3.2.2.2.1](#32221-verification-of-applicants-legal-existence-and-identity-) to verify legal existence contains a business address for the Applicant, the CA MAY rely on the address in the QGIS to confirm the Applicant's or a Parent/Subsidiary Company's address as listed in the EV Certificate Request, and MAY rely on the Applicant's representation that such address is its Place of Business.
+       4. For Applicants whose Place of Business is in the same country as the Applicant's Jurisdiction of Incorporation or Registration and where the QGIS used in [Section 3.2.2.2.1](#32221-verification-of-applicants-legal-existence-and-identity-) to verify legal existence contains a business address for the Applicant, the CA MAY rely on the address in the QGIS to confirm the Applicant's or a Parent/Subsidiary Company's address as listed in the EV Code Signing Certificate Request, and MAY rely on the Applicant's representation that such address is its Place of Business.
    2. **Place of Business not in the Country of Incorporation or Registration**: The CA MUST rely on a Verified Professional Letter that indicates the address of the Applicant's Place of Business and that business operations are conducted there.
 
 ##### 3.2.2.2.4 Verified Method of Communication
@@ -786,10 +786,10 @@ Code Signing Certificates SHALL NOT include a Domain Name.
 1. **Verification Requirements**: For both the Contract Signer and the Certificate Approver, the CA MUST verify the following.
    1. **Name, Title and Agency**: The CA MUST verify the name and title of the Contract Signer and the Certificate Approver, as applicable. The CA MUST also verify that the Contract Signer and the Certificate Approver are agents representing the Applicant.
    2. **Signing Authority of Contract Signer**: The CA MUST verify that the Contract Signer is authorized by the Applicant to enter into the Subscriber Agreement (and any other relevant contractual obligations) on behalf of the Applicant, including a contract that designates one or more Certificate Approvers on behalf of the Applicant.
-   3. **EV Authority of Certificate Approver**: The CA MUST verify, through a source other than the Certificate Approver him- or herself, that the Certificate Approver is expressly authorized by the Applicant to do the following, as of the date of the EV Certificate Request:
-      1. Submit, and, if applicable, authorize a Certificate Requester to submit, the EV Certificate Request on behalf of the Applicant; and
+   3. **EV Authority of Certificate Approver**: The CA MUST verify, through a source other than the Certificate Approver him- or herself, that the Certificate Approver is expressly authorized by the Applicant to do the following, as of the date of the EV Code Signing Certificate Request:
+      1. Submit, and, if applicable, authorize a Certificate Requester to submit, the EV Code Signing Certificate Request on behalf of the Applicant; and
       2. Provide, and, if applicable, authorize a Certificate Requester to provide, the information requested from the Applicant by the CA for issuance of the EV Code SigningCertificate; and
-      3. Approve EV Certificate Requests submitted by a Certificate Requester.
+      3. Approve EV Code Signing Certificate Requests submitted by a Certificate Requester.
 2. **Acceptable Methods of Verification – Name, Title and Agency**: Acceptable methods of verification of the name, title, and agency status of the Contract Signer and the Certificate Approver include the following.
    1. **Name and Title**: The CA MAY verify the name and title of the Contract Signer and the Certificate Approver by any appropriate method designed to provide reasonable assurance that a person claiming to act in such a role is in fact the named person designated to act in such role.
    2. **Agency**: The CA MAY verify the agency of the Contract Signer and the Certificate Approver by:
@@ -807,7 +807,7 @@ Code Signing Certificates SHALL NOT include a Domain Name.
    3. **Independent Confirmation from Applicant**: The Signing Authority of the Contract Signer, and/or the EV Authority of the Certificate Approver, MAY be verified by obtaining an Independent Confirmation from the Applicant (as described in [Section 3.2.2.2.12](#322212-independent-confirmation-from-applicant));
    4. **Contract between CA and Applicant**: The EV Authority of the Certificate Approver MAY be verified by reliance on a contract between the CA and the Applicant that designates the Certificate Approver with such EV Authority, provided that the contract is signed by the Contract Signer and provided that the agency and Signing Authority of the Contract Signer have been verified;
    5. **Prior Equivalent Authority**: The signing authority of the Contract Signer, and/or the EV authority of the Certificate Approver, MAY be verified by relying on a demonstration of Prior Equivalent Authority.
-      1. Prior Equivalent Authority of a Contract Signer MAY be relied upon for confirmation or verification of the signing authority of the Contract Signer when the Contract Signer has executed a binding contract between the CA and the Applicant with a legally valid and enforceable seal or handwritten signature and only when the contract was executed more than 90 days prior to the EV Certificate application. The CA MUST record sufficient details of the previous agreement to correctly identify it and associate it with the EV application. Such details MAY include any of the following:
+      1. Prior Equivalent Authority of a Contract Signer MAY be relied upon for confirmation or verification of the signing authority of the Contract Signer when the Contract Signer has executed a binding contract between the CA and the Applicant with a legally valid and enforceable seal or handwritten signature and only when the contract was executed more than 90 days prior to the EV Code Signing Certificate application. The CA MUST record sufficient details of the previous agreement to correctly identify it and associate it with the EV application. Such details MAY include any of the following:
          1. Agreement title,
          2. Date of Contract Signer's signature,
          3. Contract reference number, and
@@ -825,25 +825,25 @@ Code Signing Certificates SHALL NOT include a Domain Name.
 
    Note: An example of an acceptable representation/warranty appears in [Appendix E](#appendix-e---sample-contract-signers-representationwarranty-informative).
 
-4. **Pre-Authorized Certificate Approver**: Where the CA and Applicant contemplate the submission of multiple future EV Certificate Requests, then, after the CA:
+4. **Pre-Authorized Certificate Approver**: Where the CA and Applicant contemplate the submission of multiple future EV Code Signing Certificate Requests, then, after the CA:
    1. Has verified the name and title of the Contract Signer and that he/she is an employee or agent of the Applicant; and
    2. Has verified the Signing Authority of such Contract Signer in accordance with one of the procedures in 3.2.2.2.7 (3) Acceptable Methods of Verification – Authority.
 
-   The CA and the Applicant MAY enter into a written agreement, signed by the Contract Signer on behalf of the Applicant, whereby, for a specified term, the Applicant expressly authorizes one or more Certificate Approver(s) designated in such agreement to exercise EV Authority with respect to each future EV Certificate Request submitted on behalf of the Applicant and properly authenticated as originating with, or otherwise being approved by, such Certificate Approver(s).
+   The CA and the Applicant MAY enter into a written agreement, signed by the Contract Signer on behalf of the Applicant, whereby, for a specified term, the Applicant expressly authorizes one or more Certificate Approver(s) designated in such agreement to exercise EV Authority with respect to each future EV Code Signing Certificate Request submitted on behalf of the Applicant and properly authenticated as originating with, or otherwise being approved by, such Certificate Approver(s).
 
-   Such an agreement MUST provide that the Applicant shall be obligated under the Subscriber Agreement for all EV Certificates issued at the request of, or approved by, such Certificate Approver(s) until such EV Authority is revoked, and MUST include mutually agreed-upon provisions for:
-      1. authenticating the Certificate Approver when EV Certificate Requests are approved,
+   Such an agreement MUST provide that the Applicant shall be obligated under the Subscriber Agreement for all EV Code Signing Certificates issued at the request of, or approved by, such Certificate Approver(s) until such EV Authority is revoked, and MUST include mutually agreed-upon provisions for:
+      1. authenticating the Certificate Approver when EV Code Signing Certificate Requests are approved,
       2. periodic re-confirmation of the EV Authority of the Certificate Approver,
       3. secure procedures by which the Applicant can notify the CA that the EV Authority of any such Certificate Approver is revoked, and
       4. such other appropriate precautions as are reasonably necessary.
 
 ##### 3.2.2.2.8 Verification of Signature on Subscriber Agreement and EV Code Signing Certificate Requests
 
-Both the Subscriber Agreement and each non-pre-authorized EV Certificate Request MUST be signed. The Subscriber Agreement MUST be signed by an authorized Contract Signer. The EV Certificate Request MUST be signed by the Certificate Requester submitting the document, unless the Certificate Request has been pre-authorized in line with [Section 3.2.2.2.7 (4)](#32227-verification-of-name-title-and-authority-of-contract-signer-and-certificate-approver-) (pre-Authorized Certificate Approver). If the Certificate Requester is not also an authorized Certificate Approver, then an authorized Certificate Approver MUST independently approve the EV Certificate Request. In all cases, applicable signatures MUST be a legally valid and contain an enforceable seal or handwritten signature (for a paper Subscriber Agreement and/or EV Certificate Request), or a legally valid and enforceable electronic signature (for an electronic Subscriber Agreement and/or EV Certificate Request), that binds the Applicant to the terms of each respective document.
+Both the Subscriber Agreement and each non-pre-authorized EV Code Signing Certificate Request MUST be signed. The Subscriber Agreement MUST be signed by an authorized Contract Signer. The EV Code Signing Certificate Request MUST be signed by the Certificate Requester submitting the document, unless the Certificate Request has been pre-authorized in line with [Section 3.2.2.2.7 (4)](#32227-verification-of-name-title-and-authority-of-contract-signer-and-certificate-approver-) (pre-Authorized Certificate Approver). If the Certificate Requester is not also an authorized Certificate Approver, then an authorized Certificate Approver MUST independently approve the EV Code Signing Certificate Request. In all cases, applicable signatures MUST be a legally valid and contain an enforceable seal or handwritten signature (for a paper Subscriber Agreement and/or EV Code Signing Certificate Request), or a legally valid and enforceable electronic signature (for an electronic Subscriber Agreement and/or EV Code Signing Certificate Request), that binds the Applicant to the terms of each respective document.
 
 1. **Verification Requirements**:
-   1. **Signature**: The CA MUST authenticate the signature of the Contract Signer on the Subscriber Agreement and the signature of the Certificate Requester on each EV Certificate Request in a manner that makes it reasonably certain that the person named as the signer in the applicable document is, in fact, the person who signed the document on behalf of the Applicant.
-   2. **Approval Alternative**: In cases where an EV Certificate Request is signed and submitted by a Certificate Requester who does not also function as a Certificate Approver, approval and adoption of the EV Certificate Request by a Certificate Approver in accordance with the requirements of [Section 3.2.2.2.9](#32229-verification-of-approval-of-ev-code-signing-certificate-request-) can substitute for authentication of the signature of the Certificate Requester on such EV Certificate Request.
+   1. **Signature**: The CA MUST authenticate the signature of the Contract Signer on the Subscriber Agreement and the signature of the Certificate Requester on each EV Code Signing Certificate Request in a manner that makes it reasonably certain that the person named as the signer in the applicable document is, in fact, the person who signed the document on behalf of the Applicant.
+   2. **Approval Alternative**: In cases where an EV Code Signing Certificate Request is signed and submitted by a Certificate Requester who does not also function as a Certificate Approver, approval and adoption of the EV Code Signing Certificate Request by a Certificate Approver in accordance with the requirements of [Section 3.2.2.2.9](#32229-verification-of-approval-of-ev-code-signing-certificate-request-) can substitute for authentication of the signature of the Certificate Requester on such EV Code Signing Certificate Request.
 2. **Acceptable Methods of Signature Verification**: Acceptable methods of authenticating the signature of the Certificate Requester or Contract Signer include the following:
    1. Contacting the Applicant using a Verified Method of Communication for the Applicant, for the attention of the Certificate Requester or Contract Signer, as applicable, followed by a response from someone who identifies themselves as such person confirming that he/she did sign the applicable document on behalf of the Applicant;
    2. A letter mailed to the Applicant's or Agent's address, as verified through independent means in accordance with these Guidelines, for the attention of the Certificate Requester or Contract Signer, as applicable, followed by a response through a Verified Method of Communication from someone who identifies themselves as such person confirming that he/she did sign the applicable document on behalf of the Applicant;
@@ -852,13 +852,13 @@ Both the Subscriber Agreement and each non-pre-authorized EV Certificate Request
 
 ##### 3.2.2.2.9 Verification of Approval of EV Code Signing Certificate Request 
 
-1. **Verification Requirements**: In cases where an EV Certificate Request is submitted by a Certificate Requester, before the CA issues the requested EV Code Signing Certificate, the CA MUST verify that an authorized Certificate Approver reviewed and approved the EV Certificate Request.
+1. **Verification Requirements**: In cases where an EV Code Signing Certificate Request is submitted by a Certificate Requester, before the CA issues the requested EV Code Signing Certificate, the CA MUST verify that an authorized Certificate Approver reviewed and approved the EV Code Signing Certificate Request.
 
-2. **Acceptable Methods of Verification**: Acceptable methods of verifying the Certificate Approver's approval of an EV Certificate Request include:
+2. **Acceptable Methods of Verification**: Acceptable methods of verifying the Certificate Approver's approval of an EV Code Signing Certificate Request include:
 
-   1. Contacting the Certificate Approver using a Verified Method of Communication for the Applicant and obtaining oral or written confirmation that the Certificate Approver has reviewed and approved the EV Certificate Request;
-   2. Notifying the Certificate Approver that one or more new EV Certificate Requests are available for review and approval at a designated access-controlled and secure Web site, followed by a login by, and an indication of approval from, the Certificate Approver in the manner required by the Web site; or
-   3. Verifying the signature of the Certificate Approver on the EV Certificate Request in accordance with [Section 3.2.2.2.8](#32228-verification-of-signature-on-subscriber-agreement-and-ev-code-signing-certificate-requests).
+   1. Contacting the Certificate Approver using a Verified Method of Communication for the Applicant and obtaining oral or written confirmation that the Certificate Approver has reviewed and approved the EV Code Signing Certificate Request;
+   2. Notifying the Certificate Approver that one or more new EV Code Signing Certificate Requests are available for review and approval at a designated access-controlled and secure Web site, followed by a login by, and an indication of approval from, the Certificate Approver in the manner required by the Web site; or
+   3. Verifying the signature of the Certificate Approver on the EV Code Signing Certificate Request in accordance with [Section 3.2.2.2.8](#32228-verification-of-signature-on-subscriber-agreement-and-ev-code-signing-certificate-requests).
 
 ##### 3.2.2.2.10 Verification of Certain Information Sources
 
@@ -1062,7 +1062,7 @@ Databases maintained by the CA, its owner, or its affiliated companies do not qu
 
 ### 3.2.8. Denied Lists and Other Legal Block Lists
 
-This section is applicable for EV Certificate Requests.
+This section is applicable for EV Code Signing Certificate Requests.
 
 1. **Verification Requirements**: The CA MUST verify whether the Applicant, the Contract Signer, the Certificate Approver, the Applicant's Jurisdiction of Incorporation, Registration, or Place of Business:
 
@@ -1084,13 +1084,13 @@ This section is applicable for EV Certificate Requests.
 
 ### 3.2.9 Final Cross-Correlation and Due Diligence
 
-1. The results of the verification processes and procedures outlined in these Guidelines are intended to be viewed both individually and as a group. Thus, after all of the verification processes and procedures are completed, the CA MUST have a person who is not responsible for the collection of information review all of the information and documentation assembled in support of the EV Certificate application and look for discrepancies or other details requiring further explanation.
+1. The results of the verification processes and procedures outlined in these Guidelines are intended to be viewed both individually and as a group. Thus, after all of the verification processes and procedures are completed, the CA MUST have a person who is not responsible for the collection of information review all of the information and documentation assembled in support of the EV Code Signing Certificate application and look for discrepancies or other details requiring further explanation.
 2. The CA MUST obtain and document further explanation or clarification from the Applicant, Certificate Approver, Certificate Requester, Qualified Independent Information Sources, and/or other sources of information, as necessary, to resolve those discrepancies or details that require further explanation.
-3. The CA MUST refrain from issuing an EV Certificate until the entire corpus of information and documentation assembled in support of the EV Certificate Request is such that issuance of the EV Certificate will not communicate factual information that the CA knows, or the exercise of due diligence should discover from the assembled information and documentation, to be inaccurate,.  If satisfactory explanation and/or additional documentation are not received within a reasonable time, the CA MUST decline the EV Certificate Request and SHOULD notify the Applicant accordingly.
+3. The CA MUST refrain from issuing an EV Code Signing Certificate until the entire corpus of information and documentation assembled in support of the EV Code Signing Certificate Request is such that issuance of the EV Code Signing Certificate will not communicate factual information that the CA knows, or the exercise of due diligence should discover from the assembled information and documentation, to be inaccurate,.  If satisfactory explanation and/or additional documentation are not received within a reasonable time, the CA MUST decline the EV Code Signing Certificate Request and SHOULD notify the Applicant accordingly.
 4. In the case where some or all of the documentation used to support the application is in a language other than the CA's normal operating language, the CA or its Affiliate MUST perform the requirements of this Final Cross-Correlation and Due Diligence section using employees under its control and having appropriate training, experience, and judgment in confirming organizational identification and authorization and fulfilling all qualification requirements contained in [Section 5.3](#53-personnel-controls). When employees under the control of the CA do not possess the language skills necessary to perform the Final Cross-Correlation and Due Diligence a CA MAY:
 
    1. Rely on language translations of the relevant portions of the documentation, provided that the translations are received from a Translator; or
-   2. When the CA has utilized the services of an RA, the CA MAY rely on the language skills of the RA to perform the Final Cross-Correlation and Due Diligence, provided that the RA complies with [Section 3.2.9](#329-final-cross-correlation-and-due-diligence), Subsections (1), (2) and (3). Notwithstanding the foregoing, prior to issuing the EV Certificate, the CA MUST review the work completed by the RA and determine that all requirements have been met; or
+   2. When the CA has utilized the services of an RA, the CA MAY rely on the language skills of the RA to perform the Final Cross-Correlation and Due Diligence, provided that the RA complies with [Section 3.2.9](#329-final-cross-correlation-and-due-diligence), Subsections (1), (2) and (3). Notwithstanding the foregoing, prior to issuing the EV Code Signing Certificate, the CA MUST review the work completed by the RA and determine that all requirements have been met; or
    3. When the CA has utilized the services of an RA, the CA MAY rely on the RA to perform the Final Cross-Correlation and Due Diligence, provided that the RA complies with this section and is subjected to the Audit Requirements of [Section 8.7](#87-self-audits) and [Section 8.2](#82-identityqualifications-of-assessor).
 
 In the case of EV Code Signing Certificates to be issued in compliance with the requirements of [Section 1.3.2.1](#1321-delegation-of-functions-to-registration-authorities-and-subcontractors), the Enterprise RA MAY perform the requirements of this Final Cross-Correlation and Due Diligence section.
@@ -1163,7 +1163,7 @@ An Applicant qualifies as a Non-Commercial Entity if:
 2. The Applicant is not headquartered in any country where the CA is prohibited from doing business or issuing a certificate by the laws of the CA's jurisdiction; and
 3. The Applicant is not listed on any government denial list or prohibited list (e.g., trade embargo) under the laws of the CA's jurisdiction.
 
-Subsidiary organizations or agencies of an entity that qualifies as a Non-Commercial Entity also qualifies for EV Certificates as a Non-Commercial Entity.
+Subsidiary organizations or agencies of an entity that qualifies as a Non-Commercial Entity also qualifies for EV Code Signing Certificates as a Non-Commercial Entity.
 
 ### 4.1.2 Enrollment process and responsibilities
 
@@ -1187,7 +1187,7 @@ For EV Code Signing Certificates, use of documents, data, and previous validatio
 
 #### 4.2.1.1 Requirements for Re-use of Existing Documentation for EV Code Signing Certificates
 
-For each EV Certificate Request, including requests to renew existing EV Certificates, the CA MUST perform all authentication and verification tasks required to ensure that the request is properly authorized by the Applicant and that the information in the EV Code Signing Certificate is still accurate and valid. This section sets forth the age limitations for the use of documentation collected by the CA for EV Code Signing Certificates.
+For each EV Code Signing Certificate Request, including requests to renew existing EV Code Signing Certificates, the CA MUST perform all authentication and verification tasks required to ensure that the request is properly authorized by the Applicant and that the information in the EV Code Signing Certificate is still accurate and valid. This section sets forth the age limitations for the use of documentation collected by the CA for EV Code Signing Certificates.
 
 ##### 4.2.1.1.1 Validation For Existing EV Subscribers
 
@@ -1218,7 +1218,7 @@ A CA may rely on a previously verified EV Code Signing Certificate request to is
    6. Name, Title, Agency, and Authority – 398 days, unless a contract between the CA and the Applicant specifies a different term, in which case, the term specified in such contract controls.  For example, the contract MAY include the perpetual assignment of EV roles until revoked by the Applicant or CA, or until the contract expires or is terminated.
 
 2. The 398-day period set forth above SHALL begin to run on the date the information was collected by the CA.
-3. The CA MAY reuse a previously submitted EV Certificate Request, Subscriber Agreement, or Terms of Use, including use of a single EV Certificate Request in support of multiple EV Code Signing Certificates containing the same Subject to the extent permitted under [Section 3.2.2.2.8](#32228-verification-of-signature-on-subscriber-agreement-and-ev-code-signing-certificate-requests) and [Section 3.2.2.2.9](#32229-verification-of-approval-of-ev-code-signing-certificate-request-).
+3. The CA MAY reuse a previously submitted EV Code Signing Certificate Request, Subscriber Agreement, or Terms of Use, including use of a single EV Code Signing Certificate Request in support of multiple EV Code Signing Certificates containing the same Subject to the extent permitted under [Section 3.2.2.2.8](#32228-verification-of-signature-on-subscriber-agreement-and-ev-code-signing-certificate-requests) and [Section 3.2.2.2.9](#32229-verification-of-approval-of-ev-code-signing-certificate-request-).
 4. The CA MUST repeat the verification process required in these Guidelines for any information obtained outside the time limits specified above except when permitted otherwise under [Section 4.2.1.1.1](#42111-validation-for-existing-ev-subscribers).
 
 ### 4.2.2 Approval or rejection of certificate applications
@@ -1605,7 +1605,7 @@ The CA Private Key SHALL be backed up, stored, and recovered only by personnel i
 
 ### 5.2.4 Roles requiring separation of duties
 
-1. The CA MUST enforce rigorous control procedures for the separation of validation duties to ensure that no one person can single-handedly validate and authorize the issuance of an EV Certificate. The Final Cross-Correlation and Due Diligence steps, as outlined in [Section 3.2.9](#32229-verification-of-approval-of-ev-code-signing-certificate-request-), MAY be performed by one of the persons. For example, one Validation Specialist MAY review and verify all the Applicant information and a second Validation Specialist MAY approve issuance of the EV Certificate.
+1. The CA MUST enforce rigorous control procedures for the separation of validation duties to ensure that no one person can single-handedly validate and authorize the issuance of an EV Code Signing Certificate. The Final Cross-Correlation and Due Diligence steps, as outlined in [Section 3.2.9](#32229-verification-of-approval-of-ev-code-signing-certificate-request-), MAY be performed by one of the persons. For example, one Validation Specialist MAY review and verify all the Applicant information and a second Validation Specialist MAY approve issuance of the EV Code Signing Certificate.
 2. Such controls MUST be auditable.
 
 ## 5.3 Personnel controls
@@ -1645,7 +1645,7 @@ The CA SHALL document that each Validation Specialist possesses the skills requi
 
 The CA SHALL require all Validation Specialists to pass an examination provided by the CA on the information verification requirements outlined in these Requirements. 
 
-If a Validation Specialist is to be engaged in the EV Processes, the required internal examination must relate to the EV Certificate validation criteria outlined in these Guidelines.
+If a Validation Specialist is to be engaged in the EV Processes, the required internal examination must relate to the EV Code Signing Certificate validation criteria outlined in these Guidelines.
 
 ### 5.3.4 Retraining frequency and requirements
 
@@ -2361,7 +2361,7 @@ When abbreviating a Subject's full legal name as allowed by this subsection, the
 
 In addition, an assumed name or DBA name used by the Subject MAY be included at the beginning of this field, provided that it is followed by the full legal organization name in parenthesis.
 
-If the combination of names or the organization name by itself exceeds 64 characters, the CA MAY abbreviate parts of the organization name, and/or omit non-material words in the organization name in such a way that the text in this field does not exceed the 64-character limit; provided that the CA checks this field in accordance with the High Risk Certificate Request requirements of [Section 4.2.1](#421-performing-identification-and-authentication-functions) and a Relying Party will not be misled into thinking that they are dealing with a different organization. In cases where this is not possible, the CA MUST NOT issue the EV Certificate.
+If the combination of names or the organization name by itself exceeds 64 characters, the CA MAY abbreviate parts of the organization name, and/or omit non-material words in the organization name in such a way that the text in this field does not exceed the 64-character limit; provided that the CA checks this field in accordance with the High Risk Certificate Request requirements of [Section 4.2.1](#421-performing-identification-and-authentication-functions) and a Relying Party will not be misled into thinking that they are dealing with a different organization. In cases where this is not possible, the CA MUST NOT issue the EV Code Signing Certificate.
 
 b. __Certificate Field:__ `subject:businessCategory` (OID 2.5.4.15)  
    __Required/Optional:__ Required  
@@ -2601,7 +2601,7 @@ For EV Code Signing Certificates, the CA SHALL maintain the following insurance 
 
 1. Commercial General Liability insurance (occurrence form) with policy limits of at least two million US dollars in coverage; and
 2. Professional Liability/Errors and Omissions insurance, with policy limits of at least five million US dollars in coverage, and including coverage for:
-   1. claims for damages arising out of an act, error, or omission, unintentional breach of contract, or neglect in issuing or maintaining EV Certificates, and;
+   1. claims for damages arising out of an act, error, or omission, unintentional breach of contract, or neglect in issuing or maintaining EV Code Signing Certificates, and;
    2. claims for damages arising out of infringement of the proprietary rights of any third party (excluding copyright, and trademark infringement), and invasion of privacy and advertising injury.
 
 Such insurance must be with a company rated no less than A- as to Policy Holder's Rating in the current edition of Best's Insurance Guide (or with an association of companies each of the members of which are so rated).
@@ -2761,7 +2761,7 @@ NONE
 
 | To:                    | **(Name of Issuing Certification Authority)(Address / fax number of Issuing CA – may be sent by fax or email attachment)** |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------|
-| Re:                    | **EV Certificate Request No. (CA Reference Number)**                                                                       |
+| Re:                    | **EV Code Signing Certificate Request No. (CA Reference Number)**                                                                       |
 | Client:                | **(Exact company name of Client – see footnote 1)**                                                                        |
 | Client Representative: | **(Exact name of Client Representative who signed the Application – see footnote 2)**                                      |
 | Application Date:      | **(Insert date of Client's Application to the Issuing CA)**                                                                |
@@ -2776,7 +2776,7 @@ On this basis, we hereby offer the following opinion:
 
 2. That Company conducts business under the assumed name or "DBA"_[assumed name of the Applicant]_ and has registered such name with the appropriate government agency in the jurisdiction of its place of business below.
 
-3. That _[name of Client's Representative]_[^2]  has authority to act on behalf of Company to: [_select as appropriate_] (a) provide the information about Company required for issuance of the EV Certificates as contained in the attached Application, (b) request one or more EV Certificates and to designate other persons to request EV Certificates, and (c) agree to the relevant contractual obligations contained in the Subscriber Agreement on behalf of Company.
+3. That _[name of Client's Representative]_[^2]  has authority to act on behalf of Company to: [_select as appropriate_] (a) provide the information about Company required for issuance of the EV Code Signing Certificates as contained in the attached Application, (b) request one or more EV Code Signing Certificates and to designate other persons to request EV Code Signing Certificates, and (c) agree to the relevant contractual obligations contained in the Subscriber Agreement on behalf of Company.
 
 4. That Company has a physical presence and its place of business is at the following location:
 
@@ -2802,7 +2802,7 @@ _[Jurisdiction(s) in which attorney / Latin notary is admitted to practice]_[^3]
 
 cc: [Send copy to Client_]_
 
-[^1]: This must be the Client's exact corporate name, as registered with the relevant Incorporating Agency in the Client's Jurisdiction of Incorporation.  This is the name that will be included in the EV Certificate.
+[^1]: This must be the Client's exact corporate name, as registered with the relevant Incorporating Agency in the Client's Jurisdiction of Incorporation.  This is the name that will be included in the EV Code Signing Certificate.
 
 [^2]: If necessary to establish the Client Representative's actual authority, you may rely on a Power of Attorney from an officer of Client who has authority to delegate the authority to the Client Representative.
 
@@ -2872,7 +2872,7 @@ As specifically agreed, I/we have performed the following procedures in connecti
 |                                                       |                                                                                                                                                                                                    |                                                                                                                                                                                      |
 | Name of application signer and approver               | Obtain letter from verified Officer confirming the names of the application signer and approver                                                                                                    | Obtained letter from the President confirming the names of the duly authorized names of the application signer and approver as they appear in the application                        |
 
-As a result of applying the above procedures, I/we found [no / the following] exceptions [list of exceptions].  However, these procedures do not constitute an audit of the company's application for an EV Certificate, and therefore I express no opinion on the application dated ......................., 20.....
+As a result of applying the above procedures, I/we found [no / the following] exceptions [list of exceptions].  However, these procedures do not constitute an audit of the company's application for an EV Code Signing Certificate, and therefore I express no opinion on the application dated ......................., 20.....
 
 This letter is for use solely in connection with the application for an Extended Validation Certificate by [Client] dated ......................., 20......
 
@@ -2888,7 +2888,7 @@ NOTE: This appendix provides alternative interpretations of the EV Guidelines fo
 
 1. Non-Latin Organization Name
 
-   Where an EV Applicant's organization name is not registered with a QGIS in _Latin_ characters and the Applicant's foreign character organization name and registration have been verified with a QGIS in accordance with these Guidelines, a CA MAY include a Latin character organization name in the EV Certificate.  In such a case, the CA MUST follow the procedures laid down in this section.
+   Where an EV Applicant's organization name is not registered with a QGIS in _Latin_ characters and the Applicant's foreign character organization name and registration have been verified with a QGIS in accordance with these Guidelines, a CA MAY include a Latin character organization name in the EV Code Signing Certificate.  In such a case, the CA MUST follow the procedures laid down in this section.
 
 2. Romanized Names
 
@@ -2921,7 +2921,7 @@ As interpretation of the procedures set out above:
    2. The CA MAY verify the Romanized transliteration, language translation (e.g. English name), or other recognized Roman-letter substitute of the Applicant's formal legal name with either a QIIS, Verified Legal Opinion, or Verified Accountant Letter.
    3. The CA MAY use the Financial Services Agency to verify a Romanized, translated, or other recognized Roman-letter substitute name.  When used, the CA MUST verify that the translated English is recorded in the audited Financial Statements.
    4. When relying on Articles of Incorporation to verify a Romanized, translated, or other recognized Roman-letter substitute name, the Articles of Incorporation MUST be accompanied either: by a document, signed with the original Japanese Corporate Stamp, that proves that the Articles of Incorporation are authentic and current, or by a Verified Legal Opinion or a Verified Accountant Letter.  The CA MUST verify the authenticity of the Corporate Stamp.
-   5. A Romanized, translated, or other recognized Roman-lettered substitute name confirmed in accordance with this [Appendix D-1](#d-1-japan) stored in the ROBINS database operated by JIPDEC MAY be relied upon by a CA for determining the allowed organization name during any issuance or renewal process of an EV Certificate without the need to re-perform the above procedures.
+   5. A Romanized, translated, or other recognized Roman-lettered substitute name confirmed in accordance with this [Appendix D-1](#d-1-japan) stored in the ROBINS database operated by JIPDEC MAY be relied upon by a CA for determining the allowed organization name during any issuance or renewal process of an EV Code Signing Certificate without the need to re-perform the above procedures.
 
 2. Accounting Practitioner
 
@@ -2955,11 +2955,11 @@ As interpretation of the procedures set out above:
 
 A CA may rely on the Contract Signer's authority to enter into the Subscriber Agreement using a representation/warranty executed by the Contract Signer.  An example of an acceptable warranty is as follows:
 
-[CA] and Applicant are entering into a legally valid and enforceable Subscriber Agreement that creates extensive obligations on Applicant.  An EV Certificate serves as a form of digital identity for Applicant.  The loss or misuse of this identity can result in great harm to the Applicant.  By signing this Subscriber Agreement, the contract signer acknowledges that they have the authority to obtain the digital equivalent of a company stamp, seal, or (where applicable) officer's signature to establish the authenticity of the company's website, and that [Applicant name] is responsible for all uses of its EV Certificate.  By signing this Agreement on behalf of [Applicant name], the contract signer represents that the contract signer
+[CA] and Applicant are entering into a legally valid and enforceable Subscriber Agreement that creates extensive obligations on Applicant.  An EV Code Signing Certificate serves as a form of digital identity for Applicant.  The loss or misuse of this identity can result in great harm to the Applicant.  By signing this Subscriber Agreement, the contract signer acknowledges that they have the authority to obtain the digital equivalent of a company stamp, seal, or (where applicable) officer's signature to establish the authenticity of the company's website, and that [Applicant name] is responsible for all uses of its EV Code Signing Certificate.  By signing this Agreement on behalf of [Applicant name], the contract signer represents that the contract signer
 
 1. is acting as an authorized representative of [Applicant name],
-2. is expressly authorized by [Applicant name] to sign Subscriber Agreements and approve EV Certificate requests on Applicant's behalf, and
-3. has confirmed Applicant's right to use the domain(s) to be included in EV Certificates.
+2. is expressly authorized by [Applicant name] to sign Subscriber Agreements and approve EV Code Signing Certificate requests on Applicant's behalf, and
+3. has confirmed Applicant's right to use the domain(s) to be included in EV Code Signing Certificates.
 
 # Appendix F – Unused
 
