@@ -4,7 +4,7 @@ subtitle: Version 3.8.0
 
 author:
   - CA/Browser Forum
-date: XX YY, 2024
+date: August 1st, 2024
 
 copyright: |
   Copyright 2024 CA/Browser Forum
@@ -58,6 +58,7 @@ The following Certificate Policy Identifier is reserved for use by CAs as a requ
 | 3.5      | CSC-20     | Restore Version Reference to EV Guidelines                                                                        | 7 December 2023   |
 | 3.6      | CSC-21     | Improved signing services requirements                                                                            | 28 February 2024  |
 | 3.7      | CSC-22     | High risk changes                                                                                                 | 28 February 2024  |
+| 3.8      | CSC-25     | Import EV Guidelines into the Code Signing Baseline Requirements                                                  | 1 August 2024     |
 
 
 ### 1.2.2 Relevant Dates
