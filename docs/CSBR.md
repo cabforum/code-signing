@@ -4,7 +4,7 @@ subtitle: Version 3.8.0
 
 author:
   - CA/Browser Forum
-date: August 1st, 2024
+date: August 1, 2024
 
 copyright: |
   Copyright 2024 CA/Browser Forum
