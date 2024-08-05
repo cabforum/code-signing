@@ -1,5 +1,6 @@
 ---
 title: Baseline Requirements for the Issuance and Management of Publicly-Trusted Code Signing Certificates
+
 subtitle: Version 3.8.0
 
 author:
@@ -59,7 +60,6 @@ The following Certificate Policy Identifier is reserved for use by CAs as a requ
 | 3.6      | CSC-21     | Improved signing services requirements                                                                            | 28 February 2024  |
 | 3.7      | CSC-22     | High risk changes                                                                                                 | 28 February 2024  |
 | 3.8      | CSC-25     | Import EV Guidelines into the Code Signing Baseline Requirements                                                  | 1 August 2024     |
-
 
 ### 1.2.2 Relevant Dates
 
@@ -1955,7 +1955,9 @@ The CA SHALL protect its Private Key in a system or device that has been validat
 
 #### 6.2.7.2 Private key storage for Timestamp Authorities
 
-A Timestamp Authority MUST protect its Private Key using a process that is at least to FIPS 140-2 level 3, Common Criteria EAL 4+ (ALC\_FLR.2), or higher.
+Effective April 15, 2025, a Timestamp Authority MUST generate and protect Private Keys associated with its Root CA certificates and new Subordinate CA certificates with a validity period of greater than 72 months containing the `id-kp-timeStamping` KeyPurposeId in the `extKeyUsage` extension (per section 7.1.2.2 g), in a Hardware Crypto Module conforming to the requirements specified in [Section 6.2.7.1](#6271-private-key-storage-for-CA-keys), maintained in a High Security Zone and in an offline state or air-gapped from all other networks.
+
+Timestamp Certificates issued on or after April 15, 2025, issued by a Timestamp Authority Subordinate CA with a validity period greater than 72 months, MUST be signed by a Private Key generated and protected in a Hardware Crypto Module conforming to the requirements specified in [Section 6.2.7.1](#6271-private-key-storage-for-CA-keys), maintained in a High Security Zone and in an offline state or air-gapped from all other networks.
 
 #### 6.2.7.3 Private key storage for Signing Services
 
@@ -2023,9 +2025,15 @@ CAs SHALL ensure that the Subscriber’s Private Key is generated, stored, and u
 
 ### 6.3.2 Certificate operational periods and key pair usage periods
 
-The validity period for a Code Signing Certificate issued to a Subscriber MUST NOT exceed 39 months.
+Subscribers and Signing Services MAY sign Code at any point in the development or distribution process. Code Signatures may be verified at any time, including during download, unpacking, installation, reinstallation, or execution, or during a forensic investigation.
 
-The Timestamp Authority MUST use a new Timestamp Certificate with a new Private Key no later than every 15 months to minimize the impact to users in the event that a Timestamp Certificate\'s Private Key is compromised. The validity for a Timestamp Certificate must not exceed 135 months. The Timestamp Certificate MUST meet the requirements in [Section 6.1.5](#615-key-sizes) for the communicated time period.
+The validity period for a Code Signing Certificate issued to a Subscriber or Signing Service MUST NOT exceed 39 months.
+
+The Timestamp Certificate validity period MUST NOT exceed 135 months. The Timestamp Certificate Key Pair MUST meet the requirements in [Section 6.1.5](#615-key-sizes). The CA or Timestamp Authority SHALL NOT use a Private Key associated with a Timestamp Certificate more than 15 months after the `notBefore` date of a Timestamp Certificate. 
+
+Effective April 15, 2025, Private Keys associated with Timestamp Certificates issued for greater than 15 months MUST be removed from the Hardware Crypto Module protecting the Private Key within 18 months after issuance of the Timestamp Certificate. For Timestamp Certificates issued on or after June 1, 2024, the CA SHALL log the removal of the Private Key from the Hardware Crypto Module through means of a key deletion ceremony performed by the CA and witnessed and signed-off by at least two Trusted Role members. The CA MAY also perform a key destruction ceremony, meaning that all copies of that private key are unequivocally/securely destroyed (i.e. without a way to recover the key), including any instance of the key as part of a backup, to satisfy this requirement.
+
+The CA MAY maintain existing backup sets containing the Private Key corresponding to a Timestamp Certificate. The CA SHOULD NOT restore the Private Key corresponding to a Timestamp Certificate contained within the backup if the Timestamp Certificate was issued more than 15 months prior to restoration of the backup. If the CA does restore such a Private Key, the CA SHALL only restore the Private Key in a suitable HSM while it’s maintained in a High Security Zone and in an offline state or air-gapped from all other networks and perform a new key destruction ceremony prior to the HSM being brought to an online state.
 
 ## 6.4 Activation data
 
@@ -2060,6 +2068,8 @@ The CA/Browser Forum’s Network and Certificate System Security Requirements ar
 If the CA issues Code Signing Certificates, then the CA MUST operate a Timestamp Authority that complies with RFC 3161. CAs MUST recommend to Subscribers that they use the CA's Timestamp Authority to timestamp signed code.
 
 The Timestamp Authority MUST ensure that clock synchronization is maintained when a leap second occurs. A Timestamp Authority MUST synchronize its timestamp server at least every 24 hours with a UTC(k) time source. The timestamp server MUST automatically detect and report on clock drifts or jumps out of synchronization with UTC. Clock adjustments of one second or greater MUST be auditable events. Any changes to its signing process MUST be an auditable event.
+
+The Timestamp Authority SHALL reject timestamp requests containing a `MessageImprint` calculated using the SHA-1 digest algorithm.
 
 The digest algorithm used to sign Timestamp tokens must match the digest algorithm used to sign the Timestamp Certificate.
 
