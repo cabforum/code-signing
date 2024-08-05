@@ -1957,9 +1957,9 @@ The CA SHALL protect its Private Key in a system or device that has been validat
 
 #### 6.2.7.2 Private key storage for Timestamp Authorities
 
-Effective April 15, 2025, a Timestamp Authority MUST generate and protect Private Keys associated with its Root CA certificates and new Subordinate CA certificates with a validity period of greater than 72 months containing the `id-kp-timeStamping` KeyPurposeId in the `extKeyUsage` extension (per section 7.1.2.2 g), in a Hardware Crypto Module conforming to the requirements specified in [Section 6.2.7.1](#6271-private-key-storage-for-CA-keys), maintained in a High Security Zone and in an offline state or air-gapped from all other networks.
+Effective April 15, 2025, a Timestamp Authority MUST generate and protect Private Keys associated with its Root CA certificates and new Subordinate CA certificates with a validity period of greater than 72 months containing the `id-kp-timeStamping` KeyPurposeId in the `extKeyUsage` extension (per section 7.1.2.2 g), in a Hardware Crypto Module conforming to the requirements specified in [Section 6.2.7.1](#6271-private-key-storage-for-ca-keys), maintained in a High Security Zone and in an offline state or air-gapped from all other networks.
 
-Timestamp Certificates issued on or after April 15, 2025, issued by a Timestamp Authority Subordinate CA with a validity period greater than 72 months, MUST be signed by a Private Key generated and protected in a Hardware Crypto Module conforming to the requirements specified in [Section 6.2.7.1](#6271-private-key-storage-for-CA-keys), maintained in a High Security Zone and in an offline state or air-gapped from all other networks.
+Timestamp Certificates issued on or after April 15, 2025, issued by a Timestamp Authority Subordinate CA with a validity period greater than 72 months, MUST be signed by a Private Key generated and protected in a Hardware Crypto Module conforming to the requirements specified in [Section 6.2.7.1](#6271-private-key-storage-for-ca-keys), maintained in a High Security Zone and in an offline state or air-gapped from all other networks.
 
 #### 6.2.7.3 Private key storage for Signing Services
 
