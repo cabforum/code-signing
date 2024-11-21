@@ -2031,7 +2031,7 @@ Subscribers and Signing Services MAY sign Code at any point in the development o
 
 The validity period for a Code Signing Certificate issued to a Subscriber or Signing Service MUST NOT exceed 39 months.
 
-For all all Code Signing Certificates issued after June 15, 2025,  the validity period for the Code Signing Certificate issued to a Subscriber MUST NOT exceed 460 days.
+For all Code Signing Certificates issued after June 15, 2025,  the validity period for the Code Signing Certificate issued to a Subscriber MUST NOT exceed 460 days.
 
 The Timestamp Certificate validity period MUST NOT exceed 135 months. The Timestamp Certificate Key Pair MUST meet the requirements in [Section 6.1.5](#615-key-sizes). The CA or Timestamp Authority SHALL NOT use a Private Key associated with a Timestamp Certificate more than 15 months after the `notBefore` date of a Timestamp Certificate. 
 
