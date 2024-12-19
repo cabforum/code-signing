@@ -315,6 +315,8 @@ Capitalized Terms are as defined below and in the EV SSL Guidelines:
 
 **Lifetime Signing OID:** An optional extended key usage OID (`1.3.6.1.4.1.311.10.3.13`) used by Microsoft Authenticode to limit the lifetime of the code signature to the expiration of the code signing certificate.
 
+**Linting**: A process in which the content of digitally signed data such as a Precertificate [RFC 6962], Certificate, Certificate Revocation List, or OCSP response, or data-to-be-signed object such as a `tbsCertificate` (as described in [RFC 5280, Section 4.1.1.1](https://tools.ietf.org/doc/html/rfc5280##section-4.1.1.1)) is checked for conformance with the profiles and requirements defined in these Requirements.
+
 **Non-EV Code Signing Certificate:** Term used to signify requirements that are applicable to Code Signing Certificates which do not have to meet the EV requirements.
 
 **Notary**: A person whose commission under applicable law includes authority to authenticate the execution of a signature on a document.
@@ -1242,7 +1244,33 @@ No stipulation.
 
 ### 4.3.1 CA actions during certificate issuance
 
+#### 4.3.1.1 Manual authorization of certificate issuance for Root CAs
+
 Certificate issuance by the Root CA MUST require an individual authorized by the CA (i.e. the CA system operator, system officer, or PKI administrator) to deliberately issue a direct command in order for the Root CA to perform a certificate signing operation.
+
+#### 4.3.1.2 Linting of to-be-signed Certificate content
+
+Due to the complexity involved in implementing Certificate Profiles that conform to these Requirements, it is considered best practice for the CA to implement a Linting process to test the technical conformity of each to-be-signed artifact prior to signing it. When a Precertificate has undergone Linting, it is not necessary for the corresponding to-be-signed Certificate to also undergo Linting, provided that the CA has a technical control to verify that the to-be-signed Certificate corresponds to the to-be-signed Precertificate in the manner described by RFC 6962, Section 3.2.
+Effective 2025-06-15, the CA SHOULD implement such a Linting process.
+
+Methods used to produce a certificate containing the to-be-signed Certificate content include, but are not limited to:
+
+1. Sign the `tbsCertificate` with a "dummy" Private Key whose Public Key component is not certified by a Certificate that chains to a publicly-trusted CA Certificate; or
+2. Specify a static value for the `signature` field of the Certificate ASN.1 SEQUENCE.
+
+CAs MAY implement their own certificate Linting tools, but CAs SHOULD use the Linting tools that have been widely adopted by the industry (see https://cabforum.org/resources/tools/). 
+
+CAs are encouraged to contribute to open-source Linting projects, such as by:
+
+- creating new or improving existing lints,
+- reporting potentially inaccurate linting results as bugs,
+- notifying maintainers of Linting software of checks that are not covered by existing lints,
+- updating documentation of existing lints, and 
+- generating test certificates for positive/negative tests of specific lints.
+
+#### 4.3.1.3 Linting of issued Certificates
+
+CAs MAY use a Linting process to test each issued Certificate.
 
 ### 4.3.2 Notification to subscriber by the CA of issuance of certificate
 
@@ -2071,6 +2099,10 @@ The CA SHALL enforce multi-factor authentication for all accounts capable of dir
 
 ### 6.6.1 System development controls
 
+If a CA uses Linting software developed by third parties, it SHOULD monitor for updated versions of that software and plan for updates no later than three (3) months from the release of the update.
+
+The CA MAY perform Linting on the corpus of its unexpired, un-revoked Subscriber Certificates whenever it updates the Linting software.
+
 ### 6.6.2 Security management controls
 
 ### 6.6.3 Life cycle security controls
@@ -2608,7 +2640,11 @@ The Audit Report MUST be available as a PDF, and SHALL be text searchable for al
 
 ## 8.7 Self-audits
 
-CAs must abide by the self-audit requirements of these Guidelines. During the period in which it issues Code Signing Certificates, the CA MUST strictly control its service quality by performing ongoing self-audits against a randomly selected sample of at least three percent of the Non-EV Code Signing Certificates and at least three percent of the EV Code Signing Certificates it has issued in the period beginning immediately after the last sample was taken. For all Code Signing Certificates where the final cross-correlation and due diligence requirements of Section 8 of these Guidelines is performed by an RA, the CA MUST strictly control its service quality by performing ongoing self-audits against a randomly selected sample of at least six percent of the Non-EV Code Signing Certificates and at least six percent of the EV Code Signing Certificates it has issued in the period beginning immediately after the last sample was taken.
+During the period in which the CA issues Certificates, the CA SHALL monitor adherence to its Certificate Policy, Certification Practice Statement and these Requirements and strictly control its service quality by performing self audits on at least a quarterly basis against a randomly selected sample of the greater of one certificate or at least six percent of the Non-EV Code Signing Certificates and at least six percent of the EV Code Signing Certificates issued by it during the period commencing immediately after the previous self-audit sample was taken.
+
+Effective 2025-06-15, the CA SHOULD use a Linting process to verify the technical accuracy of Certificates within the selected sample set independently of previous linting performed on the same Certificates.
+
+Except for Delegated Third Parties that undergo an annual audit that meets the criteria specified in [Section 8.4](#84-topics-covered-by-assessment), the CA SHALL strictly control the service quality of Certificates issued or containing information verified by a Delegated Third Party by having a Validation Specialist employed by the CA perform ongoing quarterly audits against a randomly selected sample of at least the greater of one certificate or six percent of the Non-EV Code Signing Certificates and at least six percent of the EV Code Signing Certificates verified by the Delegated Third Party in the period beginning immediately after the last sample was taken. The CA SHALL review each Delegated Third Party's practices and procedures to ensure that the Delegated Third Party is in compliance with these Requirements and the relevant Certificate Policy and/or Certification Practice Statement.
 
 # 9. OTHER BUSINESS AND LEGAL MATTERS
 
