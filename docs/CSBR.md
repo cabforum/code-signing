@@ -1699,13 +1699,13 @@ The CA SHALL record at least the following events:
    2. PKI and security system actions performed;
    3. Security profile changes;
    4. System crashes, hardware failures, and other anomalies;
-   5. Firewall and router activities; and
+   5. Relevant router and firewall activities (as described in [Section 5.4.1.3](#5413-router-and-firewall-activities-logs)); and
    6. Entries to and exits from the CA facility.
 
-Log records MUST include the following elements:
+Log records MUST include the at least following elements:
 
 1. Date and time of event;
-2. Identity of the person making the journal record; and 
+2. Identity of the person making the journal record (when applicable); and 
 3. Description of the event.
 
 #### 5.4.1.2 Types of events recorded for Timestamp Authorities
@@ -1720,10 +1720,19 @@ The Timestamp Authority MUST log the following information and make these record
       2. Timestamp Authority server actions performed;
       3. Security profile changes;
       4. System crashes and other anomalies; and
-      5. Firewall and router activities;
+      5. Firewall and router activities(as described in [Section 5.4.1.3](#5413-router-and-firewall-activities-logs));
    5. Revocation of a timestamp certificate,
    6. Major changes to the timestamp server's time, and
    7. System startup and shutdown.
+
+#### 5.4.1.3 Router and firewall activities logs
+
+Logging of router and firewall activities necessary to meet the requirements of Section 5.4.1.1, Subsection 3.6 and Section 5.4.1.2, Subsection 4.5 MUST at a minimum include:
+
+  1. Successful and unsuccessful login attempts to routers and firewalls; and
+  2. Logging of all administrative actions performed on routers and firewalls, including configuration changes, firmware updates, and access control modifications; and
+  3. Logging of all changes made to firewall rules, including additions, modifications, and deletions; and
+  4. Logging of all system events and errors, including hardware failures, software crashes, and system restarts.
 
 ### 5.4.2 Frequency of processing log
 
