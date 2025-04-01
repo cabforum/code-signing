@@ -1897,7 +1897,7 @@ For Keys corresponding to Root and Subordinate CAs:
 * If the Key is DSA, then one of the following key parameter options MUST be used:
   * Key length (`L`) of 2048 bits and modulus length (`N`) of 224 bits
   * Key length (`L`) of 2048 bits and modulus length (`N`) of 256 bits
-* If the Key is ML-DSA, then the parameter set MUST be ML-DSA-87 (OID: 2.16.840.1.101.3.4.3.19). The CA MUST NOT issue a Certificate containing a HashML-DSA-87 Key; only "pure" ML-DSA-87 is permitted.
+* If the Key is ML-DSA, then the parameter set MUST be ML-DSA-44 (OID: 2.16.840.1.101.3.4.3.17), ML-DSA-65 (OID: 2.16.840.1.101.3.4.3.18), or ML-DSA-87 (OID: 2.16.840.1.101.3.4.3.19). The CA MUST NOT issue a Certificate containing a HashML-DSA Key; only "pure" ML-DSA is permitted.
 
 [^legacy_key_length]: CAs MAY sign Cross-Certificates with Root CA RSA Private Keys whose modulus length is less than 4096 bits, provided that the Cross-Certificate is issued to a Root CA whose Public Key adheres to the key size requirements of this section. 
 
@@ -1910,7 +1910,7 @@ For Keys corresponding to Subscriber code signing and Timestamp Authority Certif
 * If the Key is DSA, then one of the following key parameter options MUST be used:
   * Key length (`L`) of 2048 bits and modulus length (`N`) of 224 bits
   * Key length (`L`) of 2048 bits and modulus length (`N`) of 256 bits
-* If the Key is ML-DSA, then the parameter set MUST be ML-DSA-87. Either "pure" ML-DSA-87 (OID: 2.16.840.1.101.3.4.3.19) or HashML-DSA-87 (OID: 2.16.840.1.101.3.4.3.34) is permitted.
+* If the Key is ML-DSA, then the parameter set MUST be ML-DSA-44 (OID: 2.16.840.1.101.3.4.3.17), ML-DSA-65 (OID: 2.16.840.1.101.3.4.3.18), or ML-DSA-87 (OID: 2.16.840.1.101.3.4.3.19). The CA MUST NOT issue a Certificate containing a HashML-DSA Key; only "pure" ML-DSA is permitted.
 
 ### 6.1.6 Public key parameters generation and quality checking
 
@@ -2310,9 +2310,13 @@ In addition, the CA MAY use `DSA with SHA-1` if one of the following conditions 
 
 ##### 7.1.3.2.4 ML-DSA
 
-The CA SHALL use the following signature algorithm:
+The CA SHALL use one of the following signature algorithms:
 
+* ML-DSA-44 (OID: 2.16.840.1.101.3.4.3.17)
+* ML-DSA-65 (OID: 2.16.840.1.101.3.4.3.18)
 * ML-DSA-87 (OID: 2.16.840.1.101.3.4.3.19)
+
+The CA MUST NOT use HashML-DSA; only "pure" ML-DSA is permitted.
 
 ### 7.1.4 Name forms
 
