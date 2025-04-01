@@ -1897,7 +1897,10 @@ For Keys corresponding to Root and Subordinate CAs:
 * If the Key is DSA, then one of the following key parameter options MUST be used:
   * Key length (`L`) of 2048 bits and modulus length (`N`) of 224 bits
   * Key length (`L`) of 2048 bits and modulus length (`N`) of 256 bits
-* If the Key is ML-DSA, then the parameter set MUST be ML-DSA-44 (OID: 2.16.840.1.101.3.4.3.17), ML-DSA-65 (OID: 2.16.840.1.101.3.4.3.18), or ML-DSA-87 (OID: 2.16.840.1.101.3.4.3.19). The CA MUST NOT issue a Certificate containing a HashML-DSA Key; only "pure" ML-DSA is permitted.
+* If the Key is ML-DSA, then one of the following parameter sets MUST be used:
+  * ML-DSA-44 (OID: 2.16.840.1.101.3.4.3.17), or
+  * ML-DSA-65 (OID: 2.16.840.1.101.3.4.3.18), or
+  * ML-DSA-87 (OID: 2.16.840.1.101.3.4.3.19).
 
 [^legacy_key_length]: CAs MAY sign Cross-Certificates with Root CA RSA Private Keys whose modulus length is less than 4096 bits, provided that the Cross-Certificate is issued to a Root CA whose Public Key adheres to the key size requirements of this section. 
 
@@ -1910,7 +1913,10 @@ For Keys corresponding to Subscriber code signing and Timestamp Authority Certif
 * If the Key is DSA, then one of the following key parameter options MUST be used:
   * Key length (`L`) of 2048 bits and modulus length (`N`) of 224 bits
   * Key length (`L`) of 2048 bits and modulus length (`N`) of 256 bits
-* If the Key is ML-DSA, then the parameter set MUST be ML-DSA-44 (OID: 2.16.840.1.101.3.4.3.17), ML-DSA-65 (OID: 2.16.840.1.101.3.4.3.18), or ML-DSA-87 (OID: 2.16.840.1.101.3.4.3.19). The CA MUST NOT issue a Certificate containing a HashML-DSA Key; only "pure" ML-DSA is permitted.
+* If the Key is ML-DSA, then one of the following parameter sets MUST be used:
+  * ML-DSA-44 (OID: 2.16.840.1.101.3.4.3.17), or
+  * ML-DSA-65 (OID: 2.16.840.1.101.3.4.3.18), or
+  * ML-DSA-87 (OID: 2.16.840.1.101.3.4.3.19).
 
 ### 6.1.6 Public key parameters generation and quality checking
 
