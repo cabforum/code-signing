@@ -1,11 +1,11 @@
 ---
 title: Baseline Requirements for the Issuance and Management of Publicly-Trusted Code Signing Certificates
 
-subtitle: Version 3.9.0
+subtitle: Version 3.X.0
 
 author:
   - CA/Browser Forum
-date: August 1, 2024
+date: XX YY, ZZZZ
 
 copyright: |
   Copyright 2024 CA/Browser Forum
@@ -61,6 +61,7 @@ The following Certificate Policy Identifier is reserved for use by CAs as a requ
 | 3.7      | CSC-22     | High risk changes                                                                                                 | 28 February 2024  |
 | 3.8      | CSC-25     | Import EV Guidelines into the Code Signing Baseline Requirements                                                  | 1 August 2024     |
 | 3.9      | CSC-26     | Timestamping Private Key Protection                                                                               | 1 August 2024     |
+| 3.X      | CSC-XX     | Add support for ML-DSA algorithm                                                                                  | XX YY ZZZZ        |
 
 ### 1.2.2 Relevant Dates
 
@@ -1896,6 +1897,10 @@ For Keys corresponding to Root and Subordinate CAs:
 * If the Key is DSA, then one of the following key parameter options MUST be used:
   * Key length (`L`) of 2048 bits and modulus length (`N`) of 224 bits
   * Key length (`L`) of 2048 bits and modulus length (`N`) of 256 bits
+* If the Key is ML-DSA, then one of the following parameter sets MUST be used:
+  * ML-DSA-44 (OID: 2.16.840.1.101.3.4.3.17), or
+  * ML-DSA-65 (OID: 2.16.840.1.101.3.4.3.18), or
+  * ML-DSA-87 (OID: 2.16.840.1.101.3.4.3.19).
 
 [^legacy_key_length]: CAs MAY sign Cross-Certificates with Root CA RSA Private Keys whose modulus length is less than 4096 bits, provided that the Cross-Certificate is issued to a Root CA whose Public Key adheres to the key size requirements of this section. 
 
@@ -1908,6 +1913,10 @@ For Keys corresponding to Subscriber code signing and Timestamp Authority Certif
 * If the Key is DSA, then one of the following key parameter options MUST be used:
   * Key length (`L`) of 2048 bits and modulus length (`N`) of 224 bits
   * Key length (`L`) of 2048 bits and modulus length (`N`) of 256 bits
+* If the Key is ML-DSA, then one of the following parameter sets MUST be used:
+  * ML-DSA-44 (OID: 2.16.840.1.101.3.4.3.17), or
+  * ML-DSA-65 (OID: 2.16.840.1.101.3.4.3.18), or
+  * ML-DSA-87 (OID: 2.16.840.1.101.3.4.3.19).
 
 ### 6.1.6 Public key parameters generation and quality checking
 
@@ -2304,6 +2313,16 @@ In addition, the CA MAY use `DSA with SHA-1` if one of the following conditions 
 * It is used within an OCSP response; or,
 * It is used within a CRL; or,
 * It is used within a Timestamp Token and the date of the `genTime` field is not greater than 2022-04-30.
+
+##### 7.1.3.2.4 ML-DSA
+
+The CA SHALL use one of the following signature algorithms:
+
+* ML-DSA-44 (OID: 2.16.840.1.101.3.4.3.17)
+* ML-DSA-65 (OID: 2.16.840.1.101.3.4.3.18)
+* ML-DSA-87 (OID: 2.16.840.1.101.3.4.3.19)
+
+The CA MUST NOT use HashML-DSA; only "pure" ML-DSA is permitted.
 
 ### 7.1.4 Name forms
 
