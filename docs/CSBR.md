@@ -1250,7 +1250,7 @@ Certificate issuance by the Root CA MUST require an individual authorized by the
 
 #### 4.3.1.2 Linting of to-be-signed Certificate content
 
-Due to the complexity involved in implementing Certificate Profiles that conform to these Requirements, it is considered best practice for the CA to implement a Linting process to test the technical conformity of each to-be-signed artifact prior to signing it. Effective 2025-06-15, the CA SHOULD implement such a Linting process.
+Due to the complexity involved in implementing Certificate Profiles that conform to these Requirements, it is considered best practice for the CA to implement a Linting process to test the technical conformity of each to-be-signed artifact prior to signing it. Effective 2025-09-15, the CA SHOULD implement such a Linting process.
 
 Methods used to produce a certificate containing the to-be-signed Certificate content include, but are not limited to:
 
@@ -1504,7 +1504,7 @@ OCSP responders operated by the CA SHALL support the HTTP GET method, as describ
 
 For the status of a Code Signing Certificate which includes an Authority Information Access extension with an id-ad-ocsp accessMethod:
 
-- Effective 2025-06-15, an authoritative OCSP response MUST be available (i.e. the responder MUST NOT respond with the "unknown" status) starting no more than 15 minutes after the Certificate is first published or otherwise made available.
+- Effective 2025-09-15, an authoritative OCSP response MUST be available (i.e. the responder MUST NOT respond with the "unknown" status) starting no more than 15 minutes after the Certificate is first published or otherwise made available.
 - For OCSP responses with validity intervals less than sixteen hours, the CA SHALL provide an updated OCSP response prior to one-half of the validity period before the nextUpdate.
 - For OCSP responses with validity intervals greater than or equal to sixteen hours, the CA SHALL provide an updated OCSP response at least eight hours prior to the nextUpdate, and no later than four days after the thisUpdate.
 
@@ -2632,7 +2632,7 @@ The Audit Report MUST be available as a PDF, and SHALL be text searchable for al
 
 CAs must abide by the self-audit requirements of these Guidelines. During the period in which it issues Code Signing Certificates, the CA MUST strictly control its service quality by performing ongoing self-audits against a randomly selected sample of at least three percent (3%) of the Non-EV Code Signing Certificates and at least three percent (3%) of the EV Code Signing Certificates it has issued in the period beginning immediately after the last sample was taken. For all Code Signing Certificates where the final cross-correlation and due diligence requirements of Section 8 of these Guidelines is performed by an RA, the CA MUST strictly control its service quality by performing ongoing self-audits against a randomly selected sample of at least six percent (6%) of the Non-EV Code Signing Certificates and at least six percent (6%) of the EV Code Signing Certificates it has issued in the period beginning immediately after the last sample was taken.
 
-Effective 2025-06-15, the CA SHOULD use a Linting process to verify the technical accuracy of Certificates within the selected sample set independently of previous linting performed on the same Certificates.
+Effective 2025-09-15, the CA SHOULD use a Linting process to verify the technical accuracy of Certificates within the selected sample set independently of previous linting performed on the same Certificates.
 
 # 9. OTHER BUSINESS AND LEGAL MATTERS
 
