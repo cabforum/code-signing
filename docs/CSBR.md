@@ -315,6 +315,8 @@ Capitalized Terms are as defined below and in the EV SSL Guidelines:
 
 **Lifetime Signing OID:** An optional extended key usage OID (`1.3.6.1.4.1.311.10.3.13`) used by Microsoft Authenticode to limit the lifetime of the code signature to the expiration of the code signing certificate.
 
+**Linting**: A process in which the content of digitally signed data such as a Certificate, Certificate Revocation List, or OCSP response, or data-to-be-signed object such as a `tbsCertificate` (as described in [RFC 5280, Section 4.1.1.1](https://tools.ietf.org/doc/html/rfc5280##section-4.1.1.1)) is checked for conformance with the profiles and requirements defined in these Requirements.
+
 **Non-EV Code Signing Certificate:** Term used to signify requirements that are applicable to Code Signing Certificates which do not have to meet the EV requirements.
 
 **Notary**: A person whose commission under applicable law includes authority to authenticate the execution of a signature on a document.
@@ -1242,7 +1244,32 @@ No stipulation.
 
 ### 4.3.1 CA actions during certificate issuance
 
+#### 4.3.1.1 Manual authorization of certificate issuance for Root CAs
+
 Certificate issuance by the Root CA MUST require an individual authorized by the CA (i.e. the CA system operator, system officer, or PKI administrator) to deliberately issue a direct command in order for the Root CA to perform a certificate signing operation.
+
+#### 4.3.1.2 Linting of to-be-signed Certificate content
+
+Due to the complexity involved in implementing Certificate Profiles that conform to these Requirements, it is considered best practice for the CA to implement a Linting process to test the technical conformity of each to-be-signed artifact prior to signing it. Effective 2026-03-15, the CA SHOULD implement such a Linting process.
+
+Methods used to produce a certificate containing the to-be-signed Certificate content include, but are not limited to:
+
+1. Sign the `tbsCertificate` with a "dummy" Private Key whose Public Key component is not certified by a Certificate that chains to a publicly-trusted CA Certificate; or
+2. Specify a static value for the `signature` field of the Certificate ASN.1 SEQUENCE.
+
+CAs MAY implement their own certificate Linting tools, but CAs SHOULD use the Linting tools that have been widely adopted by the industry (see https://cabforum.org/resources/tools/). 
+
+CAs are encouraged to contribute to open-source Linting projects, such as by:
+
+- creating new or improving existing lints,
+- reporting potentially inaccurate linting results as bugs,
+- notifying maintainers of Linting software of checks that are not covered by existing lints,
+- updating documentation of existing lints, and 
+- generating test certificates for positive/negative tests of specific lints.
+
+#### 4.3.1.3 Linting of issued Certificates
+
+CAs MAY use a Linting process to test each issued Certificate.
 
 ### 4.3.2 Notification to subscriber by the CA of issuance of certificate
 
@@ -1377,7 +1404,7 @@ The CA SHALL revoke a Certificate within 24 hours if one or more of the followin
 1. The Subscriber requests in writing that the CA revoke the Certificate;
 2. The Subscriber notifies the CA that the original certificate request was not authorized and does not retroactively grant authorization;
 3. The CA obtains evidence that the Subscriber's Private Key corresponding to the Public Key in the Certificate suffered a Key Compromise;
-4. The CA is made aware of a demonstrated or proven method that can easily compute the Subscriber's Private Key based on the Public Key in the Certificate;
+4. The CA is made aware of a demonstrated or proven method that can easily compute the Subscriber's Private Key based on the Public Key in the Certificate, including but not limited to those identified in [Section 6.1.1.3(5)](#6113-subscriber-key-pair-generation);
 5. The CA is made aware of a demonstrated or proven method that exposes the Subscriber’s Private Key to compromise or if there is clear evidence that the specific method used to generate the Private Key was flawed; or
 6. The CA has reasonable assurance that a Certificate was used to sign Suspect Code.
  
@@ -1465,40 +1492,29 @@ No stipulation.
 
 ### 4.9.9 On-line revocation/status checking availability
 
-OCSP responses MUST conform to RFC6960 and/or RFC5019. OCSP responses MUST either:
+The validity interval of an OCSP response is the difference in time between the `thisUpdate` and `nextUpdate` field, inclusive. For purposes of computing differences, a difference of 3,600 seconds shall be equal to one hour, and a difference of 86,400 seconds shall be equal to one day, ignoring leap-seconds.
 
-1. Be signed by the CA that issued the Certificates whose revocation status is being checked, or
-2. Be signed by an OCSP Responder whose Certificate is signed by the CA that issued the Certificate whose
-   revocation status is being checked.
+A certificate serial is "assigned" if:
 
-In the latter case, the OCSP signing Certificate MUST contain an extension of type `id-pkix-ocsp-nocheck`, as
-defined by RFC6960.
+- a Certificate with that serial number has been issued by the Issuing CA.
+
+A certificate serial is "unassigned" if it is not "assigned".
+
+OCSP responders operated by the CA SHALL support the HTTP GET method, as described in RFC 6960 and/or RFC 5019. The CA MAY process the Nonce extension (`1.3.6.1.5.5.7.48.1.2`) in accordance with RFC 8954.
+
+For the status of a Code Signing Certificate which includes an Authority Information Access extension with an id-ad-ocsp accessMethod:
+
+- Effective 2026-03-15, an authoritative OCSP response MUST be available (i.e. the responder MUST NOT respond with the "unknown" status) starting no more than 15 minutes after the Certificate is first published or otherwise made available.
+- For OCSP responses with validity intervals less than sixteen hours, the CA SHALL provide an updated OCSP response prior to one-half of the validity period before the nextUpdate.
+- For OCSP responses with validity intervals greater than or equal to sixteen hours, the CA SHALL provide an updated OCSP response at least eight hours prior to the nextUpdate, and no later than four days after the thisUpdate.
+
+For the status of a Subordinate CA Certificate which includes an Authority Information Access extension with an id-ad-ocsp accessMethod, the CA SHALL provide an updated OCSP response at least every twelve months, and within 24 hours after revoking the Certificate.
+
+For the status of a Timestamp Certificate which includes an Authority Information Access extension with an id-ad-ocsp accessMethod, the CA SHALL provide an updated OCSP response at least every twelve months, and within 24 hours after revoking the Certificate.
 
 ### 4.9.10 On-line revocation checking requirements
 
-Effective 2023-09-15, OCSP responders operated by the CA SHALL support the HTTP GET method, as described in RFC 6960 and/or RFC 5019.
-
-Effective 2023-09-15, the validity interval of an OCSP response is the difference in time between the `thisUpdate` and `nextUpdate` field, inclusive. For purposes of computing differences, a difference of 3,600 seconds shall be equal to one hour, and a difference of 86,400 seconds shall be equal to one day, ignoring leap-seconds.
-
-CAs MAY provide OCSP responses for Code Signing Certificates and Timestamp Certificates for the time period specified in their CPS, which MAY be at least 10 years after the expiration of the certificate.
-
-If the CA provides OCSP responses, the CA SHALL support an OCSP capability using the GET method for Certificates issued in accordance with these Requirements.
-
-For the status of Subordinate CA Certificates:
-
-* If the Issuing CA provides OCSP responses, the Issuing CA SHALL update information provided via an OCSP response at least every twelve months and within 24 hours after revoking a Subordinate CA Certificate.
-
-For the status of Code Signing Certificates:
-
-* If the Subordinate CA provides OCSP responses, the CA SHALL update information provided via an OCSP response at least every four days. OCSP responses from this service MUST have a maximum expiration time of ten days.
-
-For the status of Timestamp Certificates:
-
-* If the Subordinate CA provides OCSP responses, the Subordinate CA SHALL update information provided via an OCSP response at least every twelve months and within 24 hours after revoking a Timestamp Certificate.
-
-A certificate serial number within an OCSP request is "assigned" if a Certificate with that serial number has been issued by the Issuing CA, using any current or previous key associated with that CA subject.
-
-If the OCSP responder receives a request for the status of a certificate serial number that is not "assigned", then the responder MUST NOT respond with a "good" status.
+No Stipulation.
 
 ### 4.9.11 Other forms of revocation advertisements available
 
@@ -1610,7 +1626,7 @@ The CA Private Key SHALL be backed up, stored, and recovered only by personnel i
 
 ### 5.2.4 Roles requiring separation of duties
 
-1. The CA MUST enforce rigorous control procedures for the separation of validation duties to ensure that no one person can single-handedly validate and authorize the issuance of an EV Code Signing Certificate. The Final Cross-Correlation and Due Diligence steps, as outlined in [Section 3.2.9](#32229-verification-of-approval-of-ev-code-signing-certificate-request), MAY be performed by one of the persons. For example, one Validation Specialist MAY review and verify all the Applicant information and a second Validation Specialist MAY approve issuance of the EV Code Signing Certificate.
+1. The CA MUST enforce rigorous control procedures for the separation of validation duties to ensure that no one person can single-handedly validate and authorize the issuance of an EV Code Signing Certificate. The Final Cross-Correlation and Due Diligence steps, as outlined in [Section 3.2.9](#329-final-cross-correlation-and-due-diligence), MAY be performed by one of the persons. For example, one Validation Specialist MAY review and verify all the Applicant information and a second Validation Specialist MAY approve issuance of the EV Code Signing Certificate.
 2. Such controls MUST be auditable.
 
 ## 5.3 Personnel controls
@@ -1699,13 +1715,13 @@ The CA SHALL record at least the following events:
    2. PKI and security system actions performed;
    3. Security profile changes;
    4. System crashes, hardware failures, and other anomalies;
-   5. Firewall and router activities; and
+   5. Relevant router and firewall activities (as described in [Section 5.4.1.3](#5413-router-and-firewall-activities-logs)); and
    6. Entries to and exits from the CA facility.
 
-Log records MUST include the following elements:
+Log records MUST include the at least following elements:
 
 1. Date and time of event;
-2. Identity of the person making the journal record; and 
+2. Identity of the person making the journal record (when applicable); and 
 3. Description of the event.
 
 #### 5.4.1.2 Types of events recorded for Timestamp Authorities
@@ -1720,10 +1736,19 @@ The Timestamp Authority MUST log the following information and make these record
       2. Timestamp Authority server actions performed;
       3. Security profile changes;
       4. System crashes and other anomalies; and
-      5. Firewall and router activities;
+      5. Firewall and router activities(as described in [Section 5.4.1.3](#5413-router-and-firewall-activities-logs));
    5. Revocation of a timestamp certificate,
    6. Major changes to the timestamp server's time, and
    7. System startup and shutdown.
+
+#### 5.4.1.3 Router and firewall activities logs
+
+Logging of router and firewall activities necessary to meet the requirements of Section 5.4.1.1, Subsection 3.6 and Section 5.4.1.2, Subsection 4.5 MUST at a minimum include:
+
+  1. Successful and unsuccessful login attempts to routers and firewalls; and
+  2. Logging of all administrative actions performed on routers and firewalls, including configuration changes, firmware updates, and access control modifications; and
+  3. Logging of all changes made to firewall rules, including additions, modifications, and deletions; and
+  4. Logging of all system events and errors, including hardware failures, software crashes, and system restarts.
 
 ### 5.4.2 Frequency of processing log
 
@@ -1870,8 +1895,13 @@ The CA SHALL reject a certificate request if one or more of the following condit
 1. The Key Pair does not meet the requirements set forth in [Section 6.1.5](#615-key-sizes) and/or [Section 6.1.6](#616-public-key-parameters-generation-and-quality-checking);
 2. There is clear evidence that the specific method used to generate the Private Key was flawed;
 3. The CA is aware of a demonstrated or proven method that exposes the Applicant's Private Key to compromise;
-4. The CA has previously been made aware that the Applicant's Private Key has suffered a Key Compromise, such as through the provisions of [Section 4.9.1.1](#4911-reasons-for-revoking-a-subscriber-certificate);
-5. The CA is aware of a demonstrated or proven method to easily compute the Applicant's Private Key based on the Public Key (such as a Debian weak key, see <https://wiki.debian.org/SSLkeys>).
+4. The CA has previously been notified that the Applicant's Private Key has suffered a Key Compromise using the CA's procedure for revocation request as described in [Section 4.9.3](#493-procedure-for-revocation-request) and [Section 4.9.12](#4912-special-requirements-re-key-compromise);
+5. The Public Key corresponds to an industry-demonstrated weak Private Key. For requests submitted on or after June 15 2025, at least the following precautions SHALL be implemented:
+    1. In the case of Debian weak keys vulnerability (https://wiki.debian.org/SSLkeys), the CA SHALL reject all keys found at https://github.com/cabforum/Debian-weak-keys/ for each key type (e.g. RSA, ECDSA) and size listed in the repository. For all other keys meeting the requirements of [Section 6.1.5](#615-key-sizes), with the exception of RSA key sizes greater than 8192 bits, the CA SHALL reject Debian weak keys.
+    2. In the case of ROCA vulnerability, the CA SHALL reject keys identified by the tools available at https://github.com/crocs-muni/roca or equivalent.
+    3. In the case of Close Primes vulnerability (https://fermatattack.secvuln.info/), the CA SHALL reject weak keys which can be factored within 100 rounds using Fermat’s factorization method.  
+
+    Suggested tools for checking for weak keys can be found here: https://cabforum.org/resources/tools/
 
 ### 6.1.2 Private key delivery to subscriber
 
@@ -2056,6 +2086,10 @@ The CA SHALL enforce multi-factor authentication for all accounts capable of dir
 ## 6.6 Life cycle technical controls
 
 ### 6.6.1 System development controls
+
+If a CA uses Linting software developed by third parties, it SHOULD monitor for updated versions of that software and plan for updates no later than three (3) months from the release of the update.
+
+The CA MAY perform Linting on the corpus of its unexpired, un-revoked Subscriber Certificates whenever it updates the Linting software.
 
 ### 6.6.2 Security management controls
 
@@ -2344,7 +2378,9 @@ d. __Certificate Field:__ Other subject attributes
 
 a. __Certificate Field:__ `subject:organizationName` (OID 2.5.4.10)  
    __Required/Optional:__ Required  
-   __Contents:__ The `subject:organizationName` field MUST contain either the Subject's name or DBA as verified under BR Section 3.2. The CA MAY include information in this field that differs slightly from the verified name, such as common variations or abbreviations, provided that the CA documents the difference and any abbreviations used are locally accepted abbreviations; e.g., if the official record shows "Company Name Incorporated", the CA MAY use "Company Name Inc." or "Company Name". Because subject name attributes for individuals (e.g. `subject:givenName` (2.5.4.42) and `subject:surname` (2.5.4.4)) are not broadly supported by application software, the CA MAY use the `subject:organizationName` field to convey a natural person Subject's name or DBA. The CA MUST have a documented process for verifying that the information included in the `subject:organizationName` field is not misleading to a Relying Party.
+   __Contents:__ The `subject:organizationName` field MUST contain either the Subject's name and/or DBA/tradename as verified under Section 3.2. The CA MAY include information in this field that differs slightly from the verified name, such as common variations or abbreviations, provided that the CA documents the difference and any abbreviations used are locally accepted abbreviations; e.g. if the official record shows "Company Name Incorporated", the CA MAY use "Company Name Inc." or "Company Name". If both are included, the DBA/tradename SHALL appear first, followed by the Subject's name in parentheses. 
+   
+   Because subject name attributes for individuals (e.g. `subject:givenName` (2.5.4.42) and `subject:surname` (2.5.4.4)) are not broadly supported by application software, the CA MAY use the `subject:organizationName` field to convey a natural person Subject's name or DBA. The CA MUST have a documented process for verifying that the information included in the `subject:organizationName` field is not misleading to a Relying Party.
 
 b. __Certificate Field:__ `subject:streetAddress` (OID: 2.5.4.9)  
    __Required/Optional:__ Optional  
@@ -2594,7 +2630,9 @@ The Audit Report MUST be available as a PDF, and SHALL be text searchable for al
 
 ## 8.7 Self-audits
 
-CAs must abide by the self-audit requirements of these Guidelines. During the period in which it issues Code Signing Certificates, the CA MUST strictly control its service quality by performing ongoing self-audits against a randomly selected sample of at least three percent of the Non-EV Code Signing Certificates and at least three percent of the EV Code Signing Certificates it has issued in the period beginning immediately after the last sample was taken. For all Code Signing Certificates where the final cross-correlation and due diligence requirements of Section 8 of these Guidelines is performed by an RA, the CA MUST strictly control its service quality by performing ongoing self-audits against a randomly selected sample of at least six percent of the Non-EV Code Signing Certificates and at least six percent of the EV Code Signing Certificates it has issued in the period beginning immediately after the last sample was taken.
+CAs must abide by the self-audit requirements of these Guidelines. During the period in which it issues Code Signing Certificates, the CA MUST strictly control its service quality by performing ongoing self-audits against a randomly selected sample of at least three percent (3%) of the Non-EV Code Signing Certificates and at least three percent (3%) of the EV Code Signing Certificates it has issued in the period beginning immediately after the last sample was taken. For all Code Signing Certificates where the final cross-correlation and due diligence requirements of [Section 3.2.9](#329-final-cross-correlation-and-due-diligence) of these Guidelines is performed by an RA, the CA MUST strictly control its service quality by performing ongoing self-audits against a randomly selected sample of at least six percent (6%) of the Non-EV Code Signing Certificates and at least six percent (6%) of the EV Code Signing Certificates it has issued in the period beginning immediately after the last sample was taken.
+
+Effective 2026-03-15, the CA SHOULD use a Linting process to verify the technical accuracy of Certificates within the selected sample set independently of previous linting performed on the same Certificates.
 
 # 9. OTHER BUSINESS AND LEGAL MATTERS
 
