@@ -2029,7 +2029,7 @@ CAs SHALL ensure that the Subscriber’s Private Key is generated, stored, and u
 
 Subscribers and Signing Services MAY sign Code at any point in the development or distribution process. Code Signatures may be verified at any time, including during download, unpacking, installation, reinstallation, or execution, or during a forensic investigation.
 
-For Code Signing Certificates issued before March 1st, 2026, the validity period MUST NOT exceed 39 months. For Code Signing Certificates issued on or after March 1st, 2026, the validity period MUST NOT exceed 460 days. 
+For Code Signing Certificates issued before March 1st, 2026, the validity period MUST NOT exceed 39 months. For Code Signing Certificates issued on or after March 1st, 2026, the validity period MUST NOT exceed 460 days.
 
 The Timestamp Certificate validity period MUST NOT exceed 135 months. The Timestamp Certificate Key Pair MUST meet the requirements in [Section 6.1.5](#615-key-sizes). The CA or Timestamp Authority SHALL NOT use a Private Key associated with a Timestamp Certificate more than 15 months after the `notBefore` date of a Timestamp Certificate. 
 
