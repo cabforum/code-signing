@@ -1,14 +1,14 @@
 ---
 title: Baseline Requirements for the Issuance and Management of Publicly-Trusted Code Signing Certificates
 
-subtitle: Version 3.9.0
+subtitle: Version 3.10.0
 
 author:
   - CA/Browser Forum
-date: August 1, 2024
+date: November X, 2025
 
 copyright: |
-  Copyright 2024 CA/Browser Forum
+  Copyright 2025 CA/Browser Forum
 
   This work is licensed under the Creative Commons Attribution 4.0 International license.
 ---
@@ -61,7 +61,7 @@ The following Certificate Policy Identifier is reserved for use by CAs as a requ
 | 3.7      | CSC-22     | High risk changes                                                                                                 | 28 February 2024  |
 | 3.8      | CSC-25     | Import EV Guidelines into the Code Signing Baseline Requirements                                                  | 1 August 2024     |
 | 3.9      | CSC-26     | Timestamping Private Key Protection                                                                               | 1 August 2024     |
-
+| 3.10     | CSC-31     | Maximum Validity Reduction                           | XX November 2025     |
 ### 1.2.2 Relevant Dates
 
 | **Compliance** | **Section(s)** | **Summary Description (See Full Text for Details)**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
@@ -80,6 +80,7 @@ The following Certificate Policy Identifier is reserved for use by CAs as a requ
 | 2024-06-15     | 8.4.2          | For Audit Periods starting after June 30, 2024, the Signing Service MUST undergo a conformity assessment audit for compliance with these Requirements performed in accordance with one of the schemes specified in Section 8.4.2.                                                                                                                                                                                                                                                                                                                                                                  |
 | 2025-03-15     | 3.2.10         | Prior to the use of an Incorporating Agency or Registration Agency to fulfill these verification requirements, the CA MUST publicly disclose Agency Information about the Incorporating Agency or Registration Agency.                                                                                                                                                                                                                                                                                                                                                                             |
 | 2025-04-15     | 6.2.7.2        | Effective April 15, 2025, a Timestamp Authority MUST protect Private Keys associated with its Root CA certificates and Subordinate CA certificates containing the "Time Stamping" EKU in offline Hardware Crypto Module.   |
+| 2026-03-01     | 6.3.2       | For Code Signing Certificates issued on or after March 1st, 2026, the validity period MUST NOT exceed 460 days.   |
 
 ## 1.3 PKI participants
 
