@@ -5,7 +5,7 @@ subtitle: Version 3.10.0
 
 author:
   - CA/Browser Forum
-date: November X, 2025
+date: November 17, 2025
 
 copyright: |
   Copyright 2025 CA/Browser Forum
@@ -61,7 +61,7 @@ The following Certificate Policy Identifier is reserved for use by CAs as a requ
 | 3.7      | CSC-22     | High risk changes                                                                                                 | 28 February 2024  |
 | 3.8      | CSC-25     | Import EV Guidelines into the Code Signing Baseline Requirements                                                  | 1 August 2024     |
 | 3.9      | CSC-26     | Timestamping Private Key Protection                                                                               | 1 August 2024     |
-| 3.10     | CSC-31     | Maximum Validity Reduction                           | XX November 2025     |
+| 3.10     | CSC-31     | Maximum Validity Reduction                           | 7 November 2025     |
 ### 1.2.2 Relevant Dates
 
 | **Compliance** | **Section(s)** | **Summary Description (See Full Text for Details)**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
