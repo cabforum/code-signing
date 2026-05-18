@@ -1251,7 +1251,7 @@ Certificate issuance by the Root CA MUST require an individual authorized by the
 
 #### 4.3.1.2 Linting of to-be-signed Certificate content
 
-Due to the complexity involved in implementing Certificate Profiles that conform to these Requirements, it is considered best practice for the CA to implement a Linting process to test the technical conformity of each to-be-signed artifact prior to signing it. Effective 2026-03-15, the CA SHOULD implement such a Linting process.
+Due to the complexity involved in implementing Certificate Profiles that conform to these Requirements, it is considered best practice for the CA to implement a Linting process to test the technical conformity of each to-be-signed artifact prior to signing it. Effective 2027-03-15, the CA SHOULD implement such a Linting process.
 
 Methods used to produce a certificate containing the to-be-signed Certificate content include, but are not limited to:
 
@@ -1505,7 +1505,7 @@ OCSP responders operated by the CA SHALL support the HTTP GET method, as describ
 
 For the status of a Code Signing Certificate which includes an Authority Information Access extension with an id-ad-ocsp accessMethod:
 
-- Effective 2026-03-15, an authoritative OCSP response MUST be available (i.e. the responder MUST NOT respond with the "unknown" status) starting no more than 15 minutes after the Certificate is first published or otherwise made available.
+- Effective 2027-03-15, an authoritative OCSP response MUST be available (i.e. the responder MUST NOT respond with the "unknown" status) starting no more than 15 minutes after the Certificate is first published or otherwise made available.
 - For OCSP responses with validity intervals less than sixteen hours, the CA SHALL provide an updated OCSP response prior to one-half of the validity period before the nextUpdate.
 - For OCSP responses with validity intervals greater than or equal to sixteen hours, the CA SHALL provide an updated OCSP response at least eight hours prior to the nextUpdate, and no later than four days after the thisUpdate.
 
@@ -1897,7 +1897,7 @@ The CA SHALL reject a certificate request if one or more of the following condit
 2. There is clear evidence that the specific method used to generate the Private Key was flawed;
 3. The CA is aware of a demonstrated or proven method that exposes the Applicant's Private Key to compromise;
 4. The CA has previously been notified that the Applicant's Private Key has suffered a Key Compromise using the CA's procedure for revocation request as described in [Section 4.9.3](#493-procedure-for-revocation-request) and [Section 4.9.12](#4912-special-requirements-re-key-compromise);
-5. The Public Key corresponds to an industry-demonstrated weak Private Key. For requests submitted on or after June 15 2025, at least the following precautions SHALL be implemented:
+5. The Public Key corresponds to an industry-demonstrated weak Private Key. For requests submitted on or after 2027-03-15, at least the following precautions SHALL be implemented:
     1. In the case of Debian weak keys vulnerability (https://wiki.debian.org/SSLkeys), the CA SHALL reject all keys found at https://github.com/cabforum/Debian-weak-keys/ for each key type (e.g. RSA, ECDSA) and size listed in the repository. For all other keys meeting the requirements of [Section 6.1.5](#615-key-sizes), with the exception of RSA key sizes greater than 8192 bits, the CA SHALL reject Debian weak keys.
     2. In the case of ROCA vulnerability, the CA SHALL reject keys identified by the tools available at https://github.com/crocs-muni/roca or equivalent.
     3. In the case of Close Primes vulnerability (https://fermatattack.secvuln.info/), the CA SHALL reject weak keys which can be factored within 100 rounds using Fermat’s factorization method.  
@@ -2633,7 +2633,7 @@ The Audit Report MUST be available as a PDF, and SHALL be text searchable for al
 
 CAs must abide by the self-audit requirements of these Guidelines. During the period in which it issues Code Signing Certificates, the CA MUST strictly control its service quality by performing ongoing self-audits against a randomly selected sample of at least three percent (3%) of the Non-EV Code Signing Certificates and at least three percent (3%) of the EV Code Signing Certificates it has issued in the period beginning immediately after the last sample was taken. For all Code Signing Certificates where the final cross-correlation and due diligence requirements of [Section 3.2.9](#329-final-cross-correlation-and-due-diligence) of these Guidelines is performed by an RA, the CA MUST strictly control its service quality by performing ongoing self-audits against a randomly selected sample of at least six percent (6%) of the Non-EV Code Signing Certificates and at least six percent (6%) of the EV Code Signing Certificates it has issued in the period beginning immediately after the last sample was taken.
 
-Effective 2026-03-15, the CA SHOULD use a Linting process to verify the technical accuracy of Certificates within the selected sample set independently of previous linting performed on the same Certificates.
+Effective 2027-03-15, the CA SHOULD use a Linting process to verify the technical accuracy of Certificates within the selected sample set independently of previous linting performed on the same Certificates.
 
 # 9. OTHER BUSINESS AND LEGAL MATTERS
 
