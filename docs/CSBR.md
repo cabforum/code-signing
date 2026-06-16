@@ -1,14 +1,14 @@
 ---
 title: Baseline Requirements for the Issuance and Management of Publicly-Trusted Code Signing Certificates
 
-subtitle: Version 3.10.0
+subtitle: Version 3.11.0
 
 author:
   - CA/Browser Forum
-date: November 17, 2025
+date: June 16, 2026
 
 copyright: |
-  Copyright 2025 CA/Browser Forum
+  Copyright 2026 CA/Browser Forum
 
   This work is licensed under the Creative Commons Attribution 4.0 International license.
 ---
@@ -61,7 +61,9 @@ The following Certificate Policy Identifier is reserved for use by CAs as a requ
 | 3.7      | CSC-22     | High risk changes                                                                                                 | 28 February 2024  |
 | 3.8      | CSC-25     | Import EV Guidelines into the Code Signing Baseline Requirements                                                  | 1 August 2024     |
 | 3.9      | CSC-26     | Timestamping Private Key Protection                                                                               | 1 August 2024     |
-| 3.10     | CSC-31     | Maximum Validity Reduction                           | 7 November 2025     |
+| 3.10     | CSC-31     | Maximum Validity Reduction                                                                                        | 7 November 2025   |
+| 3.11     | CSC-32     | Mandatory inclusion of a Reserved Policy OID for Subscriber certificates                                          | 15 September 2026 |
+
 ### 1.2.2 Relevant Dates
 
 | **Compliance** | **Section(s)** | **Summary Description (See Full Text for Details)**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
@@ -81,6 +83,7 @@ The following Certificate Policy Identifier is reserved for use by CAs as a requ
 | 2025-03-15     | 3.2.10         | Prior to the use of an Incorporating Agency or Registration Agency to fulfill these verification requirements, the CA MUST publicly disclose Agency Information about the Incorporating Agency or Registration Agency.                                                                                                                                                                                                                                                                                                                                                                             |
 | 2025-04-15     | 6.2.7.2        | Effective April 15, 2025, a Timestamp Authority MUST protect Private Keys associated with its Root CA certificates and Subordinate CA certificates containing the "Time Stamping" EKU in offline Hardware Crypto Module.   |
 | 2026-03-01     | 6.3.2       | For Code Signing Certificates issued on or after March 1st, 2026, the validity period MUST NOT exceed 460 days.   |
+| 2026-09-15     | 7.1.6.4       | Effective September 15, 2026, a Certificate issued to a Subscriber MUST contain exactly one of the reserved policy OID.   |
 
 ## 1.3 PKI participants
 
@@ -2459,7 +2462,9 @@ A Subordinate CA MUST represent, in its Certificate Policy and/or Certification 
 
 ####  7.1.6.4  Subscriber Certificates
 
-A Certificate issued to a Subscriber MUST contain one or more policy identifier(s), defined by the CA, in the Certificate's certificatePolicies extension that indicates adherence to and compliance with these Requirements. CAs complying with these Requirements MAY also assert the reserved policy OIDs in such Certificates.
+Effective September 15, 2026 a Certificate issued to a Subscriber MUST contain exactly one of the reserved policy OIDs specified in Section 7.1.6.1 in the Certificate's CertificatePolicies extension.
+
+CAs complying with these Requirements MAY also assert one or more policy identifier(s), defined by the CA, in the Certificate's CertificatePolicies extension, that indicates adherence to and compliance with these Requirements.
 
 The CA MUST document in its Certificate Policy or Certification Practice Statement that the Certificates it issues containing the specified policy identifier(s) are managed in accordance with these Requirements.
 
@@ -3036,3 +3041,4 @@ jurisdictionCountryName ATTRIBUTE ::= {
 
 END
 ```
+
