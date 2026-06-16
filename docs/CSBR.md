@@ -5,7 +5,7 @@ subtitle: Version 3.11.0
 
 author:
   - CA/Browser Forum
-date: June XX, 2026
+date: June 16, 2026
 
 copyright: |
   Copyright 2026 CA/Browser Forum
