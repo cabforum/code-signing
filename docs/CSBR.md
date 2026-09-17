@@ -2347,7 +2347,7 @@ d. __Certificate Field:__ Other subject attributes
 ##### 7.1.4.2.3 Subject distinguished name field - Non-EV Code Signing Certificates
 
 a. __Certificate Field:__ `subject:organizationName` (OID 2.5.4.10)  
-   __Required/Optional:__ Required for Legal Entity Subjects. Optional for Natural Person Subjects if the `subject:givenName` and/or `subject:surname` is not present.  
+   __Required/Optional:__ Required for Legal Entity Subjects. Required for Natural Person Subjects if the `subject:givenName` and/or `subject:surname` is not present. Optional for Natural Person Subjects if the `subject:givenName` and/or `subject:surname` is present.  
    __Contents:__ The `subject:organizationName` field MUST contain either the Subject's name or DBA as verified under BR Section 3.2. The CA MAY include information in this field that differs slightly from the verified name, such as common variations or abbreviations, provided that the CA documents the difference and any abbreviations used are locally accepted abbreviations; e.g., if the official record shows "Company Name Incorporated", the CA MAY use "Company Name Inc." or "Company Name". Because subject name attributes for individuals (e.g. `subject:givenName` (2.5.4.42) and `subject:surname` (2.5.4.4)) are not broadly supported by application software, the CA MAY use the `subject:organizationName` field to convey a natural person Subject's name or DBA. The CA MUST have a documented process for verifying that the information included in the `subject:organizationName` field is not misleading to a Relying Party.
 
 b. __Certificate Field:__ `subject:streetAddress` (OID: 2.5.4.9)  
