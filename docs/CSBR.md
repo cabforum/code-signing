@@ -1,11 +1,11 @@
 ---
 title: Baseline Requirements for the Issuance and Management of Publicly-Trusted Code Signing Certificates
 
-subtitle: Version 3.11.0
+subtitle: Version 3.12.0
 
 author:
   - CA/Browser Forum
-date: June 16, 2026
+date: November XX, 2026
 
 copyright: |
   Copyright 2026 CA/Browser Forum
@@ -63,6 +63,7 @@ The following Certificate Policy Identifier is reserved for use by CAs as a requ
 | 3.9      | CSC-26     | Timestamping Private Key Protection                                                                               | 1 August 2024     |
 | 3.10     | CSC-31     | Maximum Validity Reduction                                                                                        | 7 November 2025   |
 | 3.11     | CSC-32     | Mandatory inclusion of a Reserved Policy OID for Subscriber certificates                                          | 15 September 2026 |
+| 3.12     | CSC-34     | Clarify Certificate Profile for Individuals | XX November 2026 |
 
 ### 1.2.2 Relevant Dates
 
